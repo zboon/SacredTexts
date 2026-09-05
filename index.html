@@ -1007,6 +1007,13 @@
     font-family:'Crimson Pro',serif;font-size:calc(1.5rem * var(--latin-scale));color:var(--ar-color);
     text-align:center;line-height:1.7;margin-top:.3rem;font-weight:600;
   }
+  /* Prose pieces (sohbets, biographies, history) are read, not recited:
+     paragraph-sized, ranged left and at normal weight, so a page holds a
+     paragraph rather than a dozen words. */
+  .v-latin.v-prose{
+    font-size:calc(1.06rem * var(--latin-scale)); font-weight:400;
+    text-align:left; line-height:1.75; color:var(--ink);
+  }
   .home-grid{
     display:flex; flex-wrap:wrap; gap:.6rem;
     justify-content:center;
@@ -11207,12 +11214,22 @@ const SOHBET_SHAYKHS = [
    `location` — where and when it was given. Leave either as '' when it isn't
    known and the page says so rather than showing a gap. */
 const SOHBET_CHAPTERS = [
-  { shaykh:'nazim', latin:true,
+  { shaykh:'nazim', latin:true, prose:true,
     titleArabic:"Don't Worry",
     titleEnglish:"1 · Don't Worry",
     date:'',              // unknown
     location:'',          // unknown
-    verses:[] },
+    verses:[
+      { ar:"The Seal of Prophets, Sayyidina Muhammad, peace be upon him, imparted this good advice to mankind: “If you awaken in the morning and find that you are lacking nothing in the way of material sustenance, and that you and your family are in good health, then don’t burden yourself with worry”.", tr:"", en:"" },
+      { ar:"The Holy Prophet advises us not to make problems for ourselves. If there are immediate and pressing problems, that is another story, but so many “problems” in people’s minds are not problems at all except in their minds. They are only “projected problems” which may or may not ever materialize. This is the affliction of twentieth century man: anxiety, or suffering inflicted upon oneself over the possibility of future suffering. As a result of this neurotic anxiety people may suffer intensely over a long period of time, although none of what they fear ever materializes. This is the epitome of foolishness.", tr:"", en:"" },
+      { ar:"We are shouldering weekly, monthly and yearly burdens each day. Why carry such baggage when you may walk unburdened and find all that you need awaiting your arrival at each station of your journey? You only exist here and now. Tomorrow’s “you” is only a fantasy, as you can’t even know if you’ll live that long. By inventing so many problems for yourself you are only making yourself ill. Is this advice of the Prophet not enough evidence of his adherence to a way that leads man to felicity?", tr:"", en:"" },
+      { ar:"Allah Almighty doesn’t want His servants to suffer needless self-inflicted misery, and He says: “Oh My servants, don’t load heavy burdens on yourselves by worrying about the future. Just bring yourselves in line with My will; accord with my purposes this moment, and then rest assured that I will help you keep your future moments similarly aligned with My will”.", tr:"", en:"" },
+      { ar:"Perhaps you may understand my point from the following example. When a new railway track is laid, before a locomotive and train are ever sent over it, a two-wheeled cart is first drawn over it to check whether the tracks have been laid straight. In the same way, if you can align your will to that of your Lord even for one moment, without carrying a heavy burden, you may be sure that your way is right, and that, even should times get rough, and so many burdens be coupled to your locomotive, your track is straight and true and you will pass along it smoothly and safely. A solution to this moment’s problem is the solution to next year’s derailment.", tr:"", en:"" },
+      { ar:"When I am here in western countries I daily encounter people carrying the weight of anticipated problems. It is so difficult in the modern world to escape from having this perspective, and to concentrate on the moment in order to put it right. With tens of thousands of problems in front of you all at once how should a solution seem possible?", tr:"", en:"" },
+      { ar:"I often see people running into the mosque, saying the obligatory prayers quickly and running out. Sometimes I ask them: “What’s the rush?” Then they nervously look at their watches and say: “We have tarried in the mosque too long already. We have so many things to do today!” I reply: “It is laudable to be industrious and to look after your affairs well, but who would look after your affairs were you to drop dead here and now?”", tr:"", en:"" },
+      { ar:"I am not encouraging people to spend their whole days in the mosque, but only trying to remind people who are not only running after their sustenance, but leaping, head over heels after ambitious all-encompassing undertakings that it is impossible to “master the world”, and destructive to devote so much energy to their attempt, and with so much abandon. First of all, the world already has a Master, and addressing Him humbly and with presence of mind (not hurriedly) in your prayers is even more instrumental in attaining your sustenance than rushing through the city. Secondly, far from attending to your affairs more efficiently by running, you are only likely to have a heart attack and die young!", tr:"", en:"" },
+      { ar:"Don’t live in a world of great big-time schemes, for such schemes will not save you from trouble, but entangle you in it even further. Simplify your problems so that the solutions may be simple, also don’t regard your problems with a magnifying glass, so that they are out of perspective: that habit will destroy you physically and spiritually.", tr:"", en:"" }
+    ] },
 ];
 
 
@@ -15207,6 +15224,9 @@ function readerHTML(q, backOnclick, kind, idx){
   const hasPages = Array.isArray(q.folios) && q.folios.length > 0;
   const pageView = hasPages && state.pageView;
   const fav = isFav(kind, idx);
+  /* Nothing to reveal, no toggle: an English-only sohbet has no translation
+     line under each paragraph. */
+  const hasEn = Array.isArray(q.verses) && q.verses.some(v => v && String(v.en || '').trim() !== '');
   return `
     <div class="reader-bar">
       <div class="rside"><button class="back" onclick="${backOnclick}">‹ Back</button></div>
@@ -15235,7 +15255,7 @@ function readerHTML(q, backOnclick, kind, idx){
       </button>` : ''}` : ''}
       ${pageView ? '' : `
       ${q.latin ? '' : `<button class="chip ${state.showTr?'':'off'}" onclick="toggle(${controlsTarget})">Transliteration</button>`}
-      <button class="chip ${state.showEn?'':'off'}" onclick="toggleEn(${controlsTarget})">Translation</button>`}
+      ${hasEn ? `<button class="chip ${state.showEn?'':'off'}" onclick="toggleEn(${controlsTarget})">Translation</button>` : ''}`}
       ${pageView
         ? ''
         : q.latin ? '' : `<button class="chip size" onclick="scaleAr(-1,${controlsTarget})" aria-label="Smaller Arabic">أ−</button>
@@ -15259,7 +15279,7 @@ function readerHTML(q, backOnclick, kind, idx){
           ${v.instruction?'<div class="instruction-note">Instruction · إِرْشَاد</div>':''}
           ${v.note?`<div class="v-note">${v.note}</div>`:''}
           ${q.latin
-            ? `<div class="v-latin">${stripBreaks(v.ar).replaceAll('\n','<br>')}</div>`
+            ? `<div class="v-latin${q.prose ? ' v-prose' : ''}">${stripBreaks(v.ar).replaceAll('\n','<br>')}</div>`
             : `${(() => {
                 const sp = splitBasmala(stripBreaks(v.ar));
                 if(!sp) return `<div class="v-ar">${arHTML(v.ar, kind==='d')}${v.sep ? ` <span class="v-salawat">${v.sep}</span>` : ''}</div>`;
