@@ -445,6 +445,11 @@
   .qcard .titles{flex:1;min-width:0;display:flex;flex-direction:column;align-items:stretch}
   .qcard .t-ar{font-family:'UthmanicHafs','Amiri',serif;font-size:1.35rem;line-height:1.4;direction:rtl;text-align:left;color:var(--ar-color)}
   .qcard .t-en{font-size:.85rem;color:var(--ink-soft);margin-top:.1rem}
+  /* Where and when a sohbet was given, under its title in the list. */
+  .qcard .t-meta{
+    display:block; font-size:.68rem; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--gold); margin-top:.25rem;
+  }
   /* Dalāʾil index only: the English day name leads and the Arabic ḥizb title
      sits under it. A line that comes first has to carry the weight of a title,
      so it takes ink colour and a little more size; the Arabic eases down a
@@ -683,6 +688,11 @@
   .piece-title-en{
     font-family:'Crimson Pro',serif; font-size:.95rem; color:var(--ink-soft);
     margin-top:.1rem;
+  }
+  /* A sohbet's place and date, set below its title. */
+  .piece-meta{
+    font-size:.7rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--gold); margin-top:.45rem;
   }
   .reader-bar .spacer{width:3.4rem}
 
@@ -11182,7 +11192,28 @@ const TURUQ_CHAPTERS = [];
    deliberate: they keep this section's edits from colliding with the
    neighbouring sections when the branches are merged.
    ═══════════════════════════════════════════════════════════════════ */
-const SOHBET_CHAPTERS = [];
+/* Sohbets are grouped by who gave them: this list becomes the tiles on the
+   Sohbets page, and each entry below names its shaykh with `shaykh:`. To add
+   another shaykh, add a row here — the tile, its room and its back-link all
+   follow by themselves, no other change needed. */
+const SOHBET_SHAYKHS = [
+  { id:'nazim',    ar:'الشَّيْخ نَاظِم الْحَقَّانِي',   en:'Shaykh Nazim',
+    desc:'Sohbets of Mawlana Shaykh Muhammad Nazim Adil al-Haqqani.' },
+  { id:'abdullah', ar:'الشَّيْخ عَبْد اللّٰه الدَّاغِسْتَانِي', en:'Grandshaykh Abdullah',
+    desc:'Sohbets of Grandshaykh ʿAbdullah al-Faiz ad-Daghestani.' },
+];
+
+/* Every sohbet carries `shaykh` (whose room it belongs in), plus `date` and
+   `location` — where and when it was given. Leave either as '' when it isn't
+   known and the page says so rather than showing a gap. */
+const SOHBET_CHAPTERS = [
+  { shaykh:'nazim', latin:true,
+    titleArabic:"Don't Worry",
+    titleEnglish:"1 · Don't Worry",
+    date:'',              // unknown
+    location:'',          // unknown
+    verses:[] },
+];
 
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -11273,6 +11304,8 @@ const TAB_CHILDREN = {
   litanies: ['azam','istighfar'],
   mawlids: ['mawlid','barzanji','diya','burdah'],
   praises: ['nasheeds','qasidas','ilahis','qawwalis'],
+  /* One child tab per shaykh: 'sohbet-nazim', 'sohbet-abdullah', … */
+  sohbets: SOHBET_SHAYKHS.map(s => 'sohbet-' + s.id),
 };
 
 function tabIsActive(id){
@@ -12719,18 +12752,51 @@ function turuqCards(){
         </button>` + hitList('t', n)).join('');
 }
 
-function sohbetCards(){
-  const items = SOHBET_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+/* Where and when it was given, said plainly when it isn't known. */
+function sohbetMeta(c){
+  const where = (c.location || '').trim(), when = (c.date || '').trim();
+  if(where && when) return where + ' · ' + when;
+  if(where) return where + ' · date unknown';
+  if(when)  return 'Location unknown · ' + when;
+  return 'Location and date unknown';
+}
+function shaykhOf(id){ return SOHBET_SHAYKHS.find(s => s.id === id) || null; }
+
+/* The Sohbets page itself: one tile per shaykh, each opening their own room. */
+function sohbetsHub(){
+  return SOHBET_SHAYKHS.map(s => {
+    const n = SOHBET_CHAPTERS.filter(c => c.shaykh === s.id).length;
+    return `
+      <button class="home-card" onclick="selectTab('sohbet-${s.id}')">
+        <span class="hc-ar">${s.ar}</span>
+        <span class="hc-en">${s.en}</span>
+        <span class="hc-count">${n ? n + (n === 1 ? ' sohbet' : ' sohbets') : 'Coming soon'}</span>
+      </button>`;
+  }).join('');
+}
+
+/* One shaykh's sohbets. Called with no argument (from search) it lists them
+   all. n stays the index into SOHBET_CHAPTERS, so bookmarks and openSohbet()
+   keep pointing at the right piece however the list is filtered. */
+function sohbetCards(shaykhId){
+  const items = SOHBET_CHAPTERS.map((c,n)=>({c,n}))
+    .filter(x => !shaykhId || x.c.shaykh === shaykhId)
+    .filter(x => matchesQuery(x.c, state.query));
   if(items.length === 0) return '';
   return items.map(({c,n})=>`
         <button class="qcard" onclick="openSohbet(${n})">
           <span class="num">${toArNum(n+1)}</span>
           <span class="titles">
             <span class="t-ar"${c.latin ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${c.titleArabic}</span>
-            <span class="t-en">${c.titleEnglish}</span>
+            ${sameTitle(c.titleEnglish, c.titleArabic) ? '' : `<span class="t-en">${c.titleEnglish}</span>`}
+            <span class="t-meta">${sohbetMeta(c)}</span>
           </span>
           <span class="chev">›</span>
         </button>` + hitList('h', n)).join('');
+}
+
+function backToSohbets(){
+  return `<button class="back-link" onclick="selectTab('sohbets')">‹ Sohbets</button>`;
 }
 
 function biographyCards(){
@@ -13093,6 +13159,11 @@ const OPENERS = {
   o: 'openOttoman'
 };
 function openFnOf(kind){ return OPENERS[kind] || 'openQasida'; }
+/* Do these two titles say the same thing once the leading "N ·" is off? */
+function sameTitle(a, b){
+  const strip = t => { const s = sectionOf(String(t || '')); return (s ? s.rest : String(t || '')).trim(); };
+  return !!a && !!b && strip(a) === strip(b);
+}
 /* Mawlid pieces carry their kitab number in the title; drop it for display. */
 function displayTitle(piece){
   const s = sectionOf(piece.titleEnglish);
@@ -13301,7 +13372,17 @@ function renderResults(){
   }
   if(tab === 'silsila') return sectionIntro('silsila') + (silsilaCards() ? label('Select a master · اختر شيخاً') + silsilaCards() : placeholder('Naqshbandi Silsila'));
   if(tab === 'turuqs') return sectionIntro('turuqs') + (turuqCards() ? label('Select a tariqa · اختر طريقة') + turuqCards() : placeholder('Turuqs'));
-  if(tab === 'sohbets') return sectionIntro('sohbets') + (sohbetCards() ? label('Select a sohbet · اختر صحبة') + sohbetCards() : placeholder('Sohbets'));
+  if(tab === 'sohbets') return sectionIntro('sohbets') + label('Choose a shaykh · اختر شيخاً') + `<div class="home-grid">${sohbetsHub()}</div>`;
+  /* A shaykh's room. Generic, so adding a shaykh to SOHBET_SHAYKHS needs no
+     new route here. */
+  if(tab.indexOf('sohbet-') === 0){
+    const s = shaykhOf(tab.slice('sohbet-'.length));
+    if(s){
+      const cards = sohbetCards(s.id);
+      return backToSohbets() + `<div class="section-intro">${s.desc}</div>`
+           + (cards ? label('Select a sohbet · اختر صحبة') + cards : placeholder(s.en));
+    }
+  }
   if(tab === 'biographies') return sectionIntro('biographies') + (biographyCards() ? label('Select a life · اختر ترجمة') + biographyCards() : placeholder('Biographies'));
   if(tab === 'ottoman') return sectionIntro('ottoman') + (ottomanCards() ? label('Select a chapter · اختر فصلاً') + ottomanCards() : placeholder('Ottoman History'));
   if(tab === 'more'){
@@ -15113,9 +15194,13 @@ function readerHTML(q, backOnclick, kind, idx){
   const empty = !q.verses || q.verses.length === 0;
   /* Turkish ilahis carry their own name in both title fields, so the subheader
      would read it twice — keep only the translation after the dash. */
-  const enTitle = (q.latin && q.titleEnglish && q.titleEnglish.indexOf(' \u2014 ') !== -1)
+  let enTitle = (q.latin && q.titleEnglish && q.titleEnglish.indexOf(' \u2014 ') !== -1)
     ? q.titleEnglish.split(' \u2014 ').slice(1).join(' \u2014 ')
     : q.titleEnglish;
+  /* Same reasoning one step further: when a latin piece names itself
+     identically in both fields (a sohbet given in English, say), the
+     subheader is just the title again. Drop it rather than repeat. */
+  if(q.latin && sameTitle(enTitle, q.titleArabic)) enTitle = '';
   const controlsTarget = `'${kind}',${idx}`;
   /* Some pieces ship the illuminated pages they were transcribed from. Those are
      read as they were printed — no transliteration or translation over them. */
@@ -15133,6 +15218,7 @@ function readerHTML(q, backOnclick, kind, idx){
     <div class="piece-head">
       <div class="piece-title-ar">${q.titleArabic}</div>
       ${enTitle ? `<div class="piece-title-en">${enTitle}</div>` : ''}
+      ${('date' in q || 'location' in q) ? `<div class="piece-meta">${sohbetMeta(q)}</div>` : ''}
     </div>
     ${empty ? '' : `<div class="controls">
       ${kind === 'd' && pageView ? `<button class="chip place-btn ${placeIsHere(idx)?'on':''}"
@@ -15239,7 +15325,9 @@ function openTuruq(n){
 function openSohbet(n){
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
   document.documentElement.style.setProperty('--latin-scale', state.latinScale);
-  app.innerHTML = readerHTML(SOHBET_CHAPTERS[n], "selectTab('sohbets')", 'h', n);
+  const c = SOHBET_CHAPTERS[n];
+  const back = c && c.shaykh ? "selectTab('sohbet-" + c.shaykh + "')" : "selectTab('sohbets')";
+  app.innerHTML = readerHTML(c, back, 'h', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('h', n);
