@@ -53,6 +53,15 @@ Every section uses the same shape:
 - **English prose** (Sohbets, Biographies, Ottoman History): add `latin: true`,
   put the English in `ar` (it renders left-to-right), and leave `tr` as `""`.
 
+### Silsila only: portraits
+
+`SILSILA_CHAPTERS` already holds all 40 masters of the Golden Chain as
+stubs — the tile, numbering and reader placeholder work as soon as
+`titleArabic`/`titleEnglish` are there, even with an empty `verses: []`. To
+add a small thumbnail beside a master's name, set `image` on their entry to
+a data URI or an `https://` URL; leave it `""` to keep the placeholder
+avatar. This field is specific to this section and does nothing elsewhere.
+
 ## 3. Checking your work
 
 Open `index.html` in a browser — double-clicking the file is enough. Your
