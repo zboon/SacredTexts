@@ -7,7 +7,7 @@
    missed sw.js froze the app permanently with no way out from the phone.
    Everything else (fonts, icons, manifest) stays cache-first: it's large,
    it doesn't change, and it's what makes the app work with no signal. */
-const CACHE = 'nhacademy-v383'; // bump this whenever you update index.html
+const CACHE = 'nhacademy-v384'; // bump this whenever you update index.html
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 /* Downloaded recitations live in their own cache, opened by the page rather

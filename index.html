@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v383">
+<meta name="app-version" content="v384">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -1248,31 +1248,6 @@
     width:2rem; height:2rem; margin-right:.3rem; flex:0 0 auto;
   }
   .reader-bar .theme-toggle.bar-theme svg{ width:1.1rem; height:1.1rem; }
-  .autoscroll-bar{
-    position:fixed; left:50%; transform:translateX(-50%);
-    /* Rides above the docked reciter rather than under it. --player-h is 0
-       whenever the dock is closed, so this is the old position untouched. */
-    bottom:calc(env(safe-area-inset-bottom, 0px) + 1rem + var(--player-h));
-    display:flex; align-items:center; gap:.45rem; z-index:60;
-    background:var(--theme-deep); color:var(--paper);
-    padding:.4rem .5rem; border-radius:999px;
-    box-shadow:0 6px 20px rgba(0,0,0,.35);
-  }
-  .autoscroll-bar button{
-    border:none; cursor:pointer; color:var(--paper);
-    background:rgba(243,236,216,.16);
-    width:2.15rem; height:2.15rem; border-radius:999px;
-    display:flex; align-items:center; justify-content:center;
-    font-size:1.05rem; line-height:1; padding:0;
-  }
-  .autoscroll-bar button:active{ transform:scale(.92); }
-  .autoscroll-bar button svg{ width:1.15rem; height:1.15rem; display:block; }
-  .autoscroll-bar .play{ background:var(--gold); color:var(--theme-deep); font-size:1rem; }
-  .autoscroll-bar .spd{
-    min-width:2.7rem; text-align:center; font-size:.82rem;
-    font-variant-numeric:tabular-nums; letter-spacing:.02em;
-  }
-  .autoscroll-bar .lbl{ font-size:.62rem; opacity:.7; padding-left:.25rem; letter-spacing:.08em; text-transform:uppercase; }
   .hide{display:none}
 
   .home-feedback{ text-align:center; padding:.5rem 1rem 1.2rem; }
@@ -2653,7 +2628,7 @@ function resumeCard(){
     </div>`;
 }
 
-const state = { showTr: true, showEn: true, arScale: 1, latinScale: 1, msZoom: 1, query: '', tab: 'home', burdahChapter: null, scrollSpeedIdx: 3, favs: loadFavs() , pageView:true, immersive:false};
+const state = { showTr: true, showEn: true, arScale: 1, latinScale: 1, msZoom: 1, query: '', tab: 'home', burdahChapter: null, favs: loadFavs() , pageView:true, immersive:false};
 
 /* The content arrays, keyed by the same letters as OPENERS. */
 function arrayOf(kind){
@@ -11090,7 +11065,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v383';
+const APP_VERSION = 'v384';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -12570,7 +12545,6 @@ function navBar(){
 }
 
 function selectTab(id){
-  stopAutoScroll();
   setImmersive(false);
   leftTheLeader();
   state.tab = id;
@@ -13283,7 +13257,6 @@ function sectionIntro(id){
 }
 
 function goHome(){
-  stopAutoScroll();
   setImmersive(false);
   leftTheLeader();
   state.tab = 'home';
@@ -13419,8 +13392,6 @@ const HOME_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor
 const BACK_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
 const SUN_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
 const MOON_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
-const PLAY_ICON_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
-const PAUSE_ICON_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="3.8" height="14" rx="1"/><rect x="13.7" y="5" width="3.8" height="14" rx="1"/></svg>';
 const SWAP_ICON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 4l3 3-3 3"/><path d="M20 7H9a4 4 0 0 0-4 4"/><path d="M7 20l-3-3 3-3"/><path d="M4 17h11a4 4 0 0 0 4-4"/></svg>';
 const LOGO_ALT = 'مُحَمَّدٌ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ';
 const BISMILLAH_ALT = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
@@ -13478,7 +13449,6 @@ function renderIndex(){
   /* The index is about to replace whatever was on screen, so no reader is
      showing any more. See readerOpen's use in setSessionStatus below. */
   readerOpen = false;
-  stopAutoScroll();
   document.documentElement.style.setProperty('--ar-size', '1.9rem');
   document.documentElement.style.setProperty('--latin-scale', 1);
   /* Landing page: shown on first open, and whenever you tap the logo.
@@ -13561,74 +13531,6 @@ function toggleTheme(){
     document.documentElement.classList.add('dark');
   }
 })();
-
-/* ── Auto-scroll engine ─────────────────────────────
-   Smoothly scrolls the reader while reciting. Speed is adjustable.
-   Reads SPEEDS[idx] each frame, so speed changes apply live. */
-/* Speeds run 0.2×–1×, where 1× is a steady recitation pace. Fine steps
-   because the useful range for reciting aloud is all at the slow end. */
-const SCROLL_SPEEDS = [0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.70];   // px per frame
-const SCROLL_LABELS = ['0.2×', '0.3×', '0.4×', '0.5×', '0.6×', '0.7×', '0.8×', '0.9×', '1×'];
-let autoScrollRAF = null, autoScrollActive = false, scrollAccum = 0;
-
-function scrollSpeedLabel(){ return SCROLL_LABELS[state.scrollSpeedIdx]; }
-
-function autoScrollStep(){
-  if(!autoScrollActive) return;
-  scrollAccum += SCROLL_SPEEDS[state.scrollSpeedIdx];
-  if(scrollAccum >= 1){
-    const dy = Math.floor(scrollAccum);
-    scrollAccum -= dy;
-    window.scrollBy(0, dy);
-    if(window.innerHeight + Math.ceil(window.scrollY) >= document.body.scrollHeight - 1){
-      stopAutoScroll();               // reached the bottom
-      return;
-    }
-  }
-  autoScrollRAF = requestAnimationFrame(autoScrollStep);
-}
-
-function startAutoScroll(){
-  if(autoScrollActive) return;
-  autoScrollActive = true; scrollAccum = 0;
-  updateScrollUI();
-  autoScrollRAF = requestAnimationFrame(autoScrollStep);
-}
-function stopAutoScroll(){
-  autoScrollActive = false;
-  if(autoScrollRAF){ cancelAnimationFrame(autoScrollRAF); autoScrollRAF = null; }
-  updateScrollUI();
-}
-function toggleAutoScroll(){ autoScrollActive ? stopAutoScroll() : startAutoScroll(); }
-
-function setScrollSpeed(delta){
-  state.scrollSpeedIdx = Math.min(SCROLL_SPEEDS.length - 1, Math.max(0, state.scrollSpeedIdx + delta));
-  updateScrollUI();                   // running loop picks up the new speed automatically
-}
-
-/* Update the floating bar without re-rendering (so scrolling isn't interrupted) */
-function updateScrollUI(){
-  const play = document.querySelector('.autoscroll-bar .play');
-  if(play){ play.innerHTML = autoScrollActive ? PAUSE_ICON_SVG : PLAY_ICON_SVG; play.setAttribute('aria-label', autoScrollActive ? 'Pause auto-scroll' : 'Start auto-scroll'); }
-  const spd = document.querySelector('.autoscroll-bar .spd');
-  if(spd) spd.textContent = scrollSpeedLabel();
-}
-
-/* Auto-scroll suits a piece recited straight through at an even pace. The
-   Dalāʾil and the daily litanies are not read that way — they are worked
-   through at the reader's own pace, with pauses — so the bar is kept off both. */
-const NO_AUTOSCROLL = ['d', 'l'];
-
-function autoScrollBar(){
-  return `
-    <div class="autoscroll-bar" role="group" aria-label="Auto-scroll">
-      <button class="play" onclick="toggleAutoScroll()" aria-label="${autoScrollActive?'Pause auto-scroll':'Start auto-scroll'}">${autoScrollActive?PAUSE_ICON_SVG:PLAY_ICON_SVG}</button>
-      <button onclick="setScrollSpeed(-1)" aria-label="Slower">−</button>
-      <span class="spd">${scrollSpeedLabel()}</span>
-      <button onclick="setScrollSpeed(1)" aria-label="Faster">+</button>
-      <span class="lbl">scroll</span>
-    </div>`;
-}
 
 /* ── Live session (optional) ─────────────────────────────────────────────
    Lets a gathering follow whoever is leading: when they open a piece, every
@@ -15290,8 +15192,7 @@ function readerHTML(q, backOnclick, kind, idx){
           ${v.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${v.tr.replaceAll('\n','<br>')}</div>` : ''}`}
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
         </article>`).join('')}`}
-    </main>
-    ${empty || pageView || NO_AUTOSCROLL.includes(kind) ? '' : autoScrollBar()}`;
+    </main>`;
 }
 
 function openQasida(i){
@@ -15372,7 +15273,6 @@ function openOttoman(n){
 }
 
 function openLitany(n){
-  stopAutoScroll();   /* no bar in here to stop it with */
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
   document.documentElement.style.setProperty('--latin-scale', state.latinScale);
   app.innerHTML = readerHTML(LITANY_CHAPTERS[n], "selectTab('" + (isAzamDay(n) ? 'azam' : isIstighfarDay(n) ? 'istighfar' : 'litanies') + "')", 'l', n);
@@ -15400,7 +15300,6 @@ function openBarzanji(n){
 }
 
 function openDalail(n){
-  stopAutoScroll();   /* no bar in here to stop it with */
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
   document.documentElement.style.setProperty('--latin-scale', state.latinScale);
   document.documentElement.style.setProperty('--ms-zoom', state.msZoom);
@@ -16624,7 +16523,6 @@ function setPageView(on, kind, idx){
      view, then land on the same verse index in the other one. */
   const keepVerse = state.pageView ? topVisibleMsVerse() : topVisibleVerse();
   state.pageView = on;
-  if(on) stopAutoScroll();
   if(!on) setImmersive(false);
   reopen(kind, idx);
   if(window.requestAnimationFrame) requestAnimationFrame(msFloatPosition);
@@ -16695,9 +16593,6 @@ window.addEventListener('scroll', () => {
   barTick = true;
   requestAnimationFrame(() => { barTick = false; updateReaderBar(); });
 }, { passive:true });
-
-window.addEventListener('wheel',    () => { if(autoScrollActive) stopAutoScroll(); }, { passive:true });
-window.addEventListener('touchmove',() => { if(autoScrollActive) stopAutoScroll(); }, { passive:true });
 
 /* Register service worker for offline use (needs hosting over https) */
 if ('serviceWorker' in navigator) {

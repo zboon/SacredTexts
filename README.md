@@ -4,8 +4,7 @@ A small, offline-capable web app (PWA) for Islamic devotional texts and learning
 The home page opens onto the Academy's sections: the mawlid texts and Qaṣīda Burdah,
 Dalāʾil al-Khayrāt, the Naqshbandi silsila, the turuqs, sohbets, ilahis, biographies
 and Ottoman history. Each piece shows the original text with transliteration and
-English, has adjustable Arabic size, dark mode, fuzzy search, and a hands-free
-auto-scroll for recitation.
+English, has adjustable Arabic size, dark mode and fuzzy search.
 
 Sections still being written (silsila, turuqs, sohbets, biographies, Ottoman history)
 are wired up and show a placeholder until their content is added — see
@@ -181,7 +180,7 @@ device opens it too. It's the only part of the app that uses the network.
 **It is off until you switch it on**, and the rest of the app never depends on it.
 The Supabase library is only fetched when someone taps Start/Join, so an offline
 launch never waits on it. If it can't connect, following stops and nothing else
-changes — you browse, search, bookmark and auto-scroll exactly as before.
+changes — you browse, search and bookmark exactly as before.
 
 ### Switching it on
 
