@@ -26,7 +26,7 @@
      script, where nothing that reads the page without running it can see
      it — so "which version is actually live?" could only be answered from
      a phone. Keep the two in step when bumping. -->
-<meta name="app-version" content="v381">
+<meta name="app-version" content="v382">
 <!-- YouTube's embedded player refuses to configure itself unless the host page
      sends a Referer (Error 153 / embedder.identity.missing.referrer). This is
      the browser default in most cases, but a standalone PWA or a WebView may
@@ -2649,6 +2649,11 @@ function arrayOf(kind){
        : kind === 'y' ? DIYA_CHAPTERS
        : kind === 'n' ? NASHEED_CHAPTERS
        : kind === 'l' ? LITANY_CHAPTERS
+       : kind === 'c' ? SILSILA_CHAPTERS
+       : kind === 't' ? TURUQ_CHAPTERS
+       : kind === 'h' ? SOHBET_CHAPTERS
+       : kind === 'g' ? BIOGRAPHY_CHAPTERS
+       : kind === 'o' ? OTTOMAN_CHAPTERS
        : null;
 }
 function pieceOf(kind, idx){ const a = arrayOf(kind); return a ? a[idx] : null; }
@@ -11068,7 +11073,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v381';
+const APP_VERSION = 'v382';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -11088,6 +11093,165 @@ function versionTag(){
    --navy/--maroon/... custom properties near the top of the stylesheet).
    Sections not yet built (silsila, turuqs, sohbets, biographies, ottoman)
    render a placeholder() until content is added — see renderResults(). */
+/* ═══════════════════════════════════════════════════════════════════
+   Naqshbandi Silsila  ·  السِّلْسِلَة النَّقْشَبَنْدِيَّة
+   -------------------------------------------------------------------
+   THIS ARRAY IS THIS SECTION'S ONLY EDIT POINT. Everything that shows
+   it on screen — its tile, its list, its reader, search, bookmarks —
+   is already wired up below and needs no change. Add entries here and
+   they appear by themselves.
+
+   Each entry is one master, in the same shape every other section uses:
+
+     {{
+       titleArabic : "…",              // shown large, right-to-left
+       titleEnglish: "1 · …",          // the leading "N ·" sets the order
+       note        : "…",              // optional banner at the top
+       video       : "https://…",      // optional "Listen" link
+       verses: [
+         {{ ar:"…", tr:"…", en:"…" }}      // one paragraph or verse per entry
+       ]
+     }}
+
+   Use ۞ in `ar` to split a line of poetry; "\n" is a hard line break.
+
+   Keep your additions inside this array. The blank lines around it are
+   deliberate: they keep this section's edits from colliding with the
+   neighbouring sections when the branches are merged.
+   ═══════════════════════════════════════════════════════════════════ */
+const SILSILA_CHAPTERS = [];
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   Turuqs  ·  الطُّرُق الصُّوفِيَّة
+   -------------------------------------------------------------------
+   THIS ARRAY IS THIS SECTION'S ONLY EDIT POINT. Everything that shows
+   it on screen — its tile, its list, its reader, search, bookmarks —
+   is already wired up below and needs no change. Add entries here and
+   they appear by themselves.
+
+   Each entry is one tariqa, in the same shape every other section uses:
+
+     {{
+       titleArabic : "…",              // shown large, right-to-left
+       titleEnglish: "1 · …",          // the leading "N ·" sets the order
+       note        : "…",              // optional banner at the top
+       video       : "https://…",      // optional "Listen" link
+       verses: [
+         {{ ar:"…", tr:"…", en:"…" }}      // one paragraph or verse per entry
+       ]
+     }}
+
+   Use ۞ in `ar` to split a line of poetry; "\n" is a hard line break.
+
+   Keep your additions inside this array. The blank lines around it are
+   deliberate: they keep this section's edits from colliding with the
+   neighbouring sections when the branches are merged.
+   ═══════════════════════════════════════════════════════════════════ */
+const TURUQ_CHAPTERS = [];
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   Sohbets  ·  الصُّحْبَة
+   -------------------------------------------------------------------
+   THIS ARRAY IS THIS SECTION'S ONLY EDIT POINT. Everything that shows
+   it on screen — its tile, its list, its reader, search, bookmarks —
+   is already wired up below and needs no change. Add entries here and
+   they appear by themselves.
+
+   Each entry is one sohbet, in the same shape every other section uses:
+
+     {{
+       titleArabic : "…",              // shown large, right-to-left
+       titleEnglish: "1 · …",          // the leading "N ·" sets the order
+       note        : "…",              // optional banner at the top
+       video       : "https://…",      // optional "Listen" link
+       latin       : true,             // English prose, rendered LTR
+       verses: [
+         {{ ar:"…", tr:"…", en:"…" }}      // one paragraph or verse per entry
+       ]
+     }}
+
+   This section is prose in English, so mark each entry `latin: true`:
+   the English text then goes in `ar` (it renders left-to-right, not as
+   Arabic), `en` carries any translation or note, and `tr` stays "".
+
+   Use ۞ in `ar` to split a line of poetry; "\n" is a hard line break.
+
+   Keep your additions inside this array. The blank lines around it are
+   deliberate: they keep this section's edits from colliding with the
+   neighbouring sections when the branches are merged.
+   ═══════════════════════════════════════════════════════════════════ */
+const SOHBET_CHAPTERS = [];
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   Biographies  ·  التَّرَاجِم
+   -------------------------------------------------------------------
+   THIS ARRAY IS THIS SECTION'S ONLY EDIT POINT. Everything that shows
+   it on screen — its tile, its list, its reader, search, bookmarks —
+   is already wired up below and needs no change. Add entries here and
+   they appear by themselves.
+
+   Each entry is one life, in the same shape every other section uses:
+
+     {{
+       titleArabic : "…",              // shown large, right-to-left
+       titleEnglish: "1 · …",          // the leading "N ·" sets the order
+       note        : "…",              // optional banner at the top
+       video       : "https://…",      // optional "Listen" link
+       latin       : true,             // English prose, rendered LTR
+       verses: [
+         {{ ar:"…", tr:"…", en:"…" }}      // one paragraph or verse per entry
+       ]
+     }}
+
+   This section is prose in English, so mark each entry `latin: true`:
+   the English text then goes in `ar` (it renders left-to-right, not as
+   Arabic), `en` carries any translation or note, and `tr` stays "".
+
+   Use ۞ in `ar` to split a line of poetry; "\n" is a hard line break.
+
+   Keep your additions inside this array. The blank lines around it are
+   deliberate: they keep this section's edits from colliding with the
+   neighbouring sections when the branches are merged.
+   ═══════════════════════════════════════════════════════════════════ */
+const BIOGRAPHY_CHAPTERS = [];
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   Ottoman History  ·  التَّارِيخ الْعُثْمَانِي
+   -------------------------------------------------------------------
+   THIS ARRAY IS THIS SECTION'S ONLY EDIT POINT. Everything that shows
+   it on screen — its tile, its list, its reader, search, bookmarks —
+   is already wired up below and needs no change. Add entries here and
+   they appear by themselves.
+
+   Each entry is one chapter, in the same shape every other section uses:
+
+     {{
+       titleArabic : "…",              // shown large, right-to-left
+       titleEnglish: "1 · …",          // the leading "N ·" sets the order
+       note        : "…",              // optional banner at the top
+       video       : "https://…",      // optional "Listen" link
+       latin       : true,             // English prose, rendered LTR
+       verses: [
+         {{ ar:"…", tr:"…", en:"…" }}      // one paragraph or verse per entry
+       ]
+     }}
+
+   This section is prose in English, so mark each entry `latin: true`:
+   the English text then goes in `ar` (it renders left-to-right, not as
+   Arabic), `en` carries any translation or note, and `tr` stays "".
+
+   Use ۞ in `ar` to split a line of poetry; "\n" is a hard line break.
+
+   Keep your additions inside this array. The blank lines around it are
+   deliberate: they keep this section's edits from colliding with the
+   neighbouring sections when the branches are merged.
+   ═══════════════════════════════════════════════════════════════════ */
+const OTTOMAN_CHAPTERS = [];
+
 const TABS = [
   { id:'mawlids',      label:'Mawlid',              ar:'الْموالد',                theme:'green'   },
   { id:'dalail',       label:'Dalāʾil al-Khayrāt',  ar:'دلائل الْخيرات',          theme:'navy'    },
@@ -12524,6 +12688,79 @@ function nasheedCards(){
         </button>` + hitList('n', n)).join('');
 }
 
+/* Index rows for the Academy sections. Each mirrors nasheedCards():
+   empty array in, empty string out, so renderResults() can fall through
+   to placeholder() until the section has content. */
+function silsilaCards(){
+  const items = SILSILA_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+  if(items.length === 0) return '';
+  return items.map(({c,n})=>`
+        <button class="qcard" onclick="openSilsila(${n})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar"${c.latin ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${c.titleArabic}</span>
+            <span class="t-en">${c.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>` + hitList('c', n)).join('');
+}
+
+function turuqCards(){
+  const items = TURUQ_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+  if(items.length === 0) return '';
+  return items.map(({c,n})=>`
+        <button class="qcard" onclick="openTuruq(${n})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar"${c.latin ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${c.titleArabic}</span>
+            <span class="t-en">${c.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>` + hitList('t', n)).join('');
+}
+
+function sohbetCards(){
+  const items = SOHBET_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+  if(items.length === 0) return '';
+  return items.map(({c,n})=>`
+        <button class="qcard" onclick="openSohbet(${n})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar"${c.latin ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${c.titleArabic}</span>
+            <span class="t-en">${c.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>` + hitList('h', n)).join('');
+}
+
+function biographyCards(){
+  const items = BIOGRAPHY_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+  if(items.length === 0) return '';
+  return items.map(({c,n})=>`
+        <button class="qcard" onclick="openBiography(${n})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar"${c.latin ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${c.titleArabic}</span>
+            <span class="t-en">${c.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>` + hitList('g', n)).join('');
+}
+
+function ottomanCards(){
+  const items = OTTOMAN_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+  if(items.length === 0) return '';
+  return items.map(({c,n})=>`
+        <button class="qcard" onclick="openOttoman(${n})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar"${c.latin ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${c.titleArabic}</span>
+            <span class="t-en">${c.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>` + hitList('o', n)).join('');
+}
+
 function litanyCards(){
   /* Browsing, the seven daily portions of al-Ḥizb al-Aʿẓam are folded behind a
      single row that opens their own page. A search still lists them one by one,
@@ -12848,7 +13085,12 @@ function ilahiCards(){
 const OPENERS = {
   q: 'openQasida',  b: 'openBurdah',   s: 'openSirah',
   i: 'openIlahi',   d: 'openDalail',   z: 'openBarzanji',
-  y: 'openDiya',    n: 'openNasheed',  l: 'openLitany'
+  y: 'openDiya',    n: 'openNasheed',  l: 'openLitany',
+  c: 'openSilsila',
+  t: 'openTuruq',
+  h: 'openSohbet',
+  g: 'openBiography',
+  o: 'openOttoman'
 };
 function openFnOf(kind){ return OPENERS[kind] || 'openQasida'; }
 /* Mawlid pieces carry their kitab number in the title; drop it for display. */
@@ -12895,7 +13137,12 @@ function sectionCount(id){
        : id === 'diya'    ? DIYA_CHAPTERS.length
        : id === 'ilahis'  ? ILAHI_CHAPTERS.length
        : id === 'ilahi'   ? ILAHI_CHAPTERS.length
-       : (id === 'silsila' || id === 'turuqs' || id === 'sohbets' || id === 'biographies' || id === 'ottoman' || id === 'more') ? 0
+       : id === 'silsila' ? SILSILA_CHAPTERS.length
+       : id === 'turuqs' ? TURUQ_CHAPTERS.length
+       : id === 'sohbets' ? SOHBET_CHAPTERS.length
+       : id === 'biographies' ? BIOGRAPHY_CHAPTERS.length
+       : id === 'ottoman' ? OTTOMAN_CHAPTERS.length
+       : id === 'more'    ? 0
        : favItems().length;
 }
 function countLabel(id, n){
@@ -12912,7 +13159,11 @@ function countLabel(id, n){
   if(id === 'diya')    return n + ' sections';
   if(id === 'qasidas') return n + (n === 1 ? ' qasida' : ' qasidas');
   if(id === 'ilahis' || id === 'ilahi') return n + (n === 1 ? ' ilahi' : ' ilahis');
-  if(id === 'silsila' || id === 'turuqs' || id === 'sohbets' || id === 'biographies' || id === 'ottoman') return 'Coming soon';
+  if(id === 'silsila') return n ? n + (n === 1 ? ' master' : ' masters') : 'Coming soon';
+  if(id === 'turuqs') return n ? n + (n === 1 ? ' tariqa' : ' tariqas') : 'Coming soon';
+  if(id === 'sohbets') return n ? n + (n === 1 ? ' sohbet' : ' sohbets') : 'Coming soon';
+  if(id === 'biographies') return n ? n + (n === 1 ? ' life' : ' lifes') : 'Coming soon';
+  if(id === 'ottoman') return n ? n + (n === 1 ? ' chapter' : ' chapters') : 'Coming soon';
   if(id === 'more')    return 'More sections soon';
   return n + (n === 1 ? ' ilahi' : ' ilahis');
 }
@@ -12994,6 +13245,18 @@ function renderResults(){
     if(nash) html += label('Nasheeds · أناشيد', !!mawlid || !!barz || !!burd || !!qas || !!dal) + nash;
     const ilahis = ilahiCards();
     if(ilahis) html += label('Ilahis · الْإلهيات', !!mawlid || !!barz || !!burd || !!qas || !!dal || !!nash) + ilahis;
+    /* The Academy sections search alongside everything else; each stays
+       silent until it has content, so nothing shows an empty heading. */
+    const silsila = silsilaCards();
+    if(silsila) html += label('Naqshbandi Silsila · السِّلْسِلَة النَّقْشَبَنْدِيَّة', !!html) + silsila;
+    const turuqs = turuqCards();
+    if(turuqs) html += label('Turuqs · الطُّرُق الصُّوفِيَّة', !!html) + turuqs;
+    const sohbets = sohbetCards();
+    if(sohbets) html += label('Sohbets · الصُّحْبَة', !!html) + sohbets;
+    const biographies = biographyCards();
+    if(biographies) html += label('Biographies · التَّرَاجِم', !!html) + biographies;
+    const ottoman = ottomanCards();
+    if(ottoman) html += label('Ottoman History · التَّارِيخ الْعُثْمَانِي', !!html) + ottoman;
     if(!html) return `<div class="no-results">No matches for "${q.replace(/</g,'&lt;')}". Try a different spelling.</div>`;
     return html;
   }
@@ -13036,7 +13299,12 @@ function renderResults(){
   if(tab === 'ilahi'){
     return sectionIntro('ilahi') + label('Select an ilahi · ilahi seçin') + ilahiCards();
   }
-  if(tab === 'silsila' || tab === 'turuqs' || tab === 'sohbets' || tab === 'biographies' || tab === 'ottoman' || tab === 'more'){
+  if(tab === 'silsila') return sectionIntro('silsila') + (silsilaCards() ? label('Select a master · اختر شيخاً') + silsilaCards() : placeholder('Naqshbandi Silsila'));
+  if(tab === 'turuqs') return sectionIntro('turuqs') + (turuqCards() ? label('Select a tariqa · اختر طريقة') + turuqCards() : placeholder('Turuqs'));
+  if(tab === 'sohbets') return sectionIntro('sohbets') + (sohbetCards() ? label('Select a sohbet · اختر صحبة') + sohbetCards() : placeholder('Sohbets'));
+  if(tab === 'biographies') return sectionIntro('biographies') + (biographyCards() ? label('Select a life · اختر ترجمة') + biographyCards() : placeholder('Biographies'));
+  if(tab === 'ottoman') return sectionIntro('ottoman') + (ottomanCards() ? label('Select a chapter · اختر فصلاً') + ottomanCards() : placeholder('Ottoman History'));
+  if(tab === 'more'){
     const card = HOME_CARDS.find(c => c.id === tab);
     return sectionIntro(tab) + placeholder(card ? card.en : tab);
   }
@@ -14946,6 +15214,53 @@ function openNasheed(n){
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('n', n);
+}
+
+/* Academy-section readers. Same shape as openNasheed(): the shared
+   readerHTML() does the work, and 'Back' returns to the section's tab. */
+function openSilsila(n){
+  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
+  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  app.innerHTML = readerHTML(SILSILA_CHAPTERS[n], "selectTab('silsila')", 'c', n);
+  queueMsAutoFit();
+  window.scrollTo(0,0);
+  onNavigated('c', n);
+}
+
+function openTuruq(n){
+  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
+  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  app.innerHTML = readerHTML(TURUQ_CHAPTERS[n], "selectTab('turuqs')", 't', n);
+  queueMsAutoFit();
+  window.scrollTo(0,0);
+  onNavigated('t', n);
+}
+
+function openSohbet(n){
+  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
+  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  app.innerHTML = readerHTML(SOHBET_CHAPTERS[n], "selectTab('sohbets')", 'h', n);
+  queueMsAutoFit();
+  window.scrollTo(0,0);
+  onNavigated('h', n);
+}
+
+function openBiography(n){
+  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
+  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  app.innerHTML = readerHTML(BIOGRAPHY_CHAPTERS[n], "selectTab('biographies')", 'g', n);
+  queueMsAutoFit();
+  window.scrollTo(0,0);
+  onNavigated('g', n);
+}
+
+function openOttoman(n){
+  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
+  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  app.innerHTML = readerHTML(OTTOMAN_CHAPTERS[n], "selectTab('ottoman')", 'o', n);
+  queueMsAutoFit();
+  window.scrollTo(0,0);
+  onNavigated('o', n);
 }
 
 function openLitany(n){
