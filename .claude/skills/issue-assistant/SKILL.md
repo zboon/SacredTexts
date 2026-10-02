@@ -1,6 +1,6 @@
 ---
 name: issue-assistant
-description: Entry point for "@claude" mentions on Sacred Texts issues and PRs. Reads the issue and thread, classifies the request (develop, test, regression, review, investigate, content help, explain, multi-step), then either routes to the matching playbook (dev-issue, test-issue, regression-pack, pr-review) or answers directly in a concise comment. Use whenever someone tags @claude on an issue or PR, or asks Claude to "look at" / "help with" issue #N without a more specific playbook.
+description: Entry point for "@claude" mentions on Sacred Texts issues and PRs. Reads the issue and thread, classifies the request (develop, test, regression, review, triage, break down, investigate, content help, explain, multi-step), then either routes to the matching playbook (dev-issue, test-issue, regression-pack, pr-review, issue-triage, epic-orchestrator) or answers directly in a concise comment. Use whenever someone tags @claude on an issue or PR, or asks Claude to "look at" / "help with" issue #N without a more specific playbook.
 argument-hint: "<issue or PR number> [the request text]"
 ---
 
@@ -49,7 +49,9 @@ Issue/PR number, the triggering comment (text, author, id), and the repo.
 | **Test** | "test", "QA", "check it works", "verify" | → `test-issue {N}` |
 | **Regression** | "automate", "add to regression", "confirm this bug with a test" | → `regression-pack {N}` |
 | **Review** | on a PR: "review", "look over this PR" | → `pr-review {PR}` |
-| **Investigate** | "why", "investigate", "what's causing", "look into" | § 3 |
+| **Triage** | a new user report or question; "triage", "is this a bug?", "reviewing the comments and feedback" | → `issue-triage {N}` |
+| **Break down** | "split", "break this down", "orchestrate", "parallelise", or a request clearly bigger than one PR | → `epic-orchestrator {N}` |
+| **Investigate** | "why", "investigate", "what's causing", "look into" — from a maintainer, about code | § 3 (for a user report, use `issue-triage`) |
 | **Content help** | "transliterate", "translate", "draft the entry", "format this qasida", "is this public domain?" | § 4 |
 | **Explain** | "how does", "where is", "what is" | § 5 |
 | **Multi-step** | several verbs joined with "and"/"then" | § 6 |
