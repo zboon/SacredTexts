@@ -25,27 +25,6 @@ issue (bug_report / user_story with Gherkin)
 bugs: regression-pack (bug mode) can run BEFORE dev-issue to confirm the bug with a failing test
 ```
 
-## Where these came from
-
-Adapted from the team's Devin / Azure DevOps playbooks:
-
-| Original (Devin / ADO) | Here (Claude Code / GitHub) |
-|---|---|
-| `!dev_ado` ADO Work Item Development | `dev-issue` |
-| General Work Item Assistant (`@Devin`) | `issue-assistant` |
-| Devin PR Review | `pr-review` |
-| `!test_ado` ADO Work Item Testing | `test-issue` |
-| Test → Regression Pack Migration | `regression-pack` |
-| ADO work item / state / tags | GitHub issue / open-closed / `claude:*` labels |
-| `Custom.TestingScope`, `TechnicalImplementation`, `ReleaseNote*` | Sections of the PR body |
-| `az account get-access-token` + REST | GitHub MCP tools or `gh` (environment auth) |
-| Devin session spawned with `!dev_ado` | Skill invoked in-session, or a new session from automation |
-| ADO Test Plan / Test Cases + automation fields | `tests/REGRESSION.md` mapping + `@issue-N` tags |
-| `upload_attachment` recording | Screenshots on the `test-evidence` branch, embedded in the comment |
-| Azurite + .NET API + React frontend | `python3 -m http.server` (static PWA, no backend) |
-| `develop` branch | `main` (plus `section/*` for content) |
-| Approve vote `10` on clean review | Never approve; `COMMENT` / `REQUEST_CHANGES` only |
-
 ## Automation
 
 The playbooks are written so a non-interactive run can follow them:

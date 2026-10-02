@@ -49,7 +49,7 @@ Don't invent scenarios.
 package.json                 # devDependencies only: @playwright/test; scripts below
 playwright.config.ts
 tests/
-  REGRESSION.md              # issue ↔ spec ↔ test mapping (the "test plan")
+  REGRESSION.md              # issue ↔ spec ↔ test coverage index
   e2e/
     fixtures.ts              # extends test with page objects + error guard
     pages/

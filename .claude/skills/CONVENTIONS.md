@@ -21,17 +21,19 @@ Read `README.md` (content format, fonts, cache bump, copyright) and
 
 ---
 
-## 2. Where work items live
+## 2. Issues, pull requests and labels
 
-| Concept | Here |
+All work is tracked in GitHub `zboon/SacredTexts`.
+
+| What | Where |
 |---|---|
-| Work item | GitHub **issue** in `zboon/SacredTexts` |
-| Work item type | Issue template / label: `bug` (from `bug_report.md`) or `user-story` (from `user_story.md`). Anything else is a task. |
-| Acceptance criteria | The Gherkin block in the issue body (**Acceptance criteria** for stories, **Fixed when** for bugs) |
-| Comments / discussion | Issue comments + PR conversation |
-| State | Open/closed + the `claude:*` labels below |
-| Linking a PR to a work item | `Closes #N` in the PR body (GitHub links and auto-closes on merge) |
-| Release notes / technical notes / testing scope | Sections of the PR description (see `dev-issue`) |
+| Unit of work | A GitHub **issue** |
+| Kind of issue | Label `bug` (from `.github/ISSUE_TEMPLATE/bug_report.md`) or `user-story` (from `user_story.md`). Anything else is a task. |
+| Acceptance criteria | The Gherkin block in the issue body: **Acceptance criteria** for stories, **Fixed when** for bugs |
+| Discussion | Issue comments and the PR conversation |
+| Status | Open/closed, plus the `claude:*` labels below |
+| Linking a PR to its issue | `Closes #N` in the PR body (GitHub links them and closes the issue on merge) |
+| Release, testing and technical notes | Sections of the PR description (see `dev-issue`) |
 
 ### Status labels
 
