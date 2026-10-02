@@ -10,7 +10,7 @@ live in [`CONVENTIONS.md`](CONVENTIONS.md). Read that first.
 | Playbook | Invoke | Does | Hands off to |
 |---|---|---|---|
 | [`issue-assistant`](issue-assistant/SKILL.md) | `@claude …` on an issue or PR, or `/issue-assistant N` | Classifies the request; investigates, drafts content or explains; routes the rest | any of the below |
-| [`issue-triage`](issue-triage/SKILL.md) | `/issue-triage N`, or on a new issue | Checks the report is complete, reproduces it, finds the likely cause with a confidence level, gives a workaround. No code changes. | `dev-issue`, `regression-pack` |
+| [`issue-triage`](issue-triage/SKILL.md) | `/issue-triage N`, or `@claude triage this` | Checks the report is complete, reproduces it, finds the likely cause with a confidence level, gives a workaround. No code changes. | `dev-issue`, `regression-pack` |
 | [`epic-orchestrator`](epic-orchestrator/SKILL.md) | `/epic-orchestrator N` | Splits a big issue into sub-issues (with Gherkin), creates an integration branch, runs `dev-issue` per child, then opens one PR into `main` | `dev-issue` (per child) |
 | [`dev-issue`](dev-issue/SKILL.md) | `/dev-issue N` | Branch → implement → validate → version bump → PR `Closes #N` → release notes | `pr-review`, `test-issue` |
 | [`pr-review`](pr-review/SKILL.md) | `/pr-review PR` | Breaking-issue-only review with inline comments and a verdict. Never approves. | human QC |
@@ -33,8 +33,7 @@ bugs: regression-pack (bug mode) can run BEFORE dev-issue to confirm the bug wit
 
 The playbooks are written so a non-interactive run can follow them:
 
-- **GitHub Actions:** `anthropics/claude-code-action` on `issues: [opened]` → `/issue-triage ${{ github.event.issue.number }}`. On `issue_comment` / `pull_request_review_comment` containing `@claude` → `issue-assistant`. On `pull_request: [opened, synchronize]` → `/pr-review ${{ github.event.pull_request.number }}`.
+- **GitHub Actions** ([`.github/workflows/claude.yml`](../../.github/workflows/claude.yml)): runs **only when someone writes `@claude`** in an issue, issue comment, PR comment or PR review. It starts at `issue-assistant`, which routes to the right playbook ("@claude triage this", "@claude review this PR", "@claude fix this", "@claude test this"). Nothing runs automatically when an issue or PR is opened. Needs the `ANTHROPIC_API_KEY` repo secret and the Claude GitHub App.
 - **Headless CLI:** `claude -p "/dev-issue 42"`.
 - **Scheduled / agent fan-out:** one session per issue, each told which playbook to run.
 
-No workflow files are included yet. Add them as a separate change.

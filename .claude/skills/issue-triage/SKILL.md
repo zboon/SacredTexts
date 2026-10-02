@@ -1,6 +1,6 @@
 ---
 name: issue-triage
-description: Triage a newly reported Sacred Texts issue (bug report, user question or feature request) without changing code. Checks the report against the bug_report / user_story templates, asks once for what's missing, reproduces where possible, identifies the likely cause in index.html or sw.js with a confidence level, suggests a workaround the reporter can use today, and labels the issue. Use when a new issue is opened, when asked to "triage" or "look into" a report, or when issue-assistant routes an investigation here.
+description: Triage a newly reported Sacred Texts issue (bug report, user question or feature request) without changing code. Checks the report against the bug_report / user_story templates, asks once for what's missing, reproduces where possible, identifies the likely cause in index.html or sw.js with a confidence level, suggests a workaround the reporter can use today, and labels the issue. Use only when asked: "/issue-triage N", "@claude triage this", "look into this report", or when issue-assistant routes a user report here. It does not run automatically on new issues.
 argument-hint: "<issue number>"
 ---
 

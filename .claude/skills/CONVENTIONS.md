@@ -171,7 +171,9 @@ register the service worker.
 
 Chromium is pre-installed for Playwright in cloud sessions
 (`PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers`). Never run `playwright install`
-there. Load the app, wait for `load` plus about 1s, and treat any `pageerror` as a failure.
+there. In GitHub Actions, the workflow installs Chromium when the request
+mentions testing, triage or reproducing; if it's missing, run
+`npx playwright install --with-deps chromium` once. Load the app, wait for `load` plus about 1s, and treat any `pageerror` as a failure.
 **Ignore** network errors for third-party hosts (Google Fonts, YouTube,
 Supabase). Sandbox proxies often break those, and the app is built to survive
 without them.
