@@ -1,7 +1,7 @@
-# Naqshbandi Hakkani Academy — الأكاديمية النقشبندية الحقانية
+# Sacred Texts
 
 A small, offline-capable web app (PWA) for Islamic devotional texts and learning.
-The home page opens onto the Academy's sections: the mawlid texts and Qaṣīda Burdah,
+The home page opens onto its sections: the mawlid texts and Qaṣīda Burdah,
 Dalāʾil al-Khayrāt, the Naqshbandi silsila, the turuqs, sohbets, ilahis, biographies
 and Ottoman history. Each piece shows the original text with transliteration and
 English, has adjustable Arabic size, dark mode and fuzzy search.
@@ -139,7 +139,7 @@ until you bump the cache version.** After editing `index.html`, open `sw.js` and
 the number on this line:
 
 ```js
-const CACHE = 'nhacademy-v381';   // change to 'nhacademy-v382', then v383, …
+const CACHE = 'sacredtexts-v385';   // change to 'sacredtexts-v386', then v387, …
 ```
 
 If you forget this, your edits will look fine in a fresh browser but won't reach anyone who
@@ -154,7 +154,7 @@ The app is just static files, so any static host works.
 ### Option A — GitHub Pages (recommended, free, auto-updates)
 1. In the repo, go to **Settings → Pages**.
 2. Under "Build and deployment", set **Source: Deploy from a branch**, branch **main**, folder **/ (root)**, and Save.
-3. After a minute your app is live at `https://zboon.github.io/naqshbandi-hakkani-academy/`.
+3. After a minute your app is live at `https://zboon.github.io/SacredTexts/`.
    (The repo must be public for Pages on a free account.)
 4. Every time you commit a change (and bump the cache), the live site updates automatically.
 

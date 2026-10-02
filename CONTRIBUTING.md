@@ -1,6 +1,6 @@
 # Working on a section
 
-Each section of the Academy has its own branch, so several people can write at
+Each section of the app has its own branch, so several people can write at
 the same time without waiting on each other. Everything you need is already
 wired up — you add content, nothing else.
 

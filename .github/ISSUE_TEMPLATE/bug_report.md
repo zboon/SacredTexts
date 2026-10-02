@@ -29,7 +29,7 @@ SEVERITY
 - Device / OS:
 - Browser or installed PWA:
 - Online / offline:
-- Cache version (`nhacademy-vNNN`):
+- Cache version (`sacredtexts-vNNN`):
 
 ## Steps to reproduce
 

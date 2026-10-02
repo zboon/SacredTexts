@@ -1,7 +1,7 @@
 {
-  "name": "Naqshbandi Hakkani Academy",
-  "short_name": "NH Academy",
-  "description": "Devotional texts, the Naqshbandi silsila, sohbets, ilahis and Islamic learning — Arabic, transliteration and English. Works offline.",
+  "name": "Sacred Texts",
+  "short_name": "Sacred Texts",
+  "description": "Islamic devotional texts and learning — mawlid, Dalāʾil al-Khayrāt, silsila, sohbets, ilahis and more, in Arabic with transliteration and English. Works offline.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
