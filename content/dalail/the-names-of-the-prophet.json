@@ -1,0 +1,1266 @@
+{
+  "titleArabic": "اَسْمَاءُ النَّبِيِّ ﷺ",
+  "titleEnglish": "The Names of the Prophet ﷺ",
+  "cartouche": "اَسْمَاءُ سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ ﷺ",
+  "note": "The two hundred and one names, as gathered by Imam al-Jazūlī.",
+  "folios": [
+    {
+      "from": 0,
+      "to": 42
+    },
+    {
+      "from": 43,
+      "to": 103
+    },
+    {
+      "from": 104,
+      "to": 158
+    },
+    {
+      "from": 159,
+      "to": 191
+    },
+    {
+      "from": 192,
+      "to": 206
+    }
+  ],
+  "verses": [
+    {
+      "ar": "اَسْمَاءُ سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ مِائَتَانِ وَوَاحِدٌ وَهِيَ هٰذِهِ",
+      "tr": "Asmāʾu sayyidinā wa-mawlānā Muḥammadin ṣallā-Llāhu ʿalayhi wa-sallama miʾatāni wa-wāḥidun wa-hiya hādhihi",
+      "en": "The names of our master and patron Muhammad — may Allah bless him and grant him peace — are two hundred and one, and they are these."
+    },
+    {
+      "ar": "اَللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلٰى مَنِ اسْمُهُ مُحَمَّدٌ",
+      "tr": "Allāhumma ṣalli wa-sallim wa-bārik ʿalā mani-smuhu Muḥammad",
+      "en": "O Allah, bless, greet and sanctify him whose name is Muḥammad — the much-praised.",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اَحْمَدُ",
+      "tr": "Aḥmad",
+      "en": "Most praising of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "حَامِدٌ",
+      "tr": "Ḥāmid",
+      "en": "He who praises",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَحْمُودٌ",
+      "tr": "Maḥmūd",
+      "en": "He who is praised",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اَحْيَدُ",
+      "tr": "Aḥyad",
+      "en": "He who turns away from evil",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "وَحِيدٌ",
+      "tr": "Waḥīd",
+      "en": "The one without like",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَاحٍ",
+      "tr": "Māḥin",
+      "en": "The effacer of disbelief",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "حَاشِرٌ",
+      "tr": "Ḥāshir",
+      "en": "At whose feet men are gathered",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عَاقِبٌ",
+      "tr": "ʿĀqib",
+      "en": "The last to come",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "طٰهٰ",
+      "tr": "Ṭā Hā",
+      "en": "Ṭā Hā",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "يٰسٓ",
+      "tr": "Yā Sīn",
+      "en": "Yā Sīn",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "طَاهِرٌ",
+      "tr": "Ṭāhir",
+      "en": "The pure",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُطَهَّرٌ",
+      "tr": "Muṭahhar",
+      "en": "Made pure",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "طَيِّبٌ",
+      "tr": "Ṭayyib",
+      "en": "The wholesome",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "سَيِّدٌ",
+      "tr": "Sayyid",
+      "en": "The master",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رَسُولٌ",
+      "tr": "Rasūl",
+      "en": "The messenger",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نَبِيٌّ",
+      "tr": "Nabiyy",
+      "en": "The prophet",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رَسُولُ الرَّحْمَةِ",
+      "tr": "Rasūlu r-Raḥmah",
+      "en": "Messenger of mercy",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "قَيِّمٌ",
+      "tr": "Qayyim",
+      "en": "The upright",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "جَامِعٌ",
+      "tr": "Jāmiʿ",
+      "en": "In whom all virtue is gathered",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُقْتَفٍ",
+      "tr": "Muqtafin",
+      "en": "Who follows those before him",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُقَفٍّ",
+      "tr": "Muqaffin",
+      "en": "Who comes last in the line",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رَسُولُ الْمَلَاحِمِ",
+      "tr": "Rasūlu l-Malāḥim",
+      "en": "Messenger of the great battles",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رَسُولُ الرَّاحَةِ",
+      "tr": "Rasūlu r-Rāḥah",
+      "en": "Messenger of rest",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "كَامِلٌ",
+      "tr": "Kāmil",
+      "en": "The complete",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اِكْلِيلٌ",
+      "tr": "Iklīl",
+      "en": "The crown",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُدَّثِّرٌ",
+      "tr": "Muddaththir",
+      "en": "Wrapped in his mantle",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُزَّمِّلٌ",
+      "tr": "Muzzammil",
+      "en": "Wrapped in his cloak",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عَبْدُ اللّٰهِ",
+      "tr": "ʿAbdu-Llāh",
+      "en": "Servant of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "حَبِيبُ اللّٰهِ",
+      "tr": "Ḥabību-Llāh",
+      "en": "Beloved of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَفِيُّ اللّٰهِ",
+      "tr": "Ṣafiyyu-Llāh",
+      "en": "Chosen of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نَجِيُّ اللّٰهِ",
+      "tr": "Najiyyu-Llāh",
+      "en": "Confidant of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "كَلِيمُ اللّٰهِ",
+      "tr": "Kalīmu-Llāh",
+      "en": "He to whom Allah spoke",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "خَاتَمُ الْاَنْبِيَاءِ",
+      "tr": "Khātamu l-anbiyāʾ",
+      "en": "Seal of the prophets",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "خَاتَمُ الرُّسُلِ",
+      "tr": "Khātamu r-rusul",
+      "en": "Seal of the messengers",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُحْيٍ",
+      "tr": "Muḥyin",
+      "en": "Who gives life",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُنَجٍّ",
+      "tr": "Munajjin",
+      "en": "Who delivers",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُذَكِّرٌ",
+      "tr": "Mudhakkir",
+      "en": "Who calls to remembrance",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نَاصِرٌ",
+      "tr": "Nāṣir",
+      "en": "Who gives victory",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَنْصُورٌ",
+      "tr": "Manṣūr",
+      "en": "Granted victory",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نَبِيُّ الرَّحْمَةِ",
+      "tr": "Nabiyyu r-Raḥmah",
+      "en": "Prophet of mercy",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نَبِيُّ التَّوْبَةِ",
+      "tr": "Nabiyyu t-Tawbah",
+      "en": "Prophet of turning back to Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "حَرِيصٌ عَلَيْكُمْ",
+      "tr": "Ḥarīṣun ʿalaykum",
+      "en": "Deeply concerned for you",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَعْلُومٌ",
+      "tr": "Maʿlūm",
+      "en": "Known of old",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "شَهِيرٌ",
+      "tr": "Shahīr",
+      "en": "The renowned",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "شَاهِدٌ",
+      "tr": "Shāhid",
+      "en": "Who bears witness",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "شَهِيدٌ",
+      "tr": "Shahīd",
+      "en": "The witness",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَشْهُودٌ",
+      "tr": "Mashhūd",
+      "en": "To whom witness is borne",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "بَشِيرٌ",
+      "tr": "Bashīr",
+      "en": "Bearer of good news",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُبَشِّرٌ",
+      "tr": "Mubashshir",
+      "en": "Who brings glad tidings",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نَذِيرٌ",
+      "tr": "Nadhīr",
+      "en": "The warner",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُنْذِرٌ",
+      "tr": "Mundhir",
+      "en": "Who gives warning",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نُورٌ",
+      "tr": "Nūr",
+      "en": "Light",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "سِرَاجٌ",
+      "tr": "Sirāj",
+      "en": "A lamp",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مِصْبَاحٌ",
+      "tr": "Miṣbāḥ",
+      "en": "A lantern",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "هُدًى",
+      "tr": "Hudan",
+      "en": "Guidance itself",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَهْدِيٌّ",
+      "tr": "Mahdiyy",
+      "en": "Rightly guided",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُنِيرٌ",
+      "tr": "Munīr",
+      "en": "Giving light",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "دَاعٍ",
+      "tr": "Dāʿin",
+      "en": "Who calls to Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَدْعُوٌّ",
+      "tr": "Madʿuww",
+      "en": "Who is called upon",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُجِيبٌ",
+      "tr": "Mujīb",
+      "en": "Who answers",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُجَابٌ",
+      "tr": "Mujāb",
+      "en": "Whose prayer is answered",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "خَفِيٌّ",
+      "tr": "Khafiyy",
+      "en": "Gentle and unassuming",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عَفُوٌّ",
+      "tr": "ʿAfuww",
+      "en": "Much-pardoning",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "وَلِيٌّ",
+      "tr": "Waliyy",
+      "en": "The close friend of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "حَقٌّ",
+      "tr": "Ḥaqq",
+      "en": "Truth",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "قَوِيٌّ",
+      "tr": "Qawiyy",
+      "en": "The strong",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اَمِينٌ",
+      "tr": "Amīn",
+      "en": "The trustworthy",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَأْمُونٌ",
+      "tr": "Maʾmūn",
+      "en": "In whom trust is placed",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "كَرِيمٌ",
+      "tr": "Karīm",
+      "en": "The generous",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُكَرَّمٌ",
+      "tr": "Mukarram",
+      "en": "Held in honour",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَكِينٌ",
+      "tr": "Makīn",
+      "en": "Firmly established",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَتِينٌ",
+      "tr": "Matīn",
+      "en": "Steadfast",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُبِينٌ",
+      "tr": "Mubīn",
+      "en": "Who makes plain",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُؤَمِّلٌ",
+      "tr": "Muʾammil",
+      "en": "In whom hope is placed",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "وَصُولٌ",
+      "tr": "Waṣūl",
+      "en": "Who keeps the bonds of kinship",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "ذُو قُوَّةٍ",
+      "tr": "Dhū quwwah",
+      "en": "Possessed of strength",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "ذُو حُرْمَةٍ",
+      "tr": "Dhū ḥurmah",
+      "en": "Possessed of sanctity",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "ذُو مَكَانَةٍ",
+      "tr": "Dhū makānah",
+      "en": "Possessed of high standing",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "ذُو عِزٍّ",
+      "tr": "Dhū ʿizz",
+      "en": "Possessed of might",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "ذُو فَضْلٍ",
+      "tr": "Dhū faḍl",
+      "en": "Possessed of bounty",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُطَاعٌ",
+      "tr": "Muṭāʿ",
+      "en": "Who is obeyed",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُطِيعٌ",
+      "tr": "Muṭīʿ",
+      "en": "Obedient to his Lord",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "قَدَمُ صِدْقٍ",
+      "tr": "Qadamu ṣidq",
+      "en": "A sure footing of truth",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رَحْمَةٌ",
+      "tr": "Raḥmah",
+      "en": "Mercy",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "بُشْرَى",
+      "tr": "Bushrā",
+      "en": "Good tidings",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "غَوْثٌ",
+      "tr": "Ghawth",
+      "en": "Help in need",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "غَيْثٌ",
+      "tr": "Ghayth",
+      "en": "Rain that revives",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "غِيَاثٌ",
+      "tr": "Ghiyāth",
+      "en": "Succour",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نِعْمَةُ اللّٰهِ",
+      "tr": "Niʿmatu-Llāh",
+      "en": "The favour of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "هَدِيَّةُ اللّٰهِ",
+      "tr": "Hadiyyatu-Llāh",
+      "en": "The gift of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عُرْوَةٌ وُثْقَى",
+      "tr": "ʿUrwatun wuthqā",
+      "en": "The firmest handhold",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صِرَاطُ اللّٰهِ",
+      "tr": "Ṣirāṭu-Llāh",
+      "en": "The way of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صِرَاطٌ مُسْتَقِيمٌ",
+      "tr": "Ṣirāṭun mustaqīm",
+      "en": "A straight way",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "ذِكْرُ اللّٰهِ",
+      "tr": "Dhikru-Llāh",
+      "en": "The remembrance of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "سَيْفُ اللّٰهِ",
+      "tr": "Sayfu-Llāh",
+      "en": "The sword of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "حِزْبُ اللّٰهِ",
+      "tr": "Ḥizbu-Llāh",
+      "en": "The party of Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "النَّجْمُ الثَّاقِبُ",
+      "tr": "An-najmu th-thāqib",
+      "en": "The piercing star",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُصْطَفًى",
+      "tr": "Muṣṭafan",
+      "en": "The chosen",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُجْتَبًى",
+      "tr": "Mujtaban",
+      "en": "The selected",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُنْتَقًى",
+      "tr": "Muntaqan",
+      "en": "The picked out",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اُمِّيٌّ",
+      "tr": "Ummiyy",
+      "en": "Untaught by men",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُخْتَارٌ",
+      "tr": "Mukhtār",
+      "en": "The elect",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اَجِيرٌ",
+      "tr": "Ajīr",
+      "en": "Who gives shelter",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "جَبَّارٌ",
+      "tr": "Jabbār",
+      "en": "Who sets what is broken right",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اَبُو الْقَاسِمِ",
+      "tr": "Abū l-Qāsim",
+      "en": "Father of Qāsim",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اَبُو الطَّاهِرِ",
+      "tr": "Abū ṭ-Ṭāhir",
+      "en": "Father of Ṭāhir",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اَبُو الطَّيِّبِ",
+      "tr": "Abū ṭ-Ṭayyib",
+      "en": "Father of Ṭayyib",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اَبُو اِبْرٰهِيمَ",
+      "tr": "Abū Ibrāhīm",
+      "en": "Father of Ibrāhīm",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُشَفَّعٌ",
+      "tr": "Mushaffaʿ",
+      "en": "Whose intercession is granted",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "شَفِيعٌ",
+      "tr": "Shafīʿ",
+      "en": "The intercessor",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَالِحٌ",
+      "tr": "Ṣāliḥ",
+      "en": "The righteous",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُصْلِحٌ",
+      "tr": "Muṣliḥ",
+      "en": "Who sets affairs right",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُهَيْمِنٌ",
+      "tr": "Muhaymin",
+      "en": "The watchful guardian",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَادِقٌ",
+      "tr": "Ṣādiq",
+      "en": "The truthful",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُصَدَّقٌ",
+      "tr": "Muṣaddaq",
+      "en": "Whose truth is confirmed",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صِدْقٌ",
+      "tr": "Ṣidq",
+      "en": "Truthfulness itself",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "سَيِّدُ الْمُرْسَلِينَ",
+      "tr": "Sayyidu l-mursalīn",
+      "en": "Master of the messengers",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اِمَامُ الْمُتَّقِينَ",
+      "tr": "Imāmu l-muttaqīn",
+      "en": "Leader of the God-fearing",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "قَائِدُ الْغُرِّ الْمُحَجَّلِينَ",
+      "tr": "Qāʾidu l-ghurri l-muḥajjalīn",
+      "en": "Leader of the bright-marked ones",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "خَلِيلُ الرَّحْمٰنِ",
+      "tr": "Khalīlu r-Raḥmān",
+      "en": "Intimate friend of the All-Merciful",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "بَرٌّ",
+      "tr": "Barr",
+      "en": "Devoted in kindness",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَبَرٌّ",
+      "tr": "Mabarr",
+      "en": "Whose deeds are accepted",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "وَجِيهٌ",
+      "tr": "Wajīh",
+      "en": "Held in high regard",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نَصِيحٌ",
+      "tr": "Naṣīḥ",
+      "en": "Sincere in counsel",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "نَاصِحٌ",
+      "tr": "Nāṣiḥ",
+      "en": "Who counsels sincerely",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "وَكِيلٌ",
+      "tr": "Wakīl",
+      "en": "The trusted one",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُتَوَكِّلٌ",
+      "tr": "Mutawakkil",
+      "en": "Who relies upon Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "كَفِيلٌ",
+      "tr": "Kafīl",
+      "en": "The surety",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "شَفِيقٌ",
+      "tr": "Shafīq",
+      "en": "Tender-hearted",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُقِيمُ السُّنَّةِ",
+      "tr": "Muqīmu s-sunnah",
+      "en": "Who upholds the way",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُقَدَّسٌ",
+      "tr": "Muqaddas",
+      "en": "Made holy",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رُوحُ الْقُدُسِ",
+      "tr": "Rūḥu l-qudus",
+      "en": "Spirit of holiness",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رُوحُ الْحَقِّ",
+      "tr": "Rūḥu l-ḥaqq",
+      "en": "Spirit of truth",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رُوحُ الْقِسْطِ",
+      "tr": "Rūḥu l-qisṭ",
+      "en": "Spirit of equity",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "كَافٍ",
+      "tr": "Kāfin",
+      "en": "Who suffices",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُكْتَفٍ",
+      "tr": "Muktafin",
+      "en": "Content with Allah alone",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "بَالِغٌ",
+      "tr": "Bāligh",
+      "en": "Who attains the goal",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُبَلِّغٌ",
+      "tr": "Muballigh",
+      "en": "Who conveys the message",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "شَافٍ",
+      "tr": "Shāfin",
+      "en": "Who brings healing",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "وَاصِلٌ",
+      "tr": "Wāṣil",
+      "en": "Who joins what was severed",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَوْصُولٌ",
+      "tr": "Mawṣūl",
+      "en": "Joined to his Lord",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "سَابِقٌ",
+      "tr": "Sābiq",
+      "en": "Who goes before",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "سَائِقٌ",
+      "tr": "Sāʾiq",
+      "en": "Who drives men onward",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "هَادٍ",
+      "tr": "Hādin",
+      "en": "The guide",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُهْدٍ",
+      "tr": "Muhdin",
+      "en": "Who leads aright",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُقَدَّمٌ",
+      "tr": "Muqaddam",
+      "en": "Placed foremost",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عَزِيزٌ",
+      "tr": "ʿAzīz",
+      "en": "The mighty",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "فَاضِلٌ",
+      "tr": "Fāḍil",
+      "en": "Surpassing in merit",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُفَضَّلٌ",
+      "tr": "Mufaḍḍal",
+      "en": "Preferred above others",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "فَاتِحٌ",
+      "tr": "Fātiḥ",
+      "en": "The opener",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مِفْتَاحٌ",
+      "tr": "Miftāḥ",
+      "en": "A key",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مِفْتَاحُ الرَّحْمَةِ",
+      "tr": "Miftāḥu r-raḥmah",
+      "en": "Key of mercy",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مِفْتَاحُ الْجَنَّةِ",
+      "tr": "Miftāḥu l-jannah",
+      "en": "Key of the Garden",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عَلَمُ الْاِيمَانِ",
+      "tr": "ʿAlamu l-īmān",
+      "en": "Standard of faith",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عَلَمُ الْيَقِينِ",
+      "tr": "ʿAlamu l-yaqīn",
+      "en": "Standard of certainty",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "دَلِيلُ الْخَيْرَاتِ",
+      "tr": "Dalīlu l-khayrāt",
+      "en": "Guide to all good",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُصَحِّحُ الْحَسَنَاتِ",
+      "tr": "Muṣaḥḥiḥu l-ḥasanāt",
+      "en": "Who makes good deeds sound",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُقِيلُ الْعَثَرَاتِ",
+      "tr": "Muqīlu l-ʿatharāt",
+      "en": "Who overlooks stumbles",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَفُوحٌ عَنِ الزَّلَّاتِ",
+      "tr": "Ṣafūḥun ʿani z-zallāt",
+      "en": "Who forgives slips",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الشَّفَاعَةِ",
+      "tr": "Ṣāḥibu sh-shafāʿah",
+      "en": "Holder of intercession",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْمَقَامِ",
+      "tr": "Ṣāḥibu l-maqām",
+      "en": "Holder of the praised station",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْقَدَمِ",
+      "tr": "Ṣāḥibu l-qadam",
+      "en": "Holder of precedence",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَخْصُوصٌ بِالْعِزِّ",
+      "tr": "Makhṣūṣun bi-l-ʿizz",
+      "en": "Singled out for might",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَخْصُوصٌ بِالْمَجْدِ",
+      "tr": "Makhṣūṣun bi-l-majd",
+      "en": "Singled out for glory",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مَخْصُوصٌ بِالشَّرَفِ",
+      "tr": "Makhṣūṣun bi-sh-sharaf",
+      "en": "Singled out for nobility",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْوَسِيلَةِ",
+      "tr": "Ṣāḥibu l-wasīlah",
+      "en": "Holder of the highest place in the Garden",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ السَّيْفِ",
+      "tr": "Ṣāḥibu s-sayf",
+      "en": "Bearer of the sword",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْفَضِيلَةِ",
+      "tr": "Ṣāḥibu l-faḍīlah",
+      "en": "Holder of pre-eminence",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْاِزَارِ",
+      "tr": "Ṣāḥibu l-izār",
+      "en": "Wearer of the waist-wrap",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْحُجَّةِ",
+      "tr": "Ṣāḥibu l-ḥujjah",
+      "en": "Bearer of the proof",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ السُّلْطَانِ",
+      "tr": "Ṣāḥibu s-sulṭān",
+      "en": "Bearer of authority",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الرِّدَاءِ",
+      "tr": "Ṣāḥibu r-ridāʾ",
+      "en": "Wearer of the cloak",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الدَّرَجَةِ الرَّفِيعَةِ",
+      "tr": "Ṣāḥibu d-darajati r-rafīʿah",
+      "en": "Holder of the exalted rank",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ التَّاجِ",
+      "tr": "Ṣāḥibu t-tāj",
+      "en": "Wearer of the crown",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْمِغْفَرِ",
+      "tr": "Ṣāḥibu l-mighfar",
+      "en": "Wearer of the helmet",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ اللِّوَاءِ",
+      "tr": "Ṣāḥibu l-liwāʾ",
+      "en": "Bearer of the banner",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْمِعْرَاجِ",
+      "tr": "Ṣāḥibu l-miʿrāj",
+      "en": "He of the ascension",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْقَضِيبِ",
+      "tr": "Ṣāḥibu l-qaḍīb",
+      "en": "Bearer of the staff",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْبُرَاقِ",
+      "tr": "Ṣāḥibu l-burāq",
+      "en": "Rider of the Burāq",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْخَاتَمِ",
+      "tr": "Ṣāḥibu l-khātam",
+      "en": "Bearer of the seal",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْعَلَامَةِ",
+      "tr": "Ṣāḥibu l-ʿalāmah",
+      "en": "Bearer of the sign",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْبُرْهَانِ",
+      "tr": "Ṣāḥibu l-burhān",
+      "en": "Bearer of clear evidence",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْبَيَانِ",
+      "tr": "Ṣāḥibu l-bayān",
+      "en": "Master of clear speech",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "فَصِيحُ اللِّسَانِ",
+      "tr": "Faṣīḥu l-lisān",
+      "en": "Eloquent of tongue",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "مُطَهَّرُ الْجَنَانِ",
+      "tr": "Muṭahharu l-janān",
+      "en": "Pure of heart",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رَؤُوفٌ",
+      "tr": "Raʾūf",
+      "en": "Full of tenderness",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رَحِيمٌ",
+      "tr": "Raḥīm",
+      "en": "Full of mercy",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "اُذُنُ خَيْرٍ",
+      "tr": "Udhunu khayr",
+      "en": "An ear open to good",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَحِيحُ الْاِسْلَامِ",
+      "tr": "Ṣaḥīḥu l-islām",
+      "en": "Sound in submission to Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "سَيِّدُ الْكَوْنَيْنِ",
+      "tr": "Sayyidu l-kawnayn",
+      "en": "Master of both worlds",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عَيْنُ النَّعِيمِ",
+      "tr": "ʿAynu n-naʿīm",
+      "en": "Wellspring of blessing",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عَيْنُ الْغُرِّ",
+      "tr": "ʿAynu l-ghurr",
+      "en": "Foremost of the radiant",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "سَعْدُ اللّٰهِ",
+      "tr": "Saʿdu-Llāh",
+      "en": "Good fortune from Allah",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "سَعْدُ الْخَلْقِ",
+      "tr": "Saʿdu l-khalq",
+      "en": "Good fortune of creation",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "خَطِيبُ الْاُمَمِ",
+      "tr": "Khaṭību l-umam",
+      "en": "Orator to the nations",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عَلَمُ الْهُدَى",
+      "tr": "ʿAlamu l-hudā",
+      "en": "Standard of guidance",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "كَاشِفُ الْكُرَبِ",
+      "tr": "Kāshifu l-kurab",
+      "en": "Who lifts away distress",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "رَافِعُ الرُّتَبِ",
+      "tr": "Rāfiʿu r-rutab",
+      "en": "Who raises men in rank",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "عِزُّ الْعَرَبِ",
+      "tr": "ʿIzzu l-ʿarab",
+      "en": "The honour of the Arabs",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَاحِبُ الْفَرَجِ",
+      "tr": "Ṣāḥibu l-faraj",
+      "en": "Bringer of relief",
+      "sep": "ﷺ"
+    },
+    {
+      "ar": "صَلَّى اللّٰهُ عَلَيْهِ وَعَلٰى اٰلِهِ",
+      "tr": "Ṣallā-Llāhu ʿalayhi wa-ʿalā ālih",
+      "en": "May Allah bless him and his family."
+    },
+    {
+      "ar": "اَللّٰهُمَّ يَا رَبِّ بِجَاهِ نَبِيِّكَ الْمُصْطَفٰى وَرَسُولِكَ الْمُرْتَضٰى",
+      "tr": "Allāhumma yā Rabbi bi-jāhi nabiyyika l-Muṣṭafā wa-rasūlika l-Murtaḍā",
+      "en": "O Allah, my Lord, by the standing of Your chosen Prophet and Your well-pleasing Messenger:"
+    },
+    {
+      "ar": "طَهِّرْ قُلُوبَنَا مِنْ كُلِّ وَصْفٍ يُبَاعِدُنَا عَنْ مُشَاهَدَتِكَ وَمَحَبَّتِكَ",
+      "tr": "Ṭahhir qulūbanā min kulli waṣfin yubāʿidunā ʿan mushāhadatika wa-maḥabbatik",
+      "en": "purify our hearts of every trait that keeps us far from witnessing You and from loving You;"
+    },
+    {
+      "ar": "وَاَمِتْنَا عَلٰى السُّنَّةِ وَالْجَمَاعَةِ وَالشَّوْقِ اِلٰى لِقَائِكَ يَا ذَا الْجَلَالِ وَالْاِكْرَامِ",
+      "tr": "Wa-amitnā ʿalā s-sunnati wa-l-jamāʿati wa-sh-shawqi ilā liqāʾik, yā Dhā l-Jalāli wa-l-Ikrām",
+      "en": "and let us die upon the Sunnah, the community, and longing to meet You, O Possessor of Majesty and Generosity."
+    },
+    {
+      "ar": "وَصَلَّى اللّٰهُ عَلٰى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ وَعَلٰى اٰلِهِ وَصَحْبِهِ وَسَلَّمَ تَسْلِيمًا",
+      "tr": "Wa-ṣallā-Llāhu ʿalā sayyidinā wa-mawlānā Muḥammadin wa-ʿalā ālihi wa-ṣaḥbihi wa-sallama taslīmā",
+      "en": "And may Allah bless our master and patron Muhammad, and his family and companions, and grant them abundant peace."
+    }
+  ]
+}

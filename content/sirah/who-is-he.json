@@ -1,0 +1,52 @@
+{
+  "titleArabic": "مَنْ هُوَ؟",
+  "titleEnglish": "5 · Who is He?",
+  "verses": [
+    {
+      "ar": "قِيْلَ هُوَ آدَمُ عَلَيْهِ السَّلَامْ ۞ قَالَ آدَمُ بِهِ أُنِيْلُهُ أَعْلَى الْمَرَاتِبْ",
+      "tr": "Qīla huwa Ādam ʿalayhis-salām · Qāla Ādamu bihi unīluhu aʿlal-marātib",
+      "en": "It was asked: 'Is he Adam, upon him be peace?' He said: 'Because of him I grant Adam the highest of ranks.'"
+    },
+    {
+      "ar": "قِيلَ هُوَ نُوحٌ عَلَيْهِ السَّلَامْ ۞ قَالَ نُوْحٌ بِهِ يَنْجُو مِنَ الْغَرَقِ وَيَهْلَكُ مَن خَالَفَهُ مِنَ الْأَهْلِ وَالأَقَارِبْ",
+      "tr": "Qīla huwa Nūḥ ʿalayhis-salām · Qāla Nūḥun bihi yanjū minal-gharaqi wa yahlaku man khālafahu minal-ahli wal-aqārib",
+      "en": "It was asked: 'Is he Nuh, upon him be peace?' He said: 'Through him Nuh is saved from drowning, while those who oppose him, whether kin or close relations, perish.'"
+    },
+    {
+      "ar": "قِيلَ هُوَ إِبْرَاهِيْمُ عَلَيْهِ السَّلَامْ ۞ قَالَ إِبْرَاهِيمُ بِهِ تَقُوْمُ حُجَّتُهُ عَلٰى عُبَّادِ الْأَصْنَامِ وَالْكَوَاكِبْ",
+      "tr": "Qīla huwa Ibrāhīm ʿalayhis-salām · Qāla Ibrāhīmu bihi taqūmu ḥujjatuhu ʿalā ʿubbādil-aṣnāmi wal-kawākib",
+      "en": "It was asked: 'Is he Ibrahim, upon him be peace?' He said: 'Through him Ibrahim's proof stands against the worshippers of idols and stars.'"
+    },
+    {
+      "ar": "قِيلَ هُوَ مُوسَى عَلَيْهِ السَّلَامْ ۞ قَالَ مُوسَى أَخُوهُ وَلَكِنَّ هٰذَا حَبِيبٌ وَمُوسَى كَلِيمٌ وَمُخَاطَبْ",
+      "tr": "Qīla huwa Mūsā ʿalayhis-salām · Qāla Mūsā akhūhu wa lākinna hādhā ḥabībun wa Mūsā kalīmun wa mukhāṭab",
+      "en": "It was asked: 'Is he Musa, upon him be peace?' He said: 'Musa is his brother, but this one is the Beloved, while Musa is the one addressed and spoken to.'"
+    },
+    {
+      "ar": "قِيلَ هُوَ عِيسَى عَلَيْهِ السَّلَامْ ۞ قَالَ عِيْسَى يُبَشِّرُ بِهِ وَهُوَ بَيْنَ يَدَيْ نُبُوَّتِهِ كَالْحَاجِبْ",
+      "tr": "Qīla huwa ʿĪsā ʿalayhis-salām · Qāla ʿĪsā yubashshiru bihi wa huwa bayna yaday nubuwwatihi kal-ḥājib",
+      "en": "It was asked: 'Is he ʿIsa, upon him be peace?' He said: 'ʿIsa heralds his coming; he stands before his prophethood like a herald announcing him.'"
+    },
+    {
+      "ar": "قِيلَ فَمَنْ هٰذَا الْحَبِيْبُ الْكَرِيْمُ الَّذِي أَلْبَسْتَهُ حُلَّةَ الْوَقَارِ، وَتَوَّجْتَهُ بِتِيجَانِ الْمَهَابَةِ وَالِافْتِخَارْ، وَنَشَرْتَ عَلٰى رَأْسِهِ الْعَصَائِبْ",
+      "tr": "Qīla faman hādhal-ḥabībul-karīmul-ladhī albastahu ḥullatal-waqār, wa tawwajtahu bi-tījānil-mahābati wal-iftikhār, wa nasharta ʿalā raʾsihil-ʿaṣāʾib",
+      "en": "It was asked: 'Then who is this noble beloved whom You have clothed in the robe of dignity, crowned with the crowns of awe and pride, and over whose head You have unfurled the banners?'"
+    },
+    {
+      "ar": "قَالَ هُوَ نَبِيٌّ اسْتَخَرْتُهُ مِنْ لُؤَيِّ بن غَالِبْ",
+      "tr": "Qāla huwa nabiyyun-istakhartuhu min Luʾayyi bni Ghālib",
+      "en": "He said: 'He is a prophet whom I have chosen from the line of Luʾayy ibn Ghalib.'"
+    },
+    {
+      "ar": "يَمُوْتُ أَبُوْهُ وَأُمُّهُ وَيَكْفُلُهُ جَدُّهُ ثُمَّ عَمُّهُ الشَّقِيْقُ أَبُو طَالِبْ",
+      "tr": "Yamūtu abūhu wa ummuhu wa yakfuluhu jadduhu thumma ʿammuhush-shaqīqu Abū Ṭālib",
+      "en": "His father and mother will pass away; his grandfather will take charge of him, then his full paternal uncle Abu Talib."
+    },
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, bless him, grant him peace, and pour Your blessings upon him and his family."
+    }
+  ]
+}

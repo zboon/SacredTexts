@@ -1,0 +1,192 @@
+{
+  "titleArabic": "دُعَاءُ بَدْءِ دَلَائِلِ الْخَيْرَاتِ",
+  "titleEnglish": "The Opening Duʿāʾ",
+  "cartouche": "دُعَاءُ بَدْءِ دَلَائِلِ الْخَيْرَاتِ",
+  "note": "The duʿāʾ recited before beginning Dalāʾil al-Khayrāt, followed by the istighfār, the tasbīḥ and the opening recitations. The Qurʾānic passages are given in Arabic and transliteration only.",
+  "folios": [
+    {
+      "from": 0,
+      "to": 5
+    },
+    {
+      "from": 6,
+      "to": 13
+    },
+    {
+      "from": 14,
+      "to": 22
+    },
+    {
+      "from": 23,
+      "to": 28,
+      "sections": true
+    },
+    {
+      "from": 29,
+      "to": 30,
+      "sections": true
+    }
+  ],
+  "verses": [
+    {
+      "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ",
+      "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm",
+      "en": "In the name of Allah, the All-Merciful, the Most Merciful."
+    },
+    {
+      "ar": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ ۞ حَسْبِيَ اللّٰهُ وَنِعْمَ الْوَكِيلُ ۞ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللّٰهِ الْعَلِيِّ الْعَظِيمِ",
+      "tr": "Al-ḥamdu li-Llāhi Rabbi l-ʿālamīn. Ḥasbiya-Llāhu wa-niʿma l-wakīl. Wa-lā ḥawla wa-lā quwwata illā bi-Llāhi l-ʿAliyyi l-ʿAẓīm",
+      "en": "Praise belongs to Allah, Lord of the worlds. Allah is enough for me, and how excellent a guardian. There is no power and no strength save by Allah, the Most High, the Magnificent."
+    },
+    {
+      "ar": "اَللّٰهُمَّ اِنِّي اَبْرَأُ مِنْ حَوْلِي وَقُوَّتِي اِلٰى حَوْلِكَ وَقُوَّتِكَ",
+      "tr": "Allāhumma innī abraʾu min ḥawlī wa-quwwatī ilā ḥawlika wa-quwwatik",
+      "en": "O Allah, I disown my own power and strength, and turn to Your power and Your strength."
+    },
+    {
+      "ar": "اَللّٰهُمَّ اِنِّي نَوَيْتُ اَنْ اَتَقَرَّبَ اِلَيْكَ بِالصَّلَاةِ عَلٰى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَنَبِيِّكَ وَرَسُولِكَ سَيِّدِ الْمُرْسَلِينَ صَلَّى اللّٰهُ تَعَالٰى عَلَيْهِ وَسَلَّمَ وَعَلَيْهِمْ اَجْمَعِينَ",
+      "tr": "Allāhumma innī nawaytu an ataqarraba ilayka bi-ṣ-ṣalāti ʿalā sayyidinā Muḥammadin ʿabdika wa-nabiyyika wa-rasūlika sayyidi l-mursalīn, ṣallā-Llāhu taʿālā ʿalayhi wa-sallama wa-ʿalayhim ajmaʿīn",
+      "en": "O Allah, I intend to draw near to You by invoking blessings upon our master Muhammad — Your servant, Your prophet and Your messenger, the master of the messengers — may Allah Most High bless him and grant him peace, and them all."
+    },
+    {
+      "ar": "اِمْتِثَالًا لِاَمْرِكَ وَتَصْدِيقًا لِنَبِيِّكَ ۞ وَمَحَبَّةً فِيهِ وَشَوْقًا اِلَيْهِ ۞ وَتَعْظِيمًا لِقَدْرِهِ ۞ وَلِكَوْنِهِ صَلَّى اللّٰهُ تَعَالٰى عَلَيْهِ وَسَلَّمَ اَهْلًا لِذٰلِكَ",
+      "tr": "Imtithālan li-amrika wa-taṣdīqan li-nabiyyik. Wa-maḥabbatan fīhi wa-shawqan ilayh. Wa-taʿẓīman li-qadrih. Wa-li-kawnihi ṣallā-Llāhu taʿālā ʿalayhi wa-sallama ahlan li-dhālik",
+      "en": "In obedience to Your command and in affirmation of Your prophet; out of love for him and longing for him; in reverence for his worth; and because he — may Allah Most High bless him and grant him peace — is worthy of it."
+    },
+    {
+      "ar": "فَتَقَبَّلْهَا مِنِّي بِفَضْلِكَ وَاِحْسَانِكَ وَاَزِلْ حِجَابَ الْغَفْلَةِ عَنْ قَلْبِي وَاجْعَلْنِي مِنْ عِبَادِكَ الصَّالِحِينَ",
+      "tr": "Fa-taqabbalhā minnī bi-faḍlika wa-iḥsānik, wa-azil ḥijāba l-ghaflati ʿan qalbī, wa-jʿalnī min ʿibādika ṣ-ṣāliḥīn",
+      "en": "So accept it from me by Your grace and Your kindness; lift the veil of heedlessness from my heart, and place me among Your righteous servants."
+    },
+    {
+      "ar": "وَوَفِّقْنِي لِقِرَاءَتِهَا عَلٰى الدَّوَامِ بِجَاهِهِ عِنْدَكَ وَمَكَانَتِهِ لَدَيْكَ وَمَحَبَّتِكَ لَهُ وَمَحَبَّتِهِ لَكَ وَبِالسِّرِّ الَّذِي بَيْنَكَ وَبَيْنَهُ صَلَّى اللّٰهُ تَعَالٰى عَلَيْهِ وَسَلَّمَ",
+      "tr": "Wa-waffiqnī li-qirāʾatihā ʿalā d-dawāmi bi-jāhihi ʿindaka wa-makānatihi ladayk, wa-maḥabbatika lahu wa-maḥabbatihi lak, wa-bi-s-sirri lladhī baynaka wa-baynahu ṣallā-Llāhu taʿālā ʿalayhi wa-sallam",
+      "en": "Grant me the grace to recite it always — by his standing with You and his place before You, by Your love for him and his love for You, and by the secret that is between You and him, may Allah Most High bless him and grant him peace."
+    },
+    {
+      "ar": "وَضَاعِفِ اللّٰهُمَّ مَحَبَّتِي فِيهِ وَعَرِّفْنِي بِحَقِّهِ وَرُتَبِهِ",
+      "tr": "Wa-ḍāʿifi-Llāhumma maḥabbatī fīhi wa-ʿarrifnī bi-ḥaqqihi wa-rutabih",
+      "en": "O Allah, multiply my love for him, and make known to me his right and his ranks."
+    },
+    {
+      "ar": "وَكَرِّمْنِي بِاتِّبَاعِهِ وَالْقِيَامِ بِاَدَبِهِ وَسُنَّتِهِ",
+      "tr": "Wa-karrimnī bi-ttibāʿihi wa-l-qiyāmi bi-adabihi wa-sunnatih",
+      "en": "Honour me with following him, and with upholding his manners and his way."
+    },
+    {
+      "ar": "وَاجْمَعْنِي عَلَيْهِ وَمَتِّعْنِي بِرُؤْيَتِهِ وَاَسْعِدْنِي بِمُكَالَمَتِهِ",
+      "tr": "Wa-jmaʿnī ʿalayhi wa-mattiʿnī bi-ruʾyatihi wa-asʿidnī bi-mukālamatih",
+      "en": "Gather me about him, let me delight in seeing him, and make me happy with his speech."
+    },
+    {
+      "ar": "وَارْفَعْ عَنِّي الْعَلَائِقَ وَالْعَوَائِقَ وَالْوَسَائِطَ وَالْحِجَابَ وَشَنِّفْ سَمْعِي مَعَهُ بِلَذِيذِ الْخِطَابِ",
+      "tr": "Wa-rfaʿ ʿannī l-ʿalāʾiqa wa-l-ʿawāʾiqa wa-l-wasāʾiṭa wa-l-ḥijāb, wa-shannif samʿī maʿahu bi-ladhīdhi l-khiṭāb",
+      "en": "Lift from me all attachments, obstacles, intermediaries and veils; and adorn my hearing, in his company, with the sweetness of his address."
+    },
+    {
+      "ar": "وَهَيِّئْنِي لِلتَّلَقِّي مِنْهُ وَاَهِّلْنِي لِخِدْمَتِهِ",
+      "tr": "Wa-hayyiʾnī li-t-talaqqī minhu wa-ahhilnī li-khidmatih",
+      "en": "Ready me to receive from him, and make me fit for his service."
+    },
+    {
+      "ar": "وَاجْعَلْ صَلَاتِي عَلَيْهِ نُورًا نَيِّرًا كَامِلًا مُكَمِّلًا طَاهِرًا مُطَهِّرًا مَاحِيًا كُلَّ ظُلْمٍ وَظُلْمَةٍ وَشَكٍّ وَشِرْكٍ وَكُفْرٍ وَزُورٍ وَوِزْرٍ",
+      "tr": "Wa-jʿal ṣalātī ʿalayhi nūran nayyiran, kāmilan mukammilan, ṭāhiran muṭahhiran, māḥiyan kulla ẓulmin wa-ẓulmatin wa-shakkin wa-shirkin wa-kufrin wa-zūrin wa-wizr",
+      "en": "Make my blessing upon him a light, and radiant; complete, and completing; pure, and purifying — effacing every wrong and every darkness, every doubt, idolatry, disbelief, falsehood and burden of sin."
+    },
+    {
+      "ar": "وَاجْعَلْهَا سَبَبًا لِلتَّمْحِيصِ وَمَرْقًى لِاَنَالَ بِهَا اَعْلٰى مَقَامِ الْاِخْلَاصِ وَالتَّخْصِيصِ حَتّٰى لَا يَبْقٰى فِيَّ رَبَّانِيَّةٌ لِغَيْرِكَ وَحَتّٰى اَصْلُحَ لِحَضْرَتِكَ",
+      "tr": "Wa-jʿalhā sababan li-t-tamḥīṣ, wa-marqan li-anāla bihā aʿlā maqāmi l-ikhlāṣi wa-t-takhṣīṣ, ḥattā lā yabqā fiyya rabbāniyyatun li-ghayrik, wa-ḥattā aṣluḥa li-ḥaḍratik",
+      "en": "Make it a means of purification and an ascent, that by it I may reach the highest station of sincerity and election — until no lordship of any other than You remains in me, and until I am fit for Your presence."
+    },
+    {
+      "ar": "وَاَكُونَ مِنْ اَهْلِ خُصُوصِيَّتِكَ مُسْتَمْسِكًا بِاَدَبِهِ وَسُنَّتِهِ صَلَّى اللّٰهُ تَعَالٰى عَلَيْهِ وَسَلَّمَ مُسْتَمِدًّا بِهِ مِنْ حَضْرَتِكَ فِي كُلِّ وَقْتٍ وَحِينٍ",
+      "tr": "Wa-akūna min ahli khuṣūṣiyyatik, mustamsikan bi-adabihi wa-sunnatihi ṣallā-Llāhu taʿālā ʿalayhi wa-sallam, mustamiddan bihi min ḥaḍratika fī kulli waqtin wa-ḥīn",
+      "en": "And that I may be among the people of Your special favour, holding fast to his manners and his way — may Allah Most High bless him and grant him peace — drawing through him from Your presence at every time and moment."
+    },
+    {
+      "ar": "يَا اللّٰهُ يَا نُورُ يَا حَقُّ يَا مُبِينُ يَا حَقُّ يَا مُبِينُ يَا حَقُّ يَا مُبِينُ",
+      "tr": "Yā Allāh, yā Nūr, yā Ḥaqq, yā Mubīn, yā Ḥaqq, yā Mubīn, yā Ḥaqq, yā Mubīn",
+      "en": "O Allah, O Light, O Truth, O Manifest; O Truth, O Manifest; O Truth, O Manifest."
+    },
+    {
+      "ar": "اَللّٰهُمَّ زِدْهُ شَرَفًا عَلٰى شَرَفِهِ الَّذِي اَوْلَيْتَهُ ۞ وَعِزًّا عَلٰى عِزِّهِ الَّذِي اَعْطَيْتَهُ ۞ وَنُورًا عَلٰى نُورِهِ الَّذِي مِنْهُ خَلَقْتَهُ",
+      "tr": "Allāhumma zidhu sharafan ʿalā sharafihi lladhī awlaytah. Wa-ʿizzan ʿalā ʿizzihi lladhī aʿṭaytah. Wa-nūran ʿalā nūrihi lladhī minhu khalaqtah",
+      "en": "O Allah, increase him in honour upon the honour You conferred on him; in might upon the might You gave him; and in light upon the light from which You created him."
+    },
+    {
+      "ar": "وَاَعْلِ مَقَامَهُ فِي مَقَامَاتِ الْمُرْسَلِينَ وَدَرَجَتَهُ فِي دَرَجَاتِ النَّبِيِّينَ",
+      "tr": "Wa-aʿli maqāmahu fī maqāmāti l-mursalīn, wa-darajatahu fī darajāti n-nabiyyīn",
+      "en": "Raise his station among the stations of the messengers, and his degree among the degrees of the prophets."
+    },
+    {
+      "ar": "وَاَسْئَلُكَ رِضَاكَ وَرِضَاهُ يَا رَبَّ الْعَالَمِينَ",
+      "tr": "Wa-asʾaluka riḍāka wa-riḍāh, yā Rabba l-ʿālamīn",
+      "en": "And I ask You for Your good pleasure and his, O Lord of the worlds."
+    },
+    {
+      "ar": "مَعَ الْعَافِيَةِ الدَّائِمَةِ وَالْمَوْتِ عَلٰى الْكِتَابِ وَالسُّنَّةِ وَالْجَمَاعَةِ",
+      "tr": "Maʿa l-ʿāfiyati d-dāʾimah, wa-l-mawti ʿalā l-Kitābi wa-s-Sunnati wa-l-jamāʿah",
+      "en": "Together with lasting well-being, and death upon the Book, the Sunnah and the community."
+    },
+    {
+      "ar": "وَكَلِمَتَيِ الشَّهَادَةِ عَلٰى تَحْقِيقِهَا مِنْ غَيْرِ تَغْيِيرٍ وَلَا تَبْدِيلٍ",
+      "tr": "Wa-kalimatayi sh-shahādati ʿalā taḥqīqihā min ghayri taghyīrin wa-lā tabdīl",
+      "en": "And upon the two words of the testimony, realised in truth, without change or alteration."
+    },
+    {
+      "ar": "وَاغْفِرْ لِي مَا ارْتَكَبْتُهُ بِمَنِّكَ وَفَضْلِكَ وَجُودِكَ وَكَرَمِكَ يَا اَكْرَمَ الْاَكْرَمِينَ",
+      "tr": "Wa-ghfir lī mā rtakabtuhu bi-mannika wa-faḍlika wa-jūdika wa-karamik, yā Akrama l-akramīn",
+      "en": "And forgive me what I have committed, by Your favour, Your grace, Your generosity and Your bounty, O Most Generous of the generous."
+    },
+    {
+      "ar": "وَصَلَّى اللّٰهُ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَاٰلِهِ وَصَحْبِهِ وَسَلَّمَ",
+      "tr": "Wa-ṣallā-Llāhu ʿalā sayyidinā Muḥammadin wa-ālihi wa-ṣaḥbihi wa-sallam",
+      "en": "And may Allah bless our master Muhammad, his family and his companions, and grant them peace."
+    },
+    {
+      "ar": "اَسْتَغْفِرُ اللّٰهَ الْعَظِيمَ (3)",
+      "tr": "Astaghfiru-Llāha l-ʿAẓīm (3)",
+      "en": "I seek the forgiveness of Allah, the Magnificent. (3)"
+    },
+    {
+      "ar": "سُبْحَانَ اللّٰهِ وَالْحَمْدُ لِلّٰهِ وَلَا اِلٰهَ اِلَّا اللّٰهُ وَاللّٰهُ اَكْبَرُ ۞ وَلَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللّٰهِ الْعَلِيِّ الْعَظِيمِ (3)",
+      "tr": "Subḥāna-Llāhi wa-l-ḥamdu li-Llāh, wa-lā ilāha illā-Llāhu wa-Llāhu akbar. Wa-lā ḥawla wa-lā quwwata illā bi-Llāhi l-ʿAliyyi l-ʿAẓīm (3)",
+      "en": "Glory be to Allah; praise belongs to Allah; there is no god but Allah; Allah is greater. There is no power and no strength save by Allah, the Most High, the Magnificent. (3)"
+    },
+    {
+      "ar": "حَسْبِيَ اللّٰهُ وَنِعْمَ الْوَكِيلُ (3)",
+      "tr": "Ḥasbiya-Llāhu wa-niʿma l-wakīl (3)",
+      "en": "Allah is enough for me, and how excellent a guardian. (3)"
+    },
+    {
+      "ar": "اَعُوذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيمِ ۞ بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ ۞ قُلْ هُوَ اللّٰهُ اَحَدٌ ۞ اَللّٰهُ الصَّمَدُ ۞ لَمْ يَلِدْ وَلَمْ يُولَدْ ۞ وَلَمْ يَكُنْ لَهُ كُفُوًا اَحَدٌ (3)",
+      "tr": "Aʿūdhu bi-Llāhi mina sh-shayṭāni r-rajīm. Bismi-Llāhi r-Raḥmāni r-Raḥīm. Qul huwa-Llāhu aḥad. Allāhu ṣ-Ṣamad. Lam yalid wa-lam yūlad. Wa-lam yakun lahu kufuwan aḥad (3)",
+      "en": "",
+      "note": "Sūrat al-Ikhlāṣ"
+    },
+    {
+      "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ ۞ قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ ۞ مِنْ شَرِّ مَا خَلَقَ ۞ وَمِنْ شَرِّ غَاسِقٍ اِذَا وَقَبَ ۞ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۞ وَمِنْ شَرِّ حَاسِدٍ اِذَا حَسَدَ",
+      "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm. Qul aʿūdhu bi-Rabbi l-falaq. Min sharri mā khalaq. Wa-min sharri ghāsiqin idhā waqab. Wa-min sharri n-naffāthāti fī l-ʿuqad. Wa-min sharri ḥāsidin idhā ḥasad",
+      "en": "",
+      "note": "Sūrat al-Falaq"
+    },
+    {
+      "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ ۞ قُلْ اَعُوذُ بِرَبِّ النَّاسِ ۞ مَلِكِ النَّاسِ ۞ اِلٰهِ النَّاسِ ۞ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۞ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۞ مِنَ الْجِنَّةِ وَالنَّاسِ",
+      "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm. Qul aʿūdhu bi-Rabbi n-nās. Maliki n-nās. Ilāhi n-nās. Min sharri l-waswāsi l-khannās. Alladhī yuwaswisu fī ṣudūri n-nās. Mina l-jinnati wa-n-nās",
+      "en": "",
+      "note": "Sūrat an-Nās"
+    },
+    {
+      "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ ۞ اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ ۞ اَلرَّحْمٰنِ الرَّحِيمِ ۞ مَالِكِ يَوْمِ الدِّينِ ۞ اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ ۞ اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۞ صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+      "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm. Al-ḥamdu li-Llāhi Rabbi l-ʿālamīn. Ar-Raḥmāni r-Raḥīm. Māliki yawmi d-dīn. Iyyāka naʿbudu wa-iyyāka nastaʿīn. Ihdinā ṣ-ṣirāṭa l-mustaqīm. Ṣirāṭa lladhīna anʿamta ʿalayhim, ghayri l-maghḍūbi ʿalayhim wa-lā ḍ-ḍāllīn",
+      "en": "",
+      "note": "Sūrat al-Fātiḥah"
+    },
+    {
+      "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ ۞ الٓمٓ ۞ ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِلْمُتَّقِينَ ۞ اَلَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ ۞ وَالَّذِينَ يُؤْمِنُونَ بِمَا اُنْزِلَ اِلَيْكَ وَمَا اُنْزِلَ مِنْ قَبْلِكَ وَبِالْاٰخِرَةِ هُمْ يُوقِنُونَ ۞ اُولٰئِكَ عَلٰى هُدًى مِنْ رَبِّهِمْ وَاُولٰئِكَ هُمُ الْمُفْلِحُونَ",
+      "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm. Alif Lām Mīm. Dhālika l-kitābu lā rayba fīh, hudan li-l-muttaqīn. Alladhīna yuʾminūna bi-l-ghaybi wa-yuqīmūna ṣ-ṣalāta wa-mimmā razaqnāhum yunfiqūn. Wa-lladhīna yuʾminūna bimā unzila ilayka wa-mā unzila min qablika wa-bi-l-ākhirati hum yūqinūn. Ulāʾika ʿalā hudan min Rabbihim wa-ulāʾika humu l-mufliḥūn",
+      "en": "",
+      "note": "Sūrat al-Baqarah 1–5"
+    }
+  ]
+}

@@ -1,0 +1,523 @@
+{
+  "titleArabic": "اَلْاَسْمَاءُ الْحُسْنَى ﷻ",
+  "titleEnglish": "The Names of Allah ﷻ",
+  "cartouche": "اَلْاَسْمَاءُ الْحُسْنَى ﷻ",
+  "note": "The ninety-nine Names, as set out in Dalāʾil al-Khayrāt.",
+  "folios": [
+    {
+      "from": 0,
+      "to": 50
+    },
+    {
+      "from": 51,
+      "to": 100
+    }
+  ],
+  "verses": [
+    {
+      "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ",
+      "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm",
+      "en": "In the name of Allah, the All-Merciful, the Most Merciful."
+    },
+    {
+      "ar": "هُوَ اللّٰهُ الَّذِى لَا اِلٰهَ اِلَّا هُوَ",
+      "tr": "Huwa-Llāhu lladhī lā ilāha illā Hū",
+      "en": "He is Allah, other than whom there is no god."
+    },
+    {
+      "ar": "الرَّحْمٰنُ",
+      "tr": "Ar-Raḥmān",
+      "en": "The All-Merciful"
+    },
+    {
+      "ar": "الرَّحِيمُ",
+      "tr": "Ar-Raḥīm",
+      "en": "The Most Merciful"
+    },
+    {
+      "ar": "الْمَلِكُ",
+      "tr": "Al-Malik",
+      "en": "The Sovereign"
+    },
+    {
+      "ar": "الْقُدُّوسُ",
+      "tr": "Al-Quddūs",
+      "en": "The Most Holy"
+    },
+    {
+      "ar": "السَّلَامُ",
+      "tr": "As-Salām",
+      "en": "The Source of Peace"
+    },
+    {
+      "ar": "الْمُؤْمِنُ",
+      "tr": "Al-Muʾmin",
+      "en": "The Giver of Faith and Safety"
+    },
+    {
+      "ar": "الْمُهَيْمِنُ",
+      "tr": "Al-Muhaymin",
+      "en": "The Guardian over all"
+    },
+    {
+      "ar": "الْعَزِيزُ",
+      "tr": "Al-ʿAzīz",
+      "en": "The Almighty"
+    },
+    {
+      "ar": "الْجَبَّارُ",
+      "tr": "Al-Jabbār",
+      "en": "The Compeller"
+    },
+    {
+      "ar": "الْمُتَكَبِّرُ",
+      "tr": "Al-Mutakabbir",
+      "en": "The Supreme in Greatness"
+    },
+    {
+      "ar": "الْخَالِقُ",
+      "tr": "Al-Khāliq",
+      "en": "The Creator"
+    },
+    {
+      "ar": "الْبَارِئُ",
+      "tr": "Al-Bāriʾ",
+      "en": "The Maker"
+    },
+    {
+      "ar": "الْمُصَوِّرُ",
+      "tr": "Al-Muṣawwir",
+      "en": "The Fashioner of Forms"
+    },
+    {
+      "ar": "الْغَفَّارُ",
+      "tr": "Al-Ghaffār",
+      "en": "The Ever-Forgiving"
+    },
+    {
+      "ar": "الْقَهَّارُ",
+      "tr": "Al-Qahhār",
+      "en": "The Subduer"
+    },
+    {
+      "ar": "الْوَهَّابُ",
+      "tr": "Al-Wahhāb",
+      "en": "The Bestower"
+    },
+    {
+      "ar": "الرَّزَّاقُ",
+      "tr": "Ar-Razzāq",
+      "en": "The Provider"
+    },
+    {
+      "ar": "الْفَتَّاحُ",
+      "tr": "Al-Fattāḥ",
+      "en": "The Opener"
+    },
+    {
+      "ar": "الْعَلِيمُ",
+      "tr": "Al-ʿAlīm",
+      "en": "The All-Knowing"
+    },
+    {
+      "ar": "الْقَابِضُ",
+      "tr": "Al-Qābiḍ",
+      "en": "The Constrictor"
+    },
+    {
+      "ar": "الْبَاسِطُ",
+      "tr": "Al-Bāsiṭ",
+      "en": "The Expander"
+    },
+    {
+      "ar": "الْخَافِضُ",
+      "tr": "Al-Khāfiḍ",
+      "en": "The Abaser"
+    },
+    {
+      "ar": "الرَّافِعُ",
+      "tr": "Ar-Rāfiʿ",
+      "en": "The Exalter"
+    },
+    {
+      "ar": "الْمُعِزُّ",
+      "tr": "Al-Muʿizz",
+      "en": "The Giver of Honour"
+    },
+    {
+      "ar": "الْمُذِلُّ",
+      "tr": "Al-Mudhill",
+      "en": "The Giver of Abasement"
+    },
+    {
+      "ar": "السَّمِيعُ",
+      "tr": "As-Samīʿ",
+      "en": "The All-Hearing"
+    },
+    {
+      "ar": "الْبَصِيرُ",
+      "tr": "Al-Baṣīr",
+      "en": "The All-Seeing"
+    },
+    {
+      "ar": "الْحَكَمُ",
+      "tr": "Al-Ḥakam",
+      "en": "The Judge"
+    },
+    {
+      "ar": "الْعَدْلُ",
+      "tr": "Al-ʿAdl",
+      "en": "The Utterly Just"
+    },
+    {
+      "ar": "اللَّطِيفُ",
+      "tr": "Al-Laṭīf",
+      "en": "The Subtle and Kind"
+    },
+    {
+      "ar": "الْخَبِيرُ",
+      "tr": "Al-Khabīr",
+      "en": "The All-Aware"
+    },
+    {
+      "ar": "الْحَلِيمُ",
+      "tr": "Al-Ḥalīm",
+      "en": "The Forbearing"
+    },
+    {
+      "ar": "الْعَظِيمُ",
+      "tr": "Al-ʿAẓīm",
+      "en": "The Magnificent"
+    },
+    {
+      "ar": "الْغَفُورُ",
+      "tr": "Al-Ghafūr",
+      "en": "The Forgiving"
+    },
+    {
+      "ar": "الشَّكُورُ",
+      "tr": "Ash-Shakūr",
+      "en": "The Most Appreciative"
+    },
+    {
+      "ar": "الْعَلِىُّ",
+      "tr": "Al-ʿAliyy",
+      "en": "The Most High"
+    },
+    {
+      "ar": "الْكَبِيرُ",
+      "tr": "Al-Kabīr",
+      "en": "The Most Great"
+    },
+    {
+      "ar": "الْحَفِيظُ",
+      "tr": "Al-Ḥafīẓ",
+      "en": "The Preserver"
+    },
+    {
+      "ar": "الْمُقِيتُ",
+      "tr": "Al-Muqīt",
+      "en": "The Sustainer"
+    },
+    {
+      "ar": "الْحَسِيبُ",
+      "tr": "Al-Ḥasīb",
+      "en": "The Reckoner"
+    },
+    {
+      "ar": "الْجَلِيلُ",
+      "tr": "Al-Jalīl",
+      "en": "The Majestic"
+    },
+    {
+      "ar": "الْكَرِيمُ",
+      "tr": "Al-Karīm",
+      "en": "The Generous"
+    },
+    {
+      "ar": "الرَّقِيبُ",
+      "tr": "Ar-Raqīb",
+      "en": "The Watchful"
+    },
+    {
+      "ar": "الْمُجِيبُ",
+      "tr": "Al-Mujīb",
+      "en": "The Responsive"
+    },
+    {
+      "ar": "الْوَاسِعُ",
+      "tr": "Al-Wāsiʿ",
+      "en": "The All-Encompassing"
+    },
+    {
+      "ar": "الْحَكِيمُ",
+      "tr": "Al-Ḥakīm",
+      "en": "The All-Wise"
+    },
+    {
+      "ar": "الْوَدُودُ",
+      "tr": "Al-Wadūd",
+      "en": "The Loving"
+    },
+    {
+      "ar": "الْمَجِيدُ",
+      "tr": "Al-Majīd",
+      "en": "The Glorious"
+    },
+    {
+      "ar": "الْبَاعِثُ",
+      "tr": "Al-Bāʿith",
+      "en": "The Raiser of the Dead"
+    },
+    {
+      "ar": "الشَّهِيدُ",
+      "tr": "Ash-Shahīd",
+      "en": "The Witness"
+    },
+    {
+      "ar": "الْحَقُّ",
+      "tr": "Al-Ḥaqq",
+      "en": "The Truth"
+    },
+    {
+      "ar": "الْوَكِيلُ",
+      "tr": "Al-Wakīl",
+      "en": "The Trustee"
+    },
+    {
+      "ar": "الْقَوِىُّ",
+      "tr": "Al-Qawiyy",
+      "en": "The Most Strong"
+    },
+    {
+      "ar": "الْمَتِينُ",
+      "tr": "Al-Matīn",
+      "en": "The Firm"
+    },
+    {
+      "ar": "الْوَلِىُّ",
+      "tr": "Al-Waliyy",
+      "en": "The Protecting Friend"
+    },
+    {
+      "ar": "الْحَمِيدُ",
+      "tr": "Al-Ḥamīd",
+      "en": "The Praiseworthy"
+    },
+    {
+      "ar": "الْمُحْصِى",
+      "tr": "Al-Muḥṣī",
+      "en": "The Reckoner of all things"
+    },
+    {
+      "ar": "الْمُبْدِئُ",
+      "tr": "Al-Mubdiʾ",
+      "en": "The Originator"
+    },
+    {
+      "ar": "الْمُعِيدُ",
+      "tr": "Al-Muʿīd",
+      "en": "The Restorer"
+    },
+    {
+      "ar": "الْمُحْيِى",
+      "tr": "Al-Muḥyī",
+      "en": "The Giver of Life"
+    },
+    {
+      "ar": "الْمُمِيتُ",
+      "tr": "Al-Mumīt",
+      "en": "The Giver of Death"
+    },
+    {
+      "ar": "الْحَىُّ",
+      "tr": "Al-Ḥayy",
+      "en": "The Ever-Living"
+    },
+    {
+      "ar": "الْقَىُّومُ",
+      "tr": "Al-Qayyūm",
+      "en": "The Self-Subsisting"
+    },
+    {
+      "ar": "الْوَاجِدُ",
+      "tr": "Al-Wājid",
+      "en": "The Finder"
+    },
+    {
+      "ar": "الْمَاجِدُ",
+      "tr": "Al-Mājid",
+      "en": "The Noble"
+    },
+    {
+      "ar": "الْوَاحِدُ",
+      "tr": "Al-Wāḥid",
+      "en": "The One"
+    },
+    {
+      "ar": "الْاَحَدُ",
+      "tr": "Al-Aḥad",
+      "en": "The Unique"
+    },
+    {
+      "ar": "الصَّمَدُ",
+      "tr": "Aṣ-Ṣamad",
+      "en": "Upon whom all depend"
+    },
+    {
+      "ar": "الْقَادِرُ",
+      "tr": "Al-Qādir",
+      "en": "The Able"
+    },
+    {
+      "ar": "الْمُقْتَدِرُ",
+      "tr": "Al-Muqtadir",
+      "en": "The Omnipotent"
+    },
+    {
+      "ar": "الْمُقَدِّمُ",
+      "tr": "Al-Muqaddim",
+      "en": "The Expediter"
+    },
+    {
+      "ar": "الْمُؤَخِّرُ",
+      "tr": "Al-Muʾakhkhir",
+      "en": "The Delayer"
+    },
+    {
+      "ar": "الْاَوَّلُ",
+      "tr": "Al-Awwal",
+      "en": "The First"
+    },
+    {
+      "ar": "الْاٰخِرُ",
+      "tr": "Al-Ākhir",
+      "en": "The Last"
+    },
+    {
+      "ar": "الظَّاهِرُ",
+      "tr": "Aẓ-Ẓāhir",
+      "en": "The Manifest"
+    },
+    {
+      "ar": "الْبَاطِنُ",
+      "tr": "Al-Bāṭin",
+      "en": "The Hidden"
+    },
+    {
+      "ar": "الْوَالِى",
+      "tr": "Al-Wālī",
+      "en": "The Governor"
+    },
+    {
+      "ar": "الْمُتَعَالِى",
+      "tr": "Al-Mutaʿālī",
+      "en": "The Most Exalted"
+    },
+    {
+      "ar": "الْبَرُّ",
+      "tr": "Al-Barr",
+      "en": "The Source of Goodness"
+    },
+    {
+      "ar": "التَّوَّابُ",
+      "tr": "At-Tawwāb",
+      "en": "The Ever-Relenting"
+    },
+    {
+      "ar": "الْمُنْتَقِمُ",
+      "tr": "Al-Muntaqim",
+      "en": "The Avenger"
+    },
+    {
+      "ar": "الْعَفُوُّ",
+      "tr": "Al-ʿAfuww",
+      "en": "The Pardoner"
+    },
+    {
+      "ar": "الرَّءُوفُ",
+      "tr": "Ar-Raʾūf",
+      "en": "The Compassionate"
+    },
+    {
+      "ar": "مَالِكُ الْمُلْكِ",
+      "tr": "Mālik al-Mulk",
+      "en": "Master of the Kingdom"
+    },
+    {
+      "ar": "ذُو الْجَلَالِ وَالْاِكْرَامِ",
+      "tr": "Dhū l-Jalāli wa-l-Ikrām",
+      "en": "Possessor of Majesty and Generosity"
+    },
+    {
+      "ar": "الْمُقْسِطُ",
+      "tr": "Al-Muqsiṭ",
+      "en": "The Equitable"
+    },
+    {
+      "ar": "الْجَامِعُ",
+      "tr": "Al-Jāmiʿ",
+      "en": "The Gatherer"
+    },
+    {
+      "ar": "الْغَنِىُّ",
+      "tr": "Al-Ghaniyy",
+      "en": "The Self-Sufficient"
+    },
+    {
+      "ar": "الْمُغْنِى",
+      "tr": "Al-Mughnī",
+      "en": "The Enricher"
+    },
+    {
+      "ar": "الْمَانِعُ",
+      "tr": "Al-Māniʿ",
+      "en": "The Preventer"
+    },
+    {
+      "ar": "الضَّارُّ",
+      "tr": "Aḍ-Ḍārr",
+      "en": "The Bringer of Harm"
+    },
+    {
+      "ar": "النَّافِعُ",
+      "tr": "An-Nāfiʿ",
+      "en": "The Bringer of Benefit"
+    },
+    {
+      "ar": "النُّورُ",
+      "tr": "An-Nūr",
+      "en": "The Light"
+    },
+    {
+      "ar": "الْهَادِى",
+      "tr": "Al-Hādī",
+      "en": "The Guide"
+    },
+    {
+      "ar": "الْبَدِيعُ",
+      "tr": "Al-Badīʿ",
+      "en": "The Originator without precedent"
+    },
+    {
+      "ar": "الْبَاقِى",
+      "tr": "Al-Bāqī",
+      "en": "The Everlasting"
+    },
+    {
+      "ar": "الْوَارِثُ",
+      "tr": "Al-Wārith",
+      "en": "The Inheritor"
+    },
+    {
+      "ar": "الرَّشِيدُ",
+      "tr": "Ar-Rashīd",
+      "en": "The Guide to the right way"
+    },
+    {
+      "ar": "الصَّبُورُ",
+      "tr": "Aṣ-Ṣabūr",
+      "en": "The Patient"
+    }
+  ]
+}

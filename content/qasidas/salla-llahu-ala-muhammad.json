@@ -1,0 +1,44 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "صَلَّى اللّٰهُ عَلٰى مُحَمَّدْ",
+  "titleEnglish": "17 · Ṣallā-Llāhu ʿalā Muḥammad",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "صَلَّى اللّٰهُ عَلٰى مُحَمَّدْ ۞ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمْ (٢x)",
+      "tr": "Ṣallā-Llāhu ʿalā Muḥammad · Ṣallā-Llāhu ʿalayhi wa sallam (2x)",
+      "en": "Allah's blessings be upon Muhammad; Allah bless him and grant him peace."
+    },
+    {
+      "ar": "رَبِّ وَاجْعَلْ مُجْتَمَعْنَا ۞ غَايَتُهُ حُسْنُ الْخِتَامِ",
+      "tr": "Rabbi wa-jʿal mujtamaʿnā · ghāyatuhu ḥusnu-l-khitāmi",
+      "en": "My Lord, make the goal of our gathering the best of endings."
+    },
+    {
+      "ar": "وَاعْطِنَا مَا قَدْ سَأَلْنَا ۞ مِنْ عَطَايَاكَ الْجِسَامِ",
+      "tr": "Wa-ʿṭinā mā qad sa'alnā · min ʿaṭāyāka-l-jisāmi",
+      "en": "And grant us what we have asked of Your immense gifts."
+    },
+    {
+      "ar": "وَاكْرِمِ الْأَرْوَاحَ مِنَّا ۞ بِلِقَا خَيْرِ الْأَنَامِ",
+      "tr": "Wa-krimi-l-arwāḥa minnā · bi-liqā khayri-l-anāmi",
+      "en": "Honor our souls with the meeting of the best of created beings."
+    },
+    {
+      "ar": "وَابْلِغِ الْمُخْتَارَ عَنَّا ۞ مِنْ صَلَاةٍ وَسَلَامِ",
+      "tr": "Wa-blighi-l-mukhtāra ʿannā · min ṣalātin wa salāmi",
+      "en": "And convey to the Chosen One, from us, blessings and greetings of peace."
+    },
+    {
+      "ar": "يَا اللّٰهُ يَا مُحَمَّدْ ۞ يَا أَبَا بَكْرٍ يَا صِدِّيقْ",
+      "tr": "Yā Allāhu yā Muḥammad · Yā Abā Bakrin yā Ṣiddīq",
+      "en": "O Allah, O Muhammad ﷺ; O Abu Bakr, O ever-truthful one."
+    },
+    {
+      "ar": "يَا عُمَرْ عُثْمَانْ يَا عَلِي ۞ فَاطِمَةْ بِنْتَ الرَّسُولِ",
+      "tr": "Yā ʿUmar ʿUthmān yā ʿAlī · Fāṭimah binta-r-Rasūli",
+      "en": "O Umar, Uthman, O Ali; O Fatima, daughter of the Messenger."
+    }
+  ]
+}
