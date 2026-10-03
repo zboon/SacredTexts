@@ -353,6 +353,22 @@
   .placeholder .ph-star{font-family:'UthmanicHafs','Amiri',serif;font-size:2.4rem;color:var(--gold);margin-bottom:.6rem}
   .placeholder strong{color:var(--theme);font-size:1.05rem}
   .placeholder p{margin:.5rem 0}
+  /* Texts that couldn't be loaded: a notice pinned to the foot of the screen,
+     outside #app so re-renders leave it alone, naming each failed file. */
+  .load-notice{
+    position:fixed;left:50%;bottom:1rem;transform:translateX(-50%);z-index:1000;
+    width:min(34rem,calc(100% - 2rem));max-height:40vh;overflow:auto;
+    background:var(--card);color:var(--ink);border:1px solid var(--gold);border-radius:12px;
+    box-shadow:0 6px 24px rgba(0,0,0,.2);padding:.8rem 2.6rem .8rem 1rem;font-size:.85rem;line-height:1.45;
+  }
+  .load-notice ul{margin:.4rem 0 0;padding-left:1.1rem}
+  .load-notice li{overflow-wrap:anywhere}
+  .load-notice-x{position:absolute;top:.35rem;right:.45rem;border:0;background:none;color:var(--ink-soft);font-size:1.1rem;padding:.3rem;cursor:pointer}
+  .load-failed .retry{padding:.55rem 1.3rem;border:0;border-radius:9px;background:var(--theme);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+  .load-failed .load-detail{font-size:.8rem;overflow-wrap:anywhere}
+  /* Outside any section --theme is the green, which in dark mode barely shows
+     on the page; the failure screen's heading must read in both themes. */
+  html.dark .load-failed strong{color:var(--ink)}
 
   /* ---------- index list ---------- */
   .index{max-width:640px;margin:0 auto;padding:1.4rem 1.1rem calc(env(safe-area-inset-bottom,0px) + 3rem)}
@@ -1349,9 +1365,18 @@ async function loadSection({ folder, pieces }){
   catch(e){ return [e.message]; }
   if(!Array.isArray(names)) return [dir + 'index.json: should be a list of file names'];
   const results = await Promise.allSettled(names.map(name => fetchJSON(dir + name + '.json')));
-  const errors = results.filter(r => r.status === 'rejected').map(r => r.reason.message);
+  const errors = [];
+  results.forEach((r, i) => {
+    if(r.status === 'rejected') errors.push(r.reason.message);
+    else if(!isPiece(r.value)) errors.push(dir + names[i] + '.json: needs "titleEnglish" (text) and "verses" (a list)');
+  });
   if(!errors.length) pieces.push(...results.map(r => r.value));
   return errors;
+}
+
+/* The least a piece needs: search and the readers rely on both. */
+function isPiece(p){
+  return !!p && typeof p === 'object' && typeof p.titleEnglish === 'string' && Array.isArray(p.verses);
 }
 
 /* Every section, in parallel. nothingLoaded: not one section arrived. */
@@ -2825,7 +2850,7 @@ function renderResults(){
   if(tab === 'qasidas') return backToPraises() + sectionIntro('qasidas') + (additionalQasidaCards() || placeholder('Qasidas'));
   if(tab === 'ilahis')  return backToPraises() + sectionIntro('ilahis') + label('Select an ilahi · ilahi seçin') + ilahiCards();
   if(tab === 'litanies')return backToDalail() + sectionIntro('litanies') + label('Select a litany · اختر حزباً') + litanyCards();
-  if(tab === 'before')  return backToDalail() + label('Before the reading · قَبْلَ الْقِرَاءَةِ') + dalailBeforeCards();
+  if(tab === 'before')  return backToDalail() + label('Before the reading · قَبْلَ الْقِرَاءَةِ') + (DALAIL_CHAPTERS.length ? dalailBeforeCards() : placeholder('Before the reading'));
   if(tab === 'downloads') return downloadsScreen();
   if(tab === 'azam')    return backToLitanies() + collectionLabel(AZAM_TITLE_IDX) + azamIndex();
   if(tab === 'istighfar') return backToLitanies() + collectionLabel(ISTIGHFAR_TITLE_IDX) + istighfarIndex();
@@ -2846,7 +2871,8 @@ function renderResults(){
     return backToMawlids() + sectionIntro('diya') + label('Select a section · اختر فصلاً') + diyaCards();
   }
   if(tab === 'dalail'){
-    return dalailIndex();
+    /* Empty only when its files failed to load; the index assumes its portions. */
+    return DALAIL_CHAPTERS.length ? dalailIndex() : placeholder('Dalāʾil al-Khayrāt');
   }
   if(tab === 'ilahi'){
     return sectionIntro('ilahi') + label('Select an ilahi · ilahi seçin') + ilahiCards();
@@ -6040,14 +6066,39 @@ function scaleLatin(dir,kind,i){
 }
 
 /* Startup: the texts first, then everything that shows them. */
-loadContent().then(({ errors }) => {
+loadContent().then(({ errors, nothingLoaded }) => {
   errors.forEach(e => console.error('Content: ' + e));
+  if(nothingLoaded){ showLoadFailure(errors); return; }
+  if(errors.length) showLoadNotice(errors);
   start();
 });
 
 function start(){
   renderIndex();
   joinFromLink();
+}
+
+/* Some texts couldn't be loaded: say which, at the foot of the screen. It
+   lives outside #app, so re-renders leave it alone until it's dismissed. */
+function showLoadNotice(errors){
+  const notice = document.createElement('div');
+  notice.className = 'load-notice';
+  notice.setAttribute('role', 'alert');
+  notice.innerHTML = `<button class="load-notice-x" onclick="this.parentNode.remove()" aria-label="Dismiss">✕</button>
+    <strong>Some texts couldn't be loaded</strong>
+    <ul>${errors.map(e => `<li>${escHTML(e)}</li>`).join('')}</ul>`;
+  document.body.appendChild(notice);
+}
+
+/* Not one section arrived, typically on a first visit with no connection. */
+function showLoadFailure(errors){
+  app.innerHTML = `<div class="placeholder load-failed">
+      <div class="ph-star">۞</div>
+      <p><strong>The texts couldn't be loaded</strong></p>
+      <p>Check your connection, then try again.</p>
+      <p><button class="retry" onclick="location.reload()">Try again</button></p>
+      <p class="load-detail">${escHTML(errors[0] || '')}</p>
+    </div>`;
 }
 
 /* Opened from a shared session link (…/#s=4821)? Land on the session screen and
