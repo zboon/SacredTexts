@@ -1,0 +1,53 @@
+{
+  "category": "dua",
+  "group": "duas",
+  "titleArabic": "الْاِفْتِتَاح",
+  "titleEnglish": "1 · The Opening",
+  "verses": [
+    {
+      "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ\nالفَاتِحَةُ لَنَا وَلَكُمْ يَا حَاضِرِينْ",
+      "tr": "Bismillāhi-r-Raḥmāni-r-Raḥīm · Al-Fātiḥatu lanā wa-lakum yā ḥāḍirīn",
+      "en": "In the name of Allah, the Most Merciful, the Most Compassionate. Recite the Fatiha — for us and for you, O those present."
+    },
+    {
+      "ar": "وَلِوَالِدِينَا وَوَالِدِيكُمْ، وَلِأَهَالِينَا وَلِأَوْلَادِنَا",
+      "tr": "Wa li-wālidīnā wa-wālidīkum, wa li-ahālīnā wa li-awlādinā",
+      "en": "And for our parents and yours, for our families and our children."
+    },
+    {
+      "ar": "وَلِمَشَايِخِنَا وَلِمَنْ حَضَرَنَا وَلِمَنْ غَابَ عَنَّا",
+      "tr": "Wa li-mashāyikhinā wa liman ḥaḍaranā wa liman ghāba ʿannā",
+      "en": "And for our shaykhs, for those here with us, and for those absent."
+    },
+    {
+      "ar": "وَلِأَحْيَائِنَا وَلِأَمْوَاتِنَا وَلِلْمُوَاظِبِينَ عَلٰى هٰذَا الْمَجْلِسِ وَلِمَنْ كَانَ سَبَبًا فِي جَمْعِنَا",
+      "tr": "Wa li-aḥyā'inā wa li-amwātinā wa li-l-muwāẓibīna ʿalā hādhā-l-majlis wa liman kāna sababan fī jamʿinā",
+      "en": "For our living and our departed, for those constant in attending this gathering, and for whoever was a cause of our coming together."
+    },
+    {
+      "ar": "بِأَنَّ اللّٰهَ الْكَرِيمَ يُنَوِّرُ الْقُلُوبْ، وَيَغْفِرُ الذُّنُوبْ، وَيَسْتُرُ الْعُيُوبْ، وَيَحْفَظُنَا بِمَا حَفِظَ بِهِ الذِّكْرْ، وَيَنْصُرُنَا بِمَا نَصَرَ بِهِ الرُّسُلْ",
+      "tr": "Bi-anna-Llāha-l-karīma yunawwiru-l-qulūb, wa yaghfiru-dh-dhunūb, wa yasturu-l-ʿuyūb, wa yaḥfaẓunā bimā ḥafiẓa bihi-dh-dhikr, wa yanṣurunā bimā naṣara bihi-r-rusul",
+      "en": "That Allah the Generous illuminate the hearts, forgive the sins, veil the faults, guard us as He guarded His Remembrance, and grant us the victory He granted His messengers."
+    },
+    {
+      "ar": "وَأَنَّ اللّٰهَ الْكَرِيمَ يَجْعَلُ مَجْلِسَنَا هٰذَا مُحَاطًا بِالْخَيْرَاتِ وَالْمَسَرَّاتِ وَالْأَنْوَارِ وَالْبَرَكَاتْ، وَيَقْضِي لَنَا جَمِيعَ الْحَاجَاتْ، بِجَاهِ خَيْرِ الْبَرِيَّاتْ",
+      "tr": "Wa anna-Llāha-l-karīma yajʿalu majlisanā hādhā muḥāṭan bi-l-khayrāti wa-l-masarrāti wa-l-anwāri wa-l-barakāt, wa yaqḍī lanā jamīʿa-l-ḥājāt, bi-jāhi khayri-l-bariyyāt",
+      "en": "And that Allah the Generous surround this gathering of ours with goodness, joy, lights and blessings, and fulfill all our needs — for the sake of the best of creation."
+    },
+    {
+      "ar": "وَأَنَّ اللّٰهَ يَنْصُرُ الْمُسْلِمِينْ",
+      "tr": "Wa anna-Llāha yanṣuru-l-muslimīn",
+      "en": "And that Allah give victory to the Muslims."
+    },
+    {
+      "ar": "وَعَلٰى نِيَّةِ أَنَّ اللّٰهَ الْكَرِيمَ يَنْصُرُ سُلْطَانَ الْأَوْلِيَاءْ، الشَّيْخ مُحَمَّد نَاظِم عَادِل الْحَقَّانِي، وَيَحْفَظُهُ وَيُوَفِّقُهُ عَلٰى الدَّوَامِ بِجَاهِ خَيْرِ الْأَنَامْ",
+      "tr": "Wa ʿalā niyyati anna-Llāha-l-karīma yanṣuru sulṭāna-l-awliyā', ash-Shaykh Muḥammad Nāẓim ʿĀdil al-Ḥaqqānī, wa yaḥfaẓuhu wa yuwaffiquhu ʿalā-d-dawām bi-jāhi khayri-l-anām",
+      "en": "And with the intention that Allah the Generous support the Sultan of Saints, Shaykh Muhammad Nazim Adil al-Haqqani, and preserve him and grant him success always, for the sake of the best of mankind."
+    },
+    {
+      "ar": "وَعَلٰى كُلِّ نِيَّةٍ صَالِحَةٍ مَعْ حُسْنِ الْخَاتِمَةِ عِنْدَ الْمَوْتِ بَعْدَ الْعُمْرِ الْمَدِيدِ فِي طَاعَةِ اللّٰهِ، وَإِلَى حَضْرَةِ النَّبِيِّ ﷺ ۞ الْفَاتِحَةْ",
+      "tr": "Wa ʿalā kulli niyyatin ṣāliḥatin maʿ ḥusni-l-khātimah ʿinda-l-mawt baʿda-l-ʿumri-l-madīd fī ṭāʿati-Llāh, wa ilā ḥaḍrati-n-Nabiyy ﷺ · al-Fātiḥah",
+      "en": "And upon every righteous intention, with the best of endings at death after a long life spent in obedience to Allah — and offered to the presence of the Prophet ﷺ: al-Fatiha."
+    }
+  ]
+}

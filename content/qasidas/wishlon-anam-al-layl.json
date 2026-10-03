@@ -1,0 +1,41 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "وِشْلُون أَنَام اللَّيل",
+  "titleEnglish": "Wishlōn Anām al-Layl — How Can I Sleep at Night?",
+  "note": "A traditional Iraqi qasida in praise of the Prophet ﷺ. Repeat the refrain after each verse.",
+  "video": "https://www.youtube.com/watch?v=BKg_kuVeZig",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "وِشْلُون أَنَام اللَّيل وِشْلُون أَنَامَه ۞ حَبِيبِي مُحَمَّد جَوْهَر كَلَامَه",
+      "tr": "Wishlōn anām il-layl, wishlōn anāmuh · Ḥabībī Muḥammad, jawhar kalāmuh",
+      "en": "How can I sleep at night — how could I ever sleep? My beloved is Muhammad, whose words are jewels."
+    },
+    {
+      "ar": "سَفِّن بِاللهْ يَا سَفَّان دِير السَّفِينَة ۞ أَنْوَار أَبِي الْقَاسِم لَاحَت عَلَيْنَا",
+      "tr": "Saffin billāh yā saffān, dīr is-safīna · Anwār Abī l-Qāsim lāḥat ʿalaynā",
+      "en": "Set sail in God's name, O sailor — turn the ship! The lights of Abū l-Qāsim have dawned upon us."
+    },
+    {
+      "ar": "يَا رَافِق الْعُرْبَان وَاشْرَب لَبَنْهِن ۞ كُل الصَّحَابَة نْجُوم، طٰهٰ قَمَرْهِن",
+      "tr": "Yā rāfiq il-ʿurbān w-ishrab labanhin · Kull iṣ-ṣaḥāba njūm, Ṭāhā qamarhin",
+      "en": "O you who travel with the Bedouin and drink their milk — all the Companions are stars, and Ṭāhā is their moon."
+    },
+    {
+      "ar": "يَا طَيْر الطَّايِر فُوگ أَبْيَض يَا بُو جْنَاح ۞ سَلِّم عَلٰى أَبِي الزَّهْرَاء گُلَّه الْعُمُر رَاح",
+      "tr": "Yā ṭayr iṭ-ṭāyir fōg, abyaḍ yā bū jnāḥ · Sallim ʿalā Abī z-Zahrāʾ, gulluh il-ʿumur rāḥ",
+      "en": "O bird soaring above, white one with wings — greet the father of Zahrāʾ; tell him life has slipped away."
+    },
+    {
+      "ar": "يَا طَيْر الطَّايِر فُوگ أَخْضَر يَا بُو رِيش ۞ سَلِّم عَلٰى طٰهٰ گُلَّه دَرَاوِيش",
+      "tr": "Yā ṭayr iṭ-ṭāyir fōg, akhḍar yā bū rīsh · Sallim ʿalā Ṭāhā, gulluh darāwīsh",
+      "en": "O bird soaring above, green one with feathers — greet Ṭāhā; tell him we've become dervishes, poor wanderers in love."
+    },
+    {
+      "ar": "مَا أَرِيد أَمُوت الْيَوم، كَفْنِي عَبَاتِي ۞ دِزُّوا عَلٰى طٰهٰ يِحْضَر وَفَاتِي",
+      "tr": "Mā arīd amūt il-yōm, kafnī ʿabātī · Dizzū ʿalā Ṭāhā yiḥḍar wafātī",
+      "en": "I don't wish to die today — my cloak is my only shroud; send word to Ṭāhā, that he may attend my passing."
+    }
+  ]
+}

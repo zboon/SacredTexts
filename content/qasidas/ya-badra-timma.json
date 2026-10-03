@@ -1,0 +1,39 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا بَدْرُ تَمَّ",
+  "titleEnglish": "25 · Yā Badra Timma",
+  "verses": [
+    {
+      "ar": "يَا بَدْرُ تَمَّ فَحَازَ كُلَّ كَمَالِ ۞ مَاذَا يُعَبِّرُ عَنْ عُلَاكَ مَقَالِي",
+      "tr": "Yā badru tamma fa-ḥāza kulla kamāli · mādhā yuʿabbiru ʿan ʿulāka maqālī",
+      "en": "O full moon, complete, having gathered every perfection — what can my speech convey of your loftiness?"
+    },
+    {
+      "ar": "أَنْتَ الَّذِي أَشْرَقْتَ فِي أُفُقِ الْعُلَا ۞ فَمَحَوْتَ بِالْأَنْوَارِ كُلَّ ضَلَالِ",
+      "tr": "Anta lladhī ashraqta fī ufuqi l-ʿulā · fa-maḥawta bi-l-anwāri kulla ḍalāli",
+      "en": "You are the one who rose in the horizon of the heights, and with your lights you effaced every misguidance."
+    },
+    {
+      "ar": "وَبِكَ اسْتَنَارَ الْكَوْنُ يَا عَلَمَ الْهُدَى ۞ بِالنُّورِ وَالْإِنْعَامِ وَالْإِفْضَالِ",
+      "tr": "Wa bika-stanāra l-kawnu yā ʿalama l-hudā · bi-n-nūri wa l-inʿāmi wa l-ifḍāli",
+      "en": "Through you the universe was lit, O banner of guidance — with light, with blessing, and with bounty."
+    },
+    {
+      "ar": "صَلَّى عَلَيْكَ اللّٰهُ رَبِّي دَائِمًا ۞ أَبَدًا مَعَ الْإِبْكَارِ وَالْآصَالِ",
+      "tr": "Ṣallā ʿalayka-Llāhu Rabbī dāʾiman · abadan maʿa l-ibkāri wa l-āṣāli",
+      "en": "May Allah, my Lord, send blessings upon you always and forever, at every dawn and every evening,"
+    },
+    {
+      "ar": "وَعَلٰى جَمِيعِ الْآلِ وَالْأَصْحَابِ مَنْ ۞ قَدْ خَصَّهُمْ رَبُّ الْعُلَا بِكَمَالِ",
+      "tr": "Wa ʿalā jamīʿi l-āli wa l-aṣḥābi man · qad khaṣṣahum Rabbu l-ʿulā bi-kamāli",
+      "en": "and upon all the family and the companions, whom the Lord of the heights singled out with perfection."
+    },
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, bless him, grant him peace, and pour Your blessings upon him and his family."
+    }
+  ]
+}

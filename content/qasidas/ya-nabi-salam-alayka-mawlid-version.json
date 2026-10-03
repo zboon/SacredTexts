@@ -1,0 +1,54 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا نَبِي سَلَامْ عَلَيْكَ",
+  "titleEnglish": "13 · Yā Nabī Salām ʿAlayka — Mawlid version (Ashraqa-l-kawn)",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "يَا نَبِي سَلَامْ عَلَيْكَ\nيَا رَسُولْ سَلَامْ عَلَيْكَ\nيَا حَبِيبْ سَلَامْ عَلَيْكَ\nيَا رَسُولَ اللّٰه\nصَلَوَاتُ اللّٰهْ عَلَيْكَ",
+      "tr": "Yā Nabī salām ʿalayka · Yā Rasūl salām ʿalayka · Yā Ḥabīb salām ʿalayka · Yā Rasūlallāh · Ṣalawātullāh ʿalayka",
+      "en": "O Prophet, peace be upon you; O Messenger, peace be upon you; O Beloved, peace be upon you; O Messenger of Allah — the blessings of Allah be upon you."
+    },
+    {
+      "ar": "أَشْرَقَ الْكَوْنُ ابْتِهَاجًا ۞ بِوُجُودِ الْمُصْطَفَى أَحْمَدْ",
+      "tr": "Ashraqa-l-kawnu-btihājā · bi-wujūdi-l-Muṣṭafā Aḥmad",
+      "en": "The universe lit up with joy at the coming of the Chosen One, Ahmad."
+    },
+    {
+      "ar": "وَلِأَهْلِ الْكَوْنِ أُنْسٌ ۞ وَسُرُورٌ قَدْ تَجَدَّدْ",
+      "tr": "Wa li-ahli-l-kawni unsun · wa surūrun qad tajaddad",
+      "en": "For all who dwell in creation there is intimacy, and a joy made ever new."
+    },
+    {
+      "ar": "فَاطْرَبُوا يَا أَهْلَ الْمَثَانِي ۞ فَهَزَارُ الْيُمْنِ غَرَّدْ",
+      "tr": "Fa-ṭrabū yā ahla-l-mathānī · fa-hazāru-l-yumni gharrad",
+      "en": "So rejoice, O people of the oft-repeated verses — the nightingale of blessedness has burst into song."
+    },
+    {
+      "ar": "وَاسْتَضِيئُوا بِجَمَالٍ ۞ فَاقَ فِي الْحُسْنِ تَفَرَّدْ",
+      "tr": "Wa-staḍī'ū bi-jamālin · fāqa fī-l-ḥusni tafarrad",
+      "en": "And seek light from a beauty that surpasses all — unique and unrivaled in loveliness."
+    },
+    {
+      "ar": "وَلَنَا الْبُشْرَى بِسَعْدٍ ۞ مُسْتَمِرٍّ لَيْسَ يَنْفَدْ",
+      "tr": "Wa lanā-l-bushrā bi-saʿdin · mustamirrin laysa yanfad",
+      "en": "Ours is the glad tiding of a happiness that continues and never runs out."
+    },
+    {
+      "ar": "حَيْثُ أُوتِينَا عَطَاءً ۞ جَمَعَ الْفَخْرَ الْمُؤَبَّدْ",
+      "tr": "Ḥaythu ūtīnā ʿaṭā'an · jamaʿa-l-fakhra-l-mu'abbad",
+      "en": "For we were given a gift that gathered everlasting glory within it."
+    },
+    {
+      "ar": "فَلِرَبِّي كُلُّ حَمْدٍ ۞ جَلَّ أَنْ يَحْصُرَهُ الْعَدْ",
+      "tr": "Fa-li-Rabbī kullu ḥamdin · jalla an yaḥṣurahu-l-ʿadd",
+      "en": "So to my Lord belongs all praise — too majestic for numbers to contain."
+    },
+    {
+      "ar": "إِذْ حَبَانَا بِوُجُودِ ۞ الْمُصْطَفَى الْهَادِي مُحَمَّدْ",
+      "tr": "Idh ḥabānā bi-wujūdi · l-Muṣṭafā-l-hādī Muḥammad",
+      "en": "For He graced us with the presence of the Chosen One, the Guide — Muhammad."
+    }
+  ]
+}

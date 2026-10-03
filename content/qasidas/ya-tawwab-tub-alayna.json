@@ -1,0 +1,96 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا تَوَّابُ تُبْ عَلَيْنَا",
+  "titleEnglish": "22 · Yā Tawwāb Tub ʿAlaynā",
+  "note": "The refrain is sung twice, and repeated after each verse.",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "يَا تَوَّابُ تُبْ عَلَيْنَا ۞ وَارْحَمْنَا وَانْظُرْ إِلَيْنَا",
+      "tr": "Yā Tawwābu tub ʿalaynā · wa-rḥamnā wa-nẓur ilaynā",
+      "en": "O Ever-Relenting, turn to us in forgiveness; have mercy on us and look upon us."
+    },
+    {
+      "ar": "خُذْ يَمِينًا خُذْ يَمِينًا ۞ عَنْ سَبِيلِ الظَّالِمِينَا",
+      "tr": "Khudh yamīnan khudh yamīnan · ʿan sabīli ẓ-ẓālimīnā",
+      "en": "Keep to the right, keep to the right, away from the path of the wrongdoers."
+    },
+    {
+      "ar": "وَاتَّقِ اللّٰهَ تَعَالَى ۞ عَنْ مَقَالِ الْمُلْحِدِينَا",
+      "tr": "Wa-ttaqi-Llāha taʿālā · ʿan maqāli l-mulḥidīnā",
+      "en": "And be mindful of Allah Most High, turning away from the talk of those who deny Him."
+    },
+    {
+      "ar": "اَللّٰهُ الْحَقُّ رَبُّ الْعَرْشِ ۞ رَبُّ الْعَالَمِينَا",
+      "tr": "Allāhu l-Ḥaqqu Rabbu l-ʿArshi · Rabbu l-ʿālamīnā",
+      "en": "Allah, the Real, is Lord of the Throne, Lord of all the worlds."
+    },
+    {
+      "ar": "هُوَ رَبُّ الْأَوَّلِينَا ۞ هُوَ رَبُّ الْآخِرِينَا",
+      "tr": "Huwa Rabbu l-awwalīnā · huwa Rabbu l-ākhirīnā",
+      "en": "He is the Lord of those who came first; He is the Lord of those who come last."
+    },
+    {
+      "ar": "هُوَ رَبِّي هُوَ حَسْبِي ۞ هُوَ خَيْرُ الرَّازِقِينَا",
+      "tr": "Huwa Rabbī huwa ḥasbī · huwa khayru r-rāziqīnā",
+      "en": "He is my Lord, He is my sufficiency; He is the best of providers."
+    },
+    {
+      "ar": "هُوَ غَفَّارُ الْخَطَايَا ۞ هُوَ خَيْرُ الرَّاحِمِينَا",
+      "tr": "Huwa ghaffāru l-khaṭāyā · huwa khayru r-rāḥimīnā",
+      "en": "He is the Forgiver of faults; He is the best of those who show mercy."
+    },
+    {
+      "ar": "رَبِّ أَدْخِلْنَا جَمِيعًا ۞ فِي الْعِبَادِ الصَّالِحِينَا",
+      "tr": "Rabbi adkhilnā jamīʿan · fi l-ʿibādi ṣ-ṣāliḥīnā",
+      "en": "My Lord, admit us all among Your righteous servants."
+    },
+    {
+      "ar": "وَارْضَ عَنَّا وَاعْفُ عَنَّا ۞ وَأَجِرْنَا أَجْمَعِينَا",
+      "tr": "Wa-rḍa ʿannā wa-ʿfu ʿannā · wa ajirnā ajmaʿīnā",
+      "en": "Be pleased with us, pardon us, and grant us all Your protection —"
+    },
+    {
+      "ar": "مِنْ عَذَابٍ فِي جَحِيمٍ ۞ أُرْصِدَتْ لِلْمُجْرِمِينَا",
+      "tr": "Min ʿadhābin fī jaḥīmin · urṣidat li-l-mujrimīnā",
+      "en": "from a punishment in the blazing Fire, made ready for the guilty,"
+    },
+    {
+      "ar": "مِنْ عُصَاةٍ فَاسِقِينَا ۞ وَعُتَاةٍ كَافِرِينَا",
+      "tr": "Min ʿuṣātin fāsiqīnā · wa ʿutātin kāfirīnā",
+      "en": "for the disobedient and depraved, and the insolent who disbelieve."
+    },
+    {
+      "ar": "رَبِّ أَدْخِلْنَا جِنَانًا ۞ أُزْلِفَتْ لِلْمُتَّقِينَا",
+      "tr": "Rabbi adkhilnā jinānan · uzlifat li-l-muttaqīnā",
+      "en": "My Lord, admit us into gardens brought near for the God-fearing,"
+    },
+    {
+      "ar": "إِذْ يُنَادَوْنَ ادْخُلُوهَا ۞ بِسَلَامٍ آمِنِينَا",
+      "tr": "Idh yunādawna-dkhulūhā · bi-salāmin āminīnā",
+      "en": "when they are called: enter them in peace, secure."
+    },
+    {
+      "ar": "وَصَلَاةُ اللّٰهِ تَغْشَى ۞ أَحْمَدَ الْهَادِي الْأَمِينَا",
+      "tr": "Wa ṣalātu-Llāhi taghshā · Aḥmada l-hādī l-amīnā",
+      "en": "And may Allah's blessings envelop Ahmad, the guide, the trustworthy,"
+    },
+    {
+      "ar": "وَعَلٰى الْآلِ وَالصَّحْبِ ۞ وَجَمِيعِ التَّابِعِينَا",
+      "tr": "Wa ʿalā l-āli wa ṣ-ṣaḥbi · wa jamīʿi t-tābiʿīnā",
+      "en": "and upon his family and companions, and all who followed after them,"
+    },
+    {
+      "ar": "مَا تَلَا تَالٍ قُرْآنًا ۞ جَاءَ بِالْحَقِّ الْمُبِينَا",
+      "tr": "Mā talā tālin Qurʾānan · jāʾa bi-l-ḥaqqi l-mubīnā",
+      "en": "for as long as any reciter recites the Qur'an, which came with the manifest truth."
+    },
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, bless him, grant him peace, and pour Your blessings upon him and his family."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا نَبِي سَلَامْ عَلَيْكَ",
+  "titleEnglish": "Yā Nabī Salām ʿAlayka — Anta Shamsun version",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "يَا نَبِي سَلَامْ عَلَيْكَ\nيَا رَسُولْ سَلَامْ عَلَيْكَ\nيَا حَبِيبْ سَلَامْ عَلَيْكَ\nيَا رَسُولَ اللّٰه\nصَلَوَاتُ اللّٰهْ عَلَيْكَ",
+      "tr": "Yā Nabī salām ʿalayka · Yā Rasūl salām ʿalayka · Yā Ḥabīb salām ʿalayka · Yā Rasūlallāh · Ṣalawātullāh ʿalayka",
+      "en": "O Prophet, peace be upon you; O Messenger, peace be upon you; O Beloved, peace be upon you; O Messenger of Allah — the blessings of Allah be upon you."
+    },
+    {
+      "ar": "أَنْتَ شَمْسٌ أَنْتَ بَدْرٌ\nأَنْتَ نُورٌ فَوْقَ نُورِ\nأَنْتَ إِكْسِيرٌ وَغَالِي\nيَا رَسُولَ اللّٰه\nأَنْتَ مِصْبَاحُ الصُّدُورِ",
+      "tr": "Anta shamsun anta badrun · Anta nūrun fawqa nūri · Anta iksīrun wa-ghālī · Yā Rasūlallāh · Anta miṣbāḥu-ṣ-ṣudūri",
+      "en": "You are a sun, you are a full moon; you are light upon light; you are the precious quintessence, O Messenger of Allah; you are the lamp within every chest."
+    },
+    {
+      "ar": "يَا حَبِيبِي يَا مُحَمَّد\nيَا عَرُوسَ الْخَافِقَيْنِ\nيَا مُؤَيَّد يَا مُمَجَّد\nيَا رَسُولَ اللّٰه\nيَا إِمَامَ الْقِبْلَتَيْنِ",
+      "tr": "Yā ḥabībī yā Muḥammad · Yā ʿarūsa-l-khāfiqayni · Yā mu'ayyad yā mumajjad · Yā Rasūlallāh · Yā imāma-l-qiblatayni",
+      "en": "O my beloved, O Muhammad ﷺ; O bridegroom of the East and the West; O you whom Allah supported and exalted; O Messenger of Allah; O Imam of the two directions of prayer."
+    },
+    {
+      "ar": "يَا اَللّٰهُ يَا مُحَمَّد\nيَا أَبَا بَكْرٍ الصِّدِّيق\nيَا عُمَرْ عُثْمَانْ يَا عَلِي\nيَا رَسُولَ اللّٰه\nفَاطِمَة بِنْتِ الرَّسُولِ",
+      "tr": "Yā Allāhu yā Muḥammad · Yā Abā Bakrini-ṣ-Ṣiddīq · Yā ʿUmar ʿUthmān yā ʿAlī · Yā Rasūlallāh · Fāṭima binti-r-Rasūli",
+      "en": "O Allah, O Muhammad ﷺ; O Abu Bakr the ever-truthful; O Umar, Uthman, O Ali; O Messenger of Allah; O Fatima, daughter of the Messenger."
+    }
+  ]
+}

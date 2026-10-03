@@ -1,0 +1,329 @@
+{
+  "titleArabic": "حِزْبُ الْغَايَاتِ",
+  "titleEnglish": "Ḥizb al-Ghāyāt",
+  "folios": [
+    {
+      "from": 0,
+      "to": 13
+    },
+    {
+      "from": 14,
+      "to": 32
+    },
+    {
+      "from": 33,
+      "to": 51
+    },
+    {
+      "from": 52,
+      "to": 58
+    },
+    {
+      "from": 59,
+      "to": 59
+    }
+  ],
+  "note": "Al-Wird al-Sharīf known as Ḥizb al-Ghāyāt — the litany of ultimate ends, for declaring the oneness of Allah, who fulfils all needs. Attributed to Mawlānā Jalāl ad-Dīn Muḥammad al-Balkhī ar-Rūmī (604–672 AH / 1207–1273 CE).",
+  "verses": [
+    {
+      "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ",
+      "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm",
+      "en": "In the name of Allah, the All-Merciful, the Most Merciful."
+    },
+    {
+      "ar": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ ۞ وَالصَّلٰوةُ وَالسَّلَامُ عَلٰى رَسُولِنَا مُحَمَّدٍ وَعَلٰى اٰلِهِ وَصَحْبِهِ اَجْمَعِينَ",
+      "tr": "Al-ḥamdu li-Llāhi Rabbi l-ʿālamīn · Wa-ṣ-ṣalātu wa-s-salāmu ʿalā Rasūlinā Muḥammadin wa-ʿalā ālihi wa-ṣaḥbihi ajmaʿīn",
+      "en": "Praise belongs to Allah, Lord of the worlds. Blessings and peace be upon our Messenger Muhammad, and upon his family and his companions, all of them."
+    },
+    {
+      "ar": "لَآ اِلٰهَ اِلَّا اللّٰهُ مُحَمَّدٌ رَسُولُ اللّٰهِ ۞ اَللّٰهُمَّ يَآ اِلٰهِى ۞ اَنَا الْعَبْدُ وَاَنْتَ اللّٰهُ",
+      "tr": "Lā ilāha illā-Llāh, Muḥammadun Rasūlu-Llāh · Allāhumma yā Ilāhī · Anā l-ʿabdu wa-Anta-Llāh",
+      "en": "There is no god but Allah; Muhammad is the Messenger of Allah. O Allah, O my God. I am the servant, and You are Allah."
+    },
+    {
+      "ar": "وَاَنَا الْمُوَحِّدُ وَاَنْتَ الْوَاحِدُ",
+      "tr": "Wa-anā l-muwaḥḥidu wa-Anta l-Wāḥid",
+      "en": "I am the one who affirms Your oneness, and You are the One."
+    },
+    {
+      "ar": "وَاَنَا الْعُبَيْدُ وَاَنْتَ الْمَعْبُودُ",
+      "tr": "Wa-anā l-ʿubaydu wa-Anta l-Maʿbūd",
+      "en": "I am the lowly little servant, and You are the One worshipped."
+    },
+    {
+      "ar": "وَاَنَا مُمْكِنُ الْوُجُودِ وَاَنْتَ وَاجِبُ الْوُجُودِ",
+      "tr": "Wa-anā mumkinu l-wujūdi wa-Anta wājibu l-wujūd",
+      "en": "I am contingent in being, and You are necessary in being."
+    },
+    {
+      "ar": "وَاَنَا الْمَخْلُوقُ وَاَنْتَ الْخَالِقُ",
+      "tr": "Wa-anā l-makhlūqu wa-Anta l-Khāliq",
+      "en": "I am the created, and You are the Creator."
+    },
+    {
+      "ar": "وَاَنَا الْمَوْجُودُ وَاَنْتَ الْمُوجِدُ",
+      "tr": "Wa-anā l-mawjūdu wa-Anta l-Mūjid",
+      "en": "I am the one brought into being, and You are the One who brings into being."
+    },
+    {
+      "ar": "وَاَنَا الْمُحْدَثُ وَاَنْتَ الْمُحْدِثُ الْاَزَلِىُّ",
+      "tr": "Wa-anā l-muḥdathu wa-Anta l-Muḥdithu l-Azalī",
+      "en": "I am the newly originated, and You are the Originator, the Beginningless."
+    },
+    {
+      "ar": "وَاَنَا الْهَالِكُ وَاَنْتَ الْبَاقِى بِلَا زَوَالٍ",
+      "tr": "Wa-anā l-hāliku wa-Anta l-Bāqī bi-lā zawāl",
+      "en": "I am the one who perishes, and You are the Abiding, without ceasing."
+    },
+    {
+      "ar": "وَاَنَا الْفَانِى وَاَنْتَ الدَّآئِمُ الْبَاقِى",
+      "tr": "Wa-anā l-fānī wa-Anta d-Dāʾimu l-Bāqī",
+      "en": "I am the one who passes away, and You are the Everlasting, the Abiding."
+    },
+    {
+      "ar": "وَاَنَا الْمَيِّتُ وَاَنْتَ الْمُمِيتُ الْحَىُّ الَّذِى لَا يَمُوتُ",
+      "tr": "Wa-anā l-mayyitu wa-Anta l-Mumītu l-Ḥayyu lladhī lā yamūt",
+      "en": "I am the one who dies, and You are the Giver of death, the Living who does not die."
+    },
+    {
+      "ar": "وَاَنَا الْعَاجِزُ وَاَنْتَ الْقَادِرُ الْمُقْتَدِرُ",
+      "tr": "Wa-anā l-ʿājizu wa-Anta l-Qādiru l-Muqtadir",
+      "en": "I am the powerless, and You are the Able, the Omnipotent."
+    },
+    {
+      "ar": "وَاَنَا الْفَقِيرُ وَاَنْتَ الْغَنِىُّ الْمُغْنِى",
+      "tr": "Wa-anā l-faqīru wa-Anta l-Ghaniyyu l-Mughnī",
+      "en": "I am the poor, and You are the Rich, the Enricher."
+    },
+    {
+      "ar": "وَاَنَا الذَّلِيلُ وَاَنْتَ الْجَلِيلُ الْعَزِيزُ",
+      "tr": "Wa-anā dh-dhalīlu wa-Anta l-Jalīlu l-ʿAzīz",
+      "en": "I am the lowly, and You are the Majestic, the Mighty."
+    },
+    {
+      "ar": "وَاَنَا الْعَلِيلُ وَاَنْتَ الشَّافِى",
+      "tr": "Wa-anā l-ʿalīlu wa-Anta sh-Shāfī",
+      "en": "I am the ailing, and You are the Healer."
+    },
+    {
+      "ar": "وَاَنَا الْمُحْتَاجُ وَاَنْتَ الصَّمَدُ الْوَاحِدُ",
+      "tr": "Wa-anā l-muḥtāju wa-Anta ṣ-Ṣamadu l-Wāḥid",
+      "en": "I am the needy, and You are the Self-Sufficient, the One."
+    },
+    {
+      "ar": "وَاَنَا الْحَقِيرُ وَاَنْتَ الْعَظِيمُ الْوَاحِدُ",
+      "tr": "Wa-anā l-ḥaqīru wa-Anta l-ʿAẓīmu l-Wāḥid",
+      "en": "I am the paltry, and You are the Magnificent, the One."
+    },
+    {
+      "ar": "وَاَنَا الصَّغِيرُ وَاَنْتَ الْكَبِيرُ الْمُتَعَالِ",
+      "tr": "Wa-anā ṣ-ṣaghīru wa-Anta l-Kabīru l-Mutaʿāl",
+      "en": "I am the small, and You are the Great, the Exalted."
+    },
+    {
+      "ar": "وَاَنَا الْمَغْلُوبُ وَاَنْتَ الْغَالِبُ",
+      "tr": "Wa-anā l-maghlūbu wa-Anta l-Ghālib",
+      "en": "I am the overcome, and You are the Prevailing."
+    },
+    {
+      "ar": "وَاَنَا الْمُسْتَعِينُ وَاَنْتَ الْمُعِينُ",
+      "tr": "Wa-anā l-mustaʿīnu wa-Anta l-Muʿīn",
+      "en": "I am the one who seeks help, and You are the Helper."
+    },
+    {
+      "ar": "وَاَنَا الضَّالُّ وَاَنْتَ الْهَادِى الرَّشِيدُ",
+      "tr": "Wa-anā ḍ-ḍāllu wa-Anta l-Hādī r-Rashīd",
+      "en": "I am the one astray, and You are the Guide, sure in guidance."
+    },
+    {
+      "ar": "وَاَنَا الظَّالِمُ وَاَنْتَ الْمُقْسِطُ الْعَادِلُ",
+      "tr": "Wa-anā ẓ-ẓālimu wa-Anta l-Muqsiṭu l-ʿĀdil",
+      "en": "I am the wrongdoer, and You are the Equitable, the Just."
+    },
+    {
+      "ar": "وَاَنَا الْخَاسِرُ وَاَنْتَ الْمُنْجِى",
+      "tr": "Wa-anā l-khāsiru wa-Anta l-Munjī",
+      "en": "I am the loser, and You are the Deliverer."
+    },
+    {
+      "ar": "وَاَنَا النَّاقِصُ وَاَنْتَ الْكَامِلُ",
+      "tr": "Wa-anā n-nāqiṣu wa-Anta l-Kāmil",
+      "en": "I am the deficient, and You are the Complete."
+    },
+    {
+      "ar": "وَاَنَا السُّفْلَى وَاَنْتَ الرَّافِعُ الْمُعِزُّ",
+      "tr": "Wa-anā s-suflā wa-Anta r-Rāfiʿu l-Muʿizz",
+      "en": "I am the lowest, and You are the Raiser, the Giver of honour."
+    },
+    {
+      "ar": "وَاَنَا النُّقْصَانُ وَاَنْتَ سُبْحَانُ",
+      "tr": "Wa-anā n-nuqṣānu wa-Anta Subḥān",
+      "en": "I am want itself, and You are the Glorified."
+    },
+    {
+      "ar": "وَاَنَا الْجَاهِلُ وَاَنْتَ الْعَالِمُ",
+      "tr": "Wa-anā l-jāhilu wa-Anta l-ʿĀlim",
+      "en": "I am the ignorant, and You are the Knowing."
+    },
+    {
+      "ar": "وَاَنَا الْعَاصِى وَاَنْتَ الْغَفَّارُ",
+      "tr": "Wa-anā l-ʿāṣī wa-Anta l-Ghaffār",
+      "en": "I am the disobedient, and You are the Ever-Forgiving."
+    },
+    {
+      "ar": "وَاَنَا الْعَجُولُ وَاَنْتَ الصَّبُورُ",
+      "tr": "Wa-anā l-ʿajūlu wa-Anta ṣ-Ṣabūr",
+      "en": "I am the hasty, and You are the Patient."
+    },
+    {
+      "ar": "وَاَنَا الْمُذْنِبُ وَاَنْتَ الْغَفُورُ",
+      "tr": "Wa-anā l-mudhnibu wa-Anta l-Ghafūr",
+      "en": "I am the sinner, and You are the Forgiving."
+    },
+    {
+      "ar": "وَاَنَا الْقِنُّ وَاَنْتَ الْمَالِكُ",
+      "tr": "Wa-anā l-qinnu wa-Anta l-Mālik",
+      "en": "I am the bondsman, and You are the Owner."
+    },
+    {
+      "ar": "وَاَنَا الدَّاعِى وَاَنْتَ الْمُجِيبُ بِلَآ اِيجَابٍ",
+      "tr": "Wa-anā d-dāʿī wa-Anta l-Mujību bi-lā ījāb",
+      "en": "I am the one who calls, and You are the One who answers, bound by no obligation."
+    },
+    {
+      "ar": "وَاَنَا السَّآئِلُ وَاَنْتَ الْمُعْطِى الْمُفَضِّلُ",
+      "tr": "Wa-anā s-sāʾilu wa-Anta l-Muʿṭī l-Mufaḍḍil",
+      "en": "I am the asker, and You are the Giver, the Bestower of favour."
+    },
+    {
+      "ar": "وَاَنَا التَّآئِبُ وَاَنْتَ التَّوَّابُ",
+      "tr": "Wa-anā t-tāʾibu wa-Anta t-Tawwāb",
+      "en": "I am the repentant, and You are the Ever-Relenting."
+    },
+    {
+      "ar": "وَاَنَا الْبَخِيلُ وَاَنْتَ الْكَرِيمُ",
+      "tr": "Wa-anā l-bakhīlu wa-Anta l-Karīm",
+      "en": "I am the miserly, and You are the Generous."
+    },
+    {
+      "ar": "وَاَنَا الشَّاكِرُ وَاَنْتَ الشَّكُورُ",
+      "tr": "Wa-anā sh-shākiru wa-Anta sh-Shakūr",
+      "en": "I am the one who gives thanks, and You are the Most Appreciative."
+    },
+    {
+      "ar": "وَاَنَا الْحَامِدُ وَاَنْتَ الْحَمِيدُ",
+      "tr": "Wa-anā l-ḥāmidu wa-Anta l-Ḥamīd",
+      "en": "I am the one who praises, and You are the Praiseworthy."
+    },
+    {
+      "ar": "وَاَنَا الْمَادِحُ وَاَنْتَ الْمَمْدُوحُ",
+      "tr": "Wa-anā l-mādiḥu wa-Anta l-Mamdūḥ",
+      "en": "I am the one who extols, and You are the Extolled."
+    },
+    {
+      "ar": "وَاَنَا الذَّاكِرُ وَاَنْتَ الْمَذْكُورُ",
+      "tr": "Wa-anā dh-dhākiru wa-Anta l-Madhkūr",
+      "en": "I am the one who remembers, and You are the Remembered."
+    },
+    {
+      "ar": "وَاَنَا الطَّالِبُ وَاَنْتَ الْمَطْلُوبُ",
+      "tr": "Wa-anā ṭ-ṭālibu wa-Anta l-Maṭlūb",
+      "en": "I am the seeker, and You are the Sought."
+    },
+    {
+      "ar": "وَاَنَا الْحَبِيبُ وَاَنْتَ الْمَحْبُوبُ",
+      "tr": "Wa-anā l-ḥabību wa-Anta l-Maḥbūb",
+      "en": "I am the loving one, and You are the Beloved."
+    },
+    {
+      "ar": "وَاَنَا الْعَاشِقُ الصُّورِىُّ وَاَنْتَ الْمَعْشُوقُ الْحَقِيقِىُّ",
+      "tr": "Wa-anā l-ʿāshiqu ṣ-ṣūriyyu wa-Anta l-maʿshūqu l-ḥaqīqī",
+      "en": "I am the lover of outward forms, and You are the truly Beloved."
+    },
+    {
+      "ar": "وَاَنَا الْقَاصِدُ وَاَنْتَ الْمَقْصُودُ لِاَنَّهُ لَا مَقْصُودَ سِوَاكَ",
+      "tr": "Wa-anā l-qāṣidu wa-Anta l-maqṣūdu li-annahu lā maqṣūda siwāk",
+      "en": "I am the one who aims, and You are the aim — for there is no goal but You."
+    },
+    {
+      "ar": "اَللّٰهُمَّ لَا قَدْرَ لِى اِلَّا قَدْرُكَ",
+      "tr": "Allāhumma lā qadra lī illā qadruk",
+      "en": "O Allah, I have no worth but the worth You give,"
+    },
+    {
+      "ar": "وَلَا هِدَايَةَ لِى اِلَّا هِدَايَتُكَ",
+      "tr": "Wa-lā hidāyata lī illā hidāyatuk",
+      "en": "and no guidance but Your guidance,"
+    },
+    {
+      "ar": "وَلَا فَضْلَ لِى اِلَّا فَضْلُكَ",
+      "tr": "Wa-lā faḍla lī illā faḍluk",
+      "en": "and no bounty but Your bounty,"
+    },
+    {
+      "ar": "وَلَا تَوْفِيقَ لِى اِلَّا تَوْفِيقُكَ وَلَا نِعَمَ لِى اِلَّا نَعْمَآؤُكَ",
+      "tr": "Wa-lā tawfīqa lī illā tawfīquk, wa-lā niʿama lī illā naʿmāʾuk",
+      "en": "and no success but that You grant it, and no blessings but Your blessings,"
+    },
+    {
+      "ar": "وَلَا حَوْلَ لِى اِلَّا حَوْلُكَ",
+      "tr": "Wa-lā ḥawla lī illā ḥawluk",
+      "en": "and no power but Your power,"
+    },
+    {
+      "ar": "وَلَا قُوَّةَ لِى اِلَّا قُوَّتُكَ",
+      "tr": "Wa-lā quwwata lī illā quwwatuk",
+      "en": "and no strength but Your strength,"
+    },
+    {
+      "ar": "وَلَا فَيْضَ لِى اِلَّا فَيْضُكَ وَكُلٌّ مِنْ عِنْدِكَ",
+      "tr": "Wa-lā fayḍa lī illā fayḍuk, wa-kullun min ʿindik",
+      "en": "and no outpouring but Your outpouring — all of it is from You."
+    },
+    {
+      "ar": "تَوَكَّلْتُ عَلَيْكَ وَاعْتَصَمْتُ بِكَ",
+      "tr": "Tawakkaltu ʿalayka wa-ʿtaṣamtu bik",
+      "en": "I place my trust in You and hold fast to You."
+    },
+    {
+      "ar": "وَاَنْتَ اللّٰهُ الصَّمَدُ الَّذِى لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُنْ لَهُ كُفُوًا اَحَدٌ",
+      "tr": "Wa-Anta-Llāhu ṣ-Ṣamadu lladhī lam yalid wa-lam yūlad wa-lam yakun lahu kufuwan aḥad",
+      "en": "And You are Allah, the Self-Sufficient upon whom all depend, who neither begets nor is begotten, and to whom none is comparable."
+    },
+    {
+      "ar": "اِلٰهِى مَقْصُودِى رِضَاكَ وَلِقَاؤُكَ يَسِّرْهُمَا لِى",
+      "tr": "Ilāhī maqṣūdī riḍāka wa-liqāʾuka yassirhumā lī",
+      "en": "My God, what I seek is Your good pleasure and to meet You — make them easy for me."
+    },
+    {
+      "ar": "اَللّٰهُمَّ اَعْطِنِى سُؤْلِى اَنْتَ تَعْلَمُ مَا فِى قَلْبِى وَلَا تَحْتَاجُ اِلٰى مَقَالِى",
+      "tr": "Allāhumma aʿṭinī suʾlī, Anta taʿlamu mā fī qalbī wa-lā taḥtāju ilā maqālī",
+      "en": "O Allah, grant me my request. You know what is in my heart and have no need of my speech."
+    },
+    {
+      "ar": "يَا غِيَاثَ الْمُسْتَغِيثِينَ اَغِثْنَا",
+      "tr": "Yā Ghiyātha l-mustaghīthīna aghithnā",
+      "en": "O Succour of all who cry for succour, come to our aid."
+    },
+    {
+      "ar": "اِسْتَجِبْ دُعَآءَنَا وَتَضَرُّعَنَا",
+      "tr": "Istajib duʿāʾanā wa-taḍarruʿanā",
+      "en": "Answer our supplication and our pleading,"
+    },
+    {
+      "ar": "بِرَحْمَتِكَ يَا اَرْحَمَ الرَّاحِمِينَ",
+      "tr": "Bi-raḥmatika yā Arḥama r-rāḥimīn",
+      "en": "by Your mercy, O Most Merciful of those who show mercy."
+    },
+    {
+      "ar": "وَصَلَّى اللّٰهُ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَاٰلِهِ وَصَحْبِهِ اَجْمَعِينَ",
+      "tr": "Wa-ṣallā-Llāhu ʿalā sayyidinā Muḥammadin wa-ālihi wa-ṣaḥbihi ajmaʿīn",
+      "en": "And may Allah bless our master Muhammad, his family and his companions, all of them."
+    },
+    {
+      "ar": "تَمَّ بِحَمْدِ اللّٰهِ ۞ وَمِنَ اللّٰهِ التَّوْفِيقُ ۞ اَلْفَاتِحَةُ",
+      "tr": "Tamma bi-ḥamdi-Llāh · Wa-mina-Llāhi t-tawfīq · Al-Fātiḥah",
+      "en": "Completed with the praise of Allah. Success is from Allah alone. — al-Fātiḥah."
+    }
+  ]
+}

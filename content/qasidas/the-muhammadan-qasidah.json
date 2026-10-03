@@ -1,0 +1,101 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "الْقَصِيدَةُ الْمُحَمَّدِيَّةُ",
+  "titleEnglish": "34 · The Muhammadan Qasidah",
+  "note": "Each verse opens with the blessed name; the refrain is repeated after each.",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "سَلَامٌ عَلَيْكَ يَا نَبِي سَلَامٌ عَلَيْكَ سَيِّدِي ۞ يَا نَبِي يَا إِمَامَ الْحَرَمَيْنِ",
+      "tr": "Salāmun ʿalayk yā Nabī, salāmun ʿalayk sayyidī · yā Nabī yā Imāma l-ḥaramayn",
+      "en": "Peace be upon you, O Prophet; peace be upon you, my master — O Prophet, O Imam of the two sanctuaries."
+    },
+    {
+      "ar": "مُحَمَّدٌ أَشْرَفُ الْأَعْرَابِ وَالْعَجَمِ ۞ مُحَمَّدٌ خَيْرُ مَنْ يَمْشِي عَلٰى قَدَمِ",
+      "tr": "Muḥammadun ashrafu l-aʿrābi wa l-ʿajami · Muḥammadun khayru man yamshī ʿalā qadami",
+      "en": "Muhammad is the noblest of Arabs and non-Arabs; Muhammad is the best of all who ever walked upon a foot."
+    },
+    {
+      "ar": "مُحَمَّدٌ بَاسِطُ الْمَعْرُوفِ جَامِعُهُ ۞ مُحَمَّدٌ صَاحِبُ الْإِحْسَانِ وَالْكَرَمِ",
+      "tr": "Muḥammadun bāsiṭu l-maʿrūfi jāmiʿuhu · Muḥammadun ṣāḥibu l-iḥsāni wa l-karami",
+      "en": "Muhammad spreads what is good and gathers it in himself; Muhammad is the possessor of kindness and generosity."
+    },
+    {
+      "ar": "مُحَمَّدٌ تَاجُ رُسْلِ اللّٰهِ قَاطِبَةً ۞ مُحَمَّدٌ صَادِقُ الْقَوْلِ وَالْكَلِمِ",
+      "tr": "Muḥammadun tāju rusli-Llāhi qāṭibatan · Muḥammadun ṣādiqu l-qawli wa l-kalimi",
+      "en": "Muhammad is the crown of all Allah's messengers; Muhammad is truthful in speech and in word."
+    },
+    {
+      "ar": "مُحَمَّدٌ ثَابِتُ الْمِيثَاقِ حَافِظُهُ ۞ مُحَمَّدٌ طَيِّبُ الْأَخْلَاقِ وَالشِّيَمِ",
+      "tr": "Muḥammadun thābitu l-mīthāqi ḥāfiẓuhu · Muḥammadun ṭayyibu l-akhlāqi wa sh-shiyami",
+      "en": "Muhammad holds firm to the covenant and keeps it; Muhammad is sweet in character and disposition."
+    },
+    {
+      "ar": "مُحَمَّدٌ رُوِيَتْ بِالنُّورِ طِينَتُهُ ۞ مُحَمَّدٌ لَمْ يَزَلْ نُورًا مِنَ الْقِدَمِ",
+      "tr": "Muḥammadun ruwiyat bi-n-nūri ṭīnatuhu · Muḥammadun lam yazal nūran mina l-qidami",
+      "en": "Muhammad — his very clay was steeped in light; Muhammad has never ceased to be a light from eternity."
+    },
+    {
+      "ar": "مُحَمَّدٌ حَاكِمٌ بِالْعَدْلِ ذُو شَرَفٍ ۞ مُحَمَّدٌ مَعْدِنُ الْإِنْعَامِ وَالْحِكَمِ",
+      "tr": "Muḥammadun ḥākimun bi-l-ʿadli dhū sharafin · Muḥammadun maʿdinu l-inʿāmi wa l-ḥikami",
+      "en": "Muhammad rules with justice, possessed of honour; Muhammad is the wellspring of blessing and wisdom."
+    },
+    {
+      "ar": "مُحَمَّدٌ خَيْرُ خَلْقِ اللّٰهِ مِنْ مُضَرٍ ۞ مُحَمَّدٌ خَيْرُ رُسْلِ اللّٰهِ كُلِّهِمِ",
+      "tr": "Muḥammadun khayru khalqi-Llāhi min Muḍarin · Muḥammadun khayru rusli-Llāhi kullihimi",
+      "en": "Muhammad is the best of Allah's creation, of the line of Mudar; Muhammad is the best of all Allah's messengers."
+    },
+    {
+      "ar": "مُحَمَّدٌ دِينُهُ حَقٌّ نَدِينُ بِهِ ۞ مُحَمَّدٌ مُجْمَلًا حَقًّا عَلٰى عَلَمِ",
+      "tr": "Muḥammadun dīnuhu ḥaqqun nadīnu bihi · Muḥammadun mujmalan ḥaqqan ʿalā ʿalami",
+      "en": "Muhammad — his religion is truth, and by it we live; Muhammad, in sum, is truth raised as a standard."
+    },
+    {
+      "ar": "مُحَمَّدٌ ذِكْرُهُ رُوحٌ لِأَنْفُسِنَا ۞ مُحَمَّدٌ شُكْرُهُ فَرْضٌ عَلٰى الْأُمَمِ",
+      "tr": "Muḥammadun dhikruhu rūḥun li-anfusinā · Muḥammadun shukruhu farḍun ʿalā l-umami",
+      "en": "Muhammad — his remembrance is life to our souls; Muhammad — gratitude for him is a duty upon the nations."
+    },
+    {
+      "ar": "مُحَمَّدٌ زِينَةُ الدُّنْيَا وَبَهْجَتُهَا ۞ مُحَمَّدٌ كَاشِفُ الْغُمَّاتِ وَالظُّلَمِ",
+      "tr": "Muḥammadun zīnatu d-dunyā wa bahjatuhā · Muḥammadun kāshifu l-ghummāti wa ẓ-ẓulami",
+      "en": "Muhammad is the adornment of this world and its delight; Muhammad is the lifter of sorrows and darknesses."
+    },
+    {
+      "ar": "مُحَمَّدٌ سَيِّدٌ طَابَتْ مَنَاقِبُهُ ۞ مُحَمَّدٌ صَاغَهُ الرَّحْمٰنُ بِالنِّعَمِ",
+      "tr": "Muḥammadun sayyidun ṭābat manāqibuhu · Muḥammadun ṣāghahu r-Raḥmānu bi-n-niʿami",
+      "en": "Muhammad is a master whose virtues are sweet; Muhammad — the All-Merciful fashioned him with favours."
+    },
+    {
+      "ar": "مُحَمَّدٌ صَفْوَةُ الْبَارِي وَخِيرَتُهُ ۞ مُحَمَّدٌ طَاهِرٌ مِنْ سَائِرِ التُّهَمِ",
+      "tr": "Muḥammadun ṣafwatu l-Bārī wa khīratuhu · Muḥammadun ṭāhirun min sāʾiri t-tuhami",
+      "en": "Muhammad is the chosen of the Maker and His elect; Muhammad is pure of every accusation."
+    },
+    {
+      "ar": "مُحَمَّدٌ ضَاحِكٌ لِلضَّيْفِ مُكْرِمُهُ ۞ مُحَمَّدٌ جَارُهُ وَاللّٰهِ لَمْ يُضَمِ",
+      "tr": "Muḥammadun ḍāḥikun li-ḍ-ḍayfi mukrimuhu · Muḥammadun jāruhu wa-Llāhi lam yuḍami",
+      "en": "Muhammad smiles at the guest and honours him; Muhammad's neighbour — by Allah — is never wronged."
+    },
+    {
+      "ar": "مُحَمَّدٌ طَابَتِ الدُّنْيَا بِبِعْثَتِهِ ۞ مُحَمَّدٌ جَاءَ بِالْآيَاتِ وَالْحِكَمِ",
+      "tr": "Muḥammadun ṭābati d-dunyā bi-biʿthatihi · Muḥammadun jāʾa bi-l-āyāti wa l-ḥikami",
+      "en": "Muhammad — with his sending the world grew sweet; Muhammad came with signs and with wisdom."
+    },
+    {
+      "ar": "مُحَمَّدٌ يَوْمَ بَعْثِ النَّاسِ شَافِعُنَا ۞ مُحَمَّدٌ نُورُهُ الْهَادِي مِنَ الظُّلَمِ",
+      "tr": "Muḥammadun yawma baʿthi n-nāsi shāfiʿunā · Muḥammadun nūruhu l-hādī mina ẓ-ẓulami",
+      "en": "Muhammad, on the day mankind is raised, is our intercessor; Muhammad — his light is the guide out of the darknesses."
+    },
+    {
+      "ar": "مُحَمَّدٌ قَائِمٌ لِلّٰهِ ذُو هِمَمٍ ۞ مُحَمَّدٌ خَاتَمٌ لِلرُّسْلِ كُلِّهِمِ",
+      "tr": "Muḥammadun qāʾimun li-Llāhi dhū himamin · Muḥammadun khātamun li-r-rusli kullihimi",
+      "en": "Muhammad stands for Allah, possessed of high resolve; Muhammad is the seal of all the messengers."
+    },
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, bless him, grant him peace, and pour Your blessings upon him and his family."
+    }
+  ]
+}
