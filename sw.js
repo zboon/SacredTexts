@@ -86,11 +86,13 @@ self.addEventListener('activate', e => {
   );
 });
 
-/* Whether the page itself last came from the cache because the network
-   didn't answer in time. Its texts then come straight from the cache too, so
-   a weak signal costs one wait, not two. This lives only as long as the
-   worker does; a fresh worker starts out trying the network. */
-let shellFromCache = false;
+/* Whether the network just failed to answer in time: for the page itself, or
+   for any text. The rest of this launch's texts then come straight from the
+   cache, so a weak signal costs one wait, not one per stage of loading (the
+   page, the listings, the pieces). The next navigation the network answers
+   resets it. It lives only as long as the worker does; a fresh worker starts
+   out trying the network. */
+let textsFromCache = false;
 
 self.addEventListener('fetch', e => {
   const req = e.request;
@@ -113,15 +115,15 @@ self.addEventListener('fetch', e => {
         }),
         new Promise(res => setTimeout(() => res(null), NETWORK_TIMEOUT))
       ])
-        .then(resp => { shellFromCache = !resp; return resp || caches.match('./index.html'); })
-        .catch(() => { shellFromCache = true; return caches.match('./index.html'); })
+        .then(resp => { textsFromCache = !resp; return resp || caches.match('./index.html'); })
+        .catch(() => { textsFromCache = true; return caches.match('./index.html'); })
     );
     return;
   }
 
-  /* A text: network first, unless the page just had to come from the cache. */
+  /* A text: network first, unless the network just failed to answer in time. */
   if (isText(req.url)) {
-    e.respondWith(shellFromCache
+    e.respondWith(textsFromCache
       ? caches.match(req).then(cached => cached || networkFirst(req))
       : networkFirst(req));
     return;
@@ -156,7 +158,8 @@ function isText(url){
 /* Ask the network and keep what comes back. 'no-cache' makes the browser
    revalidate its own HTTP-cached copy, so an unchanged file costs a small 304
    rather than a download, yet nothing stale is ever used. After
-   NETWORK_TIMEOUT the cached copy is served; with no cached copy yet, keep
+   NETWORK_TIMEOUT the cached copy is served, and the rest of this launch's
+   texts skip the network (textsFromCache); with no cached copy yet, keep
    waiting for the network rather than fail. */
 function networkFirst(req){
   const network = fetch(new Request(req, { cache: 'no-cache' })).then(resp => {
@@ -168,7 +171,7 @@ function networkFirst(req){
   });
   const timeout = new Promise(res => setTimeout(() => res(null), NETWORK_TIMEOUT));
   return Promise.race([network.catch(() => null), timeout])
-    .then(resp => resp || caches.match(req))
+    .then(resp => { if (!resp) textsFromCache = true; return resp || caches.match(req); })
     .then(resp => resp || network)
     .catch(() => Response.error());
 }
