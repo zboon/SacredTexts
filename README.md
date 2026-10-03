@@ -136,7 +136,7 @@ until you bump the cache version.** After editing `index.html`, open `sw.js` and
 the number on this line:
 
 ```js
-const CACHE = 'sacredtexts-v385';   // change to 'sacredtexts-v386', then v387, …
+const CACHE = 'sacredtexts-v386';   // change to 'sacredtexts-v387', then v388, …
 ```
 
 If you forget this, your edits will look fine in a fresh browser but won't reach anyone who
