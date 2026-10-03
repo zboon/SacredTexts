@@ -10,7 +10,7 @@
    text reaches phones on their next launch with a connection, no bump needed.
    Everything else (fonts, images, icons, manifest) stays cache-first: it's
    large, it doesn't change, and it's what makes the app work with no signal. */
-const CACHE = 'sacredtexts-v385'; // bump this whenever you update index.html
+const CACHE = 'sacredtexts-v386'; // bump this whenever you update index.html
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png',
   './fonts/UthmanicHafs.otf', './fonts/Amiri-Regular.woff', './fonts/Amiri-Bold.woff',
   './img/medallion.png', './img/header-bismillah.png'];
