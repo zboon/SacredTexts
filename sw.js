@@ -32,8 +32,10 @@ const CONTENT_URL = new URL('./content/', self.location.href).href;
    cache name carries no version and is never swept.
 
    Anything added here must likewise be version-free, or it will be collected
-   on the very next release. */
-const AUDIO_CACHE = 'sacredtexts-audio';
+   on the very next release. The name must be the page's own: AUDIO_CACHE in
+   index.html. It once drifted (renamed here only), and every release then
+   swept the downloads anyway. */
+const AUDIO_CACHE = 'mawlid-audio';
 const KEEP = [CACHE, AUDIO_CACHE];
 
 self.addEventListener('install', e => {
