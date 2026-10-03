@@ -13,7 +13,8 @@ are wired up and show a placeholder until their content is added — see
 Started from the [Mawalid](https://github.com/zboon/Mawlid-app) app and carries its
 structure, fonts and conventions.
 
-It is a **single self-contained app** — no build step, no server, no dependencies.
+It is a **static site**: plain HTML, CSS and JavaScript, with the texts as JSON files in
+`content/`. There is no build step and there are no dependencies.
 
 ---
 
@@ -21,7 +22,10 @@ It is a **single self-contained app** — no build step, no server, no dependenc
 
 | File | What it is |
 |------|------------|
-| `index.html` | **Everything.** All content, styling (CSS), and logic (JS) live here — including the bundled Arabic font. This is the only file you normally edit. |
+| `content/` | **The texts.** One folder per section, one JSON file per piece, and an `index.json` in each folder giving the order. This is where you normally edit — see `content/README.md`. |
+| `index.html` | The app: its styling (CSS) and logic (JS). |
+| `fonts/` | The bundled Arabic fonts (see below). |
+| `img/` | The masthead artwork. |
 | `sw.js` | Service worker — makes the app work offline. Contains the cache version string (see below). |
 | `manifest.json` | PWA metadata (app name, icons, colours) so it installs to a phone home screen. |
 | `icon-192.png`, `icon-512.png` | Home-screen icons. |
@@ -29,7 +33,7 @@ It is a **single self-contained app** — no build step, no server, no dependenc
 
 ### The Arabic fonts
 
-Two Arabic faces are embedded directly in `index.html` as base64. Neither is
+Two Arabic faces are bundled in `fonts/` and served with the app. Neither is
 fetched from Google.
 
 **KFGQPC Uthmanic Script HAFS** sets the body Arabic — the mushaf hand from the
@@ -59,11 +63,12 @@ after the first load.
 **Licences differ between the two, which matters if you change anything.** Amiri
 is under the SIL OFL 1.1 (see `OFL.txt`) — bundling, redistribution and
 modification are all permitted. The KFGQPC font is free to use, copy and
-distribute but **may not be modified**, which is why it is embedded byte-for-byte
-and *not* subset; that costs about 330KB and cannot be optimised away without
-breaching the licence.
+distribute but **may not be modified**, which is why `fonts/UthmanicHafs.otf` is the
+original file byte for byte, *not* subset or converted; that costs about 240KB and
+cannot be optimised away without breaching the licence.
 
-To swap the body Arabic, replace the `UthmanicHafs` `@font-face` block and the
+To swap the body Arabic, replace `fonts/UthmanicHafs.otf` and update its `@font-face`
+block and preload in `index.html`, its entry in `CORE` in `sw.js`, and the
 `font-family:'UthmanicHafs','Amiri',serif` rules. Leave the rosette rule
 (`.ms-r, .rosette`) pinned to Amiri, and keep `OFL.txt`.
 
@@ -71,64 +76,56 @@ To swap the body Arabic, replace the `UthmanicHafs` `@font-face` block and the
 
 ## Running it locally
 
-Just open `index.html` in a web browser (double-click it). That's enough to see and test
-everything. For editing, [VS Code](https://code.visualstudio.com/) (free) is ideal.
+The app loads its texts from `content/`, and browsers refuse to do that for a page
+opened straight from disk, so double-clicking `index.html` no longer works. Serve the
+folder with any local web server instead, for example with Python:
 
-> Note: the offline service worker only activates when the app is served over **https**
-> (i.e. once it's hosted). Opening the file directly still works fine for previewing content.
+```bash
+python -m http.server 8000
+```
+
+Then open <http://localhost:8000>. For editing, [VS Code](https://code.visualstudio.com/)
+(free) is ideal.
+
+The offline service worker runs on `localhost` too. It fetches `index.html` and the
+texts network-first, so a normal reload shows your edits. Fonts and images are
+cache-first: after replacing one, clear the site's data in the browser.
 
 ---
 
 ## How the content is organised
 
-Inside `index.html`, near the top of the `<script>`, the content lives in a few arrays:
-
-- `QASIDAS` — the Duas group and the Qasidas group (each item has a `group:` of `"duas"` or `"qasidas"`).
-- `BURDAH_CHAPTERS` — the 10 chapters of the Qaṣīda Burdah.
-- `SIRAH_CHAPTERS` — the 7 prose sections of the Shamāʾil & Sīrah.
-- `ILAHI_CHAPTERS` — the Turkish Ilahis.
-
-Every "piece" is an object shaped like this:
-
-```js
-{
-  category: "qasida",          // "qasida" or "dua" (only used in the QASIDAS array)
-  group: "qasidas",            // "duas" or "qasidas" (only used in the QASIDAS array)
-  titleArabic: "…",
-  titleEnglish: "13 · …",      // the leading "N ·" just controls display order/label
-  note: "…",                   // optional — shows a green banner at the top of the reader
-  video: "https://…",          // optional — adds a "▶ Listen to the tune" link
-  video2: "https://…",         // optional — adds a second "alternate version" link
-  verses: [
-    { ar: "…", tr: "…", en: "…" },              // Arabic · transliteration · English
-    { refrain: true, ar: "…", tr: "…", en: "…" } // refrain verses get a "Refrain" label
-  ]
-}
-```
+Every text lives in `content/`: one folder per section, one JSON file per piece, and
+an `index.json` in each folder listing its pieces in reading order.
+`content/README.md` describes a piece's format, every field, how files are named,
+and how to add one.
 
 ### Text conventions
 
 - In the `ar` field, use `۞` to separate the two halves (hemistichs) of a line of poetry.
 - Use `\n` for a hard line break within a verse (rendered as a new line).
-- For **Turkish Ilahis**, the entry is marked `latin: true`. The Turkish lyric goes in the
+- For **Turkish Ilahis**, the piece is marked `"latin": true`. The Turkish lyric goes in the
   `ar` field (it renders left-to-right in Latin script, not Arabic), the English goes in
   `en`, and `tr` is left empty (`""`). The transliteration toggle is hidden automatically.
 
 ### Adding a new qasida
 
-Add another object to the `QASIDAS` array with `group: "qasidas"`. Copy an existing entry
-as a template and replace the text. That's it — it appears in the Qasidas tab and in search
+Copy a qasida in `content/qasidas/` to a new file named after the new piece's English
+title, replace the text (keep `"group": "qasidas"`), and add the file's name to
+`content/qasidas/index.json`. That's it — it appears in the Qasidas tab and in search
 automatically.
 
 ### Adding a new Turkish ilahi
 
-Add an object to `ILAHI_CHAPTERS`, using `latin: true`, with the Turkish in `ar` and the
-English in `en`. Only use **public-domain** lyrics (see the note on content below).
+Add a file to `content/ilahis/` with `"latin": true`, the Turkish in `ar` and the English
+in `en`, and add its name to `content/ilahis/index.json`. Only use **public-domain**
+lyrics (see the note on content below).
 
 ### Adding audio to a Burda chapter (or anything)
 
-Add a `video:` field with a YouTube link. To link a specific timestamp, keep the `t=`
-parameter and drop the `si=` tracking part, e.g. `https://youtu.be/VIDEO?t=355`.
+Add a `"video"` field with a YouTube link to the piece's file. To link a specific
+timestamp, keep the `t=` parameter and drop the `si=` tracking part, e.g.
+`https://youtu.be/VIDEO?t=355`.
 
 ---
 
@@ -145,6 +142,10 @@ const CACHE = 'sacredtexts-v385';   // change to 'sacredtexts-v386', then v387, 
 If you forget this, your edits will look fine in a fresh browser but won't reach anyone who
 already installed the app.
 
+Texts are the exception: the app fetches everything in `content/` network-first, so a
+corrected text reaches installed phones the next time they open the app with a
+connection, without a bump.
+
 ---
 
 ## Deploying / hosting
@@ -160,7 +161,8 @@ The app is just static files, so any static host works.
 
 ### Option B — Netlify Drop (drag-and-drop, no account needed)
 Go to [app.netlify.com/drop](https://app.netlify.com/drop) and drag in the **folder** of
-files (the 5 app files must be at the top level). You get an instant public link.
+files (`index.html`, `sw.js` and the `content/`, `fonts/` and `img/` folders must be at
+the top level). You get an instant public link.
 
 ---
 
