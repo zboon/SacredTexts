@@ -11,7 +11,9 @@
    Everything else (fonts, images, icons, manifest) stays cache-first: it's
    large, it doesn't change, and it's what makes the app work with no signal. */
 const CACHE = 'sacredtexts-v385'; // bump this whenever you update index.html
-const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
+const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png',
+  './fonts/UthmanicHafs.otf', './fonts/Amiri-Regular.woff', './fonts/Amiri-Bold.woff',
+  './img/medallion.png', './img/header-bismillah.png'];
 
 /* How long the network gets before the cached copy is used instead. */
 const NETWORK_TIMEOUT = 4000;
