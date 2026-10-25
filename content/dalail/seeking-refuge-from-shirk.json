@@ -1,0 +1,29 @@
+{
+  "titleArabic": "دُعَاءُ التَّعَوُّذِ مِنَ الشِّرْكِ",
+  "titleEnglish": "Seeking Refuge from Shirk",
+  "cartouche": "دُعَاءُ التَّعَوُّذِ مِنَ الشِّرْكِ",
+  "note": "Recited after the Names.",
+  "folios": [
+    {
+      "from": 0,
+      "to": 2
+    }
+  ],
+  "verses": [
+    {
+      "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ",
+      "tr": "Bismi-Llāhi r-Raḥmāni r-Raḥīm",
+      "en": "In the name of Allah, the All-Merciful, the Most Merciful."
+    },
+    {
+      "ar": "اَللّٰهُمَّ اِنِّي اَعُوذُ بِكَ مِنْ اَنْ اُشْرِكَ بِكَ شَيْئًا وَاَنَا اَعْلَمُ وَاَسْتَغْفِرُكَ لِمَا لَا اَعْلَمُ ۞ اِنَّكَ اَنْتَ عَلَّامُ الْغُيُوبِ",
+      "tr": "Allāhumma innī aʿūdhu bika min an ushrika bika shayʾan wa-anā aʿlam, wa-astaghfiruka limā lā aʿlam. Innaka Anta ʿAllāmu l-ghuyūb",
+      "en": "O Allah, I seek refuge with You from associating anything with You knowingly, and I ask Your forgiveness for what I do not know. You are the Knower of all that is hidden."
+    },
+    {
+      "ar": "اَللّٰهُمَّ اِنَّا نَعُوذُ بِكَ مِنْ اَنْ نُشْرِكَ بِكَ شَيْئًا نَعْلَمُهُ وَنَسْتَغْفِرُكَ لِمَا لَا نَعْلَمُهُ",
+      "tr": "Allāhumma innā naʿūdhu bika min an nushrika bika shayʾan naʿlamuh, wa-nastaghfiruka limā lā naʿlamuh",
+      "en": "O Allah, we seek refuge with You from associating anything with You that we know of, and we ask Your forgiveness for what we do not know."
+    }
+  ]
+}

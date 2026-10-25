@@ -1,0 +1,71 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "قَصِيدَةُ السَّلَامِ",
+  "titleEnglish": "Qaṣīdatu s-Salām — The Poem of Peace",
+  "note": "Repeat the refrain after each set of verses.",
+  "video": "https://www.youtube.com/watch?v=gF1w8R9SpZA",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "لَا إِلٰهَ إِلَّا اللّٰهْ ۞ لَا إِلٰهَ إِلَّا اللّٰهْ\nلَا إِلٰهَ إِلَّا اللّٰهْ ۞ مُحَمَّدٌ رَسُولُ اللّٰهْ",
+      "tr": "Lā ilāha illa Llāh · lā ilāha illa Llāh · Lā ilāha illa Llāh · Muḥammadun Rasūlu Llāh",
+      "en": "There is no god but Allah, there is no god but Allah. There is no god but Allah; Muhammad is the Emissary of Allah."
+    },
+    {
+      "ar": "سَلَامٌ عَلٰى قَبْرٍ يُزَارُ مِنَ الْبُعْدِ ۞\nسَلَامٌ عَلٰى الرَّوْضَةْ وَفِيهَا مُحَمَّدِ",
+      "tr": "Salāmun ʿalā qabrin yuzāru mina l-buʿdi · Salāmun ʿalā r-Rawḍa wa fīhā Muḥammadin",
+      "en": "Peace and greetings to a grave that is visited from afar. Peace be upon the Garden wherein lies Muhammad."
+    },
+    {
+      "ar": "سَلَامٌ عَلٰى مَنْ زَارَ فِي اللَّيْلِ رَبَّهُ ۞\nفَبَلَّغَهُ الْمَرْغُوبَ فِي كُلِّ مَقْصَدِ",
+      "tr": "Salāmun ʿalā man zāra fī l-layli Rabbahu · Fa-ballaghahu l-marghūba fī kulli maqṣadin",
+      "en": "Peace upon him who in the night visited his Lord, who granted him attainment of his desire in all he aspired to."
+    },
+    {
+      "ar": "سَلَامٌ عَلٰى مَنْ قَالَ لِلضَّبِّ مَنْ أَنَا ۞\nفَقَالَ رَسُولُ اللّٰهِ أَنْتَ مُحَمَّدِ",
+      "tr": "Salāmun ʿalā man qāla li-ḍ-ḍabbi man anā · Fa-qāla Rasūlu Llāhi anta Muḥammadin",
+      "en": "Peace be upon him who asked a lizard, “Who am I?” And it replied, “The Emissary of Allah. You are Muhammad.”"
+    },
+    {
+      "ar": "سَلَامٌ عَلٰى الْمَدْفُونِ فِي أَرْضِ طَيْبَةَ ۞\nوَمَنْ خَصَّهُ الرَّحْمَانُ بِالْفَضْلِ وَالْمَجْدِ",
+      "tr": "Salāmun ʿalā l-madfūni fī arḍi Ṭaybata · wa man khaṣṣahu r-Raḥmānu bi-l-faḍli wa l-majdi",
+      "en": "Peace upon the one buried in the land of Tayba (Madinah), and whom the All-Merciful singled out for pre-eminence and glory."
+    },
+    {
+      "ar": "نَبِيٌّ حَبَاهُ اللّٰهُ بِالْحُسْنِ وَالْبَهَا ۞\nفَطُوبَى لِعَبْدٍ زَارَ قَبْرَ مُحَمَّدِ",
+      "tr": "Nabiyyun ḥabāhu Llāhu bi-l-ḥusni wa l-bahā · Fa-ṭūbā li-ʿabdin zāra qabra Muḥammadin",
+      "en": "A Prophet whom Allah granted beauty and splendour. Blessed, then, is any servant of Allah who visits the grave of Muhammad."
+    },
+    {
+      "ar": "أَيَا رَاكِبًا نَحْوَ الْمَدِينَةِ قَاصِدًا ۞\nفَبَلِّغْ سَلَامِي لِلْحَبِيبِ مُحَمَّدِ",
+      "tr": "Ayā rākiban naḥwa l-Madīnati qāṣidan · fa-balligh salāmī li-l-ḥabībi Muḥammadin",
+      "en": "O you who are riding straight ahead towards Madinah, convey my greetings to the Beloved Muhammad."
+    },
+    {
+      "ar": "فِي رَوْضَتِهِ الْحُسْنَى مُنَايَ وَبُغْيَتِي ۞\nوَفِيهَا شِفَا قَلْبِي وَرُوحِي وَرَاحَتِي",
+      "tr": "Fī Rawḍatihi l-ḥusnā munāya wa bughyatī · wa fīhā shifā qalbī wa rūḥī wa rāḥatī",
+      "en": "Within his most lovely Garden is my sole desire and goal; therein lies the remedy for my heart and soul, and therein my comfort."
+    },
+    {
+      "ar": "فَإِنْ بَعُدَتْ عَنِّي وَعَزَّ مَزَارُهَا ۞\nفَتِمْثَالُهَا لَدَيَّ أَحْسَنُ صُورَةِ",
+      "tr": "Fa-in baʿudat ʿannī wa ʿazza mazāruhā · fa-timthāluhā ladayya aḥsanu ṣūratin",
+      "en": "For although it is far from me and difficult to visit, the picture of it in my mind's eye is the loveliest of forms."
+    },
+    {
+      "ar": "أُنَزِّهُ طَرْفَ الْعَيْنِ فِي حُسْنِ رَوْضِهَا ۞\nفَيَسْلُو بِهَا لُبِّي وَسِرِّي وَمُهْجَتِي",
+      "tr": "Unazzihu ṭarfa l-ʿayni fī ḥusni rawḍihā · fa-yaslū bihā lubbī wa sirrī wa muhjatī",
+      "en": "I cleanse my eyesight by picturing the beauty of its gardens, so that my mind, being and inmost soul find solace."
+    },
+    {
+      "ar": "فَهَا أَنَا يَا قُطْبَ الْعَوَالِمِ كُلِّهَا ۞\nأُقَبِّلُهَا شَوْقًا لِإِشْفَاءِ عِلَّتِي",
+      "tr": "Fa-hā anā yā Quṭba l-ʿAwālimi kullihā · Uqabbiluhā shawqan li-ishfā'i ʿillatī",
+      "en": "So here I am, O Axis of the entire Universe! I place my lips on it in yearning, to have my ailment healed."
+    },
+    {
+      "ar": "وَصَلِّ عَلٰى قُطْبِ الْوُجُودِ مُحَمَّدِ ۞\nصَلَاةً بِهَا تَمْحُو عَنَّا كُلَّ زَلَّةِ",
+      "tr": "Wa ṣalli ʿalā Quṭbi l-wujūdi Muḥammadin · Ṣalātan bihā tamḥū ʿannā kulla zallatin",
+      "en": "Send prayers upon the Centre of all creation, Muhammad, prayers through which all our shortcomings are effaced."
+    }
+  ]
+}

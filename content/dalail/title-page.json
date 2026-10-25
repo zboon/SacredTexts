@@ -1,0 +1,29 @@
+{
+  "titleArabic": "عُنْوَانُ الْكِتَابِ",
+  "titleEnglish": "Title Page",
+  "note": "The title page of the book, giving its full name and its author.",
+  "folios": [
+    {
+      "from": 0,
+      "to": 2
+    }
+  ],
+  "verses": [
+    {
+      "ar": "دَلَائِلُ الْخَيْرَاتِ وَشَوَارِقُ الْأَنْوَارِ فِي الصَّلَاةِ عَلٰى النَّبِيِّ الْمُخْتَارِ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ",
+      "tr": "",
+      "en": "Waymarks of Benefits and the Risings of Lights, on invoking blessings upon the Chosen Prophet — may Allah bless him and grant him peace."
+    },
+    {
+      "ar": "الْمَعْرُوفُ بِاخْتِصَارِهِ ۞ دَلَائِلُ الْخَيْرَاتِ",
+      "tr": "",
+      "en": "Known for short as: Dalāʾil al-Khayrāt."
+    },
+    {
+      "ar": "لِلْإِمَامِ أَبِي عَبْدِ اللّٰهِ مُحَمَّدِ بْنِ عَبْدِ الرَّحْمٰنِ بْنِ أَبِي بَكْرِ بْنِ سُلَيْمَانَ الْجَزُولِيِّ الْحَسَنِيِّ\n(807–870 هـ / 1404–1465 م)",
+      "tr": "",
+      "en": "By the Imam Abū ʿAbdillāh Muḥammad ibn ʿAbd ar-Raḥmān ibn Abī Bakr ibn Sulaymān al-Jazūlī al-Ḥasanī\n(807–870 AH / 1404–1465 CE)"
+    }
+  ],
+  "cartouche": "دَلَائِلُ الْخَيْرَاتِ"
+}

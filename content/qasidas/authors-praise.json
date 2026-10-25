@@ -1,0 +1,44 @@
+{
+  "category": "dua",
+  "group": "duas",
+  "titleArabic": "مَدْحُ الْمُؤَلِّفِ",
+  "titleEnglish": "8 · Author's Praise",
+  "verses": [
+    {
+      "ar": "فَسُبْحَانَ مَنْ خَصَّهُ ﷺ بِأَشْرَفِ الْمَنَاصِبِ وَالْمَرَاتِبِ",
+      "tr": "Fa-subḥāna man khaṣṣahu ﷺ bi-ashrafi l-manāṣibi wa l-marātib",
+      "en": "Glory be to the One who singled him ﷺ out with the noblest of offices and ranks."
+    },
+    {
+      "ar": "أَحْمَدُهُ عَلٰى مَا مَنَحَ مِنَ الْمَوَاهِبِ",
+      "tr": "Aḥmaduhu ʿalā mā manaḥa mina l-mawāhib",
+      "en": "I praise Him for the gifts He has bestowed."
+    },
+    {
+      "ar": "وَأَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيكَ لَهُ رَبُّ الْمَشَارِقِ وَالْمَغَارِبِ",
+      "tr": "Wa ashhadu an lā ilāha illā-Llāhu waḥdahu lā sharīka lahu Rabbu l-mashāriqi wa l-maghārib",
+      "en": "And I bear witness that there is no god but Allah alone, having no partner, Lord of every east and every west."
+    },
+    {
+      "ar": "وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ الْمَبْعُوثُ إِلَى سَائِرِ الْأَعَاجِمِ وَالْأَعَارِبِ",
+      "tr": "Wa ashhadu anna sayyidanā Muḥammadan ʿabduhu wa Rasūluhu l-mabʿūthu ilā sāʾiri l-aʿājimi wa l-aʿārib",
+      "en": "And I bear witness that our master Muhammad is His servant and His Messenger, sent to all peoples, non-Arab and Arab alike."
+    },
+    {
+      "ar": "صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ وَعَلٰى آلِهِ وَأَصْحَابِهِ أُولِي الْمَآثِرِ وَالْمَنَاقِبِ",
+      "tr": "Ṣallā-Llāhu ʿalayhi wa sallama wa ʿalā ālihi wa aṣḥābihi ulī l-maʾāthiri wa l-manāqib",
+      "en": "May Allah bless him and grant him peace, and his family and his companions, possessors of noble deeds and virtues."
+    },
+    {
+      "ar": "صَلَاةً وَسَلَامًا دَائِمَيْنِ مُتَلَازِمَيْنِ يَأْتِي قَائِلُهُمَا يَوْمَ الْقِيَامَةِ غَيْرَ خَائِبٍ",
+      "tr": "Ṣalātan wa salāman dāʾimayni mutalāzimayni yaʾtī qāʾiluhumā yawma l-qiyāmati ghayra khāʾib",
+      "en": "Blessings and peace, lasting and inseparable — whoever utters them will come on the Day of Rising not disappointed."
+    },
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, bless him, grant him peace, and pour Your blessings upon him and his family."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "قُلْ يَا عَظِيمْ",
+  "titleEnglish": "21 · Qul Yā ʿAẓīm",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "قُلْ يَا عَظِيمْ أَنْتَ الْعَظِيمْ ۞ قَدْ هَمَّنَا هَمٌّ عَظِيمْ\nوَكُلُّ هَمٍّ هَمَّنَا ۞ يَهُونُ بِاسْمِكَ يَا عَظِيمْ",
+      "tr": "Qul yā ʿAẓīm anta-l-ʿAẓīm · qad hammanā hammun ʿaẓīm · Wa kullu hammin hammanā · yahūnu bi-smika yā ʿAẓīm",
+      "en": "Say: O Tremendous One, You are the Tremendous — a tremendous worry has befallen us, yet every worry that troubles us becomes light through Your name, O Tremendous One."
+    },
+    {
+      "ar": "أَنْتَ الْقَدِيمْ قَدِيمٌ فِي الْأَزَلْ ۞ أَنْتَ اللَّطِيفْ لَطِيفٌ لَمْ تَزَلْ\nعَنَّا أَزِلْ مَا قَدْ نَزَلْ ۞ مِنْ فَادِحِ الْخَطْبِ الشَّدِيدْ",
+      "tr": "Anta-l-Qadīm qadīmun fī-l-azal · anta-l-Laṭīf laṭīfun lam tazal · ʿAnnā azil mā qad nazal · min fādiḥi-l-khaṭbi-sh-shadīd",
+      "en": "You are the Eternal, eternal from before beginning; You are the Subtle, ever-subtle without cease — remove from us what has descended of crushing, severe affliction."
+    },
+    {
+      "ar": "حَيٌّ قَدِيمْ قَدِيمٌ وَاجِدُ ۞ بَاقِي غَنِيْ غَنِيٌّ مَاجِدُ\nعَدْلٌ إِلَهْ إِلَهٌ وَاحِدُ ۞ بَرٌّ رَؤُوفْ رَؤُوفٌ بِالْعَبِيدْ",
+      "tr": "Ḥayyun Qadīm qadīmun Wājidu · Bāqī Ghanī ghaniyyun Mājidu · ʿAdlun Ilāh ilāhun Wāḥidu · Barrun Ra'ūf ra'ūfun bi-l-ʿabīd",
+      "en": "Living, Eternal, Eternal and Perceiving; Everlasting, Rich, Rich and Glorious; Just, God, One God alone; Kind, Tender — tender with His servants."
+    },
+    {
+      "ar": "وَلِلنَّبِيِّ صَلِّ يَا سَلَامْ ۞ مِنَّا صَلَاةً مَعْ سَلَامْ\nيَوْمَ الْجَزَا امْنَحْنَا سَلَامْ ۞ مِمَّا نَخَافُ يَا مَجِيدْ",
+      "tr": "Wa li-n-Nabiyyi ṣalli yā Salām · minnā ṣalātan maʿ salām · Yawma-l-jazā-mnaḥnā salām · mimmā nakhāfu yā Majīd",
+      "en": "And bless the Prophet, O Source of Peace, with blessings and peace from us — and on the Day of Recompense grant us safety from all we fear, O Glorious One."
+    }
+  ]
+}

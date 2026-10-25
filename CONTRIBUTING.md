@@ -4,84 +4,97 @@ Each section of the app has its own branch, so several people can write at
 the same time without waiting on each other. Everything you need is already
 wired up — you add content, nothing else.
 
-## 1. Your branch and your array
+## 1. Your branch and your folder
 
-Check out your branch and edit only the array named below, inside `index.html`.
-Search the file for the array's name; it sits under a large banner comment that
-explains the format.
+Check out your branch and edit only the folder named below, inside `content/`.
+Each piece is its own JSON file, and the folder's `index.json` lists the pieces
+in reading order.
 
-| Section | Branch | The one array you edit |
+| Section | Branch | The folder you edit |
 |---|---|---|
-| Mawlid | `section/mawlid` | `QASIDAS`, `BARZANJI_CHAPTERS`, `DIYA_CHAPTERS`, `BURDAH_CHAPTERS` |
-| Dalāʾil al-Khayrāt | `section/dalail` | `DALAIL_CHAPTERS` |
-| Naqshbandi Silsila | `section/silsila` | `SILSILA_CHAPTERS` |
-| Turuqs | `section/turuqs` | `TURUQ_CHAPTERS` |
-| Sohbets | `section/sohbets` | `SOHBET_CHAPTERS` |
-| Ilahi | `section/ilahi` | `ILAHI_CHAPTERS` |
-| Biographies | `section/biographies` | `BIOGRAPHY_CHAPTERS` |
-| Ottoman History | `section/ottoman` | `OTTOMAN_CHAPTERS` |
+| Mawlid | `section/mawlid` | `content/qasidas/`, `content/barzanji/`, `content/diya/`, `content/burdah/` |
+| Dalāʾil al-Khayrāt | `section/dalail` | `content/dalail/` |
+| Naqshbandi Silsila | `section/silsila` | `content/silsila/` |
+| Turuqs | `section/turuqs` | `content/turuqs/` |
+| Sohbets | `section/sohbets` | `content/sohbets/` |
+| Ilahi | `section/ilahi` | `content/ilahis/` |
+| Biographies | `section/biographies` | `content/biographies/` |
+| Ottoman History | `section/ottoman` | `content/ottoman/` |
 
 ```bash
 git checkout section/silsila     # your branch
-# edit index.html — your array only
-git commit -am "Silsila: add Shaykh ʿAbd al-Khāliq al-Ghujdawānī"
+# edit content/silsila/ — your folder only
+git add content/silsila
+git commit -m "Silsila: add Shaykh ʿAbd al-Khāliq al-Ghujdawānī"
 git push
 ```
 
 Your section's tile, list, reader, search and bookmarks all work the moment you
-add an entry. There is no build step and nothing to register.
+add a piece and list it in `index.json`. There is no build step.
 
-## 2. The entry format
+## 2. The piece format
 
-Every section uses the same shape:
+Every section uses the same shape, one piece per file:
 
-```js
+```json
 {
-  titleArabic : "الشَّيْخ عَبْد الْخَالِق الْغُجْدَوَانِي",
-  titleEnglish: "1 · Shaykh ʿAbd al-Khāliq al-Ghujdawānī",
-  note        : "…",                 // optional — green banner at the top
-  video       : "https://youtu.be/…",// optional — adds a "Listen" link
-  verses: [
-    { ar: "مِنْ سَادَاتِ الطَّرِيقَةِ", tr: "Min sādāti-ṭ-ṭarīqah", en: "One of the masters of the path." }
+  "titleArabic": "الشَّيْخ عَبْد الْخَالِق الْغُجْدَوَانِي",
+  "titleEnglish": "1 · Shaykh ʿAbd al-Khāliq al-Ghujdawānī",
+  "note": "…",
+  "video": "https://youtu.be/…",
+  "verses": [
+    {
+      "ar": "مِنْ سَادَاتِ الطَّرِيقَةِ",
+      "tr": "Min sādāti-ṭ-ṭarīqah",
+      "en": "One of the masters of the path."
+    }
   ]
 }
 ```
 
-- The leading `N ·` in `titleEnglish` sets the display order.
+- `note` (a banner at the top) and `video` (a "Listen" link) are optional.
+- The leading `N ·` in `titleEnglish` is the number shown with the piece.
 - One `verses` entry per paragraph (prose) or per line (poetry).
 - `۞` splits the two halves of a line of poetry; `\n` is a hard line break.
-- **English prose** (Sohbets, Biographies, Ottoman History): add `latin: true`,
+- **English prose** (Sohbets, Biographies, Ottoman History): add `"latin": true`,
   put the English in `ar` (it renders left-to-right), and leave `tr` as `""`.
+- It's JSON: double quotes only, `\"` for a quote inside text, no comma after the
+  last item, no comments.
+
+`content/README.md` lists every field, how files are named, and how to add a piece.
 
 ### Silsila only: portraits
 
-`SILSILA_CHAPTERS` already holds all 40 masters of the Golden Chain as
-stubs — the tile, numbering and reader placeholder work as soon as
-`titleArabic`/`titleEnglish` are there, even with an empty `verses: []`. To
-add a small thumbnail beside a master's name, set `image` on their entry to
-a data URI or an `https://` URL; leave it `""` to keep the placeholder
-avatar. This field is specific to this section and does nothing elsewhere.
+`content/silsila/` already holds all 40 masters of the Golden Chain as stubs —
+the tile, numbering and reader placeholder work as soon as
+`titleArabic`/`titleEnglish` are there, even with an empty `"verses": []`. Fill
+in each master's own file; don't rename, remove or reorder the stubs. To add a
+small thumbnail beside a master's name, set `"image"` to a data URI or an
+`https://` URL; leave it `""` to keep the placeholder avatar. This field is
+specific to this section and does nothing elsewhere.
 
 ## 3. Checking your work
 
-Open `index.html` in a browser — double-clicking the file is enough. Your
-entries should appear in your section and open when tapped.
+Serve the app locally — opening `index.html` by double-click no longer works,
+because browsers won't load the texts from files:
+
+```bash
+python -m http.server 8000
+```
+
+Then open http://localhost:8000. Your pieces should appear in your section and
+open when tapped. If a file has a mistake, a notice at the bottom of the screen
+names the file and what's wrong, and your section stays empty until it's fixed.
 
 ## 4. Rules that keep the merges clean
 
-The whole app is one large `index.html`, so we avoid conflicts by staying out
-of each other's way:
-
-- **Only touch your own array.** Everything else — the menu, the routing, the
+- **Only touch your own folder.** Everything else — the menu, the routing, the
   counts, the readers — is already done and shared by all eight branches. If
-  you think you need a change outside your array, raise it rather than making
+  you think you need a change outside your folder, raise it rather than making
   it on your branch.
 - **Don't bump `APP_VERSION` or the cache version in `sw.js`.** Every branch
   would change the same line and every merge would conflict. Whoever merges to
   `main` bumps it once, at the end.
-- **Keep your entries inside the array's blank-line margins.** The spacing
-  around each array is deliberate — it's what stops two sections' edits from
-  landing in the same diff hunk.
 - **Merge `main` into your branch** before opening a pull request, so you
   resolve anything on your side rather than in the shared branch.
 
