@@ -25,7 +25,7 @@ section, in search and in favourites with no other change.
 
 `index.json` in this folder lists the section folders, so the service worker knows
 what to keep for offline use. It changes only when a section is added to the app,
-which needs code changes in `index.html` as well.
+which needs code changes in `app.js` as well.
 
 ## Order: each folder's `index.json`
 
@@ -47,7 +47,7 @@ at the bottom of the screen names the missing file.
 **Don't reorder `dalail/` or `litanies/`.** The app finds some of their pieces by
 position: the Dalāʾil day cards and recitations, and the daily portions of Ḥizb
 al-Aʿẓam and Ḥizb al-Istighfār. Add new pieces at the end. Moving one needs a
-matching change in `index.html`: `DALAIL_DAYS`, `DALAIL_TODAY_IDX`, `DALAIL_AUDIO`,
+matching change in `app.js`: `DALAIL_DAYS`, `DALAIL_TODAY_IDX`, `DALAIL_AUDIO`,
 `AZAM_FIRST`, `ISTIGHFAR_FIRST`, and their `…_TODAY_IDX` tables.
 
 ## Adding a piece
@@ -127,7 +127,7 @@ Each verse:
 | `group`, `category` | `qasidas/` | `group` is `"duas"` or `"qasidas"`, and `category` is `"dua"` or `"qasida"`. A qasida with no `N ·` number belongs to the Qasidas list rather than the Mawlid. |
 | `latin` | `ilahis/`, `sohbets/`, `biographies/`, `ottoman/` | `true` for text in Latin script: the Turkish or English goes in `ar` and is shown left to right, and `tr` stays `""`. |
 | `prose` | `sohbets/` | `true` sets `latin` text as flowing paragraphs. |
-| `shaykh`, `date`, `location` | `sohbets/` | The room the sohbet belongs in (a shaykh's `id` from `SOHBET_SHAYKHS` in `index.html`), and when and where it was given. Leave `date` or `location` as `""` when unknown. |
+| `shaykh`, `date`, `location` | `sohbets/` | The room the sohbet belongs in (a shaykh's `id` from `SOHBET_SHAYKHS` in `app.js`), and when and where it was given. Leave `date` or `location` as `""` when unknown. |
 | `image` | `silsila/` | A small portrait beside the master's name: a `data:` URI or an `https://` URL. `""` keeps the placeholder avatar. |
 | `folios` | `dalail/`, `litanies/` | Turns on the Book view. Each entry `{ "from": 0, "to": 52 }` is a range of verse positions, counted from 0, laid out as manuscript leaves. |
 | `cartouche` | `dalail/`, `litanies/` | The heading on each leaf in the Book view; the Arabic title when left out. |

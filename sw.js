@@ -6,12 +6,14 @@
    old worker was cache-first for everything, which meant the ONLY way to
    ever see an update was for this file itself to change — so a deploy that
    missed sw.js froze the app permanently with no way out from the phone.
-   The texts in content/ are network-first for the same reason: a corrected
-   text reaches phones on their next launch with a connection, no bump needed.
+   The texts in content/ and the app's own app.js and styles.css are
+   network-first for the same reason: a corrected text or a code fix reaches
+   phones on their next launch with a connection, no bump needed, and the
+   page, its script and its styles stay in step.
    Everything else (fonts, images, icons, manifest) stays cache-first: it's
    large, it doesn't change, and it's what makes the app work with no signal. */
 const CACHE = 'sacredtexts-v386'; // bump this whenever you update index.html
-const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png',
+const CORE = ['./', './index.html', './styles.css', './app.js', './manifest.json', './icon-192.png', './icon-512.png',
   './fonts/UthmanicHafs.otf', './fonts/Amiri-Regular.woff', './fonts/Amiri-Bold.woff',
   './img/medallion.png', './img/header-bismillah.png'];
 
@@ -20,6 +22,10 @@ const NETWORK_TIMEOUT = 4000;
 
 /* The texts: content/<section>/<piece>.json, next to this file. */
 const CONTENT_URL = new URL('./content/', self.location.href).href;
+
+/* The page's own script and stylesheet: they change with the code, like the
+   page itself, so they are fetched the same way as the texts. */
+const APP_FILES = ['./app.js', './styles.css'].map(u => new URL(u, self.location.href).href);
 
 /* Downloaded recitations live in their own cache, opened by the page rather
    than by this worker. It is listed here so the cleanup below spares it.
@@ -87,12 +93,12 @@ self.addEventListener('activate', e => {
 });
 
 /* Whether the network just failed to answer in time: for the page itself, or
-   for any text. The rest of this launch's texts then come straight from the
-   cache, so a weak signal costs one wait, not one per stage of loading (the
-   page, the listings, the pieces). The next navigation the network answers
-   resets it. It lives only as long as the worker does; a fresh worker starts
-   out trying the network. */
-let textsFromCache = false;
+   for any fresh file (isFresh). The rest of this launch's fresh files then
+   come straight from the cache, so a weak signal costs one wait, not one per
+   stage of loading (the page, its script and styles, the listings, the
+   pieces). The next navigation the network answers resets it. It lives only
+   as long as the worker does; a fresh worker starts out trying the network. */
+let freshFromCache = false;
 
 self.addEventListener('fetch', e => {
   const req = e.request;
@@ -115,15 +121,16 @@ self.addEventListener('fetch', e => {
         }),
         new Promise(res => setTimeout(() => res(null), NETWORK_TIMEOUT))
       ])
-        .then(resp => { textsFromCache = !resp; return resp || caches.match('./index.html'); })
-        .catch(() => { textsFromCache = true; return caches.match('./index.html'); })
+        .then(resp => { freshFromCache = !resp; return resp || caches.match('./index.html'); })
+        .catch(() => { freshFromCache = true; return caches.match('./index.html'); })
     );
     return;
   }
 
-  /* A text: network first, unless the network just failed to answer in time. */
-  if (isText(req.url)) {
-    e.respondWith(textsFromCache
+  /* A text, or the app's script or styles: network first, unless the network
+     just failed to answer in time. */
+  if (isFresh(req.url)) {
+    e.respondWith(freshFromCache
       ? caches.match(req).then(cached => cached || networkFirst(req))
       : networkFirst(req));
     return;
@@ -151,16 +158,20 @@ self.addEventListener('fetch', e => {
   );
 });
 
-function isText(url){
-  return url.startsWith(CONTENT_URL) && new URL(url).pathname.endsWith('.json');
+/* Files that change with each release and must not wait for a cache bump:
+   the texts (content/…json) and the app's own script and stylesheet. */
+function isFresh(url){
+  const u = new URL(url);
+  const bare = u.origin + u.pathname;
+  return (url.startsWith(CONTENT_URL) && u.pathname.endsWith('.json')) || APP_FILES.includes(bare);
 }
 
 /* Ask the network and keep what comes back. 'no-cache' makes the browser
    revalidate its own HTTP-cached copy, so an unchanged file costs a small 304
    rather than a download, yet nothing stale is ever used. After
    NETWORK_TIMEOUT the cached copy is served, and the rest of this launch's
-   texts skip the network (textsFromCache); with no cached copy yet, keep
-   waiting for the network rather than fail. */
+   fresh files skip the network (freshFromCache); with no cached copy yet,
+   keep waiting for the network rather than fail. */
 function networkFirst(req){
   const network = fetch(new Request(req, { cache: 'no-cache' })).then(resp => {
     if (resp.ok) {
@@ -171,7 +182,7 @@ function networkFirst(req){
   });
   const timeout = new Promise(res => setTimeout(() => res(null), NETWORK_TIMEOUT));
   return Promise.race([network.catch(() => null), timeout])
-    .then(resp => { if (!resp) textsFromCache = true; return resp || caches.match(req); })
+    .then(resp => { if (!resp) freshFromCache = true; return resp || caches.match(req); })
     .then(resp => resp || network)
     .catch(() => Response.error());
 }

@@ -23,7 +23,9 @@ It is a **static site**: plain HTML, CSS and JavaScript, with the texts as JSON 
 | File | What it is |
 |------|------------|
 | `content/` | **The texts.** One folder per section, one JSON file per piece, and an `index.json` in each folder giving the order. This is where you normally edit — see `content/README.md`. |
-| `index.html` | The app: its styling (CSS) and logic (JS). |
+| `index.html` | The page itself: the HTML skeleton that loads the stylesheet and the script. |
+| `styles.css` | All the styling, including the `@font-face` rules for the bundled Arabic fonts. |
+| `app.js` | All the logic: loading the texts, the readers, search, bookmarks, live sessions. |
 | `fonts/` | The bundled Arabic fonts (see below). |
 | `img/` | The masthead artwork. |
 | `sw.js` | Service worker — makes the app work offline. Contains the cache version string (see below). |
@@ -68,7 +70,7 @@ original file byte for byte, *not* subset or converted; that costs about 240KB a
 cannot be optimised away without breaching the licence.
 
 To swap the body Arabic, replace `fonts/UthmanicHafs.otf` and update its `@font-face`
-block and preload in `index.html`, its entry in `CORE` in `sw.js`, and the
+block in `styles.css` and its preload in `index.html`, its entry in `CORE` in `sw.js`, and the
 `font-family:'UthmanicHafs','Amiri',serif` rules. Leave the rosette rule
 (`.ms-r, .rosette`) pinned to Amiri, and keep `OFL.txt`.
 
@@ -87,8 +89,8 @@ python -m http.server 8000
 Then open <http://localhost:8000>. For editing, [VS Code](https://code.visualstudio.com/)
 (free) is ideal.
 
-The offline service worker runs on `localhost` too. It fetches `index.html` and the
-texts network-first, so a normal reload shows your edits. Fonts and images are
+The offline service worker runs on `localhost` too. It fetches `index.html`, `app.js`,
+`styles.css` and the texts network-first, so a normal reload shows your edits. Fonts and images are
 cache-first: after replacing one, clear the site's data in the browser.
 
 ---
@@ -132,7 +134,7 @@ timestamp, keep the `t=` parameter and drop the `si=` tracking part, e.g.
 ## ⚠️ The one thing you must not forget: bump the cache version
 
 Because the app caches itself for offline use, **installed phones will not see your changes
-until you bump the cache version.** After editing `index.html`, open `sw.js` and increment
+until you bump the cache version.** After editing `index.html`, `app.js` or `styles.css`, open `sw.js` and increment
 the number on this line:
 
 ```js
@@ -161,7 +163,7 @@ The app is just static files, so any static host works.
 
 ### Option B — Netlify Drop (drag-and-drop, no account needed)
 Go to [app.netlify.com/drop](https://app.netlify.com/drop) and drag in the **folder** of
-files (`index.html`, `sw.js` and the `content/`, `fonts/` and `img/` folders must be at
+files (`index.html`, `app.js`, `styles.css`, `sw.js` and the `content/`, `fonts/` and `img/` folders must be at
 the top level). You get an instant public link.
 
 ---
@@ -189,7 +191,7 @@ changes — you browse, search and bookmark exactly as before.
 1. Make a free project at [supabase.com](https://supabase.com).
 2. In the dashboard go to **Project Settings → API** and copy the **Project URL**
    and the **anon / public** key.
-3. In `index.html`, find `SESSION_CONFIG` near the top of the `<script>` and paste
+3. In `app.js`, find `SESSION_CONFIG` and paste
    them in:
 
 ```js
