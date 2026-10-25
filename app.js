@@ -1441,13 +1441,47 @@ function countLabel(id, n){
    HOME shows the medallion; inner pages and the reader show the bismillah. */
 const MEDALLION_ICON = 'img/medallion.png';
 
+/* On a wide screen the menu is laid out around the seal: the medallion has
+   eight points (N, NE, E, SE, S, SW, W, NW), and each of the first eight
+   tiles takes one, clockwise from the top, so every point aims at its tile.
+   --dx/--dy are that tile's direction from the centre (cosine and sine of its
+   angle) and --r how far out its centre sits, in units of the seal's width.
+   --r is worked out from the tile's own shape: a tile wider than it is tall
+   has to sit further out at 3 and 9 o'clock than at 12 and 6, or it would
+   crowd the star there and float away from it elsewhere. 'More Soon' and any
+   tile past the eighth have no point to claim, so they sit below the ring.
+   On a narrow screen none of this applies: the seal lives in the header and
+   the tiles stay a plain grid. */
+const SEAL_POINTS = 8;
+const SEAL_REACH = .53;                    /* seal's tips, from its centre, as a share of its width */
+const RING_TILE  = { w:.50, h:.30 };       /* a ring tile's size, same units; keep in step with styles.css */
+const RING_GAP   = .03;                    /* clear space between a tip and its tile */
+function ringRadius(dx, dy){
+  /* Distance from a tile's centre to its edge, looking back toward the seal. */
+  const toEdge = Math.min(Math.abs(dx) > 1e-6 ? RING_TILE.w / 2 / Math.abs(dx) : Infinity,
+                          Math.abs(dy) > 1e-6 ? RING_TILE.h / 2 / Math.abs(dy) : Infinity);
+  return SEAL_REACH + RING_GAP + toEdge;
+}
 function homeCards(){
-  return `<div class="home-grid">${HOME_CARDS.map(c => `
-      <button class="home-card" data-tile="${c.theme}" onclick="selectTab('${c.id}')">
+  let k = 0;
+  const tiles = HOME_CARDS.map(c => {
+    const onRing = c.id !== 'more' && k < SEAL_POINTS;
+    let pos = '';
+    if(onRing){
+      const a = (-90 + k * (360 / SEAL_POINTS)) * Math.PI / 180;
+      const dx = Math.cos(a), dy = Math.sin(a);
+      pos = ` style="--dx:${dx.toFixed(4)};--dy:${dy.toFixed(4)};--r:${ringRadius(dx, dy).toFixed(4)}"`;
+      k++;
+    }
+    return `
+      <button class="home-card${onRing ? ' ring' : ''}" data-tile="${c.theme}"${pos} onclick="selectTab('${c.id}')">
         <span class="hc-ar">${c.ar}</span>
         <span class="hc-en">${c.en}</span>
         <span class="hc-count">${countLabel(c.id, sectionCount(c.id))}</span>
-      </button>`).join('')}
+      </button>`;
+  }).join('');
+  return `<div class="home-grid radial">
+      <img class="home-seal" src="${MEDALLION_ICON}" width="320" height="328" alt="" aria-hidden="true">${tiles}
 </div>`;
 }
 

@@ -1020,6 +1020,9 @@
   }
   .home-card:hover{ border-color:var(--gold-soft); }
   .home-card:active{ transform:scale(.98); }
+  /* The seal inside the home grid is for wide screens only; on a phone the
+     header already shows it. */
+  .home-seal{ display:none; }
   /* Top-level menu tiles (home-page grid) carry a solid Ottoman-palette
      color, alternating across the grid; sub-hub tiles rendered the same
      way (mawlidsHub/praisesHub) have no data-tile and keep the plain
@@ -1046,6 +1049,71 @@
   .home-card[data-tile="more"] .hc-ar,
   .home-card[data-tile="more"] .hc-en{ color:var(--ink-soft); }
   .home-card[data-tile="more"] .hc-count{ color:var(--gold); }
+  /* ---------- wide screens: the menu ringed around the seal ----------
+     One background colour for the whole page (no coloured header band), the
+     seal at the centre, and each tile placed just beyond the point of the
+     star that aims at it. --S is the seal's diameter and everything scales
+     from it, so the ring keeps its proportions and fits the window height.
+     Tile size here must match RING_TILE in app.js, which positions them. */
+  @media (min-width:900px){
+    html.is-home{
+      --S:clamp(300px, min(26vw, calc((100vh - 15rem) / 1.72)), 420px);
+      --cy:calc(var(--S) * .86);     /* centre of the seal, from the top of the grid */
+    }
+    /* The header band goes: same ground as the page, controls in ink. */
+    html.is-home .masthead{
+      background:transparent; color:var(--ink);
+      padding:calc(env(safe-area-inset-top, 0px) + .9rem) 1.4rem .2rem;
+      min-height:3.8rem;
+    }
+    html.is-home .masthead .medallion-mark{ display:none; }
+    html.is-home .masthead .header-mark,
+    html.is-home .masthead .fav-mark,
+    html.is-home .masthead .session-mark,
+    html.is-home .masthead .theme-toggle{
+      background:rgba(38,40,31,.08); color:var(--ink);
+    }
+    html.is-home .masthead .header-mark:active,
+    html.is-home .masthead .fav-mark:active,
+    html.is-home .masthead .session-mark:active,
+    html.is-home .masthead .theme-toggle:active{ background:rgba(38,40,31,.18); }
+    html.is-home .masthead .session-mark.live{ background:var(--gold); color:var(--theme-deep); }
+    html.dark.is-home .masthead .header-mark,
+    html.dark.is-home .masthead .fav-mark,
+    html.dark.is-home .masthead .session-mark,
+    html.dark.is-home .masthead .theme-toggle{ background:rgba(236,231,214,.12); }
+    html.dark.is-home .masthead .session-mark.live{ background:var(--gold); }
+
+    .home-grid.radial{
+      display:block; position:relative; box-sizing:border-box;
+      width:calc(var(--S) * 2.2); max-width:100%;
+      height:calc(var(--S) * 1.72 + 6.2rem);       /* the ring, then the spare row beneath */
+      margin:0 auto; padding:0; border-bottom:none;
+    }
+    .home-grid.radial .home-seal{
+      display:block; position:absolute; left:50%; top:var(--cy);
+      width:var(--S); height:auto; translate:-50% -50%;
+      pointer-events:none;
+    }
+    .home-grid.radial .home-card{
+      position:absolute; box-sizing:border-box;
+      width:calc(var(--S) * .50); min-width:0; min-height:calc(var(--S) * .30);
+      padding:.6rem .5rem;
+    }
+    .home-grid.radial .home-card.ring{
+      translate:-50% -50%;
+      left:calc(50% + var(--dx) * var(--r) * var(--S));
+      top:calc(var(--cy) + var(--dy) * var(--r) * var(--S));
+    }
+    /* Not on the ring: waits beneath it, centred. */
+    .home-grid.radial .home-card:not(.ring){
+      translate:-50% 0;
+      left:50%; top:calc(var(--S) * 1.72 + 1.2rem);
+      min-height:0;
+    }
+    .home-grid.radial .home-card:hover{ scale:1.04; }
+    .home-grid.radial .home-card:active{ transform:none; scale:.97; }
+  }
   .section-intro{
     max-width:640px; margin:0 auto; padding:.2rem 1.1rem .1rem;
     font-family:'Crimson Pro',serif; font-size:.92rem; line-height:1.5;
