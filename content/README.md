@@ -19,6 +19,7 @@ section, in search and in favourites with no other change.
 | `turuqs/` | The Sufi orders |
 | `sohbets/` | Sohbets, each in its shaykh's room |
 | `ilahis/` | Turkish ilahis |
+| `qawwalis/` | Qawwalis (transliteration and English only), with the poet or performer in `poet`. Maintained in the Mawlid app. |
 | `nasheeds/` | Nasheeds |
 | `biographies/` | Lives of the awliyāʾ and scholars |
 | `ottoman/` | Ottoman history |

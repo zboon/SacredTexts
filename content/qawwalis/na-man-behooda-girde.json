@@ -1,0 +1,50 @@
+{
+  "latin": true,
+  "titleArabic": "Na Man Behooda Girde",
+  "titleEnglish": "Na Man Behooda Girde — Maulana Jalaluddin Rumi",
+  "poet": "Maulana Jalaluddin Rumi",
+  "note": "In Persian (Farsi).",
+  "verses": [
+    {
+      "ar": "Na man behuda girde koocha-o-bazaar mi gardam",
+      "tr": "",
+      "en": "Not frivolously, around the alleys and bazaars, I whirl",
+      "refrain": true
+    },
+    {
+      "ar": "Na man behuda girde koocha-o-bazaar mi gardam\nMazak-e-ashqi daram pae didar mi gardam",
+      "tr": "",
+      "en": "Not frivolously, around the alleys and bazaars, I whirl\nLover's temperament I have — to have one glimpse of my Beloved, I whirl"
+    },
+    {
+      "ar": "Khudaya reham kun bar mann pareeshaan waar mi gardam",
+      "tr": "",
+      "en": "O God! Have mercy on me! Disturbed, I whirl"
+    },
+    {
+      "ar": "Khataa kaaram gunah gaaram bahaal-e-zaar mi gardam",
+      "tr": "",
+      "en": "I am guilty, I am sinful — in this wretched state, I whirl"
+    },
+    {
+      "ar": "Sharaab-e-shouq mi nousham bagird-e-yaar mi gardam",
+      "tr": "",
+      "en": "Desire's wine I imbibe; around the Friend, I whirl"
+    },
+    {
+      "ar": "Sukhan mastana mi goyam bhale hushyaar mi gardam",
+      "tr": "",
+      "en": "Intoxicated speech I utter, even while soberly, I whirl"
+    },
+    {
+      "ar": "Gahe khandam gahe giriyam gahe uftam gahe khezam\nMaseeha dar dilam paida wa mann beemaar mi gardam",
+      "tr": "",
+      "en": "Sometimes I laugh, weep sometimes; sometimes I fall, rise sometimes\nMessiah in my heart I bear — and I, the infirm, whirl"
+    },
+    {
+      "ar": "Bayaan jaanan inayat kun to molana-e-rumi ra\nGhulam-e-shams tabrezam qalandar war mi gardam",
+      "tr": "",
+      "en": "Come, O Beloved! Indulge Maulana Rumi!\nShams Tabrizi's slave I am — like a qalandar, I whirl"
+    }
+  ]
+}

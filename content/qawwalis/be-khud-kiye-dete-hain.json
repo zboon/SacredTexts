@@ -1,0 +1,45 @@
+{
+  "latin": true,
+  "titleArabic": "Be Khud Kiye Dete Hain",
+  "titleEnglish": "Be Khud Kiye Dete Hain — Traditional",
+  "poet": "Traditional",
+  "note": "In Urdu.",
+  "verses": [
+    {
+      "ar": "Bekhud kiye dete hain andaaz hijaabana\nAa dil mein tujhe rakh lun ay jalwa e janana",
+      "tr": "",
+      "en": "Your veiled manner drives me beyond myself into ecstasy\nCome, let me place you within my heart, O radiant beloved",
+      "refrain": true
+    },
+    {
+      "ar": "Mai ne masoom baharo me tumhe dekha hai\nMai ne pur noor sitaro me tumhe dekha hai\nMere mehboob teri parda nashini ki qasam\nMai ne ashko ki qataroo me tumhe dekha hai",
+      "tr": "",
+      "en": "I have seen you in the innocent blossoms of spring\nI have seen you in the luminous stars\nI swear by the unveiling of your face, my beloved\nI have seen you in the streams of my tears"
+    },
+    {
+      "ar": "Bekhud kiye dete hain andaaz hijaabana\nAa dil mein tujhe rakh lun ay jalwa e janana",
+      "tr": "",
+      "en": "Your veiled manner drives me beyond myself into ecstasy\nCome, let me place you within my heart, O radiant beloved"
+    },
+    {
+      "ar": "Kyun aankh milayi thi kyun aag lagai thi\nAb rukh ko chupa bethe karke mujhe deewaana",
+      "tr": "",
+      "en": "Why did you meet my eyes — why did you ignite that fire?\nNow you hide your face, having made me utterly mad"
+    },
+    {
+      "ar": "Ji chahta hai tohfe mein bhejun unhein ankhein\nDarshan ka to darshan ho nazrane ka nazrana",
+      "tr": "",
+      "en": "My heart desires to send them my very eyes as a gift\nThat the gift of beholding be itself a tribute to beholding"
+    },
+    {
+      "ar": "Peene ko to pee lunga bas arz zara si hai\nAjmer ka saaqi ho bagdaad ka mekhaana",
+      "tr": "",
+      "en": "I will drink, I only have one small request\nLet the cup-bearer be from Ajmer and the tavern from Baghdad"
+    },
+    {
+      "ar": "Dunya mein hamein tumne jab apna banaya hai\nMehshar mein bhi keh dena ye hai mera deewaana",
+      "tr": "",
+      "en": "Since in this world you have made me your own\nOn the Day of Judgement too, declare: this one is my devoted one"
+    }
+  ]
+}

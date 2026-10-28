@@ -1,0 +1,40 @@
+{
+  "latin": true,
+  "titleArabic": "Mera Piya Ghar Aaya",
+  "titleEnglish": "Mera Piya Ghar Aaya — Baba Bulleh Shah",
+  "poet": "Baba Bulleh Shah",
+  "note": "In Punjabi.",
+  "verses": [
+    {
+      "ar": "Mera Piya ghar aaya\nO laalni\nMera Piya ghar aaya",
+      "tr": "",
+      "en": "My beloved (shaykh) has come to my home!\nO laalni!\nMy beloved (shaykh) has come to my home!",
+      "refrain": true
+    },
+    {
+      "ar": "Aavo ni saiyyon\nRal deyo ni vadhaai\nMain var paaya sona mahi",
+      "tr": "",
+      "en": "Come, everyone\nIt's time to celebrate!\nLook how fortunate I am to have such a beautiful lover!"
+    },
+    {
+      "ar": "Ghadiyaal devo nikaalni\nO piya ghar aaya\nSaanu Allah milaaya\nHun hoya fazl kamaalni",
+      "tr": "",
+      "en": "Forget about what time it is!\nMy beloved has come home\nIt's like I'm meeting Allah\nGod has been so kind! I feel divine now that he is here with me!"
+    },
+    {
+      "ar": "Ajj taan roz mubaarak chaddheya\nMaahi mere vede vadeya\nMera Piya ghar aaya",
+      "tr": "",
+      "en": "Every day is a day for celebration\nMy beloved is going to be home soon\nMy beloved (shaykh) has come to my home!"
+    },
+    {
+      "ar": "Ghadi ghadi ghadiyaal vajaave\nRaen vasl di piya ghataave\nMere mann di baat na pave",
+      "tr": "",
+      "en": "The clock keeps ticking and it scares me\nThe night of separation is on its brink\nWill my heart's desire be fulfilled?"
+    },
+    {
+      "ar": "Hathaan ja sutto ghadiyaal ni\nAnhad vaaja vaje suhaana\nMutrib sughda taan taraana\nBhul gaya ay namaaz dogana\nMadh piyaala dein kalaal ni",
+      "tr": "",
+      "en": "Throw away the clock! Let time stand still\nThe music plays limitlessly\nA singer is singing his song\nThere's no time to even pray\nFill my glass to the brim!"
+    }
+  ]
+}

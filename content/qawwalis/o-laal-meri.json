@@ -1,0 +1,40 @@
+{
+  "latin": true,
+  "titleArabic": "O Laal Meri (Shahbaz Qalandar)",
+  "titleEnglish": "O Laal Meri (Shahbaz Qalandar) — Traditional",
+  "poet": "Traditional",
+  "note": "In Punjabi / Sindhi.",
+  "verses": [
+    {
+      "ar": "O Laal Meri Pat Rakhiyo Bala Jhoole Laalan\nSindri Da Sehvan Da Sakhi Shabaaz Qalandar",
+      "tr": "",
+      "en": "O red robed Lord, may I always be protected\nO lord of Sindh and sire of Sehwan — O noble Shahbaz Qalandar",
+      "refrain": true
+    },
+    {
+      "ar": "Chaar Charaag Tere Baran Hamesha\nPanjwa Baaran Aayi Bala Jhoole Laalan",
+      "tr": "",
+      "en": "O Lord, your shrine is always lighted with four lamps\nAnd here I come to light a fifth lamp in your honor"
+    },
+    {
+      "ar": "O Laal Meri Pat Rakhiyo Bala Jhoole Laalan\nSindri Da Sehvan Da Sakhi Shabaaz Qalandar",
+      "tr": "",
+      "en": "O red robed Lord, may I always be protected\nO lord of Sindh and sire of Sehwan — O noble Shahbaz Qalandar"
+    },
+    {
+      "ar": "Duma Dum Mast Qalandar, Duma Dum Mast Qalandar\nAli Dum Dum De Andar, Ali Dum Dum De Andar",
+      "tr": "",
+      "en": "My breath is for the jubilant saint\nOur Master Ali's divinely breath in every breath of yours"
+    },
+    {
+      "ar": "Uchra Roza Peera Tera, Uchra Roza Peera Tera\nGaith Wage Gharyaal Bala Jhoole Laalan",
+      "tr": "",
+      "en": "Oh my mentor, your shrine is high\nSongs are played in sync with the clock — long live O Saint!"
+    },
+    {
+      "ar": "Ghanan Ghanan Teri Nobat Waagay\nNaal Vajay Gharyaal Bala Jhoole Laalan",
+      "tr": "",
+      "en": "O Lord, may your illustrious name ring out in Hind and Sindh\nMay the bells ring out your good glory day and night"
+    }
+  ]
+}

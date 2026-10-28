@@ -28,6 +28,7 @@ const SILSILA_CHAPTERS   = contentSection('silsila');
 const TURUQ_CHAPTERS     = contentSection('turuqs');
 const SOHBET_CHAPTERS    = contentSection('sohbets');
 const ILAHI_CHAPTERS     = contentSection('ilahis');
+const QAWWALI_CHAPTERS   = contentSection('qawwalis');
 const NASHEED_CHAPTERS   = contentSection('nasheeds');
 const BIOGRAPHY_CHAPTERS = contentSection('biographies');
 const OTTOMAN_CHAPTERS   = contentSection('ottoman');
@@ -349,6 +350,7 @@ function arrayOf(kind){
        : kind === 'b' ? BURDAH_CHAPTERS
        : kind === 's' ? SIRAH_CHAPTERS
        : kind === 'i' ? ILAHI_CHAPTERS
+       : kind === 'w' ? QAWWALI_CHAPTERS
        : kind === 'd' ? DALAIL_CHAPTERS
        : kind === 'z' ? BARZANJI_CHAPTERS
        : kind === 'y' ? DIYA_CHAPTERS
@@ -636,7 +638,6 @@ function sectionCards(cat){
 
 /* Everything under Additional Praises. */
 const PRAISE_SECTIONS = [
-  { id:'nasheeds', ar:'أناشيد',         en:'Nasheeds',   desc:'Devotional songs in praise of the Prophet ﷺ.' },
   { id:'qasidas',  ar:'قصائد',          en:'Qasidas',    desc:'Poems in praise of the Prophet ﷺ.' },
   { id:'ilahis',   ar:'الإلهيات',        en:'Ilahis',     desc:'Devotional songs in Turkish, with translation.' },
   { id:'qawwalis', ar:'قوالي',           en:'Qawwalis',   desc:'Sufi devotional music in praise of the Prophet ﷺ.' },
@@ -690,7 +691,7 @@ const TABS = [
   { id:'silsila',      label:'Naqshbandi Silsila',  ar:'السِّلْسِلَة النَّقْشَبَنْدِيَّة', theme:'maroon'  },
   { id:'turuqs',       label:'Turuqs',              ar:'الطُّرُق الصُّوفِيَّة',        theme:'teal'    },
   { id:'sohbets',      label:'Sohbets',             ar:'الصُّحْبَة',               theme:'ochre'   },
-  { id:'ilahi',        label:'Ilahi',               ar:'الْإلهيات',               theme:'plum'    },
+  { id:'praises',      label:'Qasidas',             ar:'القصائد',                 theme:'plum'    },
   { id:'biographies',  label:'Biographies',         ar:'التَّرَاجِم',              theme:'rust'    },
   { id:'ottoman',      label:'Ottoman History',     ar:'التَّارِيخ الْعُثْمَانِي',      theme:'indigo'  },
   { id:'more',         label:'More Soon',           ar:'وَقَرِيبًا الْمَزِيد',        theme:'neutral' },
@@ -704,7 +705,7 @@ const TAB_CHILDREN = {
   dalail:  ['before','downloads'],
   litanies: ['azam','istighfar'],
   mawlids: ['mawlid','barzanji','diya','burdah'],
-  praises: ['nasheeds','qasidas','ilahis','qawwalis'],
+  praises: ['qasidas','ilahis','qawwalis'],
   /* One child tab per shaykh: 'sohbet-nazim', 'sohbet-abdullah', … */
   sohbets: SOHBET_SHAYKHS.map(s => 'sohbet-' + s.id),
 };
@@ -813,6 +814,24 @@ function additionalQasidaCards(){
           </span>
           <span class="chev">›</span>
         </button>` + hitList('q', i)).join('');
+}
+
+/* Qawwalis carry no separate English gloss of their title (unlike the Ilahis'
+   "Title — meaning"), so the card's second line shows the poet or performer
+   instead — real, sourced data, not an invented translation. Ported from the
+   Mawlid app, where qawwalis are maintained. */
+function qawwaliCards(){
+  const items = QAWWALI_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+  if(items.length === 0) return '';
+  return items.map(({c,n})=>`
+        <button class="qcard" onclick="openQawwali(${n})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar" style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left">${c.titleArabic}</span>
+            <span class="t-en">${c.poet}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>` + hitList('w', n)).join('');
 }
 
 function groupCards(group){
@@ -1081,7 +1100,7 @@ function praisesHub(){
 }
 
 function backToPraises(){
-  return `<button class="back-link" onclick="selectTab('praises')">‹ Nasheeds & Qasidas</button>`;
+  return `<button class="back-link" onclick="selectTab('praises')">‹ Qasidas</button>`;
 }
 
 function backToDalail(){
@@ -1350,6 +1369,7 @@ const OPENERS = {
   q: 'openQasida',  b: 'openBurdah',   s: 'openSirah',
   i: 'openIlahi',   d: 'openDalail',   z: 'openBarzanji',
   y: 'openDiya',    n: 'openNasheed',  l: 'openLitany',
+  w: 'openQawwali',
   c: 'openSilsila',
   t: 'openTuruq',
   h: 'openSohbet',
@@ -1384,7 +1404,7 @@ const HOME_CARDS = [
   { id:'silsila',     ar:'السِّلْسِلَة النَّقْشَبَنْدِيَّة',            en:'Naqshbandi Silsila', theme:'maroon',  desc:'The chain of transmission connecting the Naqshbandi masters, shaykh to shaykh, back to the Prophet ﷺ.' },
   { id:'turuqs',      ar:'الطُّرُق الصُّوفِيَّة',                  en:'Turuqs',             theme:'teal',    desc:'An introduction to the Sufi orders (ṭuruq) and their paths of devotion.' },
   { id:'sohbets',     ar:'الصُّحْبَة',                        en:'Sohbets',            theme:'ochre',   desc:'Talks and spiritual counsel from the shaykhs, for reflection and practice.' },
-  { id:'ilahi',       ar:'الْإلهيات',                        en:'Ilahi',              theme:'plum',    desc:'Ilahis in Turkish and qasidas in Arabic, with translation.' },
+  { id:'praises',     ar:'القصائد',                        en:'Qasidas',            theme:'plum',    desc:'Qasidas, ilahis and qawwalis.' },
   { id:'biographies', ar:'التَّرَاجِم',                       en:'Biographies',        theme:'rust',    desc:'Lives of the awliyā’ and scholars of the silsila, in brief.' },
   { id:'ottoman',     ar:'التَّارِيخ الْعُثْمَانِي',                en:'Ottoman History',    theme:'indigo',  desc:'The Ottoman caliphate’s history and its place in the transmission of the dīn.' },
   { id:'more',        ar:'وَقَرِيبًا الْمَزِيد',                  en:'More Soon',          theme:'more',    desc:'Further sections are on their way — check back as they’re added.' },
@@ -1397,7 +1417,7 @@ function sectionCount(id){
        : id === 'litanies'? LITANY_CHAPTERS.filter((c,n)=>c.verses && c.verses.length && !isAzamDay(n) && !isIstighfarDay(n)).length + (azamFilledDays().length ? 1 : 0) + (istighfarFilledDays().length ? 1 : 0)
        : id === 'azam'    ? azamFilledDays().length
        : id === 'istighfar'? istighfarFilledDays().length
-       : id === 'qawwalis'? 0
+       : id === 'qawwalis'? QAWWALI_CHAPTERS.length
        : id === 'mawlid'  ? mawlidItems().length
        : id === 'qasidas' ? additionalQasidaItems().length
        : id === 'burdah'  ? BURDAH_CHAPTERS.length
@@ -1405,7 +1425,6 @@ function sectionCount(id){
        : id === 'barzanji'? BARZANJI_CHAPTERS.length
        : id === 'diya'    ? DIYA_CHAPTERS.length
        : id === 'ilahis'  ? ILAHI_CHAPTERS.length
-       : id === 'ilahi'   ? ILAHI_CHAPTERS.length + additionalQasidaItems().length
        : id === 'silsila' ? SILSILA_CHAPTERS.length
        : id === 'turuqs' ? TURUQ_CHAPTERS.length
        : id === 'sohbets' ? SOHBET_CHAPTERS.length
@@ -1427,7 +1446,6 @@ function countLabel(id, n){
   if(id === 'barzanji')return n + ' sections';
   if(id === 'diya')    return n + ' sections';
   if(id === 'qasidas') return n + (n === 1 ? ' qasida' : ' qasidas');
-  if(id === 'ilahi') return ILAHI_CHAPTERS.length + (ILAHI_CHAPTERS.length === 1 ? ' ilahi' : ' ilahis') + ' · ' + additionalQasidaItems().length + ' qasidas';
   if(id === 'ilahis') return n + (n === 1 ? ' ilahi' : ' ilahis');
   if(id === 'silsila') return n ? n + (n === 1 ? ' master' : ' masters') : 'Coming soon';
   if(id === 'turuqs') return n ? n + (n === 1 ? ' tariqa' : ' tariqas') : 'Coming soon';
@@ -1509,7 +1527,7 @@ function favCards(){
         <button class="qcard" onclick="${openFnOf(kind)}(${idx})">
           <span class="num">${toArNum(n+1)}</span>
           <span class="titles">
-            <span class="t-ar"${kind === 'i' ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${piece.titleArabic}</span>
+            <span class="t-ar"${piece.latin ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${piece.titleArabic}</span>
             <span class="t-en">${displayTitle(piece)}</span>
           </span>
           <span class="chev">›</span>
@@ -1544,6 +1562,8 @@ function renderResults(){
     if(nash) html += label('Nasheeds · أناشيد', !!mawlid || !!barz || !!burd || !!qas || !!dal) + nash;
     const ilahis = ilahiCards();
     if(ilahis) html += label('Ilahis · الْإلهيات', !!mawlid || !!barz || !!burd || !!qas || !!dal || !!nash) + ilahis;
+    const qaww = qawwaliCards();
+    if(qaww) html += label('Qawwalis · قوالي', !!html) + qaww;
     /* The Academy sections search alongside everything else; each stays
        silent until it has content, so nothing shows an empty heading. */
     const silsila = silsilaCards();
@@ -1569,14 +1589,14 @@ function renderResults(){
   if(tab === 'mawlid')  return backToMawlids() + sectionIntro('mawlid') + label('Follow the mawlid in order · على ترتيب الْمولد') + mawlidCards();
   if(tab === 'praises') return sectionIntro('praises') + label('Choose a section · اختر قسماً') + `<div class="home-grid">${praisesHub()}</div>`;
   if(tab === 'nasheeds')return backToPraises() + sectionIntro('nasheeds') + (nasheedCards() || placeholder('Nasheeds'));
-  if(tab === 'qasidas') return backToPraises() + sectionIntro('qasidas') + (additionalQasidaCards() || placeholder('Qasidas'));
+  if(tab === 'qasidas') return backToPraises() + sectionIntro('qasidas') + label('Select a qasida · اختر قصيدة') + (additionalQasidaCards() || placeholder('Qasidas'));
   if(tab === 'ilahis')  return backToPraises() + sectionIntro('ilahis') + label('Select an ilahi · ilahi seçin') + ilahiCards();
   if(tab === 'litanies')return backToDalail() + sectionIntro('litanies') + label('Select a litany · اختر حزباً') + litanyCards();
   if(tab === 'before')  return backToDalail() + label('Before the reading · قَبْلَ الْقِرَاءَةِ') + (DALAIL_CHAPTERS.length ? dalailBeforeCards() : placeholder('Before the reading'));
   if(tab === 'downloads') return downloadsScreen();
   if(tab === 'azam')    return backToLitanies() + collectionLabel(AZAM_TITLE_IDX) + azamIndex();
   if(tab === 'istighfar') return backToLitanies() + collectionLabel(ISTIGHFAR_TITLE_IDX) + istighfarIndex();
-  if(tab === 'qawwalis') return backToPraises() + sectionIntro('qawwalis') + placeholder('Qawwalis');
+  if(tab === 'qawwalis') return backToPraises() + sectionIntro('qawwalis') + label('Select a qawwali · اختر قوالي') + (qawwaliCards() || placeholder('Qawwalis'));
   if(tab === 'favs'){
     const cards = favCards();
     return cards
@@ -1595,13 +1615,6 @@ function renderResults(){
   if(tab === 'dalail'){
     /* Empty only when its files failed to load; the index assumes its portions. */
     return DALAIL_CHAPTERS.length ? dalailIndex() : placeholder('Dalāʾil al-Khayrāt');
-  }
-  if(tab === 'ilahi'){
-    const ilahis = ilahiCards(), qasidas = additionalQasidaCards();
-    return sectionIntro('ilahi')
-         + label('Ilahis · ilahi seçin')
-         + (ilahis || placeholder('Ilahis'))
-         + (qasidas ? label('Qasidas · قصائد', true) + qasidas : '');
   }
   if(tab === 'silsila') return sectionIntro('silsila') + (silsilaCards() ? label('Select a master · اختر شيخاً') + silsilaCards() : placeholder('Naqshbandi Silsila'));
   if(tab === 'turuqs') return sectionIntro('turuqs') + (turuqCards() ? label('Select a tariqa · اختر طريقة') + turuqCards() : placeholder('Turuqs'));
@@ -3773,10 +3786,19 @@ function openSirah(n){
   onNavigated('s', n);
 }
 
+function openQawwali(n){
+  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
+  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  app.innerHTML = readerHTML(QAWWALI_CHAPTERS[n], "selectTab('qawwalis')", 'w', n);
+  queueMsAutoFit();
+  window.scrollTo(0,0);
+  onNavigated('w', n);
+}
+
 function openIlahi(n){
   document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
   document.documentElement.style.setProperty('--latin-scale', state.latinScale);
-  app.innerHTML = readerHTML(ILAHI_CHAPTERS[n], "selectTab('ilahi')", 'i', n);
+  app.innerHTML = readerHTML(ILAHI_CHAPTERS[n], "selectTab('ilahis')", 'i', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('i', n);

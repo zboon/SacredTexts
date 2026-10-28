@@ -1,0 +1,40 @@
+{
+  "latin": true,
+  "titleArabic": "Nami Danam Che Manzil",
+  "titleEnglish": "Nami Danam Che Manzil — Amir Khusro",
+  "poet": "Amir Khusro",
+  "note": "In Persian (Farsi).",
+  "verses": [
+    {
+      "ar": "namī-dānam che manzil buud shab jaa.e ki man būdam\nba-har-sū raqs-e-bismil buud shab jaa.e ki man būdam",
+      "tr": "",
+      "en": "I know not what place it was, last night, where I was\nAll around, the half-slaughtered lovers of God danced in rapture, last night, where I was",
+      "refrain": true
+    },
+    {
+      "ar": "namī-dānam che manzil buud shab jaa.e ki man būdam\nba-har-sū raqs-e-bismil buud shab jaa.e ki man būdam",
+      "tr": "",
+      "en": "It was a strange and unknown place, last night, where I was,\nAll around the place Bismils (half slaughtered) were dancing divinely, last night, where I was."
+    },
+    {
+      "ar": "parī-paikar nigāre sarv-qadde lāla-ruḳhsāre\nsarāpā āfat-e-dil buud shab jaa.e ki man būdam",
+      "tr": "",
+      "en": "Angelic, slender as a cypress tree and rose faced beings,\nTurned into a torment for our heart, last night, where I was."
+    },
+    {
+      "ar": "raqībāñ gosh-bar-āvāz uu dar naaz va man tarsāñ\nsuḳhan guftan che mushkil buud shab jaa.e ki man būdam",
+      "tr": "",
+      "en": "Every rival gave ear to his voice, his pride silenced me and I in my fear,\nI found no words to speak, my fear made the conversation difficult, last night, where I was."
+    },
+    {
+      "ar": "ḳhudā ḳhud mīr-e-majlis buud andar lā-makāñ 'ḳhusrav'\nmohammad sham.a-e-mahfil buud shab jaa.e ki man būdam",
+      "tr": "",
+      "en": "O Khusrau, I beheld a sacred gathering adorned by God Himself as the gracious Host,\nAnd Muhammad was shining as the radiant flame at its heart, last night, where I was."
+    },
+    {
+      "ar": "marā az ātishe-e-ishq-e-tū dāman soḳht ai 'ḳhusrav'\nmohammad sham.a-e-mahfil buud shab jaa.e ki man būdam",
+      "tr": "",
+      "en": "The fire of Your love has scorched my very garment, O Khusrau,\nAnd Muhammad was shining as the radiant flame at its heart, last night, where I was."
+    }
+  ]
+}

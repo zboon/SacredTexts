@@ -1,0 +1,45 @@
+{
+  "latin": true,
+  "titleArabic": "Tu Kareemi (Mevlana Rumi Kalam)",
+  "titleEnglish": "Tu Kareemi (Mevlana Rumi Kalam) — Mevlana Jalal-ud-Din Rumi",
+  "poet": "Mevlana Jalal-ud-Din Rumi",
+  "note": "In Persian (Farsi).",
+  "verses": [
+    {
+      "ar": "Tu Kareemi Man Kamina Barda Um\nLaikin Az Lutf E Shuma Parwarda Um",
+      "tr": "",
+      "en": "You are the Gracious One and I am the ignoble\nNow waiting at Your door, O my Cherisher",
+      "refrain": true
+    },
+    {
+      "ar": "Zindagi Aamad Bara'ay Bandagi\nZindagi Be Bandagi Sharmindagi\nYaad E Oo Sarmaya E Eeman Bo'ad\nHar Gada Az Yaad E Oo Sultan Bo'ad",
+      "tr": "",
+      "en": "With devotion life becomes beautiful\nAnd without, what is life but disgrace\nRemembrance of Him is the foundation of faith\nBeggars transform into kings due to His Remembrance"
+    },
+    {
+      "ar": "Sayyad O Sarwar Mohammad Noor E Jaan\nMehtar O Behtar Shafi E Mujrimaan\nChoon Muhammad Pak E Shud Az Nar O Dood\nHer Kaja Roo Karad Wajhullah Bood",
+      "tr": "",
+      "en": "Liege lord, O Muhammad you are the light of our lives\nThe mighty and the best intercessor of the wrong-doers\nSince Muhammad was purified of worldly things\nWhatever direction He turned is found the Face of Allah"
+    },
+    {
+      "ar": "Tu Kareemi Man Kamina Barda Um\nLaikin Az Lutf E Shuma Parwarda Um",
+      "tr": "",
+      "en": "You are the Gracious One and I am the ignoble\nNow waiting at Your door, O my Cherisher"
+    },
+    {
+      "ar": "Shahbaaz Lamakani Jaan E Oo\nRehmatal Lil Aalameen Dar Shaan E Oo\nMehtareen O Behtareen E Ambiyaah\nJuz Muhammad Naist Dar Arz O Samaa",
+      "tr": "",
+      "en": "The noble soul of his is like a falcon of the highest heavens\nBeing 'the mercy of the worlds' is his eminence\nThe mightiest and the best of all Prophets is he\nExcept Muhammad in land or sky there is none worthy"
+    },
+    {
+      "ar": "Aan Mohammad Hamid O Mahmoud Shud\nShakal E Abid, Sorat E Ma'bood Shud\nAuliyah Allah O Allah Auliyah\nYani Deed E Peer Deed E Kibriyah",
+      "tr": "",
+      "en": "He is the praise of God, divinely praised in abundant\nHe is the reflection of God in the shape of a worshiping servant\nThe friends of God are like God because God is their friend\nAnd in this way he who has seen his Master, has seen God's Glory"
+    },
+    {
+      "ar": "Her Ka Peer O Zaat Haqra Aik Na Deed\nNai Mureed O Nai Mureed O Nai Mureed\nMaulvi Hargiz Na Shud Maula E Rum\nTa Ghulaam E Shams Tabraizi Na Shud",
+      "tr": "",
+      "en": "If one doesn't see his spiritual Master as reflection of God\nHe is not a mureed, not a mureed, not a mureed!\nMevlana could never be Mevlana Rumi\nIf he had not devoted himself to Shams-e-Tabrizi"
+    }
+  ]
+}
