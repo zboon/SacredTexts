@@ -1,0 +1,1002 @@
+{
+  "5:2": {
+    "ar": "سَيِّدُنَا اَحْمَدُ",
+    "tr": "Sayyidunā Aḥmad",
+    "en": "Our master, most praising of Allah"
+  },
+  "5:3": {
+    "ar": "سَيِّدُنَا حَامِدٌ",
+    "tr": "Sayyidunā Ḥāmid",
+    "en": "Our master, he who praises"
+  },
+  "5:4": {
+    "ar": "سَيِّدُنَا مَحْمُودٌ",
+    "tr": "Sayyidunā Maḥmūd",
+    "en": "Our master, he who is praised"
+  },
+  "5:5": {
+    "ar": "سَيِّدُنَا اَحْيَدُ",
+    "tr": "Sayyidunā Aḥyad",
+    "en": "Our master, he who turns away from evil"
+  },
+  "5:6": {
+    "ar": "سَيِّدُنَا وَحِيدٌ",
+    "tr": "Sayyidunā Waḥīd",
+    "en": "Our master, the one without like"
+  },
+  "5:7": {
+    "ar": "سَيِّدُنَا مَاحٍ",
+    "tr": "Sayyidunā Māḥin",
+    "en": "Our master, the effacer of disbelief"
+  },
+  "5:8": {
+    "ar": "سَيِّدُنَا حَاشِرٌ",
+    "tr": "Sayyidunā Ḥāshir",
+    "en": "Our master, at whose feet men are gathered"
+  },
+  "5:9": {
+    "ar": "سَيِّدُنَا عَاقِبٌ",
+    "tr": "Sayyidunā ʿĀqib",
+    "en": "Our master, the last to come"
+  },
+  "5:10": {
+    "ar": "سَيِّدُنَا طٰهٰ",
+    "tr": "Sayyidunā Ṭā Hā",
+    "en": "Our master, Ṭā Hā"
+  },
+  "5:11": {
+    "ar": "سَيِّدُنَا يٰسٓ",
+    "tr": "Sayyidunā Yā Sīn",
+    "en": "Our master, Yā Sīn"
+  },
+  "5:12": {
+    "ar": "سَيِّدُنَا طَاهِرٌ",
+    "tr": "Sayyidunā Ṭāhir",
+    "en": "Our master, the pure"
+  },
+  "5:13": {
+    "ar": "سَيِّدُنَا مُطَهَّرٌ",
+    "tr": "Sayyidunā Muṭahhar",
+    "en": "Our master, made pure"
+  },
+  "5:14": {
+    "ar": "سَيِّدُنَا طَيِّبٌ",
+    "tr": "Sayyidunā Ṭayyib",
+    "en": "Our master, the wholesome"
+  },
+  "5:15": {
+    "ar": "سَيِّدُنَا سَيِّدٌ",
+    "tr": "Sayyidunā Sayyid",
+    "en": "Our master, the master"
+  },
+  "5:16": {
+    "ar": "سَيِّدُنَا رَسُولٌ",
+    "tr": "Sayyidunā Rasūl",
+    "en": "Our master, the messenger"
+  },
+  "5:17": {
+    "ar": "سَيِّدُنَا نَبِيٌّ",
+    "tr": "Sayyidunā Nabiyy",
+    "en": "Our master, the prophet"
+  },
+  "5:18": {
+    "ar": "سَيِّدُنَا رَسُولُ الرَّحْمَةِ",
+    "tr": "Sayyidunā Rasūlu r-Raḥmah",
+    "en": "Our master, messenger of mercy"
+  },
+  "5:19": {
+    "ar": "سَيِّدُنَا قَيِّمٌ",
+    "tr": "Sayyidunā Qayyim",
+    "en": "Our master, the upright"
+  },
+  "5:20": {
+    "ar": "سَيِّدُنَا جَامِعٌ",
+    "tr": "Sayyidunā Jāmiʿ",
+    "en": "Our master, in whom all virtue is gathered"
+  },
+  "5:21": {
+    "ar": "سَيِّدُنَا مُقْتَفٍ",
+    "tr": "Sayyidunā Muqtafin",
+    "en": "Our master, who follows those before him"
+  },
+  "5:22": {
+    "ar": "سَيِّدُنَا مُقَفٍّ",
+    "tr": "Sayyidunā Muqaffin",
+    "en": "Our master, who comes last in the line"
+  },
+  "5:23": {
+    "ar": "سَيِّدُنَا رَسُولُ الْمَلَاحِمِ",
+    "tr": "Sayyidunā Rasūlu l-Malāḥim",
+    "en": "Our master, messenger of the great battles"
+  },
+  "5:24": {
+    "ar": "سَيِّدُنَا رَسُولُ الرَّاحَةِ",
+    "tr": "Sayyidunā Rasūlu r-Rāḥah",
+    "en": "Our master, messenger of rest"
+  },
+  "5:25": {
+    "ar": "سَيِّدُنَا كَامِلٌ",
+    "tr": "Sayyidunā Kāmil",
+    "en": "Our master, the complete"
+  },
+  "5:26": {
+    "ar": "سَيِّدُنَا اِكْلِيلٌ",
+    "tr": "Sayyidunā Iklīl",
+    "en": "Our master, the crown"
+  },
+  "5:27": {
+    "ar": "سَيِّدُنَا مُدَّثِّرٌ",
+    "tr": "Sayyidunā Muddaththir",
+    "en": "Our master, wrapped in his mantle"
+  },
+  "5:28": {
+    "ar": "سَيِّدُنَا مُزَّمِّلٌ",
+    "tr": "Sayyidunā Muzzammil",
+    "en": "Our master, wrapped in his cloak"
+  },
+  "5:29": {
+    "ar": "سَيِّدُنَا عَبْدُ اللّٰهِ",
+    "tr": "Sayyidunā ʿAbdu-Llāh",
+    "en": "Our master, servant of Allah"
+  },
+  "5:30": {
+    "ar": "سَيِّدُنَا حَبِيبُ اللّٰهِ",
+    "tr": "Sayyidunā Ḥabību-Llāh",
+    "en": "Our master, beloved of Allah"
+  },
+  "5:31": {
+    "ar": "سَيِّدُنَا صَفِيُّ اللّٰهِ",
+    "tr": "Sayyidunā Ṣafiyyu-Llāh",
+    "en": "Our master, chosen of Allah"
+  },
+  "5:32": {
+    "ar": "سَيِّدُنَا نَجِيُّ اللّٰهِ",
+    "tr": "Sayyidunā Najiyyu-Llāh",
+    "en": "Our master, confidant of Allah"
+  },
+  "5:33": {
+    "ar": "سَيِّدُنَا كَلِيمُ اللّٰهِ",
+    "tr": "Sayyidunā Kalīmu-Llāh",
+    "en": "Our master, he to whom Allah spoke"
+  },
+  "5:34": {
+    "ar": "سَيِّدُنَا خَاتَمُ الْاَنْبِيَاءِ",
+    "tr": "Sayyidunā Khātamu l-anbiyāʾ",
+    "en": "Our master, seal of the prophets"
+  },
+  "5:35": {
+    "ar": "سَيِّدُنَا خَاتَمُ الرُّسُلِ",
+    "tr": "Sayyidunā Khātamu r-rusul",
+    "en": "Our master, seal of the messengers"
+  },
+  "5:36": {
+    "ar": "سَيِّدُنَا مُحْيٍ",
+    "tr": "Sayyidunā Muḥyin",
+    "en": "Our master, who gives life"
+  },
+  "5:37": {
+    "ar": "سَيِّدُنَا مُنَجٍّ",
+    "tr": "Sayyidunā Munajjin",
+    "en": "Our master, who delivers"
+  },
+  "5:38": {
+    "ar": "سَيِّدُنَا مُذَكِّرٌ",
+    "tr": "Sayyidunā Mudhakkir",
+    "en": "Our master, who calls to remembrance"
+  },
+  "5:39": {
+    "ar": "سَيِّدُنَا نَاصِرٌ",
+    "tr": "Sayyidunā Nāṣir",
+    "en": "Our master, who gives victory"
+  },
+  "5:40": {
+    "ar": "سَيِّدُنَا مَنْصُورٌ",
+    "tr": "Sayyidunā Manṣūr",
+    "en": "Our master, granted victory"
+  },
+  "5:41": {
+    "ar": "سَيِّدُنَا نَبِيُّ الرَّحْمَةِ",
+    "tr": "Sayyidunā Nabiyyu r-Raḥmah",
+    "en": "Our master, prophet of mercy"
+  },
+  "5:42": {
+    "ar": "سَيِّدُنَا نَبِيُّ التَّوْبَةِ",
+    "tr": "Sayyidunā Nabiyyu t-Tawbah",
+    "en": "Our master, prophet of turning back to Allah"
+  },
+  "5:43": {
+    "ar": "سَيِّدُنَا حَرِيصٌ عَلَيْكُمْ",
+    "tr": "Sayyidunā Ḥarīṣun ʿalaykum",
+    "en": "Our master, deeply concerned for you"
+  },
+  "5:44": {
+    "ar": "سَيِّدُنَا مَعْلُومٌ",
+    "tr": "Sayyidunā Maʿlūm",
+    "en": "Our master, known of old"
+  },
+  "5:45": {
+    "ar": "سَيِّدُنَا شَهِيرٌ",
+    "tr": "Sayyidunā Shahīr",
+    "en": "Our master, the renowned"
+  },
+  "5:46": {
+    "ar": "سَيِّدُنَا شَاهِدٌ",
+    "tr": "Sayyidunā Shāhid",
+    "en": "Our master, who bears witness"
+  },
+  "5:47": {
+    "ar": "سَيِّدُنَا شَهِيدٌ",
+    "tr": "Sayyidunā Shahīd",
+    "en": "Our master, the witness"
+  },
+  "5:48": {
+    "ar": "سَيِّدُنَا مَشْهُودٌ",
+    "tr": "Sayyidunā Mashhūd",
+    "en": "Our master, to whom witness is borne"
+  },
+  "5:49": {
+    "ar": "سَيِّدُنَا بَشِيرٌ",
+    "tr": "Sayyidunā Bashīr",
+    "en": "Our master, bearer of good news"
+  },
+  "5:50": {
+    "ar": "سَيِّدُنَا مُبَشِّرٌ",
+    "tr": "Sayyidunā Mubashshir",
+    "en": "Our master, who brings glad tidings"
+  },
+  "5:51": {
+    "ar": "سَيِّدُنَا نَذِيرٌ",
+    "tr": "Sayyidunā Nadhīr",
+    "en": "Our master, the warner"
+  },
+  "5:52": {
+    "ar": "سَيِّدُنَا مُنْذِرٌ",
+    "tr": "Sayyidunā Mundhir",
+    "en": "Our master, who gives warning"
+  },
+  "5:53": {
+    "ar": "سَيِّدُنَا نُورٌ",
+    "tr": "Sayyidunā Nūr",
+    "en": "Our master, light"
+  },
+  "5:54": {
+    "ar": "سَيِّدُنَا سِرَاجٌ",
+    "tr": "Sayyidunā Sirāj",
+    "en": "Our master, a lamp"
+  },
+  "5:55": {
+    "ar": "سَيِّدُنَا مِصْبَاحٌ",
+    "tr": "Sayyidunā Miṣbāḥ",
+    "en": "Our master, a lantern"
+  },
+  "5:56": {
+    "ar": "سَيِّدُنَا هُدًى",
+    "tr": "Sayyidunā Hudan",
+    "en": "Our master, guidance itself"
+  },
+  "5:57": {
+    "ar": "سَيِّدُنَا مَهْدِيٌّ",
+    "tr": "Sayyidunā Mahdiyy",
+    "en": "Our master, rightly guided"
+  },
+  "5:58": {
+    "ar": "سَيِّدُنَا مُنِيرٌ",
+    "tr": "Sayyidunā Munīr",
+    "en": "Our master, giving light"
+  },
+  "5:59": {
+    "ar": "سَيِّدُنَا دَاعٍ",
+    "tr": "Sayyidunā Dāʿin",
+    "en": "Our master, who calls to Allah"
+  },
+  "5:60": {
+    "ar": "سَيِّدُنَا مَدْعُوٌّ",
+    "tr": "Sayyidunā Madʿuww",
+    "en": "Our master, who is called upon"
+  },
+  "5:61": {
+    "ar": "سَيِّدُنَا مُجِيبٌ",
+    "tr": "Sayyidunā Mujīb",
+    "en": "Our master, who answers"
+  },
+  "5:62": {
+    "ar": "سَيِّدُنَا مُجَابٌ",
+    "tr": "Sayyidunā Mujāb",
+    "en": "Our master, whose prayer is answered"
+  },
+  "5:63": {
+    "ar": "سَيِّدُنَا خَفِيٌّ",
+    "tr": "Sayyidunā Khafiyy",
+    "en": "Our master, gentle and unassuming"
+  },
+  "5:64": {
+    "ar": "سَيِّدُنَا عَفُوٌّ",
+    "tr": "Sayyidunā ʿAfuww",
+    "en": "Our master, much-pardoning"
+  },
+  "5:65": {
+    "ar": "سَيِّدُنَا وَلِيٌّ",
+    "tr": "Sayyidunā Waliyy",
+    "en": "Our master, the close friend of Allah"
+  },
+  "5:66": {
+    "ar": "سَيِّدُنَا حَقٌّ",
+    "tr": "Sayyidunā Ḥaqq",
+    "en": "Our master, truth"
+  },
+  "5:67": {
+    "ar": "سَيِّدُنَا قَوِيٌّ",
+    "tr": "Sayyidunā Qawiyy",
+    "en": "Our master, the strong"
+  },
+  "5:68": {
+    "ar": "سَيِّدُنَا اَمِينٌ",
+    "tr": "Sayyidunā Amīn",
+    "en": "Our master, the trustworthy"
+  },
+  "5:69": {
+    "ar": "سَيِّدُنَا مَأْمُونٌ",
+    "tr": "Sayyidunā Maʾmūn",
+    "en": "Our master, in whom trust is placed"
+  },
+  "5:70": {
+    "ar": "سَيِّدُنَا كَرِيمٌ",
+    "tr": "Sayyidunā Karīm",
+    "en": "Our master, the generous"
+  },
+  "5:71": {
+    "ar": "سَيِّدُنَا مُكَرَّمٌ",
+    "tr": "Sayyidunā Mukarram",
+    "en": "Our master, held in honour"
+  },
+  "5:72": {
+    "ar": "سَيِّدُنَا مَكِينٌ",
+    "tr": "Sayyidunā Makīn",
+    "en": "Our master, firmly established"
+  },
+  "5:73": {
+    "ar": "سَيِّدُنَا مَتِينٌ",
+    "tr": "Sayyidunā Matīn",
+    "en": "Our master, steadfast"
+  },
+  "5:74": {
+    "ar": "سَيِّدُنَا مُبِينٌ",
+    "tr": "Sayyidunā Mubīn",
+    "en": "Our master, who makes plain"
+  },
+  "5:75": {
+    "ar": "سَيِّدُنَا مُؤَمِّلٌ",
+    "tr": "Sayyidunā Muʾammil",
+    "en": "Our master, in whom hope is placed"
+  },
+  "5:76": {
+    "ar": "سَيِّدُنَا وَصُولٌ",
+    "tr": "Sayyidunā Waṣūl",
+    "en": "Our master, who keeps the bonds of kinship"
+  },
+  "5:77": {
+    "ar": "سَيِّدُنَا ذُو قُوَّةٍ",
+    "tr": "Sayyidunā Dhū quwwah",
+    "en": "Our master, possessed of strength"
+  },
+  "5:78": {
+    "ar": "سَيِّدُنَا ذُو حُرْمَةٍ",
+    "tr": "Sayyidunā Dhū ḥurmah",
+    "en": "Our master, possessed of sanctity"
+  },
+  "5:79": {
+    "ar": "سَيِّدُنَا ذُو مَكَانَةٍ",
+    "tr": "Sayyidunā Dhū makānah",
+    "en": "Our master, possessed of high standing"
+  },
+  "5:80": {
+    "ar": "سَيِّدُنَا ذُو عِزٍّ",
+    "tr": "Sayyidunā Dhū ʿizz",
+    "en": "Our master, possessed of might"
+  },
+  "5:81": {
+    "ar": "سَيِّدُنَا ذُو فَضْلٍ",
+    "tr": "Sayyidunā Dhū faḍl",
+    "en": "Our master, possessed of bounty"
+  },
+  "5:82": {
+    "ar": "سَيِّدُنَا مُطَاعٌ",
+    "tr": "Sayyidunā Muṭāʿ",
+    "en": "Our master, who is obeyed"
+  },
+  "5:83": {
+    "ar": "سَيِّدُنَا مُطِيعٌ",
+    "tr": "Sayyidunā Muṭīʿ",
+    "en": "Our master, obedient to his Lord"
+  },
+  "5:84": {
+    "ar": "سَيِّدُنَا قَدَمُ صِدْقٍ",
+    "tr": "Sayyidunā Qadamu ṣidq",
+    "en": "Our master, a sure footing of truth"
+  },
+  "5:85": {
+    "ar": "سَيِّدُنَا رَحْمَةٌ",
+    "tr": "Sayyidunā Raḥmah",
+    "en": "Our master, mercy"
+  },
+  "5:86": {
+    "ar": "سَيِّدُنَا بُشْرَى",
+    "tr": "Sayyidunā Bushrā",
+    "en": "Our master, good tidings"
+  },
+  "5:87": {
+    "ar": "سَيِّدُنَا غَوْثٌ",
+    "tr": "Sayyidunā Ghawth",
+    "en": "Our master, help in need"
+  },
+  "5:88": {
+    "ar": "سَيِّدُنَا غَيْثٌ",
+    "tr": "Sayyidunā Ghayth",
+    "en": "Our master, rain that revives"
+  },
+  "5:89": {
+    "ar": "سَيِّدُنَا غِيَاثٌ",
+    "tr": "Sayyidunā Ghiyāth",
+    "en": "Our master, succour"
+  },
+  "5:90": {
+    "ar": "سَيِّدُنَا نِعْمَةُ اللّٰهِ",
+    "tr": "Sayyidunā Niʿmatu-Llāh",
+    "en": "Our master, the favour of Allah"
+  },
+  "5:91": {
+    "ar": "سَيِّدُنَا هَدِيَّةُ اللّٰهِ",
+    "tr": "Sayyidunā Hadiyyatu-Llāh",
+    "en": "Our master, the gift of Allah"
+  },
+  "5:92": {
+    "ar": "سَيِّدُنَا عُرْوَةٌ وُثْقَى",
+    "tr": "Sayyidunā ʿUrwatun wuthqā",
+    "en": "Our master, the firmest handhold"
+  },
+  "5:93": {
+    "ar": "سَيِّدُنَا صِرَاطُ اللّٰهِ",
+    "tr": "Sayyidunā Ṣirāṭu-Llāh",
+    "en": "Our master, the way of Allah"
+  },
+  "5:94": {
+    "ar": "سَيِّدُنَا صِرَاطٌ مُسْتَقِيمٌ",
+    "tr": "Sayyidunā Ṣirāṭun mustaqīm",
+    "en": "Our master, a straight way"
+  },
+  "5:95": {
+    "ar": "سَيِّدُنَا ذِكْرُ اللّٰهِ",
+    "tr": "Sayyidunā Dhikru-Llāh",
+    "en": "Our master, the remembrance of Allah"
+  },
+  "5:96": {
+    "ar": "سَيِّدُنَا سَيْفُ اللّٰهِ",
+    "tr": "Sayyidunā Sayfu-Llāh",
+    "en": "Our master, the sword of Allah"
+  },
+  "5:97": {
+    "ar": "سَيِّدُنَا حِزْبُ اللّٰهِ",
+    "tr": "Sayyidunā Ḥizbu-Llāh",
+    "en": "Our master, the party of Allah"
+  },
+  "5:98": {
+    "ar": "سَيِّدُنَا النَّجْمُ الثَّاقِبُ",
+    "tr": "Sayyidunā n-najmu th-thāqib",
+    "en": "Our master, the piercing star"
+  },
+  "5:99": {
+    "ar": "سَيِّدُنَا مُصْطَفًى",
+    "tr": "Sayyidunā Muṣṭafan",
+    "en": "Our master, the chosen"
+  },
+  "5:100": {
+    "ar": "سَيِّدُنَا مُجْتَبًى",
+    "tr": "Sayyidunā Mujtaban",
+    "en": "Our master, the selected"
+  },
+  "5:101": {
+    "ar": "سَيِّدُنَا مُنْتَقًى",
+    "tr": "Sayyidunā Muntaqan",
+    "en": "Our master, the picked out"
+  },
+  "5:102": {
+    "ar": "سَيِّدُنَا اُمِّيٌّ",
+    "tr": "Sayyidunā Ummiyy",
+    "en": "Our master, untaught by men"
+  },
+  "5:103": {
+    "ar": "سَيِّدُنَا مُخْتَارٌ",
+    "tr": "Sayyidunā Mukhtār",
+    "en": "Our master, the elect"
+  },
+  "5:104": {
+    "ar": "سَيِّدُنَا اَجِيرٌ",
+    "tr": "Sayyidunā Ajīr",
+    "en": "Our master, who gives shelter"
+  },
+  "5:105": {
+    "ar": "سَيِّدُنَا جَبَّارٌ",
+    "tr": "Sayyidunā Jabbār",
+    "en": "Our master, who sets what is broken right"
+  },
+  "5:106": {
+    "ar": "سَيِّدُنَا اَبُو الْقَاسِمِ",
+    "tr": "Sayyidunā Abū l-Qāsim",
+    "en": "Our master, father of Qāsim"
+  },
+  "5:107": {
+    "ar": "سَيِّدُنَا اَبُو الطَّاهِرِ",
+    "tr": "Sayyidunā Abū ṭ-Ṭāhir",
+    "en": "Our master, father of Ṭāhir"
+  },
+  "5:108": {
+    "ar": "سَيِّدُنَا اَبُو الطَّيِّبِ",
+    "tr": "Sayyidunā Abū ṭ-Ṭayyib",
+    "en": "Our master, father of Ṭayyib"
+  },
+  "5:109": {
+    "ar": "سَيِّدُنَا اَبُو اِبْرٰهِيمَ",
+    "tr": "Sayyidunā Abū Ibrāhīm",
+    "en": "Our master, father of Ibrāhīm"
+  },
+  "5:110": {
+    "ar": "سَيِّدُنَا مُشَفَّعٌ",
+    "tr": "Sayyidunā Mushaffaʿ",
+    "en": "Our master, whose intercession is granted"
+  },
+  "5:111": {
+    "ar": "سَيِّدُنَا شَفِيعٌ",
+    "tr": "Sayyidunā Shafīʿ",
+    "en": "Our master, the intercessor"
+  },
+  "5:112": {
+    "ar": "سَيِّدُنَا صَالِحٌ",
+    "tr": "Sayyidunā Ṣāliḥ",
+    "en": "Our master, the righteous"
+  },
+  "5:113": {
+    "ar": "سَيِّدُنَا مُصْلِحٌ",
+    "tr": "Sayyidunā Muṣliḥ",
+    "en": "Our master, who sets affairs right"
+  },
+  "5:114": {
+    "ar": "سَيِّدُنَا مُهَيْمِنٌ",
+    "tr": "Sayyidunā Muhaymin",
+    "en": "Our master, the watchful guardian"
+  },
+  "5:115": {
+    "ar": "سَيِّدُنَا صَادِقٌ",
+    "tr": "Sayyidunā Ṣādiq",
+    "en": "Our master, the truthful"
+  },
+  "5:116": {
+    "ar": "سَيِّدُنَا مُصَدَّقٌ",
+    "tr": "Sayyidunā Muṣaddaq",
+    "en": "Our master, whose truth is confirmed"
+  },
+  "5:117": {
+    "ar": "سَيِّدُنَا صِدْقٌ",
+    "tr": "Sayyidunā Ṣidq",
+    "en": "Our master, truthfulness itself"
+  },
+  "5:118": {
+    "ar": "سَيِّدُنَا سَيِّدُ الْمُرْسَلِينَ",
+    "tr": "Sayyidunā Sayyidu l-mursalīn",
+    "en": "Our master, master of the messengers"
+  },
+  "5:119": {
+    "ar": "سَيِّدُنَا اِمَامُ الْمُتَّقِينَ",
+    "tr": "Sayyidunā Imāmu l-muttaqīn",
+    "en": "Our master, leader of the God-fearing"
+  },
+  "5:120": {
+    "ar": "سَيِّدُنَا قَائِدُ الْغُرِّ الْمُحَجَّلِينَ",
+    "tr": "Sayyidunā Qāʾidu l-ghurri l-muḥajjalīn",
+    "en": "Our master, leader of the bright-marked ones"
+  },
+  "5:121": {
+    "ar": "سَيِّدُنَا خَلِيلُ الرَّحْمٰنِ",
+    "tr": "Sayyidunā Khalīlu r-Raḥmān",
+    "en": "Our master, intimate friend of the All-Merciful"
+  },
+  "5:122": {
+    "ar": "سَيِّدُنَا بَرٌّ",
+    "tr": "Sayyidunā Barr",
+    "en": "Our master, devoted in kindness"
+  },
+  "5:123": {
+    "ar": "سَيِّدُنَا مَبَرٌّ",
+    "tr": "Sayyidunā Mabarr",
+    "en": "Our master, whose deeds are accepted"
+  },
+  "5:124": {
+    "ar": "سَيِّدُنَا وَجِيهٌ",
+    "tr": "Sayyidunā Wajīh",
+    "en": "Our master, held in high regard"
+  },
+  "5:125": {
+    "ar": "سَيِّدُنَا نَصِيحٌ",
+    "tr": "Sayyidunā Naṣīḥ",
+    "en": "Our master, sincere in counsel"
+  },
+  "5:126": {
+    "ar": "سَيِّدُنَا نَاصِحٌ",
+    "tr": "Sayyidunā Nāṣiḥ",
+    "en": "Our master, who counsels sincerely"
+  },
+  "5:127": {
+    "ar": "سَيِّدُنَا وَكِيلٌ",
+    "tr": "Sayyidunā Wakīl",
+    "en": "Our master, the trusted one"
+  },
+  "5:128": {
+    "ar": "سَيِّدُنَا مُتَوَكِّلٌ",
+    "tr": "Sayyidunā Mutawakkil",
+    "en": "Our master, who relies upon Allah"
+  },
+  "5:129": {
+    "ar": "سَيِّدُنَا كَفِيلٌ",
+    "tr": "Sayyidunā Kafīl",
+    "en": "Our master, the surety"
+  },
+  "5:130": {
+    "ar": "سَيِّدُنَا شَفِيقٌ",
+    "tr": "Sayyidunā Shafīq",
+    "en": "Our master, tender-hearted"
+  },
+  "5:131": {
+    "ar": "سَيِّدُنَا مُقِيمُ السُّنَّةِ",
+    "tr": "Sayyidunā Muqīmu s-sunnah",
+    "en": "Our master, who upholds the way"
+  },
+  "5:132": {
+    "ar": "سَيِّدُنَا مُقَدَّسٌ",
+    "tr": "Sayyidunā Muqaddas",
+    "en": "Our master, made holy"
+  },
+  "5:133": {
+    "ar": "سَيِّدُنَا رُوحُ الْقُدُسِ",
+    "tr": "Sayyidunā Rūḥu l-qudus",
+    "en": "Our master, spirit of holiness"
+  },
+  "5:134": {
+    "ar": "سَيِّدُنَا رُوحُ الْحَقِّ",
+    "tr": "Sayyidunā Rūḥu l-ḥaqq",
+    "en": "Our master, spirit of truth"
+  },
+  "5:135": {
+    "ar": "سَيِّدُنَا رُوحُ الْقِسْطِ",
+    "tr": "Sayyidunā Rūḥu l-qisṭ",
+    "en": "Our master, spirit of equity"
+  },
+  "5:136": {
+    "ar": "سَيِّدُنَا كَافٍ",
+    "tr": "Sayyidunā Kāfin",
+    "en": "Our master, who suffices"
+  },
+  "5:137": {
+    "ar": "سَيِّدُنَا مُكْتَفٍ",
+    "tr": "Sayyidunā Muktafin",
+    "en": "Our master, content with Allah alone"
+  },
+  "5:138": {
+    "ar": "سَيِّدُنَا بَالِغٌ",
+    "tr": "Sayyidunā Bāligh",
+    "en": "Our master, who attains the goal"
+  },
+  "5:139": {
+    "ar": "سَيِّدُنَا مُبَلِّغٌ",
+    "tr": "Sayyidunā Muballigh",
+    "en": "Our master, who conveys the message"
+  },
+  "5:140": {
+    "ar": "سَيِّدُنَا شَافٍ",
+    "tr": "Sayyidunā Shāfin",
+    "en": "Our master, who brings healing"
+  },
+  "5:141": {
+    "ar": "سَيِّدُنَا وَاصِلٌ",
+    "tr": "Sayyidunā Wāṣil",
+    "en": "Our master, who joins what was severed"
+  },
+  "5:142": {
+    "ar": "سَيِّدُنَا مَوْصُولٌ",
+    "tr": "Sayyidunā Mawṣūl",
+    "en": "Our master, joined to his Lord"
+  },
+  "5:143": {
+    "ar": "سَيِّدُنَا سَابِقٌ",
+    "tr": "Sayyidunā Sābiq",
+    "en": "Our master, who goes before"
+  },
+  "5:144": {
+    "ar": "سَيِّدُنَا سَائِقٌ",
+    "tr": "Sayyidunā Sāʾiq",
+    "en": "Our master, who drives men onward"
+  },
+  "5:145": {
+    "ar": "سَيِّدُنَا هَادٍ",
+    "tr": "Sayyidunā Hādin",
+    "en": "Our master, the guide"
+  },
+  "5:146": {
+    "ar": "سَيِّدُنَا مُهْدٍ",
+    "tr": "Sayyidunā Muhdin",
+    "en": "Our master, who leads aright"
+  },
+  "5:147": {
+    "ar": "سَيِّدُنَا مُقَدَّمٌ",
+    "tr": "Sayyidunā Muqaddam",
+    "en": "Our master, placed foremost"
+  },
+  "5:148": {
+    "ar": "سَيِّدُنَا عَزِيزٌ",
+    "tr": "Sayyidunā ʿAzīz",
+    "en": "Our master, the mighty"
+  },
+  "5:149": {
+    "ar": "سَيِّدُنَا فَاضِلٌ",
+    "tr": "Sayyidunā Fāḍil",
+    "en": "Our master, surpassing in merit"
+  },
+  "5:150": {
+    "ar": "سَيِّدُنَا مُفَضَّلٌ",
+    "tr": "Sayyidunā Mufaḍḍal",
+    "en": "Our master, preferred above others"
+  },
+  "5:151": {
+    "ar": "سَيِّدُنَا فَاتِحٌ",
+    "tr": "Sayyidunā Fātiḥ",
+    "en": "Our master, the opener"
+  },
+  "5:152": {
+    "ar": "سَيِّدُنَا مِفْتَاحٌ",
+    "tr": "Sayyidunā Miftāḥ",
+    "en": "Our master, a key"
+  },
+  "5:153": {
+    "ar": "سَيِّدُنَا مِفْتَاحُ الرَّحْمَةِ",
+    "tr": "Sayyidunā Miftāḥu r-raḥmah",
+    "en": "Our master, key of mercy"
+  },
+  "5:154": {
+    "ar": "سَيِّدُنَا مِفْتَاحُ الْجَنَّةِ",
+    "tr": "Sayyidunā Miftāḥu l-jannah",
+    "en": "Our master, key of the Garden"
+  },
+  "5:155": {
+    "ar": "سَيِّدُنَا عَلَمُ الْاِيمَانِ",
+    "tr": "Sayyidunā ʿAlamu l-īmān",
+    "en": "Our master, standard of faith"
+  },
+  "5:156": {
+    "ar": "سَيِّدُنَا عَلَمُ الْيَقِينِ",
+    "tr": "Sayyidunā ʿAlamu l-yaqīn",
+    "en": "Our master, standard of certainty"
+  },
+  "5:157": {
+    "ar": "سَيِّدُنَا دَلِيلُ الْخَيْرَاتِ",
+    "tr": "Sayyidunā Dalīlu l-khayrāt",
+    "en": "Our master, guide to all good"
+  },
+  "5:158": {
+    "ar": "سَيِّدُنَا مُصَحِّحُ الْحَسَنَاتِ",
+    "tr": "Sayyidunā Muṣaḥḥiḥu l-ḥasanāt",
+    "en": "Our master, who makes good deeds sound"
+  },
+  "5:159": {
+    "ar": "سَيِّدُنَا مُقِيلُ الْعَثَرَاتِ",
+    "tr": "Sayyidunā Muqīlu l-ʿatharāt",
+    "en": "Our master, who overlooks stumbles"
+  },
+  "5:160": {
+    "ar": "سَيِّدُنَا صَفُوحٌ عَنِ الزَّلَّاتِ",
+    "tr": "Sayyidunā Ṣafūḥun ʿani z-zallāt",
+    "en": "Our master, who forgives slips"
+  },
+  "5:161": {
+    "ar": "سَيِّدُنَا صَاحِبُ الشَّفَاعَةِ",
+    "tr": "Sayyidunā Ṣāḥibu sh-shafāʿah",
+    "en": "Our master, holder of intercession"
+  },
+  "5:162": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْمَقَامِ",
+    "tr": "Sayyidunā Ṣāḥibu l-maqām",
+    "en": "Our master, holder of the praised station"
+  },
+  "5:163": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْقَدَمِ",
+    "tr": "Sayyidunā Ṣāḥibu l-qadam",
+    "en": "Our master, holder of precedence"
+  },
+  "5:164": {
+    "ar": "سَيِّدُنَا مَخْصُوصٌ بِالْعِزِّ",
+    "tr": "Sayyidunā Makhṣūṣun bi-l-ʿizz",
+    "en": "Our master, singled out for might"
+  },
+  "5:165": {
+    "ar": "سَيِّدُنَا مَخْصُوصٌ بِالْمَجْدِ",
+    "tr": "Sayyidunā Makhṣūṣun bi-l-majd",
+    "en": "Our master, singled out for glory"
+  },
+  "5:166": {
+    "ar": "سَيِّدُنَا مَخْصُوصٌ بِالشَّرَفِ",
+    "tr": "Sayyidunā Makhṣūṣun bi-sh-sharaf",
+    "en": "Our master, singled out for nobility"
+  },
+  "5:167": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْوَسِيلَةِ",
+    "tr": "Sayyidunā Ṣāḥibu l-wasīlah",
+    "en": "Our master, holder of the highest place in the Garden"
+  },
+  "5:168": {
+    "ar": "سَيِّدُنَا صَاحِبُ السَّيْفِ",
+    "tr": "Sayyidunā Ṣāḥibu s-sayf",
+    "en": "Our master, bearer of the sword"
+  },
+  "5:169": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْفَضِيلَةِ",
+    "tr": "Sayyidunā Ṣāḥibu l-faḍīlah",
+    "en": "Our master, holder of pre-eminence"
+  },
+  "5:170": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْاِزَارِ",
+    "tr": "Sayyidunā Ṣāḥibu l-izār",
+    "en": "Our master, wearer of the waist-wrap"
+  },
+  "5:171": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْحُجَّةِ",
+    "tr": "Sayyidunā Ṣāḥibu l-ḥujjah",
+    "en": "Our master, bearer of the proof"
+  },
+  "5:172": {
+    "ar": "سَيِّدُنَا صَاحِبُ السُّلْطَانِ",
+    "tr": "Sayyidunā Ṣāḥibu s-sulṭān",
+    "en": "Our master, bearer of authority"
+  },
+  "5:173": {
+    "ar": "سَيِّدُنَا صَاحِبُ الرِّدَاءِ",
+    "tr": "Sayyidunā Ṣāḥibu r-ridāʾ",
+    "en": "Our master, wearer of the cloak"
+  },
+  "5:174": {
+    "ar": "سَيِّدُنَا صَاحِبُ الدَّرَجَةِ الرَّفِيعَةِ",
+    "tr": "Sayyidunā Ṣāḥibu d-darajati r-rafīʿah",
+    "en": "Our master, holder of the exalted rank"
+  },
+  "5:175": {
+    "ar": "سَيِّدُنَا صَاحِبُ التَّاجِ",
+    "tr": "Sayyidunā Ṣāḥibu t-tāj",
+    "en": "Our master, wearer of the crown"
+  },
+  "5:176": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْمِغْفَرِ",
+    "tr": "Sayyidunā Ṣāḥibu l-mighfar",
+    "en": "Our master, wearer of the helmet"
+  },
+  "5:177": {
+    "ar": "سَيِّدُنَا صَاحِبُ اللِّوَاءِ",
+    "tr": "Sayyidunā Ṣāḥibu l-liwāʾ",
+    "en": "Our master, bearer of the banner"
+  },
+  "5:178": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْمِعْرَاجِ",
+    "tr": "Sayyidunā Ṣāḥibu l-miʿrāj",
+    "en": "Our master, he of the ascension"
+  },
+  "5:179": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْقَضِيبِ",
+    "tr": "Sayyidunā Ṣāḥibu l-qaḍīb",
+    "en": "Our master, bearer of the staff"
+  },
+  "5:180": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْبُرَاقِ",
+    "tr": "Sayyidunā Ṣāḥibu l-burāq",
+    "en": "Our master, rider of the Burāq"
+  },
+  "5:181": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْخَاتَمِ",
+    "tr": "Sayyidunā Ṣāḥibu l-khātam",
+    "en": "Our master, bearer of the seal"
+  },
+  "5:182": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْعَلَامَةِ",
+    "tr": "Sayyidunā Ṣāḥibu l-ʿalāmah",
+    "en": "Our master, bearer of the sign"
+  },
+  "5:183": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْبُرْهَانِ",
+    "tr": "Sayyidunā Ṣāḥibu l-burhān",
+    "en": "Our master, bearer of clear evidence"
+  },
+  "5:184": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْبَيَانِ",
+    "tr": "Sayyidunā Ṣāḥibu l-bayān",
+    "en": "Our master, master of clear speech"
+  },
+  "5:185": {
+    "ar": "سَيِّدُنَا فَصِيحُ اللِّسَانِ",
+    "tr": "Sayyidunā Faṣīḥu l-lisān",
+    "en": "Our master, eloquent of tongue"
+  },
+  "5:186": {
+    "ar": "سَيِّدُنَا مُطَهَّرُ الْجَنَانِ",
+    "tr": "Sayyidunā Muṭahharu l-janān",
+    "en": "Our master, pure of heart"
+  },
+  "5:187": {
+    "ar": "سَيِّدُنَا رَؤُوفٌ",
+    "tr": "Sayyidunā Raʾūf",
+    "en": "Our master, full of tenderness"
+  },
+  "5:188": {
+    "ar": "سَيِّدُنَا رَحِيمٌ",
+    "tr": "Sayyidunā Raḥīm",
+    "en": "Our master, full of mercy"
+  },
+  "5:189": {
+    "ar": "سَيِّدُنَا اُذُنُ خَيْرٍ",
+    "tr": "Sayyidunā Udhunu khayr",
+    "en": "Our master, an ear open to good"
+  },
+  "5:190": {
+    "ar": "سَيِّدُنَا صَحِيحُ الْاِسْلَامِ",
+    "tr": "Sayyidunā Ṣaḥīḥu l-islām",
+    "en": "Our master, sound in submission to Allah"
+  },
+  "5:191": {
+    "ar": "سَيِّدُنَا سَيِّدُ الْكَوْنَيْنِ",
+    "tr": "Sayyidunā Sayyidu l-kawnayn",
+    "en": "Our master, master of both worlds"
+  },
+  "5:192": {
+    "ar": "سَيِّدُنَا عَيْنُ النَّعِيمِ",
+    "tr": "Sayyidunā ʿAynu n-naʿīm",
+    "en": "Our master, wellspring of blessing"
+  },
+  "5:193": {
+    "ar": "سَيِّدُنَا عَيْنُ الْغُرِّ",
+    "tr": "Sayyidunā ʿAynu l-ghurr",
+    "en": "Our master, foremost of the radiant"
+  },
+  "5:194": {
+    "ar": "سَيِّدُنَا سَعْدُ اللّٰهِ",
+    "tr": "Sayyidunā Saʿdu-Llāh",
+    "en": "Our master, good fortune from Allah"
+  },
+  "5:195": {
+    "ar": "سَيِّدُنَا سَعْدُ الْخَلْقِ",
+    "tr": "Sayyidunā Saʿdu l-khalq",
+    "en": "Our master, good fortune of creation"
+  },
+  "5:196": {
+    "ar": "سَيِّدُنَا خَطِيبُ الْاُمَمِ",
+    "tr": "Sayyidunā Khaṭību l-umam",
+    "en": "Our master, orator to the nations"
+  },
+  "5:197": {
+    "ar": "سَيِّدُنَا عَلَمُ الْهُدَى",
+    "tr": "Sayyidunā ʿAlamu l-hudā",
+    "en": "Our master, standard of guidance"
+  },
+  "5:198": {
+    "ar": "سَيِّدُنَا كَاشِفُ الْكُرَبِ",
+    "tr": "Sayyidunā Kāshifu l-kurab",
+    "en": "Our master, who lifts away distress"
+  },
+  "5:199": {
+    "ar": "سَيِّدُنَا رَافِعُ الرُّتَبِ",
+    "tr": "Sayyidunā Rāfiʿu r-rutab",
+    "en": "Our master, who raises men in rank"
+  },
+  "5:200": {
+    "ar": "سَيِّدُنَا عِزُّ الْعَرَبِ",
+    "tr": "Sayyidunā ʿIzzu l-ʿarab",
+    "en": "Our master, the honour of the Arabs"
+  },
+  "5:201": {
+    "ar": "سَيِّدُنَا صَاحِبُ الْفَرَجِ",
+    "tr": "Sayyidunā Ṣāḥibu l-faraj",
+    "en": "Our master, bringer of relief"
+  }
+}

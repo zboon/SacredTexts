@@ -1,7 +1,9 @@
 {
   "titleArabic": "فِي التَّوَسُّلِ",
   "titleEnglish": "9 · On Seeking Intercession",
-  "video": "https://youtu.be/CnfY5RCWBi0?t=2840",
+  "video": "https://youtu.be/CnfY5RCWBi0",
+  "videoStart": 2840,
+  "videoEnd": 3289,
   "verses": [
     {
       "ar": "خَدَمْتُهُ بِمَدِيحٍ أَسْتَقِيلُ بِهِ ۞ ذُنُوبَ عُمْرٍ مَضَى فِي الشِّعْرِ وَالخِدَمِ",

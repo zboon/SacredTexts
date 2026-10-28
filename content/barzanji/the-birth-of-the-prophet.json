@@ -1,0 +1,140 @@
+{
+  "titleArabic": "الْمَوْلِدُ الشَّرِيفُ",
+  "titleEnglish": "The Birth of the Prophet ﷺ",
+  "verses": [
+    {
+      "ar": "وَلَمَّا تَمَّ مِنْ حَمْلِهِ شَهْرَانِ عَلٰى مَشْهُورِ الْأَقْوَالِ الْمَرْوِيَّةْ ۞ تُوُفِّيَ بِالْمَدِينَةِ الْمُنَوَّرَةِ أَبُوهُ عَبْدُ اللّٰهْ ۞ وَكَانَ قَدِ اجْتَازَ بِأَخْوَالِهِ بَنِي عَدِيٍّ مِنَ الطَّائِفَةِ النَّجَّارِيَّةْ ۞ وَمَكَثَ فِيهِمْ شَهْرًا سَقِيمًا يُعَانُونَ سُقْمَهُ وَشَكْوَاهْ",
+      "tr": "Wa-lammā tamma min ḥamlihi shahrāni ʿalā mash-hūri l-aqwāli l-marwiyyah, tuwuffiya bi-l-Madīnati l-Munawwarati abūhu ʿAbdu Llāh, wa-kāna qadi jtāza bi-akhwālihi Banī ʿAdiyyin mina ṭ-ṭā'ifati n-Najjāriyyah, wa-makatha fīhim shahran saqīman yuʿānūna suqmahu wa-shakwāh.",
+      "en": "When two months of the pregnancy had passed, according to the most widely reported account, his father Abd Allah passed away in al-Madinah al-Munawwarah. He had stopped with his maternal relatives, the Banu Adiyy of the Najjar clan, and remained among them for a month while ill, as they tended to his sickness and suffering."
+    },
+    {
+      "ar": "وَلَمَّا تَمَّ مِنْ حَمْلِهِ عَلٰى الرَّاجِحِ تِسْعَةُ أَشْهُرٍ قَمَرِيَّةْ ۞ وَآنَ لِلزَّمَانِ أَنْ يَنْجَلِيَ عَنْهُ صَدَاهْ ۞ حَضَرَ أُمَّهُ لَيْلَةَ مَوْلِدِهِ آسِيَةُ وَمَرْيَمُ فِي نِسْوَةٍ مِنَ الْحَظِيرَةِ الْقُدْسِيَّةْ ۞ وَأَخَذَهَا الْمَخَاضُ فَوَلَدَتْهُ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ نُورًا يَتَلَأْلَأُ سَنَاهْ",
+      "tr": "Wa-lammā tamma min ḥamlihi ʿalā r-rājiḥi tisʿatu ash-hurin qamariyyah, wa-āna li-z-zamāni an yanjaliya ʿanhu ṣadāh, ḥaḍara ummahu laylata mawlidihi Āsiyatu wa-Maryamu fī niswatin mina l-ḥaẓīrati l-qudsiyyah, wa-akhadhaha l-makhāḍu fa-waladat-hu ṣalla Llāhu taʿālā ʿalayhi wa-sallama nūran yatala'la'u sanāh.",
+      "en": "When the pregnancy reached nine lunar months, according to the strongest view, and the time had come for the age to be cleansed of its rust, Asiyah and Maryam came to his mother on the night of his birth, among a company of women from the sacred assembly. Then the pangs of labour came upon her, and she gave birth to him, may Allah Most High send prayers and peace upon him, as a light whose radiance shone brilliantly."
+    },
+    {
+      "refrain": true,
+      "ar": "يَا نَبِيّ سَلَامْ عَلَيْكَ ۞ يَا رَسُولْ سَلَامْ عَلَيْكَ\nيَا حَبِيبْ سَلَامْ عَلَيْكَ ۞ صَلَوَاتُ اللّٰهِ عَلَيْكَ",
+      "tr": "Yā nabiyy salām ʿalayka, yā rasūl salām ʿalayka,\nyā ḥabīb salām ʿalayka, ṣalawātu Llāhi ʿalayka.",
+      "en": "O Prophet, peace be upon you. O Messenger, peace be upon you.\nO Beloved, peace be upon you. Allah’s prayers be upon you.",
+      "note": "The gathering stands here · مَحَلُّ الْقِيَامِ"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَشْرَقَ الْبَدْرُ عَلَيْنَا ۞ فَاخْتَفَتْ مِنْهُ الْبُدُورُ\nمِثْلَ حُسْنِكَ مَا رَأَيْنَا ۞ قَطُّ يَا وَجْهَ السُّرُورِ",
+      "tr": "Ashraqa l-badru ʿalaynā, fa-khtafat minhu l-budūru,\nmithla ḥusnika mā ra'aynā, qaṭṭu yā wajha s-surūri.",
+      "en": "The full moon has risen upon us, and all other moons have faded before it.\nNever have we seen beauty like yours, O face of joy."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَنْتَ شَمْسٌ أَنْتَ بَدْرٌ ۞ أَنْتَ نُورٌ فَوْقَ نُورٍ\nأَنْتَ إِكْسِيرٌ وَغَالِي ۞ أَنْتَ مِصْبَاحُ الصُّدُورِ",
+      "tr": "Anta shamsun anta badrun, anta nūrun fawqa nūrin,\nanta iksīrun wa-ghālī, anta miṣbāḥu ṣ-ṣudūri.",
+      "en": "You are a sun, you are a full moon, you are light upon light,\nyou are a precious elixir, you are the lamp of hearts."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَا حَبِيبِي يَا مُحَمَّدُ ۞ يَا عَرُوسَ الْخَافِقَيْنِ\nيَا مُؤَيَّدُ يَا مُمَجَّدُ ۞ يَا إِمَامَ الْقِبْلَتَيْنِ",
+      "tr": "Yā ḥabībī yā Muḥammadu, yā ʿarūsa l-khāfiqayni,\nyā mu'ayyadu yā mumajjadu, yā imāma l-qiblatayni.",
+      "en": "O my beloved, O Muhammad, O bridegroom of the two horizons.\nO you who are supported, O you who are glorified, O leader of the two qiblas."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَنْ رَأَى وَجْهَكَ يَسْعَدْ ۞ يَا كَرِيمَ الْوَالِدَيْنِ\nحَوْضُكَ الصَّافِي الْمُبَرَّدُ ۞ وِرْدُنَا يَوْمَ النُّشُورِ",
+      "tr": "Man ra'ā wajhaka yasʿad, yā karīma l-wālidayni,\nḥawḍuka ṣ-ṣāfī l-mubarradu, wirdunā yawma n-nushūri.",
+      "en": "Whoever sees your face finds happiness, O you of noble parents,\nyour pure, cool Basin will be our watering place on the Day of Resurrection."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَا رَأَيْنَا الْعِيسَ حَنَّتْ ۞ بِالسُّرَى إِلَّا إِلَيْكَ\nوَالْغَمَامَةُ قَدْ أَظَلَّتْ ۞ وَالْمَلَا صَلَّوْا عَلَيْكَ",
+      "tr": "Mā ra'aynā l-ʿīsa ḥannat, bi-s-surā illā ilayka,\nwa-l-ghamāmatu qad aẓallat, wa-l-malā ṣallaw ʿalayka.",
+      "en": "Never have we seen the camels yearn through the night except towards you,\nand the cloud indeed shaded you, and the heavenly assembly sent prayers upon you."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "وَأَتَاكَ الْعُودُ يَبْكِي ۞ وَتَذَلَّلَ بَيْنَ يَدَيْكَ\nوَاسْتَجَارَتْ يَا حَبِيبِي ۞ عِنْدَكَ الظَّبْيُ النُّفُورُ",
+      "tr": "Wa-atāka l-ʿūdu yabkī, wa-tadhallala bayna yadayka,\nwa-stajārat yā ḥabībī, ʿindaka ẓ-ẓabyu n-nufūru.",
+      "en": "The tree trunk came to you weeping and humbled itself before you,\nand the timid gazelle sought refuge with you, O my beloved."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "عِنْدَمَا شَدُّوا الْمَحَامِلَ ۞ وَتَنَادَوْا لِلرَّحِيلِ\nجِئْتُهُمْ وَالدَّمْعُ سَائِلٌ ۞ قُلْتُ قِفْ لِي يَا دَلِيلُ",
+      "tr": "ʿIndamā shaddū l-maḥāmila, wa-tanādaw li-r-raḥīli,\nji'tuhum wa-d-damʿu sā'ilun, qultu qif lī yā dalīlu.",
+      "en": "When they secured their litters and called out to depart,\nI came to them with tears flowing and said, “Wait for me, O guide."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "وَتَحَمَّلْ لِي رَسَائِلَ ۞ أَيُّهَا الشَّوْقُ الْجَزِيلُ\nنَحْوَ هَاتِيكَ الْمَنَازِلِ ۞ فِي الْعَشِيِّ وَالْبُكُورِ",
+      "tr": "Wa-taḥammal lī rasā'ila, ayyuha sh-shawqu l-jazīlu,\nnaḥwa hātīka l-manāzili, fī l-ʿashiyyi wa-l-bukūri.",
+      "en": "And convey messages for me, O great longing,\nTo those distant dwellings, in the evening and at dawn.”"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "كُلُّ مَنْ فِي الْكَوْنِ هَامُوا ۞ فِيكَ يَا بَاهِيَ الْجَبِينِ\nوَلَهُمْ فِيكَ غَرَامٌ ۞ وَاشْتِيَاقٌ وَحَنِينُ",
+      "tr": "Kullu man fī l-kawni hāmū, fīka yā bāhiya l-jabīni,\nwa-lahum fīka gharāmun, wa-shtiyāqun wa-ḥanīnu.",
+      "en": "All who dwell within creation are enraptured by you, O you whose brow is radiant,\nand for you they bear a passionate love, a longing and a yearning."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "فِي مَعَانِيكَ الْأَنَامُ ۞ قَدْ تَبَدَّتْ حَائِرِينَ\nأَنْتَ لِلرُّسُلِ خِتَامٌ ۞ أَنْتَ لِلْمَوْلَى شَكُورُ",
+      "tr": "Fī maʿānīka l-anāmu, qad tabaddat ḥā'irīna,\nanta li-r-rusuli khitāmun, anta li-l-mawlā shakūru.",
+      "en": "Before your sublime qualities, all people stand bewildered.\nYou are the Seal of the Messengers, and ever grateful to the Lord."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "عَبْدُكَ الْمِسْكِينُ يَرْجُو ۞ فَضْلَكَ الْجَمَّ الْغَفِيرَ\nفِيكَ قَدْ أَحْسَنْتُ ظَنِّي ۞ يَا بَشِيرُ يَا نَذِيرُ",
+      "tr": "ʿAbduka l-miskīnu yarjū, faḍlaka l-jamma l-ghafīra,\nfīka qad aḥsantu ẓannī, yā bashīru yā nadhīru.",
+      "en": "Your poor slave hopes for your immense and abundant grace,\nand I have placed my good expectations in you, O bearer of glad tidings, O warner."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "فَأَغِثْنِي وَأَجِرْنِي ۞ يَا مُجِيرَ مِنَ السَّعِيرِ\nيَا غِيَاثِي يَا مَلَاذِي ۞ فِي مُهِمَّاتِ الْأُمُورِ",
+      "tr": "Fa-aghithnī wa-ajirnī, yā mujīra mina s-saʿīri,\nyā ghiyāthī yā malādhī, fī muhimmāti l-umūri.",
+      "en": "So come to my aid and grant me refuge, O protector from the Blazing Fire,\nO my aid, O my refuge in the most pressing of affairs."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "سَعِدَ عَبْدٌ قَدْ تَمَلَّى ۞ وَانْجَلَى عَنْهُ الْحَزِينُ\nفِيكَ يَا بَدْرُ تَجَلَّى ۞ فَلَكَ الْوَصْفُ الْحَسِينُ",
+      "tr": "Saʿida ʿabdun qad tamallā, wanjalā ʿanhu l-ḥazīnu,\nfīka yā badru tajallā, falaka l-waṣfu l-ḥasīnu.",
+      "en": "Blessed is the slave who has found joy, and whose sorrow has departed.\nIn you, O full moon, splendour has manifested, and yours is the beautiful description."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "لَيْسَ أَزْكَى مِنْكَ أَصْلًا ۞ قَطُّ يَا جَدَّ الْحُسَيْنِ\nفَعَلَيْكَ اللّٰهُ صَلَّى ۞ دَائِمًا طُولَ الدُّهُورِ",
+      "tr": "Laysa azkā minka aṣlan, qaṭṭu yā jadda l-Ḥusayni,\nfa-ʿalayka Llāhu ṣallā, dā'iman ṭūla d-duhūri.",
+      "en": "None is purer than you in lineage, O grandfather of al-Husayn,\nand may Allah send prayers upon you always, throughout the ages."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَا وَلِيَّ الْحَسَنَاتِ ۞ يَا رَفِيعَ الدَّرَجَاتِ\nكَفِّرْ عَنِّي الذُّنُوبَ ۞ وَاغْفِرْ عَنِّي السَّيِّئَاتِ",
+      "tr": "Yā waliyya l-ḥasanāti, yā rafīʿa d-darajāti,\nkaffir ʿannī dh-dhunūba, waghfir ʿannī s-sayyi'āti.",
+      "en": "O Guardian of good deeds, O Exalted in rank,\nremove my sins from me, and forgive me my misdeeds."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَنْتَ غَفَّارُ الْخَطَايَا ۞ وَالذُّنُوبِ الْمُوبِقَاتِ\nأَنْتَ سَتَّارُ الْمَسَاوِي ۞ وَمُقِيلُ الْعَثَرَاتِ",
+      "tr": "Anta ghaffāru l-khaṭāyā, wa-dh-dhunūbi l-mūbiqāti,\nanta sattāru l-masāwī, wa-muqīlu l-ʿatharāti.",
+      "en": "You are the Great Forgiver of faults and of sins that bring ruin,\nand You are the Concealer of shortcomings and the Pardoner of slips."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "عَالِمُ السِّرِّ وَأَخْفَى ۞ مُسْتَجِيبُ الدَّعَوَاتِ\nرَبِّ فَارْحَمْنَا جَمِيعًا ۞ بِجَمِيعِ الصَّالِحَاتِ",
+      "tr": "ʿĀlimu s-sirri wa-akhfā, mustajību d-daʿawāti,\nRabbi farḥamnā jamīʿan, bi-jamīʿi ṣ-ṣāliḥāti.",
+      "en": "Knower of the secret and what is more hidden still, Responder to supplications,\nO Lord, have mercy upon us all through every righteous deed."
+    },
+    {
+      "ar": "وَمُحَيًّا كَالشَّمْسِ مِنْكَ مُضِيءٌ أَسْفَرَتْ عَنْهُ لَيْلَةٌ غَرَّاءُ ۞ لَيْلَةُ الْمَوْلِدِ الَّذِي كَانَ لِلدِّينِ سُرُورٌ بِيَوْمِهِ وَازْدِهَاءُ ۞ يَوْمَ نَالَتْ بِوَضْعِهِ ابْنَةُ وَهْبٍ مِنْ فَخَارٍ مَا لَمْ تَنَلْهُ النِّسَاءُ ۞ وَأَتَتْ قَوْمَهَا بِأَفْضَلَ مِمَّا حَمَلَتْ قَبْلُ مَرْيَمُ الْعَذْرَاءُ ۞ مَوْلِدٌ كَانَ مِنْهُ فِي طَالِعِ الْكُفْرِ وَبَالٌ عَلَيْهُمْ وَوَبَاءُ",
+      "tr": "Wa-muḥayyan ka-sh-shamsi minka muḍī'un asfarat ʿanhu laylatun gharrā'u laylatu l-mawlidi lladhī kāna li-d-dīni surūrun bi-yawmihi wa-zdihā'u yawma nālat bi-waḍʿihi-bnatu Wahbin min fakhārin mā lam tanalhu n-nisā'u, wa-atat qawmahā bi-afḍala mimmā ḥamalat qablu Maryamu l-ʿadhrā'u, mawlidun kāna minhu fī ṭāliʿi l-kufri wabālun ʿalayhum wa-wabā'u.",
+      "en": "And from you came a countenance radiant like the sun, unveiled by a resplendent night, the night of the Birth, whose day brought joy and splendour to the religion. On that day, through giving birth to him, the daughter of Wahb attained an honour that no woman had ever attained, and she brought to her people one more excellent than he whom Maryam the Virgin had borne before, a birth whose rising brought calamity and affliction upon disbelief."
+    },
+    {
+      "ar": "وَتَوَالَتْ بُشْرَى الْهَوَاتِفِ أَنْ قَدْ وُلِدَ الْمُصْطَفَى وَحَقَّ الْهَنَاءُ ۞ هَذَا وَقَدِ اسْتَحْسَنَ الْقِيَامَ عِنْدَ ذِكْرِ مَوْلِدِهِ الشَّرِيفِ أَئِمَّةٌ ذَوُو رِوَايَةٍ وَرَوِيَّةْ ۞ فَطُوبَى لِمَنْ كَانَ تَعْظِيمُهُ صَلَّى اللّٰهُ عَلَيْهِ تَعَالَى وَسَلَّمَ غَايَةَ مَرَامِهِ وَمَرْمَاهْ",
+      "tr": "Wa-tawālat bushra l-hawātifi an qad wulida l-Muṣṭafā wa-ḥaqqa l-hanā'u, hādhā wa-qadi-s-taḥsana l-qiyāma ʿinda dhikri mawlidihi sh-sharīfi a'immatun dhawū riwāyatin wa-rawiyyah, fa-ṭūba li-man kāna taʿẓīmuhu ṣalla Llāhu ʿalayhi taʿālā wa-sallama ghāyata marāmihi wa-marmāh.",
+      "en": "And the glad tidings of the voices followed one after another, proclaiming that the Chosen One had indeed been born and that the time for rejoicing had truly come. Leading scholars endowed with sound transmission and considered judgement have deemed it commendable to stand at the mention of his noble birth. So blessed is the one whose ultimate aim and aspiration is to honour him, may Allah Most High send prayers and peace upon him."
+    },
+    {
+      "ar": "عَطِّرِ اللّٰهُمَّ قَبْرَهُ الْكَرِيمَ بِعَرْفٍ شَذِيٍّ مِنْ صَلَاةٍ وَتَسْلِيمٍ\nاللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ",
+      "tr": "ʿAṭṭiri Llāhumma qabrahu l-karīma bi-ʿarfin shadhiyyin min ṣalātin wa-taslīmin.\nAllāhumma ṣalli wa-sallim wa-bārik ʿalayhi.",
+      "en": "O Allah, perfume his noble grave with a fragrant scent of prayers and peace.\nO Allah, send prayers, peace, and blessings upon him."
+    }
+  ]
+}

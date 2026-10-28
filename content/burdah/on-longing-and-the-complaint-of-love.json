@@ -1,7 +1,9 @@
 {
   "titleArabic": "فِي الْغَزَلِ وَشَكْوَى الْغَرَامِ",
   "titleEnglish": "1 · On Longing and the Complaint of Love",
-  "video": "https://youtu.be/CnfY5RCWBi0?t=5",
+  "video": "https://youtu.be/CnfY5RCWBi0",
+  "videoStart": 10,
+  "videoEnd": 355,
   "verses": [
     {
       "ar": "أَمِنْ تَذَكُّرِ جِيرَانٍ بِذِي سَلَمِ ۞ مَزَجْتَ دَمْعًا جَرَى مِنْ مُقْلَةٍ بِدَمِ",

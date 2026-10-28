@@ -1,7 +1,8 @@
 {
   "titleArabic": "فِي الْمُنَاجَاةِ وَعَرْضِ الْحَاجَاتِ",
   "titleEnglish": "10 · On Intimate Prayer and Petition",
-  "video": "https://youtu.be/CnfY5RCWBi0?t=3289",
+  "video": "https://youtu.be/CnfY5RCWBi0",
+  "videoStart": 3289,
   "verses": [
     {
       "ar": "يَا أَكْرَمَ الْخَلْقِ مَالَي مَنْ أَلُوذُ بِهِ ۞ سِوَاكَ عِنْدَ حُلُولِ الْحَادِثِ الْعَمِمِ",

@@ -1,7 +1,9 @@
 {
   "titleArabic": "فِي شَرَفِ الْقُرْآنِ وَمَدْحِهِ",
   "titleEnglish": "6 · On the Nobility of the Qur'an",
-  "video": "https://youtu.be/CnfY5RCWBi0?t=1822",
+  "video": "https://youtu.be/CnfY5RCWBi0",
+  "videoStart": 1822,
+  "videoEnd": 2154,
   "verses": [
     {
       "ar": "دَعْنيِ وَوَصْفِي آيَاتٍ لَهُ ظَهَرَتْ ۞ ظُهُورَ نَارِ الْقِرَى لَيْلاً عَلٰى عَلَمِ",

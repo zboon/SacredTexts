@@ -1,7 +1,9 @@
 {
   "titleArabic": "فِي التَّحْذِيرِ مِنْ هَوَى النَّفْسِ",
   "titleEnglish": "2 · On Warning against the Caprice of the Self",
-  "video": "https://youtu.be/CnfY5RCWBi0?t=355",
+  "video": "https://youtu.be/CnfY5RCWBi0",
+  "videoStart": 355,
+  "videoEnd": 648,
   "verses": [
     {
       "ar": "فَإِنَّ أَمَّارَتيِ بِالسُّوءِ مَا اتَّعَظَتْ ۞ مِنْ جَهْلِهَا بِنَذِيرِ الشَّيْبِ وَالهَرَمِ",

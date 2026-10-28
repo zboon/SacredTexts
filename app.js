@@ -9,6 +9,7 @@
    ================================================================ */
 const CONTENT_ROOT = 'content/';
 const CONTENT_SECTIONS = [];   // { folder, pieces }, in the order declared below
+const CONTENT_MAPS = [];       // { folder, map } — sections that are one object, not a list of pieces
 
 /* An empty array that loadContent() fills from content/<folder>/. */
 function contentSection(folder){
@@ -32,6 +33,15 @@ const QAWWALI_CHAPTERS   = contentSection('qawwalis');
 const NASHEED_CHAPTERS   = contentSection('nasheeds');
 const BIOGRAPHY_CHAPTERS = contentSection('biographies');
 const OTTOMAN_CHAPTERS   = contentSection('ottoman');
+
+/* A section that is ONE object rather than a list of pieces: each file holds a
+   piece of the object, and loadContent() merges them in index.json order. Used
+   for the Dalāʾil's Mughlay alternates, which are keyed "chapter:verse". */
+function contentMap(folder){
+  const map = {};
+  CONTENT_MAPS.push({ folder, map });
+  return map;
+}
 
 /* One JSON file. Every error names the file, so it's clear what to fix.
    'no-cache' always asks the server whether the file changed, so an edit
@@ -72,8 +82,26 @@ function isPiece(p){
 }
 
 /* Every section, in parallel. nothingLoaded: not one section arrived. */
+/* The same all-or-nothing rule as loadSection(): the object fills in only once every
+   file has arrived. */
+async function loadMap({ folder, map }){
+  const dir = CONTENT_ROOT + folder + '/';
+  let names;
+  try { names = await fetchJSON(dir + 'index.json'); }
+  catch(e){ return [e.message]; }
+  if(!Array.isArray(names)) return [dir + 'index.json: should be a list of file names'];
+  const results = await Promise.allSettled(names.map(name => fetchJSON(dir + name + '.json')));
+  const errors = [];
+  results.forEach((r, i) => {
+    if(r.status === 'rejected') errors.push(r.reason.message);
+    else if(!r.value || typeof r.value !== 'object' || Array.isArray(r.value)) errors.push(dir + names[i] + '.json: should be an object');
+  });
+  if(!errors.length) Object.assign(map, ...results.map(r => r.value));
+  return errors;
+}
+
 async function loadContent(){
-  const perSection = await Promise.all(CONTENT_SECTIONS.map(loadSection));
+  const perSection = await Promise.all([...CONTENT_SECTIONS.map(loadSection), ...CONTENT_MAPS.map(loadMap)]);
   return {
     errors: perSection.flat(),
     nothingLoaded: perSection.every(errors => errors.length > 0),
@@ -107,13 +135,74 @@ const arHTML = (s, seg) => markInline(withRosettes(stripBreaks(s).replaceAll('\n
    array index, so favourites survive adding, removing or reordering pieces.
    A favourite whose title is later edited is simply dropped. */
 const FAV_KEY = 'mawlid-favs';
+/* Titles edited since a favourite may have been saved under the old one
+   (v456: the Opening Qasida was labelled as the Mawlid version). */
+const FAV_RENAMES = { 'q|2 · The Opening Qasida — Yā Rabbi Ṣalli ʿalā Muḥammad': 'q|2 · The Opening Qasida — Mawlid version (Yā Rabbi Ṣalli ʿalā Muḥammad)' };
 
 function loadFavs(){
-  try { const v = JSON.parse(localStorage.getItem(FAV_KEY)); return Array.isArray(v) ? v : []; }
+  try { const v = JSON.parse(localStorage.getItem(FAV_KEY)); return Array.isArray(v) ? v.map(k => FAV_RENAMES[k] || k) : []; }
   catch(e){ return []; }
 }
 function saveFavs(){
   try { localStorage.setItem(FAV_KEY, JSON.stringify(state.favs)); } catch(e){}
+}
+
+/* ── Text size ──────────────────────────────────────
+   Remembered across sessions on the owner's ask, so someone who needs large
+   Arabic sets it once rather than on every open.
+
+   The limits live here because three places need them and they must agree:
+   the slider's own min/max, the clamp when a value comes back from storage,
+   and the clamp in setTextScale. A stored value outside them would otherwise
+   put the thumb off the end of its track.
+
+   Written ONLY from setTextScale, the slider's own handler — the same
+   discipline the Dalāʾil fork's view preference follows. Nothing else
+   assigns state.arScale or state.latinScale, and nothing else should start:
+   a size arriving from a live session or a restored screen must not quietly
+   rewrite how the app opens afterwards. */
+const SIZE_KEY = 'mawlid-size';
+const SIZE_LIMITS = { ar: [0.7, 1.6], latin: [0.8, 1.8] };
+
+function clampSize(which, v){
+  const [lo, hi] = SIZE_LIMITS[which];
+  v = +v;
+  return isFinite(v) ? Math.min(hi, Math.max(lo, v)) : 1;
+}
+function loadTextScale(which){
+  try {
+    const v = JSON.parse(localStorage.getItem(SIZE_KEY));
+    return (v && v[which] != null) ? clampSize(which, v[which]) : 1;
+  } catch(e){ return 1; }
+}
+function saveTextScale(){
+  try {
+    localStorage.setItem(SIZE_KEY, JSON.stringify({ ar: state.arScale, latin: state.latinScale }));
+  } catch(e){}
+}
+/* ── Transliteration and Translation ────────────────────────────
+   **Both off for a reader who has never chosen**, on the owner's call — the
+   page opens as the Arabic alone, the way the book reads, and either column
+   is one tap away. They used to default on, which is why the first screen of
+   every chapter arrived three deep.
+
+   Once either is turned on it stays on, across sessions. Written ONLY from
+   `toggle` and `toggleEn`, the reader's own chips — the same discipline the
+   size and `dlk-view` follow. Nothing else assigns showTr or showEn today;
+   in particular a live session does NOT sync them, so a follower keeps their
+   own columns, and nothing a leader does should start rewriting them. */
+const COLS_KEY = 'mawlid-cols';
+
+function loadCols(which){
+  try {
+    const v = JSON.parse(localStorage.getItem(COLS_KEY));
+    return !!(v && v[which]);
+  } catch(e){ return false; }
+}
+function saveCols(){
+  try {
+    localStorage.setItem(COLS_KEY, JSON.stringify({ tr: state.showTr, en: state.showEn }));
+  } catch(e){}
 }
 
 /* ── Where you left off (Dalāʾil only) ───────────────────────────
@@ -122,14 +211,25 @@ function saveFavs(){
    marks a piece you want to find again, a place marks how far you have read
    through a long portion you mean to finish. */
 const PLACE_KEY = 'mawlid-dalail-place';
+/* One saved place per version of the Dalāʾil. The Mughlay Version divides
+   its text where the Mughlay printing does, so a phrase (and so a saved
+   place) in one version is not the same phrase in the other. The Istanbul
+   place keeps the original key, so places saved before there were two
+   versions are still found. Read through a try because a place can be
+   looked up before dalailEdition is declared further down. */
+function placeKey(){
+  let ed = 'istanbul';
+  try { ed = dalailEdition; } catch(e){}
+  return ed === 'sayyidina' ? PLACE_KEY + '-mughlay' : PLACE_KEY;
+}
 
 function loadPlace(){
   try {
-    const p = JSON.parse(localStorage.getItem(PLACE_KEY));
+    const p = JSON.parse(localStorage.getItem(placeKey()));
     return (p && typeof p.idx === 'number') ? p : null;
   } catch(e){ return null; }
 }
-function writePlace(p){ try { localStorage.setItem(PLACE_KEY, JSON.stringify(p)); } catch(e){} }
+function writePlace(p){ try { localStorage.setItem(placeKey(), JSON.stringify(p)); } catch(e){} }
 
 /* The saved place is tied to the chapter's title as well as its index, so a
    place doesn't silently point at the wrong portion if the order ever changes. */
@@ -141,9 +241,26 @@ function placeChapter(){
   if(p.title && c.titleEnglish !== p.title) return null;
   return { p, c };
 }
+/* True only while the CURRENT leaf is the one the bookmark actually sits on —
+   not merely "this chapter has a bookmark somewhere." It used to be the
+   latter, so "Place saved" stayed lit across the whole chapter as you paged
+   forward, with nothing to say the bookmark was still back on the page you
+   left. Book-Version only: a Study-view place has no leaf to compare against,
+   so it never reads as "here" for the Book-Version button. */
 function placeIsHere(idx){
   const cur = placeChapter();
-  return !!cur && cur.p.idx === idx;
+  if(!cur || cur.p.idx !== idx || cur.p.view !== 'book') return false;
+  const book = document.getElementById('ms-book');
+  if(!book) return false;
+  const p = cur.p;
+  let sheet = null;
+  if(p.verse != null){
+    const vEl = msVerseEl(idx, p.verse, p.mk);
+    if(vEl) sheet = vEl.closest('.ms-sheet');
+  }
+  if(!sheet && p.leaf != null) sheet = book.children[p.leaf];
+  if(!sheet) return false;
+  return Array.from(book.children).indexOf(sheet) === msCurrentPage();
 }
 
 /* The first verse still on screen — where the eye is, not where the page
@@ -169,7 +286,7 @@ function placeVerse(idx, n){
   if(btnPrev) btnPrev.classList.remove('on');
 
   if(same){                       // tapping the marked verse lifts the bookmark
-    try { localStorage.removeItem(PLACE_KEY); } catch(e){}
+    try { localStorage.removeItem(placeKey()); } catch(e){}
     return;
   }
   const c = DALAIL_CHAPTERS[idx];
@@ -188,7 +305,6 @@ function placedVerse(idx, n){
   const cur = loadPlace();
   return !!cur && cur.idx === idx && cur.view === 'study' && cur.verse === n;
 }
-
 /* ── Book-Version verse bookmarking ───────────────────────
    The Study view marks a verse with a ribbon; a Book leaf has no room for one
    per phrase without disturbing the leaf-fit engine, so instead the verse you
@@ -202,12 +318,73 @@ function mkVerseIndex(mk){
   return parseInt(parts[2], 10);        // parseInt stops at the dot for "n.c"
 }
 
-/* The Book-Version span for a verse — its first chunk if the verse was split
-   across pages, so the bookmark lands on the leaf where the verse begins. */
-function msVerseEl(idx, n){
+/* The Book-Version span for a verse. Pass the bookmark's own mk (a seg key
+   like "d:6:33.0:0") and, if the verse was split across a page turn, this
+   lands on the CHUNK that seg actually sits in — not just any chunk of the
+   same verse number. Without it (or if that chunk isn't in the DOM), falls
+   back to the first chunk, so the bookmark lands on the leaf where the verse
+   begins rather than nowhere.
+
+   The prefix search alone can't tell chunks apart: "d:6:33." matches both
+   "d:6:33.0" and "d:6:33.1", and always returns whichever is first in the
+   DOM — the earlier page, even when the bookmarked phrase is on the later
+   one. That silently mis-targeted both the resume scroll and the "is this
+   leaf the one" check the place chip depends on. */
+function msVerseEl(idx, n, mk){
+  if(mk){
+    const parts = String(mk).split(':');
+    if(parts.length > 3){
+      const chunk = document.querySelector('[data-mk="' + parts.slice(0, 3).join(':') + '"]');
+      if(chunk) return chunk;
+    }
+  }
   const base = 'd:' + idx + ':' + n;
   return document.querySelector('[data-mk="' + base + '"]')
       || document.querySelector('[data-mk^="' + base + '."]');
+}
+
+/* Where the reader is on the current leaf, for a switch to the Study view:
+   the phrase they last highlighted, else the bookmarked phrase, if either is
+   on this leaf; else the top verse on the leaf. Before this the switch always
+   took the top verse, so a reader who had marked words lower down — or on a
+   leaf that opens mid-verse — landed on a different verse in Study.
+
+   The phrase travels as its text plus its position among the verse's
+   phrases, because the two views number phrases differently: the Book
+   Version restarts the count on each page a verse spans, and a page turn
+   inside a phrase splits it in two there but not in Study. */
+function bookSpotForSwitch(){
+  const book = document.getElementById('ms-book');
+  if(!book) return { n: null };
+  const sheet = book.children[msCurrentPage()];
+  let el = null;
+  if(msPlaceCandidate && msPiece && msPlaceCandidate.idx === msPiece.idx && msPlaceCandidate.mk){
+    const c = book.querySelector('.seg[data-mk="' + msPlaceCandidate.mk + '"]');
+    if(c && sheet && sheet.contains(c)) el = c;
+  }
+  if(!el && sheet) el = sheet.querySelector('.seg.placed[data-mk]');
+  if(!el) return { n: topVisibleMsVerse() };
+  const mk = el.getAttribute('data-mk');
+  const n = mkVerseIndex(mk);
+  const base = mk.split(':').slice(0, 2).join(':') + ':' + n;
+  const all = Array.from(book.querySelectorAll('.seg[data-mk^="' + base + ':"], .seg[data-mk^="' + base + '."]'));
+  return { n, seg: { text: el.textContent, est: Math.max(0, all.indexOf(el)) } };
+}
+
+/* The Study phrase matching a phrase carried over from the Book Version: the
+   one containing its words, nearest its position if the words recur. */
+function studySegFor(art, spot){
+  const segs = Array.from(art.querySelectorAll('.seg[data-sg]'));
+  const norm = t => String(t).replace(/[\s،]+/g, '');
+  const want = norm(spot.text);
+  let best = null, bestD = Infinity;
+  segs.forEach((sg, i) => {
+    if(want && norm(sg.textContent).indexOf(want) !== -1){
+      const d = Math.abs(i - spot.est);
+      if(d < bestD){ bestD = d; best = sg; }
+    }
+  });
+  return best || segs[Math.min(spot.est, segs.length - 1)] || null;
 }
 
 /* The top-most verse still on screen on the current leaf — the fallback when
@@ -225,36 +402,75 @@ function topVisibleMsVerse(){
 }
 
 /* Show which verse holds the bookmark — one at a time. */
-function markPlacedMsVerse(idx, n, seg){
+/* Mark exactly the word group that was tapped — the .seg span carrying that
+   data-mk, and nothing wider.
+
+   This used to fall back to msVerseEl(), which returns the whole .ms-v verse
+   element. A Dalāʾil verse can hold several ۞ internally, so that lit up
+   rosette after rosette instead of the phrase the reader chose, and when the
+   fallback fired it marked the top verse of the leaf — a highlight that began
+   earlier than the tap and stopped before reaching it. Marking by exact key
+   makes both impossible. */
+function markPlacedMsVerse(idx, n, seg, mk){
   [].forEach.call(document.querySelectorAll('.placed'), el => el.classList.remove('placed'));
-  if(seg != null){ const s = document.querySelector('[data-mk="d:' + idx + ':' + n + ':' + seg + '"]'); if(s){ s.classList.add('placed'); return; } }
-  const el = msVerseEl(idx, n);
-  if(el) el.classList.add('placed');
+  const key = mk || (seg != null ? 'd:' + idx + ':' + n + ':' + seg : null);
+  if(!key) return;
+  const s = document.querySelector('[data-mk="' + key + '"]');
+  if(s) s.classList.add('placed');
+}
+
+/* The place is shown as saved only while the word group holding it is still
+   highlighted. Lift the highlight and the bookmark goes with it. */
+function placeStillMarked(){
+  const p = loadPlace();
+  if(!p || !p.mk) return false;
+  try { return !!loadMarks()[p.mk]; } catch(e){ return false; }
+}
+function placeBtnLabel(idx){
+  return (placeIsHere(idx) && placeStillMarked()) ? 'Place saved' : 'Save my place';
+}
+function refreshPlaceBtn(){
+  const btn = document.querySelector('.place-btn');
+  if(!btn) return;
+  const idx = Number(btn.dataset.idx);
+  const on = placeIsHere(idx) && placeStillMarked();
+  btn.textContent = on ? 'Place saved' : 'Save my place';
+  btn.classList.toggle('on', on);
 }
 
 function saveDalailPlace(idx){
   const c = DALAIL_CHAPTERS[idx];
   if(!c) return;
+  /* Ask the page which reader is showing rather than trusting the flag.
+     When the two disagree the flag saves the wrong kind of place, and it is
+     silent about it: a Book leaf on screen with state claiming Study stores
+     verse 0 with no phrase key, so nothing highlights, the chip never lights
+     and the bookmark points at the top of the chapter instead of where the
+     reader was. That is what the full-screen menu produced by flipping the
+     view without re-rendering. renderedView() documents the same trap. */
+  const rv = (typeof renderedView === 'function') ? renderedView() : 'none';
   const p = { idx, title: c.titleEnglish || '', at: Date.now(),
-              view: state.pageView ? 'book' : 'study' };
+              view: rv === 'none' ? (state.pageView ? 'book' : 'study') : rv };
   if(p.view === 'book'){
     /* The verse the reader last tapped in this chapter, else the top of the
        page they are on. Only fall back to a bare leaf if no verse is found. */
-    let n = (msPlaceCandidate && msPlaceCandidate.idx === idx) ? msPlaceCandidate.n : null;
-    let sg = (msPlaceCandidate && msPlaceCandidate.idx === idx) ? msPlaceCandidate.seg : null;
+    const cand = (msPlaceCandidate && msPlaceCandidate.idx === idx) ? msPlaceCandidate : null;
+    /* Tapping Save again with nothing newly highlighted must not move the
+       bookmark. It used to: the candidate was cleared on every save, so the
+       second tap fell through to the top verse of the leaf and quietly
+       overwrote a good mark. A standing place is now left alone. */
+    if(!cand && placeIsHere(idx) && placeStillMarked()){ refreshPlaceBtn(); return; }
+    let n  = cand ? cand.n   : null;
+    let sg = cand ? cand.seg : null;
+    let mk = cand ? cand.mk  : null;
     if(n == null) n = topVisibleMsVerse();
     if(n == null) p.leaf = msCurrentPage();
-    else { p.verse = n; if(sg != null) p.seg = sg; markPlacedMsVerse(idx, n, sg); }
+    else { p.verse = n; if(sg != null) p.seg = sg; if(mk) p.mk = mk; markPlacedMsVerse(idx, n, sg, mk); }
   } else {
     p.verse = topVisibleVerse();
   }
   writePlace(p);
-  const btn = document.querySelector('.place-btn');
-  if(btn){
-    btn.classList.add('on');
-    btn.textContent = 'Place saved';
-    setTimeout(() => { if(btn.isConnected) btn.textContent = 'Save my place'; }, 1600);
-  }
+  refreshPlaceBtn();
 }
 
 function clearDalailPlace(){
@@ -262,15 +478,16 @@ function clearDalailPlace(){
      verse bookmark. Favorites (mawlid-favs) are a separate store, untouched. */
   if(typeof confirm === 'function' &&
      !confirm('Clear your Dalāʾil bookmarks?\n\nThis removes your saved place and every verse bookmark in the Dalāʾil. Your favorites are not affected.')) return;
-  try { localStorage.removeItem(PLACE_KEY); } catch(e){}
+  try { localStorage.removeItem(PLACE_KEY); localStorage.removeItem(PLACE_KEY + '-mughlay'); } catch(e){}
   /* Clear every Book-Version verse bookmark in the Dalāʾil too (mark keys are
      "kind:idx:n", so Dalāʾil marks start "d:"), so Clear wipes the resume place
      and all gold-ring verse bookmarks together. */
   try {
-    const m = loadMarks();
+    const m = readMarkStore('mawlid-marks');     // both versions' Dalāʾil highlights go
     let changed = false;
     Object.keys(m).forEach(k => { if(k.slice(0, 2) === 'd:'){ delete m[k]; changed = true; } });
     if(changed) localStorage.setItem('mawlid-marks', JSON.stringify(m));
+    localStorage.removeItem('mawlid-marks-mughlay');
   } catch(e){}
   msPlaceCandidate = null;
   renderIndex();
@@ -286,13 +503,13 @@ function resumeDalail(){
   const hasPages = Array.isArray(c.folios) && c.folios.length > 0;
   state.pageView = (p.view === 'book') && hasPages;
   openDalail(p.idx);
-  const go = () => {
+  const go = (flash) => {
     if(state.pageView){
       const book = document.getElementById('ms-book');
       if(!book) return;
       let sheet = null, vEl = null;
       if(p.verse != null){
-        vEl = msVerseEl(p.idx, p.verse);
+        vEl = msVerseEl(p.idx, p.verse, p.mk);
         if(vEl) sheet = vEl.closest('.ms-sheet');
       }
       if(!sheet && p.leaf != null) sheet = book.children[p.leaf];   // older page-level bookmark
@@ -301,21 +518,33 @@ function resumeDalail(){
         if(typeof msSyncDots === 'function') msSyncDots();
       }
       if(vEl){
-        markPlacedMsVerse(p.idx, p.verse);
-        const r = vEl.getBoundingClientRect();
-        if(r.top < 84 || r.bottom > window.innerHeight - 8){
-          window.scrollTo({ top: Math.max(0, r.top + window.scrollY - 96) });
+        markPlacedMsVerse(p.idx, p.verse, p.seg, p.mk);
+        /* Aim at the saved phrase itself — the words between two rosettes —
+           not the start of its verse. A long verse fills most of a leaf, so
+           scrolling to where the verse begins left the phrase below the
+           screen; and a verse that runs on from the previous page begins
+           on a page the reader is not on. */
+        const segEl = p.mk ? book.querySelector('.seg[data-mk="' + p.mk + '"]') : null;
+        const target = segEl || vEl;
+        const r = target.getBoundingClientRect();
+        /* Low on the screen counts as out of view: the fixed leaf arrows sit
+           over the bottom of it. */
+        if(r.top < 84 || r.bottom > window.innerHeight * 0.75){
+          window.scrollTo({ top: Math.max(0, r.top + window.scrollY - 160) });
         }
-        vEl.classList.remove('ms-flash'); void vEl.offsetWidth; vEl.classList.add('ms-flash');
+        if(flash){
+          const cls = segEl ? 'seg-flash' : 'ms-flash';
+          target.classList.remove(cls); void target.offsetWidth; target.classList.add(cls);
+        }
       }
     } else if(p.verse != null){
       const el = document.querySelector('article.verse[data-v="' + p.verse + '"]');
       if(el) window.scrollTo({ top: Math.max(0, el.getBoundingClientRect().top + window.scrollY - 84) });
     }
   };
-  if(window.requestAnimationFrame) requestAnimationFrame(() => requestAnimationFrame(go));
-  else setTimeout(go, 40);
-  setTimeout(go, 320);
+  if(window.requestAnimationFrame) requestAnimationFrame(() => requestAnimationFrame(() => go(false)));
+  else setTimeout(() => go(false), 40);
+  setTimeout(() => go(true), 320);
 }
 
 /* The card that offers the place back, shown at the head of the Dalāʾil tab. */
@@ -325,9 +554,9 @@ function resumeCard(){
   const { p, c } = cur;
   const where = p.view === 'book'
     ? (p.verse != null
-        ? 'Book Version · verse ' + toArNum(p.verse + 1)
+        ? 'Book Version · verse ' + toArNum(verseNo('d', p.idx, p.verse))
         : 'Book Version · page ' + ((p.leaf || 0) + 1))
-    : 'Study Version · verse ' + toArNum((p.verse || 0) + 1);
+    : 'Study Version · verse ' + toArNum(verseNo('d', p.idx, p.verse || 0));
   return `<div class="resume-wrap">
       <button class="resume-card" onclick="resumeDalail()">
         <span class="resume-ribbon">${bookmarkIcon(true)}</span>
@@ -342,7 +571,7 @@ function resumeCard(){
     </div>`;
 }
 
-const state = { showTr: true, showEn: true, arScale: 1, latinScale: 1, msZoom: 1, query: '', tab: 'home', burdahChapter: null, favs: loadFavs() , pageView:true, immersive:false, refrainOpen:false};
+const state = { showTr: loadCols('tr'), showEn: loadCols('en'), refrainOpen: false, arScale: loadTextScale('ar'), latinScale: loadTextScale('latin'), msZoom: 1, query: '', tab: 'home', burdahChapter: null, favs: loadFavs() , pageView:true, immersive:false};
 
 /* The content arrays, keyed by the same letters as OPENERS. */
 function arrayOf(kind){
@@ -354,7 +583,6 @@ function arrayOf(kind){
        : kind === 'd' ? DALAIL_CHAPTERS
        : kind === 'z' ? BARZANJI_CHAPTERS
        : kind === 'y' ? DIYA_CHAPTERS
-       : kind === 'n' ? NASHEED_CHAPTERS
        : kind === 'l' ? LITANY_CHAPTERS
        : kind === 'c' ? SILSILA_CHAPTERS
        : kind === 't' ? TURUQ_CHAPTERS
@@ -387,7 +615,6 @@ function bookmarkIcon(on){
     <path d="M6.5 3.5h11a.9.9 0 0 1 .9.9v15.8a.5.5 0 0 1-.77.42L12 16.8l-5.63 3.82a.5.5 0 0 1-.77-.42V4.4a.9.9 0 0 1 .9-.9z"/>
   </svg>`;
 }
-
 /* Update the star in place, so tapping it never disturbs your scroll position */
 function updateFavUI(kind, idx){
   const btn = document.querySelector('.fav-btn');
@@ -487,7 +714,6 @@ function matchesQuery(q, query){
   if(/[\u0600-\u06ff]/.test(query) && h.ar.includes(query.trim())) return true;
   return false;
 }
-
 /* ---------- Verse-level search: matching lines + jump-to-verse ---------- */
 function escHTML(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
@@ -527,6 +753,7 @@ function verseHits(c){
   const out = [];
   for(let n=0; n<c.verses.length; n++){
     const v = c.verses[n], ar = stripBreaks(v.ar || '');
+    if(v.omit) continue;
     let f = null;
     if(test(v.en)) f='en'; else if(test(v.tr)) f='tr'; else if(test(ar)) f='ar';
     if(!f) continue;
@@ -556,6 +783,7 @@ function hitList(kind, idx){
 /* Scroll to a specific verse in whichever view is open, and flash it. Both
    views share the verse index, so the same n lands on the same line. */
 function scrollToVerse(kind, idx, n, seg){
+  { const m = shownVerseN(kind, idx, n); if(m !== n){ n = m; seg = null; } }
   const book = document.getElementById('ms-book');
   if(book){
     const vEl = document.querySelector('[data-mk="'+kind+':'+idx+':'+n+'"]')
@@ -570,8 +798,19 @@ function scrollToVerse(kind, idx, n, seg){
   }
   const el = document.querySelector('article.verse[data-v="'+n+'"]');
   if(!el) return false;
-  window.scrollTo({ top: Math.max(0, el.getBoundingClientRect().top + window.scrollY - 84) });
-  (()=>{ const sg=(seg!=null)?el.querySelector('.seg[data-sg="'+seg+'"]'):null; if(sg){ sg.classList.remove('seg-flash'); void sg.offsetWidth; sg.classList.add('seg-flash'); } else { el.classList.remove('hit-flash'); void el.offsetWidth; el.classList.add('hit-flash'); } })();
+  /* seg is a Study phrase index, or — coming from the Book Version — the
+     phrase's text and position (bookSpotForSwitch). */
+  const sgEl = (seg != null && typeof seg === 'object') ? studySegFor(el, seg)
+             : (seg != null ? el.querySelector('.seg[data-sg="'+seg+'"]') : null);
+  let y = el.getBoundingClientRect().top + window.scrollY - 84;
+  /* A long verse can run several screens; keep its number in view if the
+     phrase still shows, otherwise bring the phrase up. */
+  if(sgEl){
+    const sy = sgEl.getBoundingClientRect().top + window.scrollY;
+    if(sy - y > window.innerHeight * 0.6) y = sy - 160;
+  }
+  window.scrollTo({ top: Math.max(0, y) });
+  (()=>{ const sg=sgEl; if(sg){ sg.classList.remove('seg-flash'); void sg.offsetWidth; sg.classList.add('seg-flash'); } else { el.classList.remove('hit-flash'); void el.offsetWidth; el.classList.add('hit-flash'); } })();
   return true;
 }
 
@@ -635,7 +874,222 @@ function sectionCards(cat){
           <span class="chev">›</span>
         </button>`).join('');
 }
+/* ---- Top-level sections shown as a left-to-right nav bar ---- */
+/* Dalāʾil al-Khayrāt of Imam al-Jazūlī, divided for the week's reading.
+   Pages are scaffolded empty; paste content in as it's verified. */
+/* ── The Dalāʾil in two versions ─────────────────────────────────────────
+   DALAIL_CHAPTERS above is the ISTANBUL version: collated word by word
+   against the Istanbul printing, which removed 520 سيدنا the app had carried
+   (one commit per day; Mawalid v388, the Dalāʾil app v66). The owner then
+   asked for the earlier text to be offered too, as the Mughlay Version
+   (first called "With Sayyidinā"; the code keeps that name, and the stored
+   value 'sayyidina'), and for it to be read without the Arabic commas.
 
+   DALAIL_WITH_SAYYIDINA holds the 153 verses those splices changed, keyed
+   "chapter:verse", with ar, tr and en together (the splices moved all three).
+   Each is the pre-collation verse carrying every fix made since: Saturday
+   v15's شِيثَ and the two إِبْرَاهِيمَ tatweels. The build asserted that each
+   differs from the Istanbul verse by exactly the collation's own changes,
+   that every ۞ and ‖ was where it had been (Monday's rosettes have since
+   moved to the Mughlay printing's; see below), and 520 restored in all: Mon1 119,
+   Tue 35, Wed 25, Thu 63, Fri 134, Sat 94, Sun 28, Mon2 22. The data keeps
+   its commas; the Mughlay Version drops every Arabic comma (U+060C)
+   from the Arabic of the whole Dalāʾil as it is applied — all 1,065 sit as
+   "word، next", so removing one leaves a single space. tr and en keep theirs.
+
+   The owner then had سَيِّدُنَا put before each of the 200 Names of the
+   Prophet (chapter 5, v2–v201) in this version only — new text, not a
+   restoration: no copy of the app ever carried it there, and the Istanbul
+   Names pages were not to hand. tr "Sayyidunā …", en "Our master, …". The
+   bytes are Saturday v21's, the only nominative سَيِّدُنَا in the Dalāʾil.
+
+   The Mughlay Version then follows the Mughlay printing itself, day by
+   day, on the owner's rule. Monday P1 (chapter 6): six سيدنا the printing
+   lacks came out (the alternates for v43, v45 and v47 then equalled
+   Istanbul and were dropped), and v15, v23, v35 and v42 carry the Mughlay
+   reading where the two books differ. Its rosettes then moved to where
+   the Mughlay printing marks them (far fewer inside the verses; none after
+   v44), and its English is the book's own. The ‖ page breaks stay
+   Istanbul's, so leaves line up; phrases don't, which is why saved places
+   are kept per version (placeKey). See CLAUDE.md for the list.
+
+   The swap is done IN PLACE on DALAIL_CHAPTERS rather than by keeping a
+   second array, so every reader of the text — both readers, search, saved
+   places, live sessions — follows the chosen version without being taught
+   about it. DALAIL_ISTANBUL is a startup snapshot of every Dalāʾil verse so
+   the swap can go back. The source array itself is never edited: it stays
+   byte-identical between the two apps, as non-negotiable 6 requires. */
+const DALAIL_WITH_SAYYIDINA = contentMap('dalail-mughlay');   // filled by loadContent()
+let DALAIL_ISTANBUL = [];
+/* Where each chapter's last folio ends in Istanbul: the Mughlay appends verses to a
+   chapter (Monday P2), so its folio is stretched to cover them and put back. */
+let DALAIL_FOLIO_TO = [];
+const stripArCommas = t => t.replace(/\u060C/g, '').replace(/ {2,}/g, ' ').trim();
+/* 'istanbul' | 'sayyidina'; unset or unrecognised means Istanbul. Written
+   only from setDalailEdition, the reader's own switch. Not synced in a live
+   session: the two versions share every verse index, leaf and segment, so a
+   leader and a follower on different versions still land on the same place. */
+/* Which script the Arabic is set in: 'uthmani' (the standard, KFGQPC Hafs),
+   'indopak' (DigitalKhatt IndoPak) or 'naskh' (Scheherazade New). Unset, or
+   anything unrecognised, means the version's own default: IndoPak in the
+   Mughlay Version, Uthmani in Istanbul (owner's call) — so a reader who
+   has never chosen a script sees the Mughlay text in the script of its
+   Indo-Pak printing, and switching versions carries the default with it.
+   Once a script is chosen it holds in both versions. Written only from
+   setArFont, the reader's own switch — like the size, the columns and the
+   view, and for the same reason: a live session does not carry it, so a
+   follower keeps their own script and nothing a leader does rewrites it.
+   Only the font changes; the text is the same bytes either way. */
+const FONT_KEY = 'mawlid-font';
+const AR_FONTS = { uthmani: null, indopak: 'DKIndoPak', naskh: 'SchNew' };
+let arFontChosen = (() => { try { const v = localStorage.getItem(FONT_KEY); return AR_FONTS[v] !== undefined ? v : null; } catch(e){ return null; } })();
+/* dalailEdition is declared further down, so on the first call the stored
+   version is read directly (the same key and rule as its initialiser). */
+function defaultArFont(){
+  let ed;
+  try { ed = dalailEdition; }
+  catch(e){ try { ed = localStorage.getItem('mawlid-edition') === 'sayyidina' ? 'sayyidina' : 'istanbul'; } catch(e2){ ed = 'istanbul'; } }
+  return ed === 'sayyidina' ? 'indopak' : 'uthmani';
+}
+let arFont = arFontChosen || defaultArFont();
+function applyArFont(){
+  document.documentElement.classList.toggle('ar-indopak', arFont === 'indopak');
+  document.documentElement.classList.toggle('ar-naskh', arFont === 'naskh');
+}
+applyArFont();
+const EDITION_KEY = 'mawlid-edition';
+let dalailEdition = (() => { try { return localStorage.getItem(EDITION_KEY) === 'sayyidina' ? 'sayyidina' : 'istanbul'; } catch(e){ return 'istanbul'; } })();
+function applyDalailEdition(){
+  const alt = dalailEdition === 'sayyidina';
+  DALAIL_CHAPTERS.forEach((c, ci) => {
+    /* The Mughlay prints more after Monday P2's last verse (the author's
+       prayers, the four ṣalawāt, the poem), so its alternates may run on past
+       the Istanbul verses: "13:14", "13:15"… Those are appended here and cut
+       off again on the way back, and the chapter's last folio is stretched to
+       cover them, so the Duʿāʾ after the Khatm stays its own chapter and the
+       reader goes on to it with Next. */
+    const base = DALAIL_ISTANBUL[ci].length;
+    c.verses.length = base;
+    if(alt) for(let vi = base; DALAIL_WITH_SAYYIDINA[ci + ':' + vi]; vi++){
+      const x = DALAIL_WITH_SAYYIDINA[ci + ':' + vi];
+      const nv = { ar: stripArCommas(x.ar), tr: x.tr, en: x.en };
+      if(x.instruction) nv.instruction = true;
+      if(x.noRosette) nv.noRosette = true;
+      c.verses.push(nv);
+    }
+    if(DALAIL_FOLIO_TO[ci] != null) c.folios[c.folios.length - 1].to = c.verses.length > base ? c.verses.length - 1 : DALAIL_FOLIO_TO[ci];
+    c.verses.forEach((v, vi) => {
+    if(vi >= base) return;
+    const ist = DALAIL_ISTANBUL[ci][vi];
+    const src = (alt && DALAIL_WITH_SAYYIDINA[ci + ':' + vi]) || ist;
+    v.ar = alt ? stripArCommas(src.ar) : src.ar;
+    v.tr = src.tr; v.en = src.en;
+    /* Where a verse closes differs between the printings too (Monday v44:
+       the Mughlay prints no mark after it), so an alternate may carry its
+       own noRosette; one that doesn't inherits Istanbul's. */
+    const nr = ('noRosette' in src) ? src.noRosette : ist.noRosette;
+    if(nr) v.noRosette = true; else delete v.noRosette;
+    /* A verse this printing lacks altogether (the Mughlay has no Friday
+       v11) is flagged, never deleted — see verseNo below. */
+    if(alt && src.omit) v.omit = true; else delete v.omit;
+    });
+  });
+}
+/* An omitted verse stays in the array, so every later verse keeps its
+   index — places, highlights and live sessions all key on it — and is
+   simply not drawn. The verses after it number on as the book would, and
+   anything sent to it (a session, an old place) lands on the next one. */
+function verseNo(kind, idx, n){
+  if(kind !== 'd') return n + 1;
+  const vs = (DALAIL_CHAPTERS[idx] || {}).verses || [];
+  let k = n + 1;
+  for(let i = 0; i < n; i++) if(vs[i] && vs[i].omit) k--;
+  return k;
+}
+function shownVerseN(kind, idx, n){
+  if(kind !== 'd' || n == null) return n;
+  const vs = (DALAIL_CHAPTERS[idx] || {}).verses || [];
+  let m = Number(n);
+  if(!(vs[m] && vs[m].omit)) return n;
+  while(vs[m] && vs[m].omit) m++;
+  if(m >= vs.length){ m = Number(n); while(m > 0 && vs[m].omit) m--; }
+  return m;
+}
+/* Which chapters read differently in the two versions — those with a
+   restored سيدنا or an Arabic comma. Only they carry the switch. */
+let DALAIL_EDITION_CHAPTERS = [];
+const dalailHasEditions = idx => !!DALAIL_EDITION_CHAPTERS[idx];
+function editionSwitch(){
+  return `<span class="view-switch edition-switch" role="group" aria-label="Version of the Dalāʾil">${
+    [['istanbul', 'Istanbul'], ['sayyidina', 'Mughlay']].map(([v, l]) =>
+      `<button data-ed="${v}" class="${dalailEdition === v ? 'on' : ''}" aria-pressed="${dalailEdition === v}" onclick="setDalailEdition('${v}')">${l}</button>`).join('')
+  }</span>`;
+}
+/* Switching re-renders an open Dalāʾil reader (the words change, so the
+   leaves must be rebuilt). The Book leaves break at the same ‖ in both
+   versions, so the Book view keeps the leaf itself — going via the top verse
+   landed one leaf early whenever a verse ran on from the previous page; the
+   Study view keeps the verse at the top, as the Book/Study toggle does. */
+/* A short note that the switch happened and that saved places and
+   highlights don't carry across: the two versions divide the text differently, so a place saved in
+   one would land on a different phrase in the other. */
+function editionToast(msg){
+  let t = document.getElementById('ed-toast');
+  if(!t){ t = document.createElement('div'); t.id = 'ed-toast'; t.className = 'ed-toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+  t.textContent = msg;
+  t.classList.remove('show'); void t.offsetWidth; t.classList.add('show');
+  clearTimeout(editionToast.timer);
+  editionToast.timer = setTimeout(() => t.classList.remove('show'), 3800);
+}
+function setDalailEdition(v){
+  if((v !== 'istanbul' && v !== 'sayyidina') || v === dalailEdition) return;
+  dalailEdition = v;
+  try { localStorage.setItem(EDITION_KEY, v); } catch(e){}
+  applyDalailEdition();
+  // Never having chosen a script, the reader gets the version's own.
+  if(!arFontChosen && defaultArFont() !== arFont) showArFont(defaultArFont());
+  document.querySelectorAll('.edition-switch button').forEach(b => {
+    b.classList.toggle('on', b.dataset.ed === v);
+    b.setAttribute('aria-pressed', String(b.dataset.ed === v));
+  });
+  editionToast(v === 'sayyidina'
+    ? 'Mughlay Version. Saved places and highlights are kept separately for each version.'
+    : 'Istanbul Version. Saved places and highlights are kept separately for each version.');
+  const view = renderedView();
+  if(view === 'none' || !msPiece || msPiece.kind !== 'd'){
+    /* On the Dalāʾil landing page the "Continue where you left off" card
+       belongs to the version, so it has to be redrawn. */
+    if(view === 'none' && typeof renderIndex === 'function') renderIndex();
+    return;
+  }
+  const idx = msPiece.idx;
+  if(view === 'book'){ const page = msCurrentPage(); reopen('d', idx); msGoToWhenReady(page); return; }
+  const keep = topVisibleVerse();
+  reopen('d', idx);
+  afterViewScroll('d', idx, keep);
+}
+/* Mawlid al-Barzanjī — ʿIqd al-Jawhar fī Mawlid al-Nabī al-Azhar, by Jaʿfar
+   ibn Ḥasan al-Barzanjī (d. 1764), Shāfiʿī muftī of Medina. The most widely
+   recited mawlid in the world. Sections follow the narrative arc; qasidas are
+   interjected between them, and the gathering stands at the birth (al-qiyām).
+   Pages are scaffolded empty — paste content in as it's verified. */
+/* The mawlid texts, gathered under one hub tab so more can be added
+   without crowding the tab bar. */
+
+/* The daily litanies (awrād). Each is read straight through, so each is one
+   page rather than a set of chapters. Scaffolded empty for now. */
+
+/* Run once the texts have arrived (see start()). Mawalid does this at load, because
+   its texts are inlined in the page; here they are fetched, so at load the arrays are
+   still empty. Snapshots the Istanbul text, works out which chapters carry the version
+   switch, then applies the reader's stored choice. */
+function initDalailEditions(){
+  DALAIL_ISTANBUL = DALAIL_CHAPTERS.map(c => c.verses.map(v => ({ ar: v.ar, tr: v.tr, en: v.en, noRosette: !!v.noRosette })));
+  DALAIL_FOLIO_TO = DALAIL_CHAPTERS.map(c => (c.folios && c.folios.length) ? c.folios[c.folios.length - 1].to : null);
+  DALAIL_EDITION_CHAPTERS = DALAIL_ISTANBUL.map((vs, ci) =>
+    vs.some((v, vi) => v.ar.includes('\u060C') || DALAIL_WITH_SAYYIDINA[ci + ':' + vi]));
+  applyDalailEdition();
+}
 /* Everything under Additional Praises. */
 const PRAISE_SECTIONS = [
   { id:'qasidas',  ar:'قصائد',          en:'Qasidas',    desc:'Poems in praise of the Prophet ﷺ.' },
@@ -705,7 +1159,7 @@ const TAB_CHILDREN = {
   dalail:  ['before','downloads'],
   litanies: ['azam','istighfar'],
   mawlids: ['mawlid','barzanji','diya','burdah'],
-  praises: ['qasidas','ilahis','qawwalis'],
+  praises: ['qasidas','qasidas-burdah','ilahis','qawwalis'],
   /* One child tab per shaykh: 'sohbet-nazim', 'sohbet-abdullah', … */
   sohbets: SOHBET_SHAYKHS.map(s => 'sohbet-' + s.id),
 };
@@ -743,6 +1197,7 @@ function selectTab(id){
   state.query = '';
   state.burdahChapter = null;
   renderIndex();
+  pushLoc();
 }
 
 /* Cards for a given group, honoring the search query. */
@@ -801,37 +1256,58 @@ function additionalQasidaItems(){
   return QASIDAS.map((qa,i) => ({q:qa, i}))
     .filter(x => x.q.group === 'qasidas' && !x.q.retired && !sectionOf(x.q.titleEnglish));
 }
+/* The qasidas sung within the Mawlid ad-Daybaʿī, in the kitab's order (v456,
+   owner's call). The Qasidas page lists them too, after the rest so the
+   numbers people already use there do not move. They are the same entries,
+   not copies, so a fix or a recording shows in both places. */
+function daybaiQasidaItems(){
+  return mawlidItems().filter(x => x.kind === 'q' && x.piece.group === 'qasidas')
+    .map(x => ({q:x.piece, i:x.idx}));
+}
+
+/* Qasida al-Burdah isn't a QASIDAS entry — it's a synthetic card that opens
+   the full, 10-chapter, fully-diacritized Burdah (BURDAH_CHAPTERS) as its own
+   styled sub-list, so a chapter is one tap further in rather than duplicating
+   any of its content back into this array. */
+const QASIDA_BURDAH_ENTRY = { titleArabic: "قَصِيدَةُ الْبُرْدَة", titleEnglish: "Qasida al-Burdah · 10 chapters", verses: [] };
 
 function additionalQasidaCards(){
   const items = additionalQasidaItems().filter(x => matchesQuery(x.q, state.query));
-  if(items.length === 0) return '';
-  return items.map(({q:qa, i}, n) => `
+  const showBurdah = matchesQuery(QASIDA_BURDAH_ENTRY, state.query);
+  if(items.length === 0 && !showBurdah) return '';
+  let n = 0, out = '';
+  if(showBurdah){
+    n++;
+    out += `
+        <button class="qcard" onclick="selectTab('qasidas-burdah')">
+          <span class="num">${toArNum(n)}</span>
+          <span class="titles">
+            <span class="t-ar">${QASIDA_BURDAH_ENTRY.titleArabic}</span>
+            <span class="t-en">${QASIDA_BURDAH_ENTRY.titleEnglish}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>`;
+  }
+  const card = ({q:qa, i}) => {
+    n++;
+    const sec = sectionOf(qa.titleEnglish);
+    return `
         <button class="qcard" onclick="openQasida(${i})">
-          <span class="num">${toArNum(n+1)}</span>
+          <span class="num">${toArNum(n)}</span>
           <span class="titles">
             <span class="t-ar">${qa.titleArabic}</span>
-            <span class="t-en">${qa.titleEnglish}</span>
+            <span class="t-en">${sec ? sec.rest : qa.titleEnglish}</span>
           </span>
           <span class="chev">›</span>
-        </button>` + hitList('q', i)).join('');
-}
-
-/* Qawwalis carry no separate English gloss of their title (unlike the Ilahis'
-   "Title — meaning"), so the card's second line shows the poet or performer
-   instead — real, sourced data, not an invented translation. Ported from the
-   Mawlid app, where qawwalis are maintained. */
-function qawwaliCards(){
-  const items = QAWWALI_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
-  if(items.length === 0) return '';
-  return items.map(({c,n})=>`
-        <button class="qcard" onclick="openQawwali(${n})">
-          <span class="num">${toArNum(n+1)}</span>
-          <span class="titles">
-            <span class="t-ar" style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left">${c.titleArabic}</span>
-            <span class="t-en">${c.poet}</span>
-          </span>
-          <span class="chev">›</span>
-        </button>` + hitList('w', n)).join('');
+        </button>` + hitList('q', i);
+  };
+  out += items.map(card).join('');
+  /* A search already shows these under the Mawlid ad-Daybaʿī heading. */
+  if(!state.query){
+    const daybai = daybaiQasidaItems();
+    if(daybai.length) out += label('From the Mawlid ad-Daybaʿī · من الْمولد الدّيبعي', true) + daybai.map(card).join('');
+  }
+  return out;
 }
 
 function groupCards(group){
@@ -1103,6 +1579,10 @@ function backToPraises(){
   return `<button class="back-link" onclick="selectTab('praises')">‹ Qasidas</button>`;
 }
 
+function backToQasidasList(){
+  return `<button class="back-link" onclick="selectTab('qasidas')">‹ Qasidas</button>`;
+}
+
 function backToDalail(){
   return `<button class="back-link" onclick="selectTab('dalail')">‹ Dalāʾil al-Khayrāt</button>`;
 }
@@ -1120,6 +1600,12 @@ function backToMawlids(){
   return `<button class="back-link" onclick="selectTab('mawlids')">‹ Mawlid Collections</button>`;
 }
 
+/* The gathering's response is a practice, not part of the text, so it is
+   stated once here rather than printed after every verse. */
+function barzanjiResponseNote(){
+  return `<div class="barz-note">${noteBlock("It is common practice for the gathering to respond with ṣallā Allāhu ʿalayh or Allāh after each verse the reciter reads.<span class=\"qnote-ar\">صَلَّى اللّٰهُ عَلَيْهِ · اللّٰه</span>")}</div>`;
+}
+
 function barzanjiCards(){
   const items = BARZANJI_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
   if(items.length === 0) return '';
@@ -1133,7 +1619,6 @@ function barzanjiCards(){
           <span class="chev">›</span>
         </button>` + hitList('z', n)).join('');
 }
-
 function diyaCards(){
   const items = DIYA_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
   if(items.length === 0) return '';
@@ -1213,13 +1698,12 @@ function dalailIndex(){
       navRow("openDalail(14)",        DALAIL_ROWS.done.en,   DALAIL_ROWS.done.ar)
     + navRow("selectTab('downloads')", 'Downloaded recitations', 'التَّسْجِيلَاتُ الْمَحْفُوظَةُ')
     + navRow("openDalail(0)",         'About Dalāʾil al-Khayrāt', 'دَلَائِلُ الْخَيْرَاتِ');
-  return todayCard + resumeCard()
+  return `<div class="edition-row"><span class="edition-k">Version</span>${editionSwitch()}</div>` + todayCard + resumeCard()
     + before
     + rowlab(DALAIL_ROWS.daily) + `<div class="dk-grid4">${days}</div>`
     + `<div class="dk-sep"></div>`
     + rows;
 }
-
 /* ── Al-Ḥizb al-Aʿẓam: the seven daily portions ──
    They sit at LITANY_CHAPTERS[4]…[10] in the book's own order, Saturday first.
    JS getDay(): 0=Sun … 6=Sat. */
@@ -1263,8 +1747,6 @@ function azamIndex(){
   const rowlab = `<div class="dk-rowlab"><span class="l-en">The daily portions</span><span class="l-ar">الْأَوْرَادُ الْيَوْمِيَّةُ</span></div>`;
   return todayCard + rowlab + `<div class="dk-grid4">${bubbles}</div>`;
 }
-
-
 /* ── al-Ḥizb al-Istighfār: seven daily portions ──────────────────
    Same shape as the Aʿẓam block above, but this work opens on FRIDAY in the
    printed edition (pp. 231 onward), so the week is ordered Fri → Thu and the
@@ -1361,6 +1843,23 @@ function ilahiCards(){
         </button>` + hitList('i', n)).join('');
 }
 
+/* Qawwalis carry no separate English gloss of their title (unlike the Ilahis'
+   "Title — meaning"), so the card's second line shows the poet/performer
+   instead — still real, sourced data, not an invented translation. */
+function qawwaliCards(){
+  const items = QAWWALI_CHAPTERS.map((c,n)=>({c,n})).filter(x=>matchesQuery(x.c, state.query));
+  if(items.length === 0) return '';
+  return items.map(({c,n})=>`
+        <button class="qcard" onclick="openQawwali(${n})">
+          <span class="num">${toArNum(n+1)}</span>
+          <span class="titles">
+            <span class="t-ar" style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left">${c.titleArabic}</span>
+            <span class="t-en">${c.poet}</span>
+          </span>
+          <span class="chev">›</span>
+        </button>` + hitList('w', n)).join('');
+}
+
 /* ONE table of reader openers, keyed by kind. openFnOf() and reopen() both
    read it, so the two can no longer drift — which is exactly how the Ḍiyāʾ
    ('y') came to be missing from reopen() while openFnOf() had it, sending
@@ -1387,7 +1886,6 @@ function displayTitle(piece){
   const s = sectionOf(piece.titleEnglish);
   return s ? s.rest : piece.titleEnglish;
 }
-
 /* ── Landing page ────────────────────────────────────────────────
    The app opens here rather than dropping straight into the mawlid, so the
    calligraphy has room and each section can introduce itself. Counts are
@@ -1413,13 +1911,12 @@ const HOME_CARDS = [
 function sectionCount(id){
   return id === 'mawlids' ? MAWLID_COLLECTIONS.length
        : id === 'praises' ? PRAISE_SECTIONS.length
-       : id === 'nasheeds'? NASHEED_CHAPTERS.length
        : id === 'litanies'? LITANY_CHAPTERS.filter((c,n)=>c.verses && c.verses.length && !isAzamDay(n) && !isIstighfarDay(n)).length + (azamFilledDays().length ? 1 : 0) + (istighfarFilledDays().length ? 1 : 0)
        : id === 'azam'    ? azamFilledDays().length
        : id === 'istighfar'? istighfarFilledDays().length
        : id === 'qawwalis'? QAWWALI_CHAPTERS.length
        : id === 'mawlid'  ? mawlidItems().length
-       : id === 'qasidas' ? additionalQasidaItems().length
+       : id === 'qasidas' ? additionalQasidaItems().length + daybaiQasidaItems().length + 1 /* +1 for the Qasida al-Burdah entry */
        : id === 'burdah'  ? BURDAH_CHAPTERS.length
        : id === 'dalail'  ? DALAIL_CHAPTERS.length
        : id === 'barzanji'? BARZANJI_CHAPTERS.length
@@ -1437,7 +1934,6 @@ function countLabel(id, n){
   if(id === 'favs')    return n ? n + (n === 1 ? ' bookmark' : ' bookmarks') : 'Nothing saved yet';
   if(id === 'mawlids') return n + (n === 1 ? ' collection' : ' collections'); /* includes Burdah */
   if(id === 'praises') return n + (n === 1 ? ' section' : ' sections');
-  if(id === 'nasheeds')return n ? n + (n === 1 ? ' nasheed' : ' nasheeds') : 'Coming soon';
   if(id === 'litanies')return n + (n === 1 ? ' litany' : ' litanies');
   if(id === 'qawwalis') return n ? n + (n === 1 ? ' qawwali' : ' qawwalis') : 'Coming soon';
   if(id === 'mawlid')  return n + ' sections';
@@ -1518,6 +2014,7 @@ function goHome(){
   state.tab = 'home';
   state.query = '';
   renderIndex();
+  pushLoc();
 }
 
 function favCards(){
@@ -1558,8 +2055,6 @@ function renderResults(){
     if(qas) html += label('More Qasidas · قصائد أخرى', !!mawlid || !!barz || !!burd) + qas;
     const dal = dalailCards();
     if(dal) html += label('Dalāʾil al-Khayrāt · دلائل الْخيرات', !!mawlid || !!barz || !!burd || !!qas) + dal;
-    const nash = nasheedCards();
-    if(nash) html += label('Nasheeds · أناشيد', !!mawlid || !!barz || !!burd || !!qas || !!dal) + nash;
     const ilahis = ilahiCards();
     if(ilahis) html += label('Ilahis · الْإلهيات', !!mawlid || !!barz || !!burd || !!qas || !!dal || !!nash) + ilahis;
     const qaww = qawwaliCards();
@@ -1606,8 +2101,11 @@ function renderResults(){
   if(tab === 'burdah'){
     return backToMawlids() + sectionIntro('burdah') + label('Select a chapter · اختر فصلاً') + burdahCards();
   }
+  if(tab === 'qasidas-burdah'){
+    return backToQasidasList() + label('Qasida al-Burdah · قصيدة البردة', false) + label('Select a chapter · اختر فصلاً', true) + burdahCards();
+  }
   if(tab === 'barzanji'){
-    return backToMawlids() + sectionIntro('barzanji') + label('Select a section · اختر فصلاً') + barzanjiCards();
+    return backToMawlids() + sectionIntro('barzanji') + barzanjiResponseNote() + label('Select a section · اختر فصلاً') + barzanjiCards();
   }
   if(tab === 'diya'){
     return backToMawlids() + sectionIntro('diya') + label('Select a section · اختر فصلاً') + diyaCards();
@@ -1783,7 +2281,13 @@ function toggleTheme(){
 (function initTheme(){
   let saved = null;
   try { saved = localStorage.getItem('mawlid-theme'); } catch(e){}
-  if(saved === 'dark' || (saved === null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+  /* Light is the standard first-open look, on the owner's call: a reader
+     who has never chosen gets light whatever their phone's system setting
+     says. Dark is only ever entered by tapping the toggle, and only then
+     is it remembered. This deliberately does NOT consult
+     prefers-color-scheme, which used to hand anyone with a dark phone a
+     dark app before they had asked for one. */
+  if(saved === 'dark'){
     document.documentElement.classList.add('dark');
   }
 })();
@@ -1825,7 +2329,7 @@ function myClientId(){
    while leading from fighting the new leader when it wakes up. */
 const session = { role:null, code:null, client:null, channel:null, paused:false, status:'',
                   lastNav:null, leaderAt:null, id:myClientId(), term:0, leaderless:false, claiming:false, probing:false, probeHeard:false, connecting:null,
-                  leaderPending:false, presentTimer:null, lastWhereReply:0 };
+                  presentTimer:null, lastWhereReply:0 };
 let claimState = { term:0, ids:[], timer:null };
 
 /* A short history of what the session machinery actually did. The faults left
@@ -2011,7 +2515,7 @@ function connectSession(code, role, opts){
         setSessionStatus('Following the leader.');
         return;
       }
-      if(session.role === 'follower' && (session.leaderless || session.leaderPending)){
+      if(session.role === 'follower' && session.leaderless){
         clearLeaderPending('Following the leader.');
       }
     });
@@ -2021,7 +2525,10 @@ function connectSession(code, role, opts){
     channel.on('broadcast', { event: 'present' }, () => {
       if(session.presentTimer){ clearTimeout(session.presentTimer); session.presentTimer = null; }
       if(session.probing) session.probeHeard = true;
-      if(session.leaderPending) clearLeaderPending('Following the leader.');
+      /* A 'present' only vouches that the room is occupied. It deliberately
+         does not clear `leaderless` — the flag it used to clear was never set,
+         so this handler has never touched leader state, and making it do so
+         now would be a live-session behaviour change, not a cleanup. */
     });
     channel.on('broadcast', { event: 'lead' }, ({ payload }) => {
       if(session.probing) session.probeHeard = true;
@@ -2106,25 +2613,22 @@ function connectSession(code, role, opts){
               becomeLeader(code);
               setSessionStatus('Leading — others can join with this code.');
             } else {
-              /* Silence is not proof. A joiner that heard nothing used to be
-                 handed the mic immediately, which is what put "take the lead"
-                 in front of someone joining a room that already had a leader.
-                 Wait one more beat window listening before saying that; any
-                 beat or corroboration in the meantime settles it quietly. */
-              session.role = 'follower'; session.leaderless = false;
-              session.leaderPending = true;
+              /* A silent probe now means an empty room, and the mic opens at
+                 once. The extra waiting stage that used to sit here was added
+                 when the probe was unreliable: it closed before a heartbeat
+                 could arrive, so silence proved nothing. It spans a full beat
+                 now, and any follower already in the room vouches for its
+                 leader, so a probe that hears nothing across all of that has
+                 genuinely found an empty room.
+
+                 Keeping the delay after fixing the probe just meant the first
+                 person into a new session waited on a leader who did not
+                 exist. The watchdog stays armed either way, so a late beat
+                 still pulls this device quietly back to following. */
+              session.role = 'follower';
+              session.leaderless = true;
               stopBeating(); startWatchingLeader();
-              setSessionStatus('Still looking for the leader…');
-              setTimeout(() => {
-                if(!session.leaderPending || session.code !== code) return;
-                session.leaderPending = false;
-                if(session.role !== 'follower') return;
-                session.leaderless = true;
-                stopWatchingLeader();
-                setSessionStatus("No one is leading here yet — take the lead when you're ready.");
-                renderSessionBanner();
-                if(state.tab === 'session' && renderedView() === 'none') renderIndex();
-              }, LEADER_PENDING_MS);
+              setSessionStatus("No one is leading here yet — take the lead when you're ready.");
             }
             renderSessionBanner();
             if(state.tab === 'session' && renderedView() === 'none') renderIndex();
@@ -2156,7 +2660,6 @@ function connectSession(code, role, opts){
     setSessionStatus("Couldn't connect — you're offline. Everything else still works; navigate by hand.");
   });
 }
-
 function startSession(){
   const el = document.getElementById('start-code');
   const code = normalizeCode(el ? el.value : '');
@@ -2182,7 +2685,7 @@ function leaveSession(){
   try { if(session.channel) session.channel.unsubscribe(); } catch(e){}
   try { if(session.client) session.client.removeAllChannels(); } catch(e){}
   if(session.presentTimer){ clearTimeout(session.presentTimer); session.presentTimer = null; }
-  session.leaderPending = false; session.lastWhereReply = 0;
+  session.lastWhereReply = 0;
   session.role = null; session.code = null; session.channel = null;
   session.client = null; session.paused = false; session.lastNav = null;
   session.term = 0; session.leaderless = false; session.claiming = false; session.leaderAt = null;
@@ -2253,7 +2756,6 @@ function applyRemoteNav(kind, idx, book, page){
   }
   if(page) msGoToWhenReady(page);   // land on the leader's page
 }
-
 /* ── Following the leader within a piece ──────────────────────────────────
    Page sync moves everyone between leaves; this moves them between LINES.
    The unit sent is a verse index, never a scroll offset: followers differ in
@@ -2558,9 +3060,10 @@ const LEADER_PENDING_MS = 9000;  /* keep listening this long before opening the 
 
 function noteLeaderAlive(){ session.lastBeat = Date.now(); }
 
-/* A leader turned up (or a peer vouched for one) while we were still unsure. */
+/* A leader turned up while this device was still marked leaderless. Named for
+   a `leaderPending` flag that no longer exists — nothing ever set it, so it
+   was removed; this is now reached only down the leaderless path. */
 function clearLeaderPending(msg){
-  session.leaderPending = false;
   session.leaderless = false;
   noteLeaderAlive();
   stopBeating(); startWatchingLeader();
@@ -2754,6 +3257,7 @@ function handleLeadMsg(p){
 /* Called by every open*() — the single place navigation is signalled. */
 function onNavigated(kind, idx){
   if(suppressNavSignals) return;
+  pushLoc();   /* after the gate: reopen() and remote navs must not push */
   /* Recorded even before a session exists: a leader who opened the piece
      first and started the session second would otherwise have nothing to
      answer a joiner's 'where' with. */
@@ -2894,7 +3398,6 @@ function qrDataCapacity(v){
   const s = QR_M[v];
   return s[1]*s[2] + s[3]*s[4];
 }
-
 /* ── The bit stream ─────────────────────────────────────────────────────── */
 function qrBitStream(bytes, v){
   const bits = [];
@@ -3117,7 +3620,6 @@ function qrSVG(str, px){
        + '<rect width="' + dim + '" height="' + dim + '" fill="#FAF5EA"/>'
        + '<path d="' + path + '" fill="#123528"/></svg>';
 }
-
 /* ── Scan to join ─────────────────────────────────────────────────────────
    In a hall, reading a code aloud is slow and a link needs a group chat that
    not everyone is in. A code on the leader's screen is the shortest path from
@@ -3282,16 +3784,6 @@ function sessionPanel(){
       <button class="session-btn quiet" onclick="leaveSession()">End session</button>
     </div>`;
   }
-  if(session.role === 'follower' && session.leaderPending){
-    return `<div class="session-panel">
-      <div class="session-code">${session.code}</div>
-      <p>Looking for the leader…</p>
-      <p class="session-hint">If someone is already leading, your screen will start following in a moment. Only take the mic if nothing happens.</p>
-      ${note}
-      <button class="session-btn quiet" onclick="takeLead()">Take the lead anyway</button>
-      <button class="session-btn quiet" onclick="leaveSession()">Leave session</button>
-    </div>`;
-  }
   if(session.role === 'follower' && session.leaderless){
     return `<div class="session-panel">
       <div class="session-code">${session.code}</div>
@@ -3307,8 +3799,10 @@ function sessionPanel(){
     return `<div class="session-panel">
       <div class="session-code">${session.code}</div>
       <p>You're following the leader. Open anything yourself and you'll take over — tap Resume in the banner to follow again.</p>
-      <button class="session-btn" onclick="takeLead()">Take the lead</button>
-      <p class="session-hint">Taking the lead moves it to this device and the current leader becomes a follower. Also use this if the leader has gone quiet or their phone dropped out.</p>
+      ${session.paused
+        ? `<button class="session-btn" onclick="takeLead()">Take the lead</button>
+      <p class="session-hint">The leader has gone quiet — their phone may have dropped out. Take the lead if the gathering needs to carry on.</p>`
+        : `<p class="session-hint">Someone is leading right now, so the mic isn't offered here. If they go quiet, a Take the lead button will appear.</p>`}
       <p class="session-hint">Someone just arrived? Send them the link yourself — no need to interrupt the leader.</p>
       ${shareRow()}
       ${note}
@@ -3342,6 +3836,52 @@ function sessionPanel(){
    markup, because some notes carry an Arabic line in a span. */
 const NOTE_FOLD_AT = 160;
 
+/* The top of a Dalāʾil or ḥizb reader (the other collections keep noteBlock
+   and their full-width bars).
+
+   The chapter note is HIDDEN for now (owner's call, v428 / v99): the owner
+   may want it back, so it is switched off here rather than removed. Set
+   SHOW_CHAPTER_NOTES to true and it returns as a small "About · نُبْذَة"
+   button that opens the note beneath it (a short note simply shows). The
+   notes themselves are untouched in the data.
+
+   Listen is the full-width bar again ("wider again", owner's call — v427
+   had shrunk it to a small button beside About). In the Book Version it
+   sits in #ms-tune, offered from the opening leaf only, as before. */
+const SHOW_CHAPTER_NOTES = false;
+function readerActions(q, kind, idx, book){
+  const note = (SHOW_CHAPTER_NOTES && q.note) ? String(q.note) : '';
+  const plain = note.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const folds = plain.length > NOTE_FOLD_AT;
+  const shortNote = (note && !folds) ? `<div class="qnote">${note}</div>` : '';
+  const about = folds ? `<div class="reader-actions"><button class="ra-btn" onclick="toggleAbout(this)" aria-expanded="false">About · نُبْذَة</button></div>
+    <div class="qnote about-body" hidden>${note}</div>` : '';
+  const listen = `${(q.video || audioFor(kind, idx).length) ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},1)">▶ Listen to this ḥizb</button>` : ''}
+    ${q.video2 ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},2)">▶ Listen — alternate version</button>` : ''}`;
+  const block = about + listen;
+  if(!block.trim()) return shortNote;
+  return shortNote + (book ? `<div class="ms-tune" id="ms-tune">${block}</div>` : block);
+}
+function toggleAbout(btn){
+  const body = btn.parentElement && btn.parentElement.nextElementSibling;
+  if(!body || !body.classList.contains('about-body')) return;
+  const open = body.hidden;
+  body.hidden = !open;
+  btn.classList.toggle('on', open);
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+/* Opens and closes in place — like the refrain markers and the size sliders,
+   never through reopen(), so the reader keeps its scroll. state.aaOpen is in
+   memory only, so it survives the re-render a column toggle makes but a
+   chapter still opens with the panel shut. */
+function toggleAa(){
+  state.aaOpen = !state.aaOpen;
+  document.querySelectorAll('.aa-panel').forEach(p => p.classList.toggle('open', !!state.aaOpen));
+  document.querySelectorAll('.aa-btn').forEach(b => {
+    b.classList.toggle('on', !!state.aaOpen);
+    b.setAttribute('aria-expanded', state.aaOpen ? 'true' : 'false');
+  });
+}
 function noteBlock(note){
   if(!note) return '';
   const plain = String(note).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -3381,6 +3921,12 @@ function readerHTML(q, backOnclick, kind, idx){
      read as they were printed — no transliteration or translation over them. */
   const hasPages = Array.isArray(q.folios) && q.folios.length > 0;
   const pageView = hasPages && state.pageView;
+  /* The compact top — Aa panel, slim About · Listen row — is for the Dalāʾil
+     and the aḥzāb only (owner's call); every other collection keeps its
+     settings in the open and its full-width bars. The Aa panel holds the
+     columns and the text size, Study only. */
+  const compact = kind === 'd' || kind === 'l';
+  const aaHas = compact && (!pageView || !q.latin);
   const fav = isFav(kind, idx);
   /* Nothing to reveal, no toggle: an English-only sohbet has no translation
      line under each paragraph. */
@@ -3399,8 +3945,8 @@ function readerHTML(q, backOnclick, kind, idx){
       ${('date' in q || 'location' in q) ? `<div class="piece-meta">${sohbetMeta(q)}</div>` : ''}
     </div>
     ${empty ? '' : `<div class="controls">
-      ${kind === 'd' && pageView ? `<button class="chip place-btn ${placeIsHere(idx)?'on':''}"
-        onclick="saveDalailPlace(${idx})">Save my place</button>` : ''}
+      ${kind === 'd' && pageView ? `<button class="chip place-btn ${placeIsHere(idx)&&placeStillMarked()?'on':''}"
+        data-idx="${idx}" onclick="saveDalailPlace(${idx})">${placeBtnLabel(idx)}</button>` : ''}
       ${hasPages ? `<span class="view-switch" role="group" aria-label="How to read this">
         <button class="${pageView?'on':''}" onclick="setPageView(true,${controlsTarget})">Book Version</button>
         <button class="${pageView?'':'on'}" onclick="setPageView(false,${controlsTarget})">Study Version</button>
@@ -3411,28 +3957,40 @@ function readerHTML(q, backOnclick, kind, idx){
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M9 3H3v6M15 3h6v6M9 21H3v-6M15 21h6v-6"/></svg>
       </button>` : ''}` : ''}
+      ${aaHas ? `<button class="chip aa-btn${state.aaOpen?' on':''}" onclick="toggleAa()" aria-expanded="${state.aaOpen?'true':'false'}"
+        aria-label="Reading settings">Aa</button>
+      <div class="aa-panel${state.aaOpen?' open':''}">
+        ${q.latin ? '' : `<div class="aa-row"><span class="view-switch script-switch" role="group" aria-label="Arabic script">${[['uthmani','Uthmani'],['indopak','IndoPak'],['naskh','Naskh']].map(([v,l]) =>
+          `<button data-font="${v}" class="${arFont===v?'on':''}" aria-pressed="${arFont===v}" onclick="setArFont('${v}')">${l}</button>`).join('')}</span></div>`}
+        ${pageView ? '' : `<div class="aa-row">
+        ${q.latin ? '' : `<button class="chip ${state.showTr?'':'off'}" onclick="toggle(${controlsTarget})">Transliteration</button>`}
+        <button class="chip ${state.showEn?'':'off'}" onclick="toggleEn(${controlsTarget})">Translation</button></div>
+        <div class="size-row">
+          ${q.latin ? '' : sizeSlider('ar', state.arScale)}
+          ${sizeSlider('latin', state.latinScale)}
+        </div>`}
+      </div>` : compact ? '' : `
       ${pageView ? '' : `
       ${q.latin ? '' : `<button class="chip ${state.showTr?'':'off'}" onclick="toggle(${controlsTarget})">Transliteration</button>`}
-      ${hasEn ? `<button class="chip ${state.showEn?'':'off'}" onclick="toggleEn(${controlsTarget})">Translation</button>` : ''}`}
-      ${pageView
-        ? ''
-        : q.latin ? '' : `<button class="chip size" onclick="scaleAr(-1,${controlsTarget})" aria-label="Smaller Arabic">أ−</button>
-      <button class="chip size" onclick="scaleAr(1,${controlsTarget})" aria-label="Larger Arabic">أ+</button>`}
-      ${pageView ? '' : `<button class="chip size" onclick="scaleLatin(-1,${controlsTarget})" aria-label="Smaller Latin text">a−</button>
-      <button class="chip size" onclick="scaleLatin(1,${controlsTarget})" aria-label="Larger Latin text">a+</button>`}
+          ${hasEn ? `<button class="chip ${state.showEn?'':'off'}" onclick="toggleEn(${controlsTarget})">Translation</button>` : ''}
+      <div class="size-row">
+        ${q.latin ? '' : sizeSlider('ar', state.arScale)}
+        ${sizeSlider('latin', state.latinScale)}
+      </div>`}
+      `}
     </div>`}
-    <main class="verses${pageView ? ' ms-view' : ''}">
+    <main class="verses${pageView ? ' ms-view' : ''}${(kind === 'd' || kind === 'l') ? ' paper' : ''}">
       ${pageView ? manuscriptPages(q, kind, idx) : empty ? placeholder(q.titleEnglish) : `
-      ${noteBlock(q.note)}
-      ${q.video ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},1)">▶ ${(kind === 'd' || kind === 'l') ? 'Listen to this ḥizb' : 'Listen to the tune'}</button>` : ''}
-      ${q.video2 ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},2)">▶ Listen — alternate version</button>` : ''}
-      ${q.verses.map((v,n)=>`
+      ${compact ? readerActions(q, kind, idx, false) : `${noteBlock(q.note)}
+      ${(q.video || audioFor(kind, idx).length) ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},1)">▶ Listen to the tune</button>` : ''}
+      ${q.video2 ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},2)">▶ Listen — alternate version</button>` : ''}`}
+      ${q.verses.map((v,n)=> v.omit ? '' : `
         <article class="verse ${v.refrain||v.refrainCont?'refrain':''} ${v.instruction?'v-instruction':''}${kind==='d'&&placedVerse(idx,n)?' placed':''}" data-v="${n}">
           ${kind === 'd' ? `<button class="verse-place ${placedVerse(idx,n)?'on':''}"
             onclick="placeVerse(${idx},${n})"
             aria-label="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}"
             title="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}">${bookmarkIcon(placedVerse(idx,n))}</button>` : ''}
-          <div class="v-num">${toArNum(n+1)}</div>
+          <div class="v-num">${toArNum(verseNo(kind, idx, n))}</div>
           ${v.refrain?'<div class="refrain-note">Chorus · يُرَدَّد</div>':''}
           ${v.instruction?'<div class="instruction-note">Instruction · إِرْشَاد</div>':''}
           ${v.note?`<div class="v-note">${v.note}</div>`:''}
@@ -3449,49 +4007,12 @@ function readerHTML(q, backOnclick, kind, idx){
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
           ${v.times ? `<div class="refrain-times">${v.times === 2 ? `Sing the whole ${v.refrain ? 'chorus' : 'verse'} twice · مَرَّتَيْنِ` : `Sing the whole ${v.refrain ? 'chorus' : 'verse'} ` + v.times + ' times'}</div>` : ''}
         </article>${v.repeatRefrain ? refrainRepeatHTML(q, n) : ''}`).join('')}`}
-    </main>`;
+      ${pageView ? '' : chapterNav(kind, idx)}
+    </main>
+`;
 }
-
-/* ── Repeating a chorus ─────────────────────────────────────
-   Ported from the Mawlid app (src/js/320-refrain-and-leaf-defs.js), which is
-   where this is maintained; keep the two in step. A verse flagged
-   `repeatRefrain` is followed by a one-line marker for the nearest `refrain`
-   above it — printing the whole chorus after every verse would bury the
-   qasida. Every marker in a piece opens together, toggling flips a class
-   rather than re-rendering (so a reader fifteen verses down isn't thrown back
-   to the top), and the open state is in memory only: a piece always opens
-   collapsed. Cards straight after the refrain flagged `refrainCont` are sung
-   with it and repeat with it. */
-function refrainRepeatHTML(q, n){
-  let at = -1;
-  for(let k = n; k >= 0; k--) if(q.verses[k].refrain){ at = k; break; }
-  if(at < 0) return '';
-  const parts = [q.verses[at]];
-  for(let k = at + 1; k < q.verses.length && q.verses[k].refrainCont; k++) parts.push(q.verses[k]);
-  const body = parts.map(p => `<div class="v-ar">${arHTML(p.ar)}</div>
-        ${p.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${p.tr.replaceAll('\n','<br>')}</div>` : ''}
-        ${p.en ? `<div class="v-en ${state.showEn?'':'hide'}">${p.en.replaceAll('\n','<br>')}</div>` : ''}`).join('');
-  return `<div class="refrain-repeat${state.refrainOpen ? ' open' : ''}">
-      <button class="refrain-repeat-btn" onclick="toggleRefrain()"
-        aria-expanded="${state.refrainOpen ? 'true' : 'false'}">↻ Repeat chorus · يُرَدَّد</button>
-      <div class="refrain-repeat-body">
-        ${body}
-      </div>
-    </div>`;
-}
-
-function toggleRefrain(){
-  state.refrainOpen = !state.refrainOpen;
-  document.querySelectorAll('.refrain-repeat').forEach(n => {
-    n.classList.toggle('open', state.refrainOpen);
-    const b = n.querySelector('.refrain-repeat-btn');
-    if(b) b.setAttribute('aria-expanded', state.refrainOpen ? 'true' : 'false');
-  });
-}
-
 function openQasida(i){
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  applyTextScale();
   app.innerHTML = readerHTML(QASIDAS[i], 'renderIndex()', 'q', i);
   queueMsAutoFit();
   window.scrollTo(0,0);
@@ -3499,10 +4020,13 @@ function openQasida(i){
 }
 
 function openBurdah(n){
+  /* Reached either from the Mawlid Collections > Burdah tab, or from the
+     synthetic "Qasida al-Burdah" card inside the Qasidas list — the back
+     button should return wherever the chapter list itself was opened from. */
+  const backTab = state.tab === 'qasidas-burdah' ? 'qasidas-burdah' : 'burdah';
   state.burdahChapter = n;
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
-  app.innerHTML = readerHTML(BURDAH_CHAPTERS[n], "selectTab('burdah')", 'b', n);
+  applyTextScale();
+  app.innerHTML = readerHTML(BURDAH_CHAPTERS[n], `selectTab('${backTab}')`, 'b', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('b', n);
@@ -3567,8 +4091,7 @@ function openOttoman(n){
 }
 
 function openLitany(n){
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  applyTextScale();
   app.innerHTML = readerHTML(LITANY_CHAPTERS[n], "selectTab('" + (isAzamDay(n) ? 'azam' : isIstighfarDay(n) ? 'istighfar' : 'litanies') + "')", 'l', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
@@ -3576,8 +4099,7 @@ function openLitany(n){
 }
 
 function openDiya(n){
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  applyTextScale();
   app.innerHTML = readerHTML(DIYA_CHAPTERS[n], "selectTab('diya')", 'y', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
@@ -3585,8 +4107,7 @@ function openDiya(n){
 }
 
 function openBarzanji(n){
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  applyTextScale();
   app.innerHTML = readerHTML(BARZANJI_CHAPTERS[n], "selectTab('barzanji')", 'z', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
@@ -3594,8 +4115,7 @@ function openBarzanji(n){
 }
 
 function openDalail(n){
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  applyTextScale();
   document.documentElement.style.setProperty('--ms-zoom', state.msZoom);
   app.innerHTML = readerHTML(DALAIL_CHAPTERS[n], "selectTab('dalail')", 'd', n);
   queueMsAutoFit();
@@ -3603,74 +4123,6 @@ function openDalail(n){
   onNavigated('d', n);
 }
 
-/* Safety net: after the leaves are painted, any page whose text actually
-   overflows its fixed height (the character estimate can't know exact Arabic
-   widths) has its trailing content moved onto a fresh leaf, so nothing is
-   ever clipped. Runs until every page fits, then renumbers the folios. */
-function msReflowOverflow(){
-  const book = document.getElementById('ms-book');
-  if(!book) return;
-  let guard = 0;
-  let moved = true;
-  while(moved && guard++ < 200){
-    moved = false;
-    const sheets = Array.from(book.children);
-    for(let si = 0; si < sheets.length; si++){
-      const sheet = sheets[si];
-      const page = sheet.querySelector('.ms-page');
-      const text = sheet.querySelector('.ms-text');
-      if(!page || !text) continue;
-      if(page.classList.contains('ms-closing')) continue; // closing leaf centres, never clips
-      const room = page.clientHeight - parseFloat(getComputedStyle(page).paddingBottom) - 6;
-      if(text.scrollHeight <= page.clientHeight - 12) continue; // fits
-
-      /* Collect the direct child nodes of ms-text (verse spans + rosette spans). */
-      const nodes = Array.from(text.childNodes);
-      /* Find the first node whose bottom exceeds the usable room. */
-      const textTop = text.getBoundingClientRect().top;
-      let cutAt = -1;
-      for(let k = 0; k < nodes.length; k++){
-        const nd = nodes[k];
-        if(nd.nodeType !== 1) continue;
-        const b = nd.getBoundingClientRect().bottom - textTop;
-        if(b > room){ cutAt = k; break; }
-      }
-      if(cutAt <= 0) continue; // can't improve (single huge node handled below)
-
-      /* Move nodes from cutAt onward into a new sheet after this one. */
-      const newSheet = sheet.cloneNode(false);
-      const newPage = document.createElement('div');
-      newPage.className = 'ms-page';
-      const newRun = sheet.querySelector('.ms-runhead').cloneNode(true);
-      const newText = document.createElement('div');
-      newText.className = 'ms-text';
-      for(let k = nodes.length - 1; k >= cutAt; k--){
-        newText.insertBefore(nodes[k], newText.firstChild);
-      }
-      newPage.appendChild(newText);
-      const folioNum = document.createElement('div');
-      folioNum.className = 'ms-folio';
-      newPage.appendChild(folioNum);
-      newSheet.appendChild(newRun);
-      newSheet.appendChild(newPage);
-      book.insertBefore(newSheet, sheet.nextSibling);
-      moved = true;
-      break; // restart the scan from the top
-    }
-  }
-  /* Renumber all folio labels 1..N and rebuild the dot strip. */
-  const sheets = Array.from(book.children);
-  sheets.forEach((s, i) => {
-    const fol = s.querySelector('.ms-folio');
-    if(fol) fol.textContent = i + 1;
-  });
-  const dotWrap = document.querySelector('.ms-dots');
-  if(dotWrap){
-    dotWrap.innerHTML = sheets.map((s, i) =>
-      `<button class="ms-dot${i === 0 ? ' on' : ''}" data-pg="${i}" onclick="msGoTo(${i})" aria-label="Page ${i + 1}"></button>`).join('');
-  }
-  if(typeof msSyncDots === 'function') msSyncDots();
-}
 
 /* Book Version sizing — one page size for the whole chapter, text filling each
    page, at a size that is actually readable.
@@ -3725,11 +4177,14 @@ function msAutoFit(){
   H = Math.max(H, immersive ? window.innerHeight - playerHeight()
                             : Math.min(window.innerHeight * 0.72, leafW * 1.5));
 
-  leaves.forEach((o, i) => {
+  leaves.forEach(o => {
     o.p.style.minHeight = '0px';   // the fitted height is the height
     o.p.style.height = H + 'px';
-    const isClosing = (i === leaves.length - 1) && leaves.length > 1;
-    const MIN = o.base * 0.6, MAX = (isClosing || shortLeaf(o)) ? o.base : o.base * 1.9;
+  });
+
+  /* Fit one leaf's text to the shared height, never above the cap it is given. */
+  const fit = (o, MAX) => {
+    const MIN = o.base * 0.6;
     /* The space still free between the foot of the text and the foot of the
        page's content box, read from what the browser actually laid out. Working
        from the rendered geometry avoids having to add up padding, borders and
@@ -3758,6 +4213,25 @@ function msAutoFit(){
       if(room() < 0){ o.t.style.fontSize = size + 'px'; break; }
       size = next;
     }
+    return size;
+  };
+
+  /* A short leaf, and the closing leaf, must not balloon to fill the paper the
+     book deliberately leaves empty. They used to be capped at o.base to stop
+     that — but o.base is the CSS reading size, not the size the chapter is
+     actually set at, and in full screen the other leaves grow with the taller
+     page while these stayed put. That is what made Friday's last leaf render
+     SMALLER than every other page when maximised, marooned in a field of blank
+     paper. Cap them at what the full leaves settled on instead: still no
+     ballooning, but never smaller than the rest of the chapter either. */
+  const held = (o, i) => shortLeaf(o) || ((i === leaves.length - 1) && leaves.length > 1);
+  const settled = [];
+  leaves.forEach((o, i) => { if(!held(o, i)) settled.push(fit(o, o.base * 1.9)); });
+  const typical = settled.length
+    ? settled.slice().sort((a, b) => a - b)[Math.floor(settled.length / 2)]
+    : null;
+  leaves.forEach((o, i) => {
+    if(held(o, i)) fit(o, typical == null ? o.base : Math.max(o.base, typical));
   });
 }
 /* Fit once the leaves are painted, and again once the Arabic webfont has
@@ -3769,6 +4243,8 @@ function queueMsAutoFit(){
   if(window.requestAnimationFrame) requestAnimationFrame(() => requestAnimationFrame(run));
   else setTimeout(run, 30);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(run).catch(() => {}); }
+  /* fonts.ready can settle before a just-chosen face has even started to load. */
+  if(AR_FONTS[arFont] && document.fonts && document.fonts.load){ document.fonts.load('1em ' + AR_FONTS[arFont]).then(run).catch(() => {}); }
 }
 /* Re-fit when the leaf frame changes size (rotation, window resize). */
 let msFitTimer = null;
@@ -3778,30 +4254,27 @@ window.addEventListener('resize', () => {
 });
 
 function openSirah(n){
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  applyTextScale();
   app.innerHTML = readerHTML(SIRAH_CHAPTERS[n], "selectTab('mawlid')", 's', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('s', n);
 }
 
-function openQawwali(n){
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
-  app.innerHTML = readerHTML(QAWWALI_CHAPTERS[n], "selectTab('qawwalis')", 'w', n);
-  queueMsAutoFit();
-  window.scrollTo(0,0);
-  onNavigated('w', n);
-}
-
 function openIlahi(n){
-  document.documentElement.style.setProperty('--ar-size', (1.9*state.arScale)+'rem');
-  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+  applyTextScale();
   app.innerHTML = readerHTML(ILAHI_CHAPTERS[n], "selectTab('ilahis')", 'i', n);
   queueMsAutoFit();
   window.scrollTo(0,0);
   onNavigated('i', n);
+}
+
+function openQawwali(n){
+  applyTextScale();
+  app.innerHTML = readerHTML(QAWWALI_CHAPTERS[n], "selectTab('qawwalis')", 'w', n);
+  queueMsAutoFit();
+  window.scrollTo(0,0);
+  onNavigated('w', n);
 }
 
 /* Re-render the current piece (control toggles, remote applies). Signals are
@@ -3817,7 +4290,90 @@ function reopen(kind, i){
   try { fn(i); }
   finally { suppressNavSignals = prev; }
 }
-function toggle(kind,i){ state.showTr = !state.showTr; reopen(kind,i); }
+function toggle(kind,i){ state.showTr = !state.showTr; saveCols(); reopen(kind,i); }
+/* Flips the class and the chip in place rather than reopening, so neither
+   view loses its place; the Book leaves are re-fitted, since the IndoPak
+   and Naskh letters set wider and taller than the Uthmani ones. */
+function setArFont(v){
+  if(AR_FONTS[v] === undefined) return;
+  /* A tap is a choice even on the script already showing: it is stored, so
+     a version's default no longer moves it. */
+  arFontChosen = v;
+  try { localStorage.setItem(FONT_KEY, v); } catch(e){}
+  if(v === arFont) return;
+  showArFont(v);
+}
+function showArFont(v){
+  arFont = v;
+  applyArFont();
+  document.querySelectorAll('.script-switch button').forEach(b => {
+    b.classList.toggle('on', b.dataset.font === arFont);
+    b.setAttribute('aria-pressed', String(b.dataset.font === arFont));
+  });
+  queueMsAutoFit();
+}
+/* ── Repeating a refrain ─────────────────────────────────────
+   A verse flagged `repeatRefrain` is followed by a marker for the chapter's
+   `refrain` verse. Barzanji ch.4 is the case this was built for: the Qiyam
+   refrain returns after every one of the seventeen qasida verses, and
+   printing its four lines seventeen times would bury the qasida — so the
+   marker is one gold line that opens to the words on a tap.
+
+   **Every marker in the chapter opens together.** A reciter wants them one
+   way or the other, not one at a time.
+
+   Two deliberate choices:
+
+   - **Toggling does NOT reopen the reader.** The body is always in the DOM
+     and CSS hides it, so a tap flips a class and nothing re-renders. A
+     `reopen()` here would scroll a reader who is fifteen verses down back to
+     the top of the chapter — the same trap the text-size slider has.
+   - **`state.refrainOpen` is in memory and is NOT stored**, on the owner's
+     call: a chapter always opens collapsed. It still survives a re-render,
+     which is what keeps a follower's own choice through a leader's
+     navigation in a live session, exactly as `showTr`/`showEn` do. It is not
+     broadcast either, so a leader never opens or closes anyone else's. */
+/* A refrain's closing repeat count (Balagha-l-ʿUlā's " (2)", Ṭālamā's line of
+   its own) is for its first singing only, owner's call — the repeats print
+   without it. Counts inside the refrain, on each of its parts, stay. */
+/* The refrain repeated is the nearest one above the verse: a piece with a
+   second refrain partway through (Marḥaban Marḥaban) switches to it. */
+function refrainRepeatHTML(q, n){
+  let at = -1;
+  for(let k = n; k >= 0; k--) if(q.verses[k].refrain){ at = k; break; }
+  if(at < 0) return '';
+  const r = q.verses[at];
+  /* A refrain can run over more than one card: the cards straight after it
+     flagged `refrainCont` are sung with it and repeat with it (Ṭalaʿa-l-Badru,
+     QASIDAS[8]: its two opening lines). They stay separate cards so no verse
+     is renumbered. */
+  const parts = [r];
+  for(let k = at + 1; k < q.verses.length && q.verses[k].refrainCont; k++) parts.push(q.verses[k]);
+  /* Repeats keep every count in the refrain, closing (2) included (#25, the
+     user's call); until v436 the closing count was stripped from repeats. */
+  const body = parts.map(p => {
+    const ar = p.ar, tr = p.tr, en = p.en;
+    return `<div class="v-ar">${arHTML(ar)}</div>
+        ${tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${tr.replaceAll('\n','<br>')}</div>` : ''}
+        ${en ? `<div class="v-en ${state.showEn?'':'hide'}">${en.replaceAll('\n','<br>')}</div>` : ''}`;
+  }).join('');
+  return `<div class="refrain-repeat${state.refrainOpen ? ' open' : ''}">
+      <button class="refrain-repeat-btn" onclick="toggleRefrain()"
+        aria-expanded="${state.refrainOpen ? 'true' : 'false'}">↻ Repeat chorus · يُرَدَّد</button>
+      <div class="refrain-repeat-body">
+        ${body}
+      </div>
+    </div>`;
+}
+
+function toggleRefrain(){
+  state.refrainOpen = !state.refrainOpen;
+  document.querySelectorAll('.refrain-repeat').forEach(n => {
+    n.classList.toggle('open', state.refrainOpen);
+    const b = n.querySelector('.refrain-repeat-btn');
+    if(b) b.setAttribute('aria-expanded', state.refrainOpen ? 'true' : 'false');
+  });
+}
 /* The piece set as it was printed: ivory leaves, ruled borders, a titled
    cartouche and the rosettes between phrases — but real text, so it can be
    selected, searched and marked, and costs nothing to download. */
@@ -3878,8 +4434,8 @@ function manuscriptPages(q, kind, idx){
       inner = `<span class="ms-instruction">${inner}</span>`;
     }
     inner = inner.replaceAll('\n', '<br>');
-    if(kind === 'd' && !v.instruction){ inner = segWrapMark(inner, 'ms-r', kind, idx, (sub == null ? n : n + '.' + sub), marks, (placedN != null && Number(n) === placedN && (sub == null || sub === 0)), placedSeg); }
-    else { inner = inner.replaceAll('۞', '<span class="ms-r">۞</span>'); }
+    if(kind === 'd' && !v.instruction){ inner = segWrapMark(inner, 'ms-r ms-r-in', kind, idx, (sub == null ? n : n + '.' + sub), marks, (placedN != null && Number(n) === placedN && (sub == null || sub === 0)), placedSeg); }
+    else { inner = inner.replaceAll('۞', '<span class="ms-r ms-r-in">۞</span>'); }
     /* Directions embedded in the passage go gold, and the ones that carry an
        explanation become tappable — the leaf sets no English of its own. */
     inner = markInline(inner, true);
@@ -3915,6 +4471,7 @@ function manuscriptPages(q, kind, idx){
     let shortNext = false;
     const flush = () => { if(items.length){ expandedFolios.push({ band, items, short: shortNext }); band = null; items = []; shortNext = false; } };
     f.items.forEach(({ v, n }) => {
+      if(v.omit) return;
       /* A leaf the book itself leaves part-empty (a section opening on the next
          page) is marked so msAutoFit sets it at the base size and lets it stop
          short, instead of growing the type to fill the sheet. */
@@ -3987,7 +4544,7 @@ function manuscriptPages(q, kind, idx){
   const dots = expandedFolios.map((f, i) => (two && i % 2) ? '' :
     `<button class="ms-dot${i === 0 ? ' on' : ''}" data-pg="${i}" onclick="msGoTo(${i})"
              aria-label="${two ? 'Pages ' + (i + 1) + '\u2013' + (i + 2) : 'Page ' + (i + 1)}"></button>`).join('');
-  return `${noteBlock(q.note)}
+  return `${readerActions(q, kind, idx, true)}
     <p class="ms-hint">Turn the leaf right to left · tap a phrase to mark your place</p>
     ${MS_DEFS}
     <div class="ms-book${two ? ' spread' : ''}" id="ms-book" onscroll="msSyncDots()">${expandedFolios.map(sheet).join('')}</div>
@@ -3996,7 +4553,14 @@ function manuscriptPages(q, kind, idx){
       <div class="ms-dots">${dots}</div>
       <button class="ms-arrow prev" onclick="msStep(-1)" disabled aria-label="Previous page">›</button>
     </div>
-    <button class="ms-close" onclick="setImmersive(false)" aria-label="Leave full screen">✕</button>
+    ${msChapNav(kind, idx)}
+    <div class="ms-bar">
+      <button class="ms-rnd" onclick="goHome()" aria-label="Home">⌂</button>
+      <div class="ms-menu-wrap">
+        <button class="ms-rnd" onclick="toggleMsMenu(event)" aria-label="More">⋮</button>
+        <div class="ms-menu" id="ms-menu"></div>
+      </div>
+    </div>
     <div class="ms-float" id="ms-float">
       <button class="ms-arrow next" onclick="msStep(1)" aria-label="Next page">‹</button>
       <button class="ms-arrow prev" onclick="msStep(-1)" disabled aria-label="Previous page">›</button>
@@ -4025,6 +4589,11 @@ function msSyncDots(){
   const n = book ? book.children.length : 0;
   const cur = msCurrentPage();
   [].forEach.call(document.querySelectorAll('.ms-dot'), (d, i) => d.classList.toggle('on', i === cur));
+  /* Offered from the first leaf only. Toggled here, not in the page-change
+     branch below: that one is skipped when the leaf has not changed, which
+     would leave the button wrong on the first paint after opening a piece. */
+  const tune = document.getElementById('ms-tune');
+  if(tune) tune.classList.toggle('off', cur !== 0);
   msFloatPosition();
   /* Two sets now — the floating pair and the pair by the dots — so keep them
      in step rather than only the first one found. */
@@ -4039,6 +4608,9 @@ function msSyncDots(){
      a tall page never opens scrolled halfway down. */
   if(cur !== msLastPage){
     msLastPage = cur;
+    /* The place chip reads "here" per leaf now, so it has to be told a page
+       turn happened — nothing else calls it on a swipe. */
+    if(typeof refreshPlaceBtn === 'function') refreshPlaceBtn();
     if(!suppressNavSignals && session.role === 'leader' && session.channel && session.lastNav){
       try { session.channel.send({ type:'broadcast', event:'page', payload:{ kind: session.lastNav.kind, idx: session.lastNav.idx, page: cur, term: session.term } }); } catch(e){}
     }
@@ -4048,7 +4620,6 @@ function msSyncDots(){
     }
   }
 }
-
 /* Pinch-zoom moves the visible area without moving the layout viewport, so a
    plain fixed position drifts off screen exactly when the arrows are needed
    most. Track the visual viewport instead, and hold the buttons at a constant
@@ -4132,7 +4703,6 @@ function ytId(url){
   const m = String(url || '').match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{11})/);
   return m ? m[1] : null;
 }
-
 /* ── Local recitations ───────────────────────────────────────────────────
    The Dalāʾil recordings are hosted in a second GitHub Pages repo. Same
    origin as this app (origin is scheme+host; the path is irrelevant), which
@@ -4148,6 +4718,15 @@ const AUDIO_CACHE = 'mawlid-audio';
 const RECITERS = {
   khayzaran: { ar: 'الشيخ حكيم خيزران',  en: 'Ḥakīm Khayzarān' },
   shamali:   { ar: 'الشيخ حازم الشمالي', en: 'Ḥāzim ash-Shamālī' },
+  /* A group, not a shaykh, and spelled the way they spell it themselves
+     rather than put through the app's transliteration. */
+  aashiq:    { ar: 'عاشق الرسول',        en: 'Aashiq al-Rasul' },
+  /* Named from the file itself ("… by Syrian Munshids …"): it carries no
+     artist tag, only its encoder, so there is no fuller credit to give. */
+  syrian:    { ar: 'منشدون سوريون',       en: 'Syrian Munshids' },
+  /* Named from the file's own title tag; no Arabic form of the ensemble's
+     name is on record, so none is given — every caller skips an empty one. */
+  rabbani:   { ar: '',                    en: 'Rabbani Ensemble' },
 };
 
 /* Recordings hang off the chapter, not the collection: these seven portions
@@ -4170,6 +4749,39 @@ const DALAIL_AUDIO = {
   13: [{ reciter:'shamali',   file:'dalail-08-monday-2.mp4',  secs:553  }],
 };
 
+/* The first recording outside the Dalāʾil, which is why the lookup below is
+   keyed by kind rather than reading one map. `secs` measured from the file. */
+const QASIDA_AUDIO = {
+  3: [{ reciter:'aashiq', file:'Ya Rabbi Salli Ala Muhammad.mp3', secs:240 }],
+  /* Carries a video track too (the subtitled "with English translation"
+     video). The player is an <audio> element, which plays the sound and
+     ignores the picture, so it works as-is at 3.5 MB. */
+  41: [{ reciter:'syrian', file:'Balaghal Ula Bi Kamalihi by Syrian Munshids with English translation.mp4', secs:273 }],
+  /* No reciter, on the owner's instruction: leave it uncredited (the file's
+     only artist tag, "Roy Clark", is not to be used). `title` is what the
+     player calls it, in place of the qasida's full title. */
+  4: [{ file:'Caravan Qasida.mp3', secs:309, title:"The Caravaner's Qasida" }],
+  /* The qasida itself begins at 1:33 (owner's timing); `start` is where the
+     player opens. No reciter: the file carries no artist tag. */
+  9: [{ file:'Talama Ashku Gharami.mp3', secs:517, start:93 }],
+  /* No artist tag, so no reciter. The name carries an apostrophe and an
+     ampersand: audioUrl encodes them, and the Downloads row JSON-quotes it. */
+  12: [{ file:"Ya Rasulallah Salamun 'Alaik   Lirik & Terjemahan.mp3", secs:277 }],
+  11: [{ reciter:'rabbani', file:'Rabbani Ensemble - Ya Arhamar Rahimin.mp3', secs:214 }],
+  /* The file name carries Arabic (with a Persian yeh, U+06CC), written as
+     escapes copied from the audio repo so no retyped letter can miss the
+     file. No artist tag, so no reciter. */
+  13: [{ file:"Qul Ya Azeem Arabic Nasheed \u0642\u064f\u0644\u0652 \u06cc\u064e\u0627 \u0639\u0638\u06cc\u0645 English Subtitles.mp3", secs:309 }],
+  /* An-Nabī Ṣallū ʿAlayh ("24 ·"). The title tag names the piece; there is
+     no artist tag, so no reciter. */
+  15: [{ file:'An Nabi Sollu Alaih.mp3', secs:291 }],
+  /* Yā Imāma-r-Rusli ("26 ·"). No artist tag; the reciters are named from the
+     file's own title, as Balagha-l-ʿUlā's are. */
+  16: [{ reciter:'syrian', file:'Ya Imam Ar Rusli By Syrian Munshids.mp3', secs:414 }],
+};
+
+const AUDIO_BY_KIND = { d: DALAIL_AUDIO, q: QASIDA_AUDIO };
+
 const RECITER_KEY = 'mawlid-reciter';
 
 function storedReciter(){
@@ -4178,15 +4790,19 @@ function storedReciter(){
 
 /* The recordings available for a piece, preferred reciter first. */
 function audioFor(kind, idx){
-  if(kind !== 'd') return [];
-  const list = DALAIL_AUDIO[idx];
+  const list = (AUDIO_BY_KIND[kind] || {})[idx];
   if(!list || !list.length) return [];
   const want = storedReciter();
   if(!want) return list.slice();
   return list.slice().sort((a, b) => (b.reciter === want) - (a.reciter === want));
 }
 
-function audioUrl(rec){ return AUDIO_BASE + rec.file; }
+/* Encoded here and nowhere else: this is the only place a URL is built, and
+   the fetch and the Cache API key have to be the same string. One file name
+   carries spaces, so a bare concatenation would not survive a round trip. */
+function audioUrl(rec){
+  return AUDIO_BASE + rec.file.split('/').map(encodeURIComponent).join('/');
+}
 
 function reciterName(rec){
   const r = RECITERS[rec && rec.reciter];
@@ -4203,7 +4819,6 @@ function fmtDur(s){
   return m + ':' + String(s % 60).padStart(2, '0');
 }
 function fmtMB(b){ return (b / 1048576).toFixed(1) + ' MB'; }
-
 /* ── storage ─────────────────────────────────────────────────────────── */
 
 async function audioCached(rec){
@@ -4256,7 +4871,6 @@ async function removeAudio(rec){
     await c.delete(audioUrl(rec));
   }catch(e){}
 }
-
 /* ── Downloaded recitations: the manage screen ───────────────────────────
    An app that can quietly put 150MB on someone's phone owes them a plain
    view of what is stored and a way to remove it. Sizes are read back from
@@ -4267,11 +4881,16 @@ async function removeAudio(rec){
 /* Every portion that has a recording, flattened for the manage list. */
 function allAudioEntries(){
   const out = [];
-  Object.keys(DALAIL_AUDIO).forEach(k => {
-    const idx = Number(k);
-    (DALAIL_AUDIO[k] || []).forEach(rec => out.push({ kind:'d', idx, rec }));
+  Object.keys(AUDIO_BY_KIND).forEach(kind => {
+    const m = AUDIO_BY_KIND[kind];
+    Object.keys(m).forEach(k => {
+      const idx = Number(k);
+      (m[k] || []).forEach(rec => out.push({ kind, idx, rec }));
+    });
   });
-  return out.sort((a, b) => a.idx - b.idx);
+  return out.sort((a, b) => a.kind === b.kind
+    ? a.idx - b.idx
+    : (a.kind < b.kind ? -1 : 1));
 }
 
 async function audioLedger(){
@@ -4298,7 +4917,6 @@ async function refreshDownloads(){
   const host = document.getElementById('dl-list');
   if(!host) return;
   const { rows, have, total } = await audioLedger();
-  const D = DALAIL_CHAPTERS;
 
   let html = '<div class="dl-sum">' +
     (have
@@ -4308,19 +4926,19 @@ async function refreshDownloads(){
     '</div>';
 
   rows.forEach(({ e, size }) => {
-    const q = D[e.idx] || {};
+    const q = (arrayOf(e.kind) || [])[e.idx] || {};
     const who = reciterName(e.rec), whoAr = reciterNameAr(e.rec);
     const id = 'dlrow-' + e.rec.file.replace(/[^a-z0-9]/gi, '');
     html +=
       '<div class="dl-row" id="' + id + '">' +
         '<div class="dl-meta">' +
-          '<div class="dl-title">' + attrEsc(q.titleEnglish || '') + '</div>' +
-          '<div class="dl-sub">' + attrEsc(who) +
-            (whoAr ? ' <span class="r-ar">' + attrEsc(whoAr) + '</span>' : '') +
-            ' · ' + fmtDur(e.rec.secs) + '</div>' +
+          '<div class="dl-title">' + attrEsc(e.rec.title || q.titleEnglish || '') + '</div>' +
+          '<div class="dl-sub">' +
+            (who ? attrEsc(who) + (whoAr ? ' <span class="r-ar">' + attrEsc(whoAr) + '</span>' : '') + ' · ' : '') +
+            fmtDur(e.rec.secs) + '</div>' +
         '</div>' +
         '<button class="session-btn quiet dl-act" ' +
-          'onclick="rowAction(\'' + e.rec.file + '\')">' +
+          'onclick="rowAction(' + attrEsc(JSON.stringify(e.rec.file)) + ')">' +
           (size ? 'Remove · ' + fmtMB(size) : 'Download') +
         '</button>' +
       '</div>';
@@ -4367,7 +4985,6 @@ async function removeAllAudio(){
   refreshDownloads();
   audioDockState();
 }
-
 /* ── the audio dock ──────────────────────────────────────────────────── */
 
 /* A real <audio> element rather than the YouTube frame, which buys three
@@ -4468,7 +5085,7 @@ async function openAudioDock(kind, idx, rec){
     '<div class="ytdock-in">' +
       '<div class="ytdock-meta">' +
         '<div class="ytdock-titles">' +
-          '<span class="ytdock-title">' + attrEsc(displayTitle(q)) + '</span>' +
+          '<span class="ytdock-title">' + attrEsc(rec.title || displayTitle(q)) + '</span>' +
           (who ? '<span class="ytdock-reciter">' + attrEsc(who) +
                  (whoAr ? ' <span class="r-ar">' + attrEsc(whoAr) + '</span>' : '') +
                  '</span>' : '') +
@@ -4484,20 +5101,24 @@ async function openAudioDock(kind, idx, rec){
   document.body.classList.add('has-player');
 
   const el = d.querySelector('audio');
+  /* Set once the length is known: a seek before metadata is silently lost. */
+  if(rec.start) el.addEventListener('loadedmetadata', () => {
+    if(el.currentTime < rec.start) el.currentTime = rec.start;
+  }, { once:true });
   el.src = await audioSrc(rec);
   el.playbackRate = ytPlayer.rate;
   el.play().catch(()=>{});
   audioDockState();
-  setMediaSession(q, who, el);
+  setMediaSession(rec.title || displayTitle(q), who, el);
   measurePlayer();
 }
 
 /* Lock-screen controls and the correct title while the screen is off. */
-function setMediaSession(q, who, el){
+function setMediaSession(title, who, el){
   if(!('mediaSession' in navigator)) return;
   try{
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: displayTitle(q),
+      title,
       artist: who || '',
       album: 'Dalāʾil al-Khayrāt',
     });
@@ -4600,7 +5221,6 @@ window.addEventListener('resize', () => { if(ytPlayer) measurePlayer(); });
 function playerHeight(){
   return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--player-h')) || 0;
 }
-
 /* ── The open-book spread ────────────────────────────────────────────
    Offered on a desktop window or a tablet held sideways — screens wide enough
    that halving them still leaves a page worth reading. It was briefly offered
@@ -4634,19 +5254,71 @@ if(SPREAD_MQ.addEventListener) SPREAD_MQ.addEventListener('change', () => {
    next section instead of dead-ending. Set by readerHTML. */
 let msPiece = null;
 
-function nextPiece(){
-  if(!msPiece) return null;
-  /* Skip chapters that carry no verses yet. Unfilled scaffolds (the litany
-     title slots and the not-yet-built daily portions) are hidden from every
-     index, so walking the reader into them from the last leaf would strand
-     it on a run of blank placeholders. */
-  const a = arrayOf(msPiece.kind);
+/* The chapter dir steps to, skipping any that carry no verses yet. Unfilled
+   scaffolds (the litany title slots, the not-yet-built daily portions) are
+   hidden from every index, so stepping into one would strand the reader on a
+   run of blank placeholders. Takes kind/idx rather than reading msPiece,
+   because readerHTML needs it while building a page — before msPiece has been
+   set for that piece. */
+/* The Dalāʾil is read in groups, and its own index already shows them that
+   way: [1]–[5] before the reading, closing on the Names of the Prophet ☵;
+   [6]–[14] the week and then the Duʿāʾ of Completion. Prev/Next stays inside
+   the group, so finishing the preliminaries no longer tips a reader straight
+   into Monday's portion, and the week still carries on to the Completion
+   duʿāʾ. [0] is the About page and is in neither: it can lead you in (its own
+   Next is unbounded) but the sequence never sends you back to it. */
+const DALAIL_GROUPS = [[1, 5], [6, 14]];
+function dalailGroup(idx){
+  return DALAIL_GROUPS.find(g => idx >= g[0] && idx <= g[1]) || null;
+}
+function neighbourPiece(kind, idx, dir){
+  const a = arrayOf(kind);
   if(!a) return null;
-  for(let n = msPiece.idx + 1; n < a.length; n++){
-    if(a[n] && a[n].verses && a[n].verses.length) return { kind: msPiece.kind, idx: n };
+  const g = (kind === 'd') ? dalailGroup(idx) : null;
+  const lo = g ? g[0] : 0, hi = g ? Math.min(g[1], a.length - 1) : a.length - 1;
+  for(let n = idx + dir; n >= lo && n <= hi; n += dir){
+    if(a[n] && !a[n].retired && a[n].verses && a[n].verses.length) return { kind, idx: n };
   }
   return null;
 }
+function nextPiece(){
+  return msPiece ? neighbourPiece(msPiece.kind, msPiece.idx, 1) : null;
+}
+
+/* Study Version only — the owner's call. In the Book Version it added a second
+   navigation idea to a page that already has leaf arrows and dots, and took up
+   room the leaf needs; the next arrow there already carries forward from the
+   last leaf, which stays. */
+function chapterNav(kind, idx){
+  const pv = neighbourPiece(kind, idx, -1), nx = neighbourPiece(kind, idx, 1);
+  if(!pv && !nx) return '';
+  const btn = (o, dir, label) => {
+    const piece = arrayOf(o.kind)[o.idx];
+    return `<button class="chap-${dir}" onclick="${openFnOf(o.kind)}(${o.idx})"
+      aria-label="${label} chapter: ${attrEsc(displayTitle(piece))}">
+      <span class="chap-dir">${label}</span>
+      <span class="chap-name">${displayTitle(piece)}</span></button>`;
+  };
+  return `<nav class="chap-nav">
+    ${pv ? btn(pv, 'prev', 'Previous') : '<span class="chap-gap"></span>'}
+    ${nx ? btn(nx, 'next', 'Next') : '<span class="chap-gap"></span>'}
+  </nav>`;
+}
+
+/* The one place the Book Version carries that pair too — the Dalāʾil's
+   before-reading group, on the owner's call, so a reader who finishes the
+   Opening Duʿāʾ can go straight to the next reading instead of returning to
+   the index. Every leaf of those chapters shows it. Nowhere else: the v401
+   reasoning still holds for the daily portions, where the leaf arrows and dots
+   are the whole navigation. */
+function msChapNav(kind, idx){
+  if(kind !== 'd') return '';
+  const g = dalailGroup(idx);
+  if(!g || g[0] !== DALAIL_GROUPS[0][0]) return '';
+  const nav = chapterNav(kind, idx);
+  return nav ? `<div class="ms-chap" id="ms-chap">${nav}</div>` : '';
+}
+
 
 /* +1 turns to the next leaf, which sits to the left. Turning past the last
    leaf opens the next section — the reader carries on through the book rather
@@ -4692,30 +5364,56 @@ function msGoTo(i){
   requestAnimationFrame(goTop);
 }
 
-/* Marks are kept per phrase, on the device. */
-function loadMarks(){
-  try { return JSON.parse(localStorage.getItem('mawlid-marks')) || {}; }
+/* Marks are kept per phrase, on the device. The Dalāʾil's own ("d:" keys)
+   are kept per version: the Mughlay Version divides phrases where its own
+   printing does, so a highlight made in one version would light a
+   different phrase in the other. Istanbul's stay in the original store, so
+   highlights made before there were two versions are still found; the
+   Mughlay Version's sit beside it under '-mughlay'. Every other collection
+   shares one store whichever version is chosen. Function declarations, not
+   consts, because marks can be read before this point in the script. */
+function readMarkStore(key){
+  try { return JSON.parse(localStorage.getItem(key)) || {}; }
   catch(e){ return {}; }
+}
+function mughlayNow(){ try { return dalailEdition === 'sayyidina'; } catch(e){ return false; } }
+function markStoreFor(kind){ return (kind === 'd' && mughlayNow()) ? 'mawlid-marks-mughlay' : 'mawlid-marks'; }
+function loadMarks(){
+  const m = readMarkStore('mawlid-marks');
+  if(!mughlayNow()) return m;
+  Object.keys(m).forEach(k => { if(k.slice(0, 2) === 'd:') delete m[k]; });
+  return Object.assign(m, readMarkStore('mawlid-marks-mughlay'));
 }
 
 function markKey(kind, idx, n, seg){ return kind + ':' + idx + ':' + n + (seg != null && seg !== '' ? ':' + seg : ''); }
 
 function markVerse(kind, idx, n, seg){
-  const m = loadMarks(), k = markKey(kind, idx, n, seg);
+  const k = markKey(kind, idx, n, seg), store = markStoreFor(kind);
+  const m = readMarkStore(store);
   const on = !m[k];
   if(m[k]) delete m[k]; else m[k] = 1;
-  try { localStorage.setItem('mawlid-marks', JSON.stringify(m)); } catch(e){}
+  try { localStorage.setItem(store, JSON.stringify(m)); } catch(e){}
   const el = document.querySelector('[data-mk="' + k + '"]');
   if(el) el.classList.toggle('marked', on);
   /* In the Dalāʾil, the phrase you last highlight is the one "Save my place"
      will bookmark. */
   if(kind === 'd'){
     const vi = parseInt(n, 10), sv = (seg != null ? seg : null);
-    if(on) msPlaceCandidate = { idx, n: vi, seg: sv };
+    if(on) msPlaceCandidate = { idx, n: vi, seg: sv, mk: k };
     else if(msPlaceCandidate && msPlaceCandidate.idx === idx && msPlaceCandidate.n === vi && msPlaceCandidate.seg === sv) msPlaceCandidate = null;
+    /* Un-highlighting the bookmarked group clears the place, so the mark can
+       be lifted from the leaf itself rather than only from the index. */
+    if(!on){
+      const pl = loadPlace();
+      if(pl && pl.mk === k){
+        try { localStorage.removeItem(placeKey()); } catch(e){}
+        const was = document.querySelector('.placed');
+        if(was) was.classList.remove('placed');
+      }
+    }
+    refreshPlaceBtn();
   }
 }
-
 /* ── The English of a rubric, on tap, in the Book Version ──────────────
    The leaf sets only Arabic, so the translation of an instruction verse has
    nowhere to live on the page. It appears in a bubble fixed to the viewport
@@ -4731,7 +5429,9 @@ function markVerse(kind, idx, n, seg){
 const INLINE_INSTRUCTIONS = [
   { find: /\((?:[0-9]+|[\u0660-\u0669]+)\)/g },   /* repeat counts — (3), (14) */
   { find: '(٤ مرات)' },                            /* …and the same spelled out */
+  { find: /(?<=^|[\s>])ع(?=[\s<]|$)/g },         /* the Mughlay printing's marginal section sign (Saturday v20), a lone ع — not recited */
   { find: '(محل الْقيام)' },                        /* the standing */
+  { find: '(اللّٰهْ اللّٰهْ)' },  /* Qamarun — the gathering's sung response, as the booklet prints it */
   { find: '(اَنِّي رَسُولُكَ فِي دُعَائِهِ ﷺ)' },  /* al-Ḥizb al-Aʿẓam, Thursday — printed in coloured ink, not black */
   { find: 'وَفِي الصَّحِيحِ كَانَ اَكْثَرُ دُعَاءِ النَّبِيِّ صَلَّى اللّٰهُ تَعَالَى عَلَيْهِ وَسَلَّمَ' },  /* al-Ḥizb al-Aʿẓam, Tuesday — printed in coloured ink, not black */
   { find: 'وَفِي نُسْخَةٍ اُخْرٰى' },                 /* Ḥizb al-Istighfār, Thursday — the editorial "and in another copy", printed in coloured ink */
@@ -4807,7 +5507,56 @@ window.addEventListener('keydown', e => { if(e.key === 'Escape') hideInstrBubble
 
 /* Full screen is done with layout rather than the Fullscreen API, which iOS
    won't grant to anything but video. Everything but the leaf steps aside. */
+/* Built on open so the labels reflect the moment — which reading is showing,
+   whether this leaf already holds the bookmark, which way the theme goes. */
+function msMenuHTML(){
+  const p = msPiece || {};
+  const isD = p.kind === 'd';
+  const dark = document.documentElement.classList.contains('dark');
+  const saved = isD && placeIsHere(p.idx) && placeStillMarked();
+  let h = '';
+  h += '<button onclick="msMenuAct(\'theme\')">' + themeGlyph() +
+       '<span>' + (dark ? 'Day' : 'Night') + '</span></button>';
+  if(isD) h += '<button onclick="msMenuAct(\'place\')">⚑<span>' +
+       (saved ? 'Place saved' : 'Save my place') + '</span>' +
+       (saved ? '<span class="tick">✓</span>' : '') + '</button>';
+  h += '<button onclick="msMenuAct(\'study\')">⇄<span>Study Version</span></button>';
+  h += '<hr>';
+  h += '<button onclick="msMenuAct(\'exit\')">✕<span>Leave full screen</span></button>';
+  return h;
+}
+
+function toggleMsMenu(e){
+  if(e) e.stopPropagation();
+  const m = document.getElementById('ms-menu');
+  if(!m) return;
+  const open = !m.classList.contains('open');
+  if(open) m.innerHTML = msMenuHTML();
+  m.classList.toggle('open', open);
+}
+
+function closeMsMenu(){
+  const m = document.getElementById('ms-menu');
+  if(m) m.classList.remove('open');
+}
+
+function msMenuAct(what){
+  closeMsMenu();
+  const p = msPiece || {};
+  if(what === 'theme') toggleTheme();
+  else if(what === 'place'){ saveDalailPlace(p.idx); }
+  else if(what === 'study'){ setImmersive(false); setPageView(false, p.kind, p.idx); }
+  else if(what === 'exit') setImmersive(false);
+}
+
+/* A tap anywhere else closes it, including on the leaf itself. */
+document.addEventListener('click', e => {
+  const m = document.getElementById('ms-menu');
+  if(m && m.classList.contains('open') && !e.target.closest('.ms-menu-wrap')) closeMsMenu();
+}, true);
+
 function setImmersive(on){
+  closeMsMenu();
   state.immersive = !!on;
   document.documentElement.classList.toggle('immersive', state.immersive);
   /* The leaf frame changes size going in and out of full screen, so the text
@@ -4822,20 +5571,73 @@ window.addEventListener('keydown', e => { if(e.key === 'Escape' && state.immersi
    same text opened out line by line with transliteration and meaning. */
 function setPageView(on, kind, idx){
   if(state.pageView === on) return;
-  /* Keep your place across the switch: note the verse at the top of the current
-     view, then land on the same verse index in the other one. */
-  const keepVerse = state.pageView ? topVisibleMsVerse() : topVisibleVerse();
+  /* Refuse to move unless the reopen can actually happen. Which view is on
+     screen lives in the DOM, so flipping state without re-rendering leaves
+     the page showing one view while state claims the other — and the guard
+     above then turns every later tap into a no-op, stranding the reader in
+     the view they asked to leave. The full-screen menu did exactly that:
+     it passed the piece's index where `kind` belongs, so reopen found no
+     opener and returned, and in the fork the wrong view was persisted on
+     the way out. Bail before touching state, not after. */
+  if(typeof window[OPENERS[kind]] !== 'function') return;
+  /* Keep your place across the switch. From the Book Version that is the
+     phrase the reader highlighted or bookmarked on this leaf, if any, else
+     the leaf's top verse; from Study, the verse at the top of the screen. */
+  const keep = state.pageView ? bookSpotForSwitch() : { n: topVisibleVerse() };
   state.pageView = on;
   if(!on) setImmersive(false);
   reopen(kind, idx);
   if(window.requestAnimationFrame) requestAnimationFrame(msFloatPosition);
-  afterViewScroll(kind, idx, keepVerse);
+  afterViewScroll(kind, idx, keep.n, keep.seg);
 }
 
-function toggleEn(kind,i){ state.showEn = !state.showEn; reopen(kind,i); }
-function scaleAr(dir,kind,i){
-  state.arScale = Math.min(1.6, Math.max(0.7, state.arScale + dir*0.1));
-  reopen(kind,i);
+function toggleEn(kind,i){ state.showEn = !state.showEn; saveCols(); reopen(kind,i); }
+/* Text size. A slider each for the Arabic and the Latin, on the owner's ask;
+   it replaced four −/+ chips that took most of the controls row and needed
+   several taps to cross the range.
+
+   Dragging sets the two CSS variables and deliberately does NOT reopen the
+   reader, which is what the old chips did. The size lives entirely in
+   --ar-size and --latin-scale, so a re-render buys nothing and costs the
+   scroll position — on an `input` event, once per pixel of travel, that read
+   as the page fighting the finger.
+
+   The end glyphs are the whole label: small on the left, large on the right,
+   which reads the same way round whichever script it governs. The Arabic one
+   is ض and not أ — the owner could not tell the hamza apart from a bare
+   alif at this size, and ض is both unmistakable and the letter the language
+   names itself by.
+
+   Percent rather than the underlying multiplier so a screen reader announces
+   something meaningful, and so the step is a whole number. */
+function sizeSlider(which, scale){
+  const ar = which === 'ar';
+  const glyph = ar ? 'ض' : 'a';
+  const label = ar ? 'Arabic text size' : 'Latin text size';
+  const cls   = ar ? 'sz-ar' : 'sz-la';
+  const [lo, hi] = SIZE_LIMITS[which];
+  const min = Math.round(lo * 100), max = Math.round(hi * 100);
+  return `<label class="size-slider" title="${label}">
+      <span class="sz-gl ${cls} sz-sm" aria-hidden="true">${glyph}</span>
+      <input type="range" min="${min}" max="${max}" step="5"
+        value="${Math.round(scale * 100)}" aria-label="${label}"
+        oninput="setTextScale('${which}', this.value)">
+      <span class="sz-gl ${cls} sz-lg" aria-hidden="true">${glyph}</span>
+    </label>`;
+}
+
+/* The one place the two size variables are written. Every opener called this
+   pair of lines verbatim, which is how they are guaranteed to stay in step. */
+function applyTextScale(){
+  document.documentElement.style.setProperty('--ar-size', (1.9 * state.arScale) + 'rem');
+  document.documentElement.style.setProperty('--latin-scale', state.latinScale);
+}
+
+function setTextScale(which, pct){
+  const v = clampSize(which, (+pct || 100) / 100);
+  if(which === 'ar') state.arScale = v; else state.latinScale = v;
+  applyTextScale();
+  saveTextScale();
 }
 /* Book Version zoom: scales the whole leaf — text, borders and page together —
    so line breaks and page fills never change, only the size on screen. */
@@ -4846,10 +5648,99 @@ function msZoomStep(dir){
      without spilling past its border. */
   queueMsAutoFit();
 }
-function scaleLatin(dir,kind,i){
-  state.latinScale = Math.min(1.8, Math.max(0.8, state.latinScale + dir*0.1));
-  reopen(kind,i);
+/* ── Back, and coming back ───────────────────────────────────────
+   The manifest is display:standalone, so on Android there is no browser
+   chrome and Back is the system gesture. The app pushed no history of its
+   own, so Back had nothing to pop and closed the app outright however deep
+   you were reading. Every screen here is fully described by state.tab, the
+   Burdah sub-chapter and whichever piece is open, so each navigation pushes
+   that descriptor and Back pops it.
+
+   Whether a reader is open is read off the PAGE, not from msPiece: msPiece is
+   set when a reader opens and is never cleared, so it still names a chapter
+   long after you have gone back to an index. renderedView() documents the
+   same trap — ask the page. */
+const LAST_KEY = 'mawlid-last';
+const RESTORE_MS = 30 * 60 * 1000;   /* half an hour — long enough to take a
+                                        call mid-gathering, short enough that
+                                        the next morning opens fresh at home */
+const HOME_LOC = { tab: 'home', burdah: null, piece: null };
+let navFromHistory = false;
+
+function currentLoc(){
+  const reading = !!document.querySelector('main.verses');
+  return { tab: state.tab,
+           burdah: state.burdahChapter,
+           piece: (reading && msPiece) ? { kind: msPiece.kind, idx: msPiece.idx } : null };
 }
+function sameLoc(a, b){
+  if(!a || !b) return false;
+  const pa = a.piece, pb = b.piece;
+  if(a.tab !== b.tab || a.burdah !== b.burdah) return false;
+  if(!pa && !pb) return true;
+  return !!pa && !!pb && pa.kind === pb.kind && pa.idx === pb.idx;
+}
+/* A descriptor can outlive the corpus it names — a saved place from an older
+   release, a chapter since renumbered. Never hand a missing index to an
+   opener; readerHTML would throw on it and the app would come up blank. */
+function locValid(loc){
+  if(!loc || typeof loc.tab !== 'string') return false;
+  if(!loc.piece) return true;
+  const a = arrayOf(loc.piece.kind);
+  return !!(a && a[loc.piece.idx]);
+}
+function pushLoc(){
+  if(navFromHistory) return;
+  const loc = currentLoc();
+  const cur = history.state && history.state.loc;
+  try {
+    if(sameLoc(cur, loc)) history.replaceState({ loc }, '');
+    else history.pushState({ loc }, '');
+  } catch(e){}
+}
+function applyLoc(loc){
+  if(!locValid(loc)) return;
+  navFromHistory = true;
+  const prev = suppressNavSignals;
+  suppressNavSignals = true;     /* walking back is not a nav to broadcast to a
+                                    session, and must not pause a follower */
+  try {
+    setImmersive(false);
+    closeMsMenu();
+    state.tab = loc.tab;
+    state.query = '';
+    state.burdahChapter = loc.burdah;
+    const fn = loc.piece && window[openFnOf(loc.piece.kind)];
+    if(typeof fn === 'function') fn(loc.piece.idx);
+    else renderIndex();
+  } finally { suppressNavSignals = prev; navFromHistory = false; }
+}
+window.addEventListener('popstate', e => {
+  /* Back closes what is on top first. Each of those consumed the pop, so put
+     an entry back or the next Back would skip a whole screen. */
+  if(state.immersive){ setImmersive(false); pushLoc(); return; }
+  const menu = document.getElementById('ms-menu');
+  if(menu && menu.classList.contains('open')){ closeMsMenu(); pushLoc(); return; }
+  if(e.state && e.state.loc){ applyLoc(e.state.loc); return; }
+  /* Popped past our own baseline: that is the reader asking to leave, so do
+     nothing and let the platform close the app. */
+});
+
+/* Where you were, for a little while. Distinct from the Dalāʾil's "Continue
+   where you left off", which is an explicit bookmark and permanent; this is
+   automatic and expires. */
+function saveLast(){
+  try {
+    const loc = currentLoc();
+    if(loc.tab === 'session') return;    /* a live session is not a place to
+                                            silently rejoin on next open */
+    localStorage.setItem(LAST_KEY, JSON.stringify({ loc, at: Date.now() }));
+  } catch(e){}
+}
+document.addEventListener('visibilitychange', () => {
+  if(document.visibilityState === 'hidden') saveLast();
+});
+window.addEventListener('pagehide', saveLast);
 
 /* Startup: the texts first, then everything that shows them. */
 loadContent().then(({ errors, nothingLoaded }) => {
@@ -4860,8 +5751,11 @@ loadContent().then(({ errors, nothingLoaded }) => {
 });
 
 function start(){
+  /* Everything derived from the texts waits until here: at load they are still empty. */
+  initDalailEditions();
   renderIndex();
   joinFromLink();
+  restoreRecent();
 }
 
 /* Some texts couldn't be loaded: say which, at the foot of the screen. It
@@ -4897,6 +5791,26 @@ function joinFromLink(){
   state.tab = 'session';
   renderIndex();
   connectSession(code, 'follower');
+}
+
+/* The baseline entry is always home, so Back out of a restored chapter lands
+   on home rather than closing the app on the first press. */
+/* Run from start(), not at load: it checks the saved place against the texts
+   (locValid), and here those are fetched, so at load they are still empty and every
+   saved place would look invalid and be dropped without a sound. */
+function restoreRecent(){
+  try { history.replaceState({ loc: HOME_LOC }, ''); } catch(e){}
+  /* A session link decides where to land; never override it. By now
+     joinFromLink has already switched the tab and may have cleared the hash,
+     so test both. */
+  if(state.tab === 'session' || pendingSessionCode()) return;
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(LAST_KEY)); } catch(e){}
+  if(!saved || typeof saved.at !== 'number') return;
+  if(Date.now() - saved.at >= RESTORE_MS) return;
+  if(!locValid(saved.loc) || sameLoc(saved.loc, HOME_LOC)) return;
+  applyLoc(saved.loc);
+  try { history.pushState({ loc: currentLoc() }, ''); } catch(e){}
 }
 
 /* Pause auto-scroll the moment the user scrolls by hand (wheel or drag).

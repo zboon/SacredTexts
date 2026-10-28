@@ -84,10 +84,17 @@ async function precacheContent(cache){
   } catch (e) { /* no listing to read: the page fills the cache as it loads */ }
 }
 
+/* The other apps (Mawalid, the Dalāʾil app) are served from this same origin, so they
+   share one cache storage: caches.keys() lists theirs too. Sweeping "everything not
+   ours" deleted their offline copies every time this app updated, and they then would
+   not open with no signal. Only ever delete caches that carry one of our own prefixes
+   (the old nhacademy-v is the name this app had before it was renamed). Same rule as
+   the Mawalid app's worker. */
+const OWN = ['sacredtexts-v', 'nhacademy-v'];
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => KEEP.indexOf(k) === -1).map(k => caches.delete(k)))
+      Promise.all(keys.filter(k => OWN.some(p => k.indexOf(p) === 0) && KEEP.indexOf(k) === -1).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });

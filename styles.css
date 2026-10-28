@@ -28,6 +28,34 @@
     font-style:normal; font-weight:700; font-display:swap;
     src:url(fonts/Amiri-Bold.woff) format('woff');
   }
+  /* ── DigitalKhatt IndoPak (SIL Open Font License 1.1) ─────────────────
+     © 2024-2025 Amine Anane, © 2024-2025 Tarteel Inc.
+     https://github.com/DigitalKhatt/indopakfont — licence text in OFL.txt.
+     The optional IndoPak script, chosen from the reader's IndoPak chip.
+     Bundled like the faces above, so a reader who picks it still has it with
+     no connection. It is the built "coretext" TrueType from the DigitalKhatt
+     project, re-wrapped as WOFF2 with no glyph changes (101 KB). It maps
+     only 96 codepoints: the Arabic comma, question mark, ﷺ, the small wāw
+     and the ornate brackets are not among them and fall through to the
+     faces after it in the stack, which is why no unicode-range is needed. */
+  @font-face{
+    font-family:'DKIndoPak';
+    font-style:normal; font-weight:400; font-display:swap;
+    src:url(fonts/DKIndoPak.woff2) format('woff2');
+  }
+  /* ── Scheherazade New (SIL Open Font License 1.1) ───────────────────
+     © 1994-2026 SIL Global, with Reserved Font Names "Scheherazade" and
+     "SIL" — licence text in OFL.txt. The "Naskh" choice of the script
+     switch: a traditional book Naskh designed for full vowelling. This is
+     SIL's own web font from the 4.500 release
+     (web/ScheherazadeNew-Regular.woff2), embedded byte for byte: the
+     reserved names mean a modified copy could not keep its name, so it is
+     not subset or re-encoded. It covers every codepoint the corpus uses. */
+  @font-face{
+    font-family:'SchNew';
+    font-style:normal; font-weight:400; font-display:swap;
+    src:url(fonts/SchNew.woff2) format('woff2');
+  }
 
   :root{
     --green:#123528;
@@ -52,7 +80,8 @@
     --paper-edge:#EFE6D2;
     --gold:#B8934A;
     --gold-soft:#D8C193;
-    --ms-paper:#FBF4DE;   /* the leaf itself */
+    --ms-paper:#FBF4DE;   /* the leaf itself — and the Study card, so both read as one book's paper */
+    --ms-paper-deep:#F3E7C8;  /* the same paper, a shade down, for a refrain's gradient */
     --ms-ink:#2A2118;
     --ms-rule:#6B4E2A;
     --ms-gold:#B8934A;
@@ -91,6 +120,7 @@
     --paper-edge:#2E3324;
     --gold:#C9A55E;
     --ms-paper:#191510;   /* the same leaf, inverted for a dark room */
+    --ms-paper-deep:#211B13;
     --ms-ink:#EADEC2;
     --ms-rule:#A98A55;
     --ms-gold:#C9A55E;
@@ -136,7 +166,6 @@
     min-height:100dvh;
   }
   button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
-
   /* ---------- header ---------- */
   .masthead{
     background:var(--theme);
@@ -171,7 +200,11 @@
   }
   .masthead.compact .mh-left{ display:flex; gap:.35rem; justify-self:start; }
   .masthead.compact .mh-right{ display:flex; gap:.35rem; justify-self:end; }
-  .masthead.compact .bismillah-mark{ justify-self:center; height:auto; width:auto; max-height:2.4rem; max-width:min(46vw,12.5rem); margin:0; opacity:.98; }
+  /* The calligraphy gives way to the buttons: width is its preferred size,
+     max-width:100% plus min-width:0 let the grid shrink it on a narrow phone
+     instead of pushing the theme toggle off the right edge (it overran 29px at
+     320px while it was pinned to min(46vw,12.5rem)). */
+  .masthead.compact .bismillah-mark{ justify-self:center; height:auto; width:min(46vw,12.5rem); max-width:100%; min-width:0; max-height:2.4rem; margin:0; opacity:.98; }
   .masthead.compact .header-mark,
   .masthead.compact .back-mark,
   .masthead.compact .fav-mark,
@@ -299,7 +332,6 @@
   .tab-en{font-size:.78rem;font-weight:700;line-height:1.15;text-align:center;white-space:nowrap}
   .tab-ar{font-family:'UthmanicHafs','Amiri',serif;font-size:1rem;line-height:1;opacity:.85}
   .tab.active .tab-ar{opacity:1}
-
   /* ---------- placeholder for empty sections ---------- */
   .placeholder{
     text-align:center;color:var(--ink-soft);padding:2.4rem 1.4rem;line-height:1.6;
@@ -635,6 +667,13 @@
   html.dark .ms-r, html.dark .rosette{
     background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2C2.5C14.7%2C6.3%2014.7%2C9.3%2012%2C12C9.3%2C9.3%209.3%2C6.3%2012%2C2.5Z%22%20transform%3D%22rotate(0%2012%2012)%22%20fill%3D%22%236B2E26%22%20stroke%3D%22%23B8934A%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M12%2C2.5C14.7%2C6.3%2014.7%2C9.3%2012%2C12C9.3%2C9.3%209.3%2C6.3%2012%2C2.5Z%22%20transform%3D%22rotate(45%2012%2012)%22%20fill%3D%22%236B2E26%22%20stroke%3D%22%23B8934A%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M12%2C2.5C14.7%2C6.3%2014.7%2C9.3%2012%2C12C9.3%2C9.3%209.3%2C6.3%2012%2C2.5Z%22%20transform%3D%22rotate(90%2012%2012)%22%20fill%3D%22%236B2E26%22%20stroke%3D%22%23B8934A%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M12%2C2.5C14.7%2C6.3%2014.7%2C9.3%2012%2C12C9.3%2C9.3%209.3%2C6.3%2012%2C2.5Z%22%20transform%3D%22rotate(135%2012%2012)%22%20fill%3D%22%236B2E26%22%20stroke%3D%22%23B8934A%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M12%2C2.5C14.7%2C6.3%2014.7%2C9.3%2012%2C12C9.3%2C9.3%209.3%2C6.3%2012%2C2.5Z%22%20transform%3D%22rotate(180%2012%2012)%22%20fill%3D%22%236B2E26%22%20stroke%3D%22%23B8934A%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M12%2C2.5C14.7%2C6.3%2014.7%2C9.3%2012%2C12C9.3%2C9.3%209.3%2C6.3%2012%2C2.5Z%22%20transform%3D%22rotate(225%2012%2012)%22%20fill%3D%22%236B2E26%22%20stroke%3D%22%23B8934A%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M12%2C2.5C14.7%2C6.3%2014.7%2C9.3%2012%2C12C9.3%2C9.3%209.3%2C6.3%2012%2C2.5Z%22%20transform%3D%22rotate(270%2012%2012)%22%20fill%3D%22%236B2E26%22%20stroke%3D%22%23B8934A%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M12%2C2.5C14.7%2C6.3%2014.7%2C9.3%2012%2C12C9.3%2C9.3%209.3%2C6.3%2012%2C2.5Z%22%20transform%3D%22rotate(315%2012%2012)%22%20fill%3D%22%236B2E26%22%20stroke%3D%22%23B8934A%22%20stroke-width%3D%22.8%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%223%22%20fill%3D%22%23B8934A%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%221.2%22%20fill%3D%22%23191510%22%2F%3E%3C%2Fsvg%3E");
   }
+  /* `ms-r-in` marks a rosette INSIDE a verse, as against the one that CLOSES
+     it on a Book leaf. It carries no styling: v405 faded the internal ones so
+     the full-strength rosettes would mark where a verse begins and ends, and
+     the owner had that taken out of both views — every rosette the book
+     prints is printed alike, and the app now follows it. The class stays
+     because the distinction is real and the hook costs nothing; do not put a
+     fade back on it without the owner asking. */
   /* The صلى الله عليه وسلم mark is a letterform, not an ornament — it keeps its glyph. */
   .ms-r.salawat, html.dark .ms-r.salawat{
     color:var(--ms-ink) !important; background-image:none;
@@ -699,16 +738,59 @@
   .chip.off{opacity:.85;border-color:var(--ink-soft);color:var(--ink-soft)}
   .chip.size{border-color:var(--paper-edge);background:var(--card)}
 
+  /* Text size: one slider per script, replacing four −/+ chips. The glyph at
+     each end says which script and which way is bigger. ض rather than the
+     أ these used to carry — at chip size its hamza is too small to see, so
+     the Arabic control read as a bare stroke and looked like the Latin one. */
+  /* The sliders take a line of their own rather than wrapping one at a time
+     into whatever gap the toggles leave: side by side they read as a pair and
+     the row stops reflowing as chapter titles change its earlier chips. */
+  .size-row{flex-basis:100%;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+  .size-slider{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.2rem .7rem;border-radius:999px;
+    border:1.5px solid var(--paper-edge);background:var(--card);
+  }
+  .size-slider .sz-gl{color:var(--ink-soft);line-height:1;user-select:none;-webkit-user-select:none}
+  .size-slider .sz-ar{font-family:'UthmanicHafs','Amiri',serif}
+  .size-slider .sz-la{font-family:'Crimson Pro',serif}
+  .size-slider .sz-sm{font-size:.78rem}
+  .size-slider .sz-lg{font-size:1.18rem}
+  .size-slider input[type=range]{
+    -webkit-appearance:none;appearance:none;
+    width:5rem;height:1.5rem;margin:0;background:transparent;
+  }
+  .size-slider input[type=range]:focus-visible{
+    outline:2px solid var(--gold);outline-offset:2px;border-radius:999px;
+  }
+  /* Track and thumb are spelled out once per engine on purpose: a selector
+     list mixing -webkit- and -moz- pseudo-elements is dropped whole by both. */
+  .size-slider input[type=range]::-webkit-slider-runnable-track{
+    height:3px;border-radius:999px;background:var(--paper-edge);
+  }
+  .size-slider input[type=range]::-moz-range-track{
+    height:3px;border-radius:999px;background:var(--paper-edge);
+  }
+  .size-slider input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;appearance:none;
+    width:1.05rem;height:1.05rem;border-radius:50%;
+    background:var(--gold);border:none;margin-top:-.43rem;
+  }
+  .size-slider input[type=range]::-moz-range-thumb{
+    width:1.05rem;height:1.05rem;border-radius:50%;
+    background:var(--gold);border:none;
+  }
+
   .verses{max-width:640px;margin:0 auto;padding:1.2rem 1.1rem calc(env(safe-area-inset-bottom,0px) + 7rem)}
   /* Book Version: trim the trailing space so the reader can't scroll far past a
      leaf's end — the nav sits just below, and the bottom gap is limited so at
      most about a sixth of a screen shows under the current page. */
   .verses.ms-view{ padding-bottom:calc(env(safe-area-inset-bottom,0px) + 16dvh); }
   .verses.ms-view .ms-nav{ margin-top:.6rem; }
-  /* The repeat marker (ported from the Mawlid app, keep the two in step): a
-     rule with the words on it, so it reads as a return rather than another
-     verse. Collapsed by default; the body stays in the DOM and is hidden here,
-     which is what lets a tap flip a class instead of re-rendering. */
+  /* The repeat marker: a rule with the words on it, so it reads as a return
+     rather than as another verse. Collapsed by default — the body stays in
+     the DOM and is hidden here, which is what lets a tap flip a class instead
+     of re-rendering and losing the reader's place. */
   .refrain-repeat{margin:-.4rem 0 1rem;text-align:center}
   .refrain-repeat-btn{
     background:transparent;border:0;cursor:pointer;font-family:inherit;
@@ -723,11 +805,11 @@
   .refrain-repeat.open .refrain-repeat-body{
     display:block;
     border:1px solid var(--gold-soft);border-radius:16px;
-    background:linear-gradient(var(--card),var(--card-alt));
+    background:linear-gradient(var(--verse-bg, var(--card)),var(--verse-bg2, var(--card-alt)));
     padding:1rem 1.1rem;margin-top:.1rem;
   }
-  /* The whole-piece count, worded and ruled off so it can't be mistaken for
-     the per-line (2)s inside the text. */
+  /* The whole-refrain count, worded and ruled off so it cannot be mistaken
+     for the per-line (2)s inside the text. */
   .refrain-times{
     text-align:center;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
     color:var(--gold);font-weight:700;margin:.9rem 0 0;padding-top:.65rem;
@@ -766,7 +848,6 @@
     padding:0 1.1rem .95rem;
     border-top:1px solid rgba(216,193,147,.28); margin-top:0; padding-top:.8rem;
   }
-
   /* ── Dalāʾil index (Option E): today card + labelled bilingual bubbles ── */
   .dk-today{
     display:flex; flex-direction:column; align-items:center; gap:.2rem; width:100%; text-align:center;
@@ -822,7 +903,57 @@
   }
   .qtune:active{background:var(--paper-edge)}
   button.qtune{ width:100%; font-family:inherit; cursor:pointer; }
+  /* The Book Version's reciter is offered from the opening leaf only: it lives
+     above #ms-book rather than inside a sheet, so turning the page does not
+     carry it away and msSyncDots has to hide it. */
+  .ms-tune.off{ display:none }
+  .reader-actions{ display:flex; justify-content:center; flex-wrap:wrap; gap:.5rem; margin:0 0 1.1rem; }
+  .ra-btn{
+    display:inline-flex; align-items:center; gap:.35rem; cursor:pointer; font-family:inherit;
+    background:var(--card); border:1.5px solid var(--gold); color:var(--chip-ink);
+    border-radius:999px; padding:.38rem .95rem; font-weight:700; font-size:.82rem;
+  }
+  .ra-btn:active{ background:var(--paper-edge); }
+  .ra-btn.on{ background:var(--gold); color:#fff; }
+  .qnote.about-body{ margin-top:-.4rem; }
+  .aa-btn{ font-family:'Crimson Pro',serif; font-size:.95rem; letter-spacing:0; padding:.28rem .95rem; }
+  .aa-btn.on{ background:var(--gold); color:#fff; }
+  .aa-panel{ display:none; }
+  .aa-panel.open{
+    display:flex; flex-basis:100%; flex-direction:column; align-items:center; gap:.55rem;
+    padding:.75rem .6rem; border:1px solid var(--rule-soft); border-radius:14px; background:var(--card-alt);
+  }
+  .aa-row{ display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; }
 
+  /* Previous / Next chapter, at the foot of a reader in both views, so a
+     mawlid can be read straight through without going back to the index.
+     Laid out left-to-right — these are worded buttons, not the leaf arrows,
+     which point the way an Arabic book turns. */
+  .chap-nav{
+    display:flex; gap:.6rem; align-items:stretch;
+    max-width:var(--read-w,46rem); margin:1.6rem auto .4rem; padding:0 .2rem;
+  }
+  .chap-nav button{
+    flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:.15rem;
+    background:var(--card); border:1.5px solid var(--gold); color:var(--green);
+    border-radius:14px; padding:.55rem .8rem; font-family:inherit; cursor:pointer;
+    text-align:left;
+  }
+  .chap-nav button.chap-next{ text-align:right; }
+  .chap-nav button:active{ background:var(--paper-edge) }
+  .chap-nav .chap-dir{ font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; opacity:.7 }
+  .chap-nav .chap-name{
+    font-weight:700; font-size:.92rem; line-height:1.25;
+    overflow:hidden; text-overflow:ellipsis; display:-webkit-box;
+    -webkit-line-clamp:2; -webkit-box-orient:vertical;
+  }
+  .chap-nav .chap-gap{ flex:1 1 0 }
+  /* The same worded pair, carried into the Book Version for the Dalāʾil's
+     before-reading group. On every leaf, not just the last: it was gated to
+     the final page at first and the owner had that taken out — a reader wants
+     to see where the reading goes next without paging to the end of the one
+     they are in. No rules of its own; the wrapper is the hook the immersive
+     list and the tests use. */
   /* ── The docked reciter ──────────────────────────────────────────
      Fixed to the foot of the window and attached to <body>, outside #app —
      the same trick the session banner uses — so re-rendering the reader never
@@ -902,12 +1033,19 @@
     cursor:pointer; white-space:nowrap; text-decoration:none; font-family:inherit;
   }
   .ytdock-btn:active{ background:rgba(255,255,255,.14); }
+  /* In the Dalāʾil and the aḥzāb — the collections with a Book Version — the
+     Study card is printed on the Book Version's paper, with a gold hairline,
+     so switching views keeps the page colour (owner's call). Every other
+     collection keeps the white card. Done with variables set on
+     main.verses.paper, so the refrain, instruction, bookmarked and repeat
+     styles below need no paper-specific copies. */
+  .verses.paper{ --verse-bg:var(--ms-paper); --verse-bg2:var(--ms-paper-deep); --verse-edge:var(--rule-soft); }
   .verse{
-    background:var(--card);border:1px solid var(--paper-edge);border-radius:16px;
+    background:var(--verse-bg, var(--card));border:1px solid var(--verse-edge, var(--paper-edge));border-radius:16px;
     padding:1.3rem 1.2rem 1.15rem;margin-bottom:1rem;position:relative;
     box-shadow:0 1px 2px rgba(18,53,40,.05);
   }
-  .verse.refrain{border-color:var(--gold-soft);background:linear-gradient(var(--card),var(--card-alt))}
+  .verse.refrain{border-color:var(--gold-soft);background:linear-gradient(var(--verse-bg, var(--card)),var(--verse-bg2, var(--card-alt)))}
   .v-num{
     position:absolute;top:-0.85rem;left:50%;transform:translateX(-50%);
     background:var(--bg);border:1.5px solid var(--gold);color:var(--gold);
@@ -929,7 +1067,46 @@
     font-size:1.05rem; line-height:1; align-items:center; justify-content:center;
     box-shadow:0 2px 10px rgba(11,36,27,.3);
   }
-  html.immersive .ms-close{ display:flex }
+  html.immersive .ms-close{ display:none }   /* folded into the menu below */
+  /* Full screen used to offer only a way out. Everything else — the theme,
+     the two readings, and Save my place — lived in furniture that immersive
+     mode hides, so a reader following the leaf had to leave full screen to
+     mark their place and then find it again. Home and a menu now ride at the
+     top instead, and the menu carries what the hidden bars used to. */
+  .ms-bar{
+    display:none;
+    position:fixed; top:calc(env(safe-area-inset-top, 0px) + .7rem);
+    left:.8rem; right:.8rem; z-index:61;
+    justify-content:space-between; align-items:flex-start; pointer-events:none;
+  }
+  html.immersive .ms-bar{ display:flex }
+  .ms-bar > *{ pointer-events:auto; }
+  .ms-rnd{
+    width:2.4rem; height:2.4rem; border-radius:50%; cursor:pointer; padding:0;
+    border:1px solid var(--ms-gold); background:var(--ms-paper); color:var(--ms-rule);
+    font-size:1.05rem; line-height:1; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 2px 10px rgba(11,36,27,.3); font-family:inherit;
+  }
+  .ms-rnd:active{ transform:scale(.94); }
+  .ms-rnd svg{ width:1.15rem; height:1.15rem; display:block; }
+  .ms-menu-wrap{ position:relative; display:flex; flex-direction:column; align-items:flex-end; gap:.45rem; }
+  /* Stacked vertically, in the order a reader reaches for them. */
+  .ms-menu{
+    display:none; flex-direction:column; gap:.3rem;
+    background:var(--ms-paper); border:1px solid var(--ms-gold); border-radius:14px;
+    padding:.4rem; box-shadow:0 6px 22px rgba(11,36,27,.34); min-width:11.5rem;
+  }
+  .ms-menu.open{ display:flex }
+  .ms-menu button{
+    display:flex; align-items:center; gap:.55rem; width:100%;
+    background:transparent; border:none; cursor:pointer; text-align:left;
+    color:var(--ms-rule); font-family:'Crimson Pro',serif; font-size:.92rem;
+    padding:.5rem .6rem; border-radius:9px; line-height:1.2;
+  }
+  .ms-menu button:active{ background:rgba(11,36,27,.09); }
+  .ms-menu button svg{ width:1.05rem; height:1.05rem; flex:0 0 auto; }
+  .ms-menu button .tick{ margin-left:auto; opacity:.75; font-size:.8rem; }
+  .ms-menu hr{ border:none; border-top:1px solid var(--ms-gold); opacity:.5; margin:.15rem .3rem; }
   html.immersive .masthead,
   html.immersive .tabbar,
   html.immersive .reader-bar,
@@ -937,6 +1114,10 @@
   html.immersive .controls,
   html.immersive .qnote,
   html.immersive .ms-hint,
+  html.immersive .ms-tune,
+  html.immersive .reader-actions,
+  html.immersive .chap-nav,
+  html.immersive .ms-chap,
   html.immersive .scrollbar,
   html.immersive footer,
   html.immersive .build-tag{ display:none !important }
@@ -954,6 +1135,13 @@
     color:var(--ink-soft); white-space:nowrap;
   }
   .view-switch button.on{ background:var(--accent-green); color:var(--paper); }
+  .edition-row{ display:flex; align-items:center; justify-content:center; gap:.6rem; margin:0 0 1rem; flex-wrap:wrap; }
+  .ed-toast{ position:fixed; left:50%; bottom:calc(var(--player-h, 0px) + 1.1rem + env(safe-area-inset-bottom, 0px)); transform:translate(-50%, .6rem); z-index:9999;
+    max-width:min(26rem, calc(100vw - 2rem)); padding:.6rem 1rem; border-radius:.7rem; background:var(--green-deep); color:#fbf7ec;
+    font-family:'Crimson Pro',serif; font-size:.95rem; line-height:1.35; text-align:center; box-shadow:0 6px 22px rgba(0,0,0,.22);
+    opacity:0; pointer-events:none; transition:opacity .25s, transform .25s; }
+  .ed-toast.show{ opacity:1; transform:translate(-50%, 0); }
+  .edition-k{ font-family:'Crimson Pro',serif; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); }
   /* Daily Litanies card pinned below Dalāʾil parts list */
   .dalail-litanies{ margin-top:1.6rem; padding-top:1.2rem; border-top:1px solid var(--rule); }
   .dalail-litanies .home-card{ width:100%; }
@@ -967,7 +1155,7 @@
      the supplication standing around it. */
   .verse.v-instruction{
     border-color:var(--gold); border-width:1.5px;
-    background-color:var(--card);
+    background-color:var(--verse-bg, var(--card));
     background-image:linear-gradient(rgba(184,147,74,.11), rgba(184,147,74,.03));
   }
   .instruction-note{
@@ -1012,6 +1200,16 @@
     direction:rtl;text-align:center;color:var(--ar-color);
     margin-top:.3rem;
   }
+  /* The script switch covers the Dalāʾil and aḥzāb reading text only —
+     Study verses and Book leaves under main.paper. Titles, cards and every
+     other collection keep the Uthmani face. */
+  html.ar-indopak main.paper .v-ar, html.ar-indopak main.paper .ms-text{
+    font-family:'DKIndoPak','UthmanicHafs','Amiri',serif;
+  }
+  html.ar-naskh main.paper .v-ar, html.ar-naskh main.paper .ms-text{
+    font-family:'SchNew','UthmanicHafs','Amiri',serif;
+  }
+  .script-switch{ margin-top:.1rem; }
   .v-tr{
     font-size:calc(1.02rem * var(--latin-scale));font-style:italic;color:var(--ink);
     text-align:center;margin-top:.7rem;line-height:1.6;
@@ -1142,6 +1340,8 @@
     .home-grid.radial .home-card:hover{ scale:1.04; }
     .home-grid.radial .home-card:active{ transform:none; scale:.97; }
   }
+  .barz-note{ max-width:640px; margin:.7rem auto 0; padding:0 1.1rem; }
+  .barz-note .qnote{ margin-bottom:.6rem; }
   .section-intro{
     max-width:640px; margin:0 auto; padding:.2rem 1.1rem .1rem;
     font-family:'Crimson Pro',serif; font-size:.92rem; line-height:1.5;
@@ -1265,7 +1465,6 @@
   .verse-place:active{ transform:scale(.9); }
   .verse-place.on{ color:var(--gold); opacity:1; }
   @media (hover:hover){ .verse-place:hover{ opacity:.85; } }
-
   /* ── The place ribbon: one saved spot in the Dalāʾil ─────────────── */
   /* Sits inside .index, which already caps width and pads 1.1rem — so this
      wrapper must NOT re-apply them, or the Continue bar ends up ~2.2rem
@@ -1320,9 +1519,11 @@
   .view-swap svg{ width:1rem; height:1rem; display:block; }
   .view-swap:hover{ opacity:1; }
   .view-swap:active{ transform:scale(.9); }
-  /* At the top the calligraphy is showing and the labelled Book/Study switch
-     is in the controls just below, so the little bar swap steps aside; it
-     appears once you scroll into the reading (the bar goes slim). */
+  /* The labelled Book Version / Study Version pair is back under the title
+     (owner's call, v429/v100 — the bar icon alone was too easy for a new
+     reader to miss). At the top the calligraphy is showing and the labelled
+     pair is in the controls just below, so the little bar swap steps aside;
+     it appears once you scroll into the reading (the bar goes slim). */
   .reader-bar:not(.slim) .view-swap{ display:none; }
   /* The day/night toggle rides in the reader bar too, so it is reachable from
      every screen and not only from the mastheads. The base .theme-toggle is

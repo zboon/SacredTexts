@@ -1,7 +1,9 @@
 {
   "titleArabic": "فِي جِهَادِهِ ﷺ",
   "titleEnglish": "8 · On His Campaigns and Striving",
-  "video": "https://youtu.be/CnfY5RCWBi0?t=2423",
+  "video": "https://youtu.be/CnfY5RCWBi0",
+  "videoStart": 2423,
+  "videoEnd": 2840,
   "verses": [
     {
       "ar": "رَاعَتْ قُلُوبَ الْعِدَا أَنْبَاءُ بِعْثَتِهِ ۞ كَنَبْأَةٍ أَجْفَلَتْ غُفْلاً مِنَ الْغَنَمِ",

@@ -1,7 +1,9 @@
 {
   "titleArabic": "فِي مَدْحِ النَّبِيِّ ﷺ",
   "titleEnglish": "3 · In Praise of the Prophet ﷺ",
-  "video": "https://youtu.be/CnfY5RCWBi0?t=648",
+  "video": "https://youtu.be/CnfY5RCWBi0",
+  "videoStart": 648,
+  "videoEnd": 1213,
   "verses": [
     {
       "ar": "ظَلَمْتُ سُنَّةَ مَنْ أَحْيَا الظَّلاَمَ إِلَى ۞ أَنِ اشْتَكَتْ قَدَمَاهُ الضُّرَّ مِنْ وَرَمِ",

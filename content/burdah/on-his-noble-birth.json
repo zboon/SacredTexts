@@ -1,7 +1,9 @@
 {
   "titleArabic": "فِي مَوْلِدِهِ ﷺ",
   "titleEnglish": "4 · On His Noble Birth",
-  "video": "https://youtu.be/CnfY5RCWBi0?t=1213",
+  "video": "https://youtu.be/CnfY5RCWBi0",
+  "videoStart": 1213,
+  "videoEnd": 1479,
   "verses": [
     {
       "ar": "أَبَانَ مَوْلِدُهُ عَنْ طِيبِ عُنْصُرِهِ ۞ يَا طِيبَ مُبْتَدَإٍ مِنْهُ وَمُخْتَتَمِ",

@@ -1,7 +1,9 @@
 {
   "titleArabic": "فِي مُعْجِزَاتِهِ ﷺ",
   "titleEnglish": "5 · On His Miracles",
-  "video": "https://youtu.be/CnfY5RCWBi0?t=1479",
+  "video": "https://youtu.be/CnfY5RCWBi0",
+  "videoStart": 1479,
+  "videoEnd": 1822,
   "verses": [
     {
       "ar": "جَاءَتْ لِدَعْوَتِهِ الْأَشْجَارُ سَاجِدَةً ۞ تَمْشِي إِلَيْهِ عَلٰى سَاقٍ بِلاَ قَدَمِ",
