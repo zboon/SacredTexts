@@ -1,0 +1,45 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا سَيِّدِي ارْحَمْ لَنَا",
+  "titleEnglish": "Yā Sayyidī-rḥam Lanā",
+  "note": "Addressed on behalf of Imam Zayn al-ʿĀbidīn, taken captive after Karbalāʾ (v6). Repeat the chorus after each verse.",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "يَا سَيِّدِي ارْحَمْ لَنَا",
+      "tr": "Yā sayyidī-rḥam lanā",
+      "en": "O my master, have mercy on us."
+    },
+    {
+      "ar": "إِنْ تَلْتِ يَا رِيحَ الصَّبَا يَوْمًا إِلَى أَرْضِ الْحَرَمِ ۞ بَلِّغْ سَلَامِي رَوْضَةً فِيهَا النَّبِيُّ الْمُحْتَرَمْ (2)",
+      "tr": "Inaltiya riha-saba yawman ilā arḍi-l-ḥaram ۞ balligh salāmī rawḍatan fīhā-n-Nabiyyu-l-muḥtaram (2)",
+      "en": "If, O east wind, you should one day pass by the sacred land, carry my greeting to the garden where the honoured Prophet rests."
+    },
+    {
+      "ar": "مَنْ وَجْهُهُ شَمْسُ الضُّحَى مَنْ خَدُّهُ بَدْرُ الدُّجَى ۞ مَنْ ذَاتُهُ نُورُ الْهُدَى مَنْ كَفُّهُ بَحْرُ الْهِمَمْ (2)",
+      "tr": "Man wajhuhu shamsu-ḍ-ḍuḥā man khadduhu badru-d-dujā ۞ man dhātuhu nūru-l-hudā man kaffuhu baḥru-l-himam (2)",
+      "en": "He whose face is the forenoon sun, whose cheek is the full moon at nightfall; whose very being is the light of guidance, whose open hand is an ocean of generosity."
+    },
+    {
+      "ar": "قُرْآنُهُ بُرْهَانُنَا فَسْخًا لِأَدْيَانٍ مَضَتْ ۞ إِذْ جَاءَنَا أَحْكَامُهُ كُلُّ الصُّحُفِ صَارَ الْعَدَمْ (2)",
+      "tr": "Qurʾānuhu burhānunā faskhan li-adyānin maḍat ۞ idh jāʾanā aḥkāmuhu kullu-ṣ-ṣuḥufi ṣāra-l-ʿadam (2)",
+      "en": "His Qur'an is our proof, an abrogation of every religion now passed away; since his rulings came to us, every other scripture became as nothing."
+    },
+    {
+      "ar": "أَكْبَادُنَا مَجْرُوحَةٌ مِنْ سَيْفِ هِجْرِ الْمُصْطَفَى ۞ طُوبَى لِأَهْلِ بَلْدَةٍ فِيهَا النَّبِيُّ الْمُحْتَشَمْ (2)",
+      "tr": "Akbādunā majrūḥatun min sayfi hijri-l-Muṣṭafā ۞ ṭūbā li-ahli baldatin fīhā-n-Nabiyyu-l-muḥtasham (2)",
+      "en": "Our hearts are wounded by the sword of separation from the Chosen One; blessed are the people of a town in which the honoured Prophet dwells."
+    },
+    {
+      "ar": "يَا رَحْمَةً لِلْعَالَمِينَ أَنْتَ شَفِيعُ الْمُذْنِبِينَ ۞ أَكْرِمْ لَنَا يَوْمَ الْحَزِينِ فَضْلًا وَجُودًا وَالْكَرَمْ (2)",
+      "tr": "Yā raḥmatan li-l-ʿālamīn anta shafīʿu-l-mudhnibīn ۞ akrim lanā yawma-l-ḥazīni faḍlan wa jūdan wa-l-karam (2)",
+      "en": "O mercy for all the worlds, you are the intercessor of sinners — be generous to us on the day of grief, with bounty, munificence and honour."
+    },
+    {
+      "ar": "يَا رَحْمَةً لِلْعَالَمِينَ أَدْرِكْ لِزَيْنِ الْعَابِدِينَ ۞ مَحْبُوسَ أَيْدِي الظَّالِمِينَ فِي الْمَوْكِبِ وَالْمُزْدَحَمْ (2)",
+      "tr": "Yā raḥmatan li-l-ʿālamīn adrik li-Zayni-l-ʿĀbidīn ۞ maḥbūsa aydi-ẓ-ẓālimīna fi-l-mawkibi wa-l-muzdaḥam (2)",
+      "en": "O mercy for all the worlds, come to the aid of Zayn al-ʿAbidin, held captive in the hands of the oppressors, amid the crowded procession."
+    }
+  ]
+}

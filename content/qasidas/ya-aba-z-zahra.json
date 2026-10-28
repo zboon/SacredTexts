@@ -1,0 +1,51 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا أَبَا الزَّهْرَاءِ",
+  "titleEnglish": "Yā Abā-z-Zahrā",
+  "note": "Lines marked (2) are sung twice before continuing, per the ×٢ marks in the source.",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "يَا أَبَا الزَّهْرَاءِ بِالَّذِي صَنَّاكْ (2)\nلَا تُخَيِّبْنَا يَا سَيِّدِي نَحْنُ جِيرَانَكْ\nيَا سَيِّدِي نَحْنُ جِيرَانَكْ\nاللّٰهُ اللّٰهُ اللّٰهُ رَبِّي\nعَوْنِي وَحَسْبِي مَا لِي سِوَاهُ",
+      "tr": "Yā Abā-z-Zahrāʾi bi-lladhī ṣannāk (2)\nLā tukhayyibnā yā sayyidī naḥnu jīrānak\nYā sayyidī naḥnu jīrānak\nAllāhu Allāhu Allāhu Rabbī\nʿAwnī wa ḥasbī mā lī siwāh",
+      "en": "O father of Zahra, by the One who fashioned you — do not turn us away, O my master, we are your neighbours, O my master, we are your neighbours. Allah, Allah, Allah is my Lord; He is my help and my sufficiency, I have none besides Him."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "رُوحٌ وَرَيْحَانٌ مَا بَيْنَ الْخُلَّانْ (2)\nجَنَّةُ الرِّضْوَانْ يَا سَيِّدِي فِي حَضْرَتِنَا\nيَا سَيِّدِي فِي حَضْرَتِنَا اللّٰهُ اللّٰهُ",
+      "tr": "Rūḥun wa rayḥānun mā bayna-l-khullān (2)\nJannatu-r-riḍwān yā sayyidī fī ḥaḍratinā\nYā sayyidī fī ḥaḍratinā Allāhu Allāh",
+      "en": "Rest and fragrance among close companions — the Garden of Good Pleasure, O my master, is in our presence, O my master, in our presence."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "حَضْرَةُ الْقُدُّوسْ مُحْيَا النُّفُوسْ (2)\nجَنَّةُ الْفِرْدَوْسْ يَا سَيِّدِي تَحْتَاجُ إِلَيْنَا\nيَا سَيِّدِي تَحْتَاجُ إِلَيْنَا اللّٰهُ اللّٰهُ",
+      "tr": "Ḥaḍratu-l-quddūs muḥyā-n-nufūs (2)\nJannatu-l-firdaws yā sayyidī taḥtāju ilaynā\nYā sayyidī taḥtāju ilaynā Allāhu Allāh",
+      "en": "The Holy Presence, the reviver of souls — the Garden of Paradise, O my master, longs for us, O my master, longs for us."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مِنْ خَمْرِ الْعِرْفَانِ سُقِّينَا قِدْحًا (2)\nمِنْ يَدِ الْوِلْدَانِ يَا سَيِّدِي مُخَلَّدِينَا\nيَا سَيِّدِي مُخَلَّدِينَا اللّٰهُ اللّٰهُ",
+      "tr": "Min khamri-l-ʿirfāni suqqīnā qidḥan (2)\nMin yadi-l-wildāni yā sayyidī mukhalladīnā\nYā sayyidī mukhalladīnā Allāhu Allāh",
+      "en": "From the wine of gnosis we have been given to drink, poured by the hands of the ever-living youths, O my master, made everlasting."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "حَالُ الْعَارِفِينَ مُتَقَابِلِينْ (2)\nعَلَى سُرُرٍ يَا سَيِّدِي مُسْتَبْشِرِينَا\nيَا سَيِّدِي مُسْتَبْشِرِينَا اللّٰهُ اللّٰهُ",
+      "tr": "Ḥālu-l-ʿārifīna mutaqābilīn (2)\nʿAlā sururin yā sayyidī mustabshirīnā\nYā sayyidī mustabshirīnā Allāhu Allāh",
+      "en": "Such is the state of the gnostics, facing one another upon couches, O my master, filled with glad tidings, O my master, with glad tidings."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَبْنَاءُ الْحَضْرَةِ لَهُمُ الْبُشْرَى (2)\nمِنْ قَبْلِ الْأُخْرَى يَا سَيِّدِي مُعَزَّزِينَا\nيَا سَيِّدِي مُعَزَّزِينَا اللّٰهُ اللّٰهُ",
+      "tr": "Abnāʾu-l-ḥaḍrati lahumu-l-bushrā (2)\nMin qabli-l-ukhrā yā sayyidī muʿazzazīnā\nYā sayyidī muʿazzazīnā Allāhu Allāh",
+      "en": "The people of that Presence have good news before any other, O my master, held in honour, O my master, in honour."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "عِبَادُ الرَّحْمٰنِ فِي كُلِّ زَمَانْ (2)\nلَهُمُ الْأَمَانْ يَا سَيِّدِي مُطْمَئِنِّينَا\nيَا سَيِّدِي مُطْمَئِنِّينَا اللّٰهُ اللّٰهُ",
+      "tr": "ʿIbādu-r-Raḥmāni fī kulli zamān (2)\nLahumu-l-amān yā sayyidī muṭmaʾinnīnā\nYā sayyidī muṭmaʾinnīnā Allāhu Allāh",
+      "en": "The servants of the Most Merciful, in every age, have security — O my master, at peace, O my master, at peace."
+    }
+  ]
+}

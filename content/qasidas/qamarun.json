@@ -1,0 +1,37 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "قَمَرٌ",
+  "titleEnglish": "Qamarun — Brilliant Like the Moon",
+  "verses": [
+    {
+      "refrain": true,
+      "times": 2,
+      "ar": "قَمَرٌ قَمَرٌ قَمَرٌ سِيدْنَا النَّبِي قَمَرٌ\nوَجَمِيل وَجَمِيل وَجَمِيل سِيدْنَا النَّبِي وَجَمِيل",
+      "tr": "Qamarun, qamarun, qamarun, sīdna-n-nabī qamarun\nWa jamīl, wa jamīl, wa jamīl, sīdna-n-nabī wa jamīl",
+      "en": "Brilliant like the moon — Oh our master the Prophet, Brilliant like the moon!\nBeautiful — Oh our master the Prophet, Beautiful!"
+    },
+    {
+      "times": 2,
+      "ar": "وَكَفُّ الْمُصْطَفَى كَالْوَرْدِ نَادِي (اللّٰهْ اللّٰهْ)\nوَعِطْرُهَا يَبْقَى إِذَا مَسَّتْ أَيَادِي (اللّٰهْ اللّٰهْ)",
+      "tr": "Wa kaffu-l-Muṣṭafā ka-l-wardi nādī (Allāh Allāh)\nWa ʿiṭruhā yabqā idhā massat ayādī (Allāh Allāh)",
+      "en": "And your palm like a flower mist by the dew (Allah, Allah)\nIts fragrance everlasting where it touches! (Allah, Allah)"
+    },
+    {
+      "ar": "وَعَمَّ نَوَالُهَا كُلَّ الْعِبَادِي (3)\nحَبِيبُ اللّٰهِ يَا خَيْرَ الْبَرَايَا",
+      "tr": "Wa ʿamma nawāluhā kulla-l-ʿibādī (3)\nḤabību-llāhi yā khayra-l-barāyā",
+      "en": "Its generosity ever extended to all humanity (3)!\nSo beloved to Allah oh you the best of creation!"
+    },
+    {
+      "times": 2,
+      "ar": "وَلَا ظِلُّ لَّهُ بَلْ كَانَ نُورَا (اللّٰهْ اللّٰهْ)\nتَنَالَ الشَّمْسَ مِنْهُ وَالْبُدُورَ (اللّٰهْ اللّٰهْ)",
+      "tr": "Wa lā ẓillu lahū bal kāna nūrā (Allāh Allāh)\nTanāla-sh-shamsa minhu wa-l-budūra (Allāh Allāh)",
+      "en": "Shade-less but brilliant you ever are (Allah, Allah)\nThe sun and stars feed off your light! (Allah, Allah)"
+    },
+    {
+      "ar": "وَلَمْ يَكُنِ الْهُدَى لَوْلَا ظُهُورَه (3)\nوَكُلُّ الْكَوْنِ أَنَارُ بِنُورِ طَه",
+      "tr": "Wa lam yakuni-l-hudā lawlā ẓuhūrah (3)\nWa kullu-l-kawni anāru bi-nūri Ṭāhā",
+      "en": "Guidance would have not been possible without you (3)\nYou have summoned the Cosmos willingly!"
+    }
+  ]
+}

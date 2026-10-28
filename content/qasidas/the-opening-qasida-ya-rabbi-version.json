@@ -1,0 +1,51 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا رَبِّي صَلِّ عَلَى مُحَمَّدْ",
+  "titleEnglish": "The Opening Qasida (Yā Rabbī Version)",
+  "note": "Distinct from the existing 'The Opening Qasida — Yā Rabbi Ṣalli ʿalā Muḥammad' entry — the opening couplet is similar but the supplication that follows is different.",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "يَا رَبِّي صَلِّ عَلَى مُحَمَّدْ\nيَا رَبِّي صَلِّ عَلَيْهِ وَسَلِّمْ (2)",
+      "tr": "Yā Rabbī ṣalli ʿalā Muḥammad\nYā Rabbī ṣalli ʿalayhi wa sallim (2)",
+      "en": "O my Lord, bless Muhammad; O my Lord, bless him and grant him peace."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَا رَبِّي بَلِّغْهُ الْوَسِيلَةْ\nيَا رَبِّي خُصَّهُ بِالْفَضِيلَةْ\nيَا رَبِّي وَارْضَ عَنِ الصَّحَابَةْ\nيَا رَبِّي وَارْضَ عَنِ السُّلَالَةْ",
+      "tr": "Yā Rabbī balligh-hu-l-wasīlah\nYā Rabbī khuṣṣahu bi-l-faḍīlah\nYā Rabbī wa-rḍa ʿani-ṣ-ṣaḥābah\nYā Rabbī wa-rḍa ʿani-s-sulālah",
+      "en": "O my Lord, grant him the highest station in Paradise; O my Lord, single him out with excellence; O my Lord, be pleased with his companions; O my Lord, be pleased with his descendants."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَا رَبِّي وَارْضَ عَنِ الْمَشَايِخْ\nيَا رَبِّي فَارْحَمْ وَالِدَيْنَا\nيَا رَبِّي وَارْحَمْنَا جَمِيعًا\nيَا رَبِّي وَارْحَمْ كُلَّ مُسْلِمْ",
+      "tr": "Yā Rabbī wa-rḍa ʿani-l-mashāyikh\nYā Rabbī fa-rḥam wālidaynā\nYā Rabbī wa-rḥamnā jamīʿan\nYā Rabbī wa-rḥam kulla Muslim",
+      "en": "O my Lord, be pleased with the masters; O my Lord, have mercy on our parents; O my Lord, have mercy on all of us; O my Lord, have mercy on every Muslim."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَا رَبِّي وَاغْفِرْ لِكُلِّ مُذْنِبْ\nيَا رَبِّي يَا سَامِعَ دُعَانَا\nيَا رَبِّي لَا تَقْطَعْ رَجَانَا\nيَا رَبِّي بَلِّغْنَا نَزُورُهْ",
+      "tr": "Yā Rabbī wa-ghfir li-kulli mudhnib\nYā Rabbī yā sāmiʿa duʿānā\nYā Rabbī lā taqṭaʿ rajānā\nYā Rabbī ballighnā nazūruh",
+      "en": "O my Lord, forgive every sinner; O my Lord, O Hearer of our supplication; O my Lord, do not cut off our hope; O my Lord, grant us to visit him."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَا رَبِّي تَغْشَانَا بِنُورِهْ\nيَا رَبِّي حِفْظَانَكْ وَأَمَانَكْ\nيَا رَبِّي وَأَسْكِنَّا جِنَانَكْ\nيَا رَبِّي أَجِرْنَا مِنْ عَذَابِكْ",
+      "tr": "Yā Rabbī taghshānā bi-nūrih\nYā Rabbī ḥifẓānak wa amānak\nYā Rabbī wa askinnā jinānak\nYā Rabbī ajirnā min ʿadhābik",
+      "en": "O my Lord, cover us with his light; O my Lord, grant us Your protection and safety; O my Lord, house us in Your gardens; O my Lord, shelter us from Your punishment."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَا رَبِّي وَارْزُقْنَا الشَّهَادَةْ\nيَا رَبِّي حُطْنَا بِالسَّعَادَةْ\nيَا رَبِّي وَأَصْلِحْ كُلَّ مُصْلِحْ\nيَا رَبِّي وَاكْفِ كُلَّ مُؤْذٍ",
+      "tr": "Yā Rabbī wa-rzuqna-sh-shahādah\nYā Rabbī ḥuṭṭnā bi-s-saʿādah\nYā Rabbī wa aṣliḥ kulla muṣliḥ\nYā Rabbī wa-kfi kulla muʾdhin",
+      "en": "O my Lord, grant us the rank of the martyrs; O my Lord, surround us with happiness; O my Lord, set right every one who seeks to reform; O my Lord, spare us the harm of every one who causes harm."
+    },
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, send peace and blessings upon him and his family."
+    }
+  ]
+}

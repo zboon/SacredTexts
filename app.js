@@ -341,7 +341,7 @@ function resumeCard(){
     </div>`;
 }
 
-const state = { showTr: true, showEn: true, arScale: 1, latinScale: 1, msZoom: 1, query: '', tab: 'home', burdahChapter: null, favs: loadFavs() , pageView:true, immersive:false};
+const state = { showTr: true, showEn: true, arScale: 1, latinScale: 1, msZoom: 1, query: '', tab: 'home', burdahChapter: null, favs: loadFavs() , pageView:true, immersive:false, refrainOpen:false};
 
 /* The content arrays, keyed by the same letters as OPENERS. */
 function arrayOf(kind){
@@ -798,7 +798,7 @@ function mawlidCards(){
    the Qasidas tab and the landing page's count. */
 function additionalQasidaItems(){
   return QASIDAS.map((qa,i) => ({q:qa, i}))
-    .filter(x => x.q.group === 'qasidas' && !sectionOf(x.q.titleEnglish));
+    .filter(x => x.q.group === 'qasidas' && !x.q.retired && !sectionOf(x.q.titleEnglish));
 }
 
 function additionalQasidaCards(){
@@ -1384,7 +1384,7 @@ const HOME_CARDS = [
   { id:'silsila',     ar:'السِّلْسِلَة النَّقْشَبَنْدِيَّة',            en:'Naqshbandi Silsila', theme:'maroon',  desc:'The chain of transmission connecting the Naqshbandi masters, shaykh to shaykh, back to the Prophet ﷺ.' },
   { id:'turuqs',      ar:'الطُّرُق الصُّوفِيَّة',                  en:'Turuqs',             theme:'teal',    desc:'An introduction to the Sufi orders (ṭuruq) and their paths of devotion.' },
   { id:'sohbets',     ar:'الصُّحْبَة',                        en:'Sohbets',            theme:'ochre',   desc:'Talks and spiritual counsel from the shaykhs, for reflection and practice.' },
-  { id:'ilahi',       ar:'الْإلهيات',                        en:'Ilahi',              theme:'plum',    desc:'Devotional songs in Turkish, with translation.' },
+  { id:'ilahi',       ar:'الْإلهيات',                        en:'Ilahi',              theme:'plum',    desc:'Ilahis in Turkish and qasidas in Arabic, with translation.' },
   { id:'biographies', ar:'التَّرَاجِم',                       en:'Biographies',        theme:'rust',    desc:'Lives of the awliyā’ and scholars of the silsila, in brief.' },
   { id:'ottoman',     ar:'التَّارِيخ الْعُثْمَانِي',                en:'Ottoman History',    theme:'indigo',  desc:'The Ottoman caliphate’s history and its place in the transmission of the dīn.' },
   { id:'more',        ar:'وَقَرِيبًا الْمَزِيد',                  en:'More Soon',          theme:'more',    desc:'Further sections are on their way — check back as they’re added.' },
@@ -1405,7 +1405,7 @@ function sectionCount(id){
        : id === 'barzanji'? BARZANJI_CHAPTERS.length
        : id === 'diya'    ? DIYA_CHAPTERS.length
        : id === 'ilahis'  ? ILAHI_CHAPTERS.length
-       : id === 'ilahi'   ? ILAHI_CHAPTERS.length
+       : id === 'ilahi'   ? ILAHI_CHAPTERS.length + additionalQasidaItems().length
        : id === 'silsila' ? SILSILA_CHAPTERS.length
        : id === 'turuqs' ? TURUQ_CHAPTERS.length
        : id === 'sohbets' ? SOHBET_CHAPTERS.length
@@ -1427,7 +1427,8 @@ function countLabel(id, n){
   if(id === 'barzanji')return n + ' sections';
   if(id === 'diya')    return n + ' sections';
   if(id === 'qasidas') return n + (n === 1 ? ' qasida' : ' qasidas');
-  if(id === 'ilahis' || id === 'ilahi') return n + (n === 1 ? ' ilahi' : ' ilahis');
+  if(id === 'ilahi') return ILAHI_CHAPTERS.length + (ILAHI_CHAPTERS.length === 1 ? ' ilahi' : ' ilahis') + ' · ' + additionalQasidaItems().length + ' qasidas';
+  if(id === 'ilahis') return n + (n === 1 ? ' ilahi' : ' ilahis');
   if(id === 'silsila') return n ? n + (n === 1 ? ' master' : ' masters') : 'Coming soon';
   if(id === 'turuqs') return n ? n + (n === 1 ? ' tariqa' : ' tariqas') : 'Coming soon';
   if(id === 'sohbets') return n ? n + (n === 1 ? ' sohbet' : ' sohbets') : 'Coming soon';
@@ -1596,7 +1597,11 @@ function renderResults(){
     return DALAIL_CHAPTERS.length ? dalailIndex() : placeholder('Dalāʾil al-Khayrāt');
   }
   if(tab === 'ilahi'){
-    return sectionIntro('ilahi') + label('Select an ilahi · ilahi seçin') + ilahiCards();
+    const ilahis = ilahiCards(), qasidas = additionalQasidaCards();
+    return sectionIntro('ilahi')
+         + label('Ilahis · ilahi seçin')
+         + (ilahis || placeholder('Ilahis'))
+         + (qasidas ? label('Qasidas · قصائد', true) + qasidas : '');
   }
   if(tab === 'silsila') return sectionIntro('silsila') + (silsilaCards() ? label('Select a master · اختر شيخاً') + silsilaCards() : placeholder('Naqshbandi Silsila'));
   if(tab === 'turuqs') return sectionIntro('turuqs') + (turuqCards() ? label('Select a tariqa · اختر طريقة') + turuqCards() : placeholder('Turuqs'));
@@ -3409,13 +3414,13 @@ function readerHTML(q, backOnclick, kind, idx){
       ${q.video ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},1)">▶ ${(kind === 'd' || kind === 'l') ? 'Listen to this ḥizb' : 'Listen to the tune'}</button>` : ''}
       ${q.video2 ? `<button class="qtune" onclick="openPlayerFor('${kind}',${idx},2)">▶ Listen — alternate version</button>` : ''}
       ${q.verses.map((v,n)=>`
-        <article class="verse ${v.refrain?'refrain':''} ${v.instruction?'v-instruction':''}${kind==='d'&&placedVerse(idx,n)?' placed':''}" data-v="${n}">
+        <article class="verse ${v.refrain||v.refrainCont?'refrain':''} ${v.instruction?'v-instruction':''}${kind==='d'&&placedVerse(idx,n)?' placed':''}" data-v="${n}">
           ${kind === 'd' ? `<button class="verse-place ${placedVerse(idx,n)?'on':''}"
             onclick="placeVerse(${idx},${n})"
             aria-label="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}"
             title="${placedVerse(idx,n)?'Remove my place':'Mark my place here'}">${bookmarkIcon(placedVerse(idx,n))}</button>` : ''}
           <div class="v-num">${toArNum(n+1)}</div>
-          ${v.refrain?'<div class="refrain-note">Refrain · يُرَدَّد</div>':''}
+          ${v.refrain?'<div class="refrain-note">Chorus · يُرَدَّد</div>':''}
           ${v.instruction?'<div class="instruction-note">Instruction · إِرْشَاد</div>':''}
           ${v.note?`<div class="v-note">${v.note}</div>`:''}
           ${q.latin
@@ -3429,8 +3434,46 @@ function readerHTML(q, backOnclick, kind, idx){
               })()}
           ${v.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${v.tr.replaceAll('\n','<br>')}</div>` : ''}`}
           ${v.en ? `<div class="v-en ${state.showEn?'':'hide'}">${v.en.replaceAll('\n','<br>')}</div>` : ''}
-        </article>`).join('')}`}
+          ${v.times ? `<div class="refrain-times">${v.times === 2 ? `Sing the whole ${v.refrain ? 'chorus' : 'verse'} twice · مَرَّتَيْنِ` : `Sing the whole ${v.refrain ? 'chorus' : 'verse'} ` + v.times + ' times'}</div>` : ''}
+        </article>${v.repeatRefrain ? refrainRepeatHTML(q, n) : ''}`).join('')}`}
     </main>`;
+}
+
+/* ── Repeating a chorus ─────────────────────────────────────
+   Ported from the Mawlid app (src/js/320-refrain-and-leaf-defs.js), which is
+   where this is maintained; keep the two in step. A verse flagged
+   `repeatRefrain` is followed by a one-line marker for the nearest `refrain`
+   above it — printing the whole chorus after every verse would bury the
+   qasida. Every marker in a piece opens together, toggling flips a class
+   rather than re-rendering (so a reader fifteen verses down isn't thrown back
+   to the top), and the open state is in memory only: a piece always opens
+   collapsed. Cards straight after the refrain flagged `refrainCont` are sung
+   with it and repeat with it. */
+function refrainRepeatHTML(q, n){
+  let at = -1;
+  for(let k = n; k >= 0; k--) if(q.verses[k].refrain){ at = k; break; }
+  if(at < 0) return '';
+  const parts = [q.verses[at]];
+  for(let k = at + 1; k < q.verses.length && q.verses[k].refrainCont; k++) parts.push(q.verses[k]);
+  const body = parts.map(p => `<div class="v-ar">${arHTML(p.ar)}</div>
+        ${p.tr ? `<div class="v-tr ${state.showTr?'':'hide'}">${p.tr.replaceAll('\n','<br>')}</div>` : ''}
+        ${p.en ? `<div class="v-en ${state.showEn?'':'hide'}">${p.en.replaceAll('\n','<br>')}</div>` : ''}`).join('');
+  return `<div class="refrain-repeat${state.refrainOpen ? ' open' : ''}">
+      <button class="refrain-repeat-btn" onclick="toggleRefrain()"
+        aria-expanded="${state.refrainOpen ? 'true' : 'false'}">↻ Repeat chorus · يُرَدَّد</button>
+      <div class="refrain-repeat-body">
+        ${body}
+      </div>
+    </div>`;
+}
+
+function toggleRefrain(){
+  state.refrainOpen = !state.refrainOpen;
+  document.querySelectorAll('.refrain-repeat').forEach(n => {
+    n.classList.toggle('open', state.refrainOpen);
+    const b = n.querySelector('.refrain-repeat-btn');
+    if(b) b.setAttribute('aria-expanded', state.refrainOpen ? 'true' : 'false');
+  });
 }
 
 function openQasida(i){

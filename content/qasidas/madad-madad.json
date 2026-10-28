@@ -1,0 +1,70 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "الْمَدَدْ الْمَدَدْ الْمَدَدْ",
+  "titleEnglish": "Madad Madad (Burdah Ensemble Interlude)",
+  "verses": [
+    {
+      "ar": "كُلُّ الْقُلُوبِ إِلَى الْحَبِيبِ تَمِيلُ ۞ وَمَعِي بِذٰلِكَ شَاهِدٌ وَدَلِيلُ\nأَمَّا الدَّلِيلُ إِذَا ذَكَرْتُ مُحَمَّدًا ۞ صَارَتْ دُمُوعُ الْعَاشِقِينَ تَسِيلُ\nهٰذَا رَسُولُ اللّٰهِ هٰذَا الْمُصْطَفَى ۞ هٰذَا لِرَبِّ الْعَالَمِينَ خَلِيلُ",
+      "tr": "Kullu-l-qulūbi ila-l-ḥabībi tamīlu · wa maʿī bi-dhālika shāhidun wa dalīlu\nAmma-d-dalīlu idhā dhakartu Muḥammadan · ṣārat dumūʿu-l-ʿāshiqīna tasīlu\nHādhā Rasūlu-llāhi hādha-l-Muṣṭafā · hādhā li-Rabbi-l-ʿālamīna khalīlu",
+      "en": "Every heart melts in the rapture of the beloved, and for that love I have a witness, a witness and a proof:\nRegarding that proof, if I mention the name of Muhammad, the eyes of the lovers will be overrun with tears\nHe is the Messenger of God, He is the Chosen One, He is, to the Lord, a most trusted friend"
+    },
+    {
+      "refrain": true,
+      "ar": "الْمَدَدْ الْمَدَدْ الْمَدَدْ\nالْمَدَدْ يَا رَسُولَ اللّٰهْ\nالْمَدَدْ الْمَدَدْ الْمَدَدْ\nالْمَدَدْ يَا حَبِيبَ اللّٰهْ",
+      "tr": "Al-madad al-madad al-madad\nAl-madad yā Rasūla-llāh\nAl-madad al-madad al-madad\nAl-madad yā Ḥabība-llāh",
+      "en": "Aid us, help us\nSupport us, O God's Messenger!\nAid us, help us\nSupport us, O Most Beloved of God!"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "رَبِّ وَاجْعَلْ مُجْتَمَعْنَا ۞ غَايَتُهُ حُسْنُ الْخِتَامْ\nوَأَكْرِمِ الْأَرْوَاحَ مِنَّا ۞ بِلِقَا خَيْرِ الْأَنَامْ",
+      "tr": "Rabbi wa-jʿal mujtamaʿnā · ghāyatuhu ḥusnu-l-khitām\nWa akrimi-l-arwāḥa minnā · bi-liqā khayri-l-anām",
+      "en": "O Lord, grant our gathering a joyous purpose and conclusion\nAnd bless all souls among us to meet the Pearl of Your Creation"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "رَبِّ إِنَّا قَدْ دَعَوْنَا ۞ أَعْطِنَا مَا قَدْ رَجَوْنَا\nهَبْ لَنَا فِي الدِّينِ عَوْنَا ۞ بِالصَّلَاةِ عَلَى مُحَمَّدْ",
+      "tr": "Rabbi innā qad daʿawnā · aʿṭinā mā qad rajawnā\nHab lanā fi-d-dīni ʿawnā · bi-ṣ-ṣalāti ʿalā Muḥammad",
+      "en": "O our Lord, we're calling upon You, and we seek that which pleases You\nGrant us for our journey Your aid, by the blessings upon Muhammad"
+    },
+    {
+      "ar": "سِيدِي صَاحِبَ الْحَضْرَةْ ۞ أَكْرِمْنَا مِنْكَ بِنَظْرَةْ\nسِيدِي يَا أَبَا الزَّهْرَا ۞ وَالْقَاسِمْ وَعَبْدِ اللّٰهْ",
+      "tr": "Sīdī ṣāḥiba-l-ḥaḍrah · akrimnā minka bi-naẓrah\nSīdī yā aba-z-Zahrā · wa-l-Qāsim wa ʿAbdi-llāh",
+      "en": "O treasured friend of the Divine, honour us by looking once upon us!\nOur master, father of Fatima Zahra, and of Qasim and Abd-Allah!"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "سِيدِي أَنْتَ الْحَبِيبْ ۞ بِذِكْرِكْ قَلْبِي يَطِيبْ\nسِيدِي حَاشَا يَخِيبْ ۞ مَنْ لَاذَ بِرَسُولِ اللّٰهْ",
+      "tr": "Sīdī anta-l-ḥabīb · bi-dhikrik qalbī yaṭīb\nSīdī ḥāshā yakhīb · man lādha bi-Rasūli-llāh",
+      "en": "Our master, you are the Beloved; with your remembrance my heart is healed!\nO my master! One who takes refuge will never lose with the Messenger of God!"
+    },
+    {
+      "ar": "سِيدِي أَنْتَ الْمُخْتَارْ ۞ بِمَدْحِكْ تُجْلَى الْأَقْدَارْ\nسِيدِي أَجِرْنَا مِنَ النَّارْ ۞ بِجَاهِكْ يَا رَسُولَ اللّٰهْ",
+      "tr": "Sīdī anta-l-Mukhtār · bi-madḥik tujla-l-aqdār\nSīdī ajirnā mina-n-nār · bi-jāhik yā Rasūla-llāh",
+      "en": "O master, you are the Chosen One; in praising you our destinies become clear\nO master, save us from the fire, for your sake, O God's Messenger"
+    },
+    {
+      "refrain": true,
+      "ar": "يَا رَبِّ بِهِمْ وَبِآلِهِمِ ۞ عَجِّلْ بِالنَّصْرِ وَبِالْفَرَجِ",
+      "tr": "Yā Rabbi bihim wa bi-ālihimi · ʿajjil bi-n-naṣri wa bi-l-faraji",
+      "en": "O Lord, we ask You by the beloved and his family: grant us a speedy victory and spiritual openings!"
+    },
+    {
+      "ar": "وَارْحَمْ يَا أَكْرَمَ مَنْ رَحِمَا ۞ عَبْدًا عَنْ بَابِكَ لَمْ يَعُجِ",
+      "tr": "Wa-rḥam yā akrama man raḥimā · ʿabdan ʿan bābika lam yaʿuji",
+      "en": "O Most Merciful One, who is generous with His mercy: a poor servant at Your door will never be refused!"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "وَاخْتِمْ عَمَلِي بِخَوَاتِمِهَا ۞ لِأَكُونَ غَدًا فِي الْحَشْرِ نَجِي",
+      "tr": "Wa-khtim ʿamalī bi-khawātimihā · li-akūna ghadan fi-l-ḥashri najī",
+      "en": "And make my life's deeds to be of virtuous result, so on that Day I come before You my soul may be in peace!"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "وَإِذَا بِكَ ضَاقَ الْأَمْرُ فَقُلْ ۞ اشْتَدِّي أَزْمَةُ تَنْفَرِجِي",
+      "tr": "Wa idhā bika ḍāqa-l-amru fa-qul · ishtaddī azmatu tanfariji",
+      "en": "O friends, if you ever feel hopeless in your life's situation, say: \"With every burden comes a divine opening!\""
+    }
+  ]
+}

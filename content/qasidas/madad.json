@@ -1,0 +1,74 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "مَدَدْ",
+  "titleEnglish": "Madad — Naqshbandi Golden Chain",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "مَدَدْ، مَدَدْ، مَدَدْ\nيَا سَيِّدِي مَدَدْ\nمَدَدْ يَا رَسُولَ اللّٰهِ",
+      "tr": "Madad, madad, madad\nYā sayyidī madad\nMadad yā Rasūla-llāh",
+      "en": "Support us, support us, support us\nO my master, support us\nSupport us, O Messenger of Allah"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا صِدِّيقُوْنْ\nمَدَدْ يَا فَارْسِيْ\nمَدَدْ يَا قَاسِمُوْ\nمَدَدْ يَا صَادِقُوْ\nمَدَدْ يَا بِسْطَامِيْ\nمَدَدْ يَا خَرْقَانِيْ",
+      "tr": "Madad yā Ṣiddīqūn\nMadad yā Fārsī\nMadad yā Qāsimū\nMadad yā Ṣādiqū\nMadad yā Bisṭāmī\nMadad yā Kharqānī",
+      "en": "Support us, O Ṣiddīqūn\nSupport us, O Fārsī\nSupport us, O Qāsimū\nSupport us, O Ṣādiqū\nSupport us, O Bisṭāmī\nSupport us, O Kharqānī"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا فَارْمَادِيْ\nمَدَدْ يَا هَمَدَانِيْ\nمَدَدْ يَا خِضْرُوْ\nمَدَدْ يَا غُجْدَوَانِيْ\nمَدَدْ يَا عَارِفُوْنْ\nمَدَدْ يَا فَغْنَوِيْ",
+      "tr": "Madad yā Fārmādī\nMadad yā Hamadānī\nMadad yā Khiḍrū\nMadad yā Ghujdawānī\nMadad yā ʿĀrifūn\nMadad yā Faghnawī",
+      "en": "Support us, O Fārmādī\nSupport us, O Hamadānī\nSupport us, O Khiḍrū\nSupport us, O Ghujdawānī\nSupport us, O ʿĀrifūn\nSupport us, O Faghnawī"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا رَمِيْتَانِيْ\nمَدَدْ يَا سَمَاسِيْ\nمَدَدْ يَا أَمِيْرْ كُلَالْ\nمَدَدْ يَا شَاهِ النَّقْشَبَنْدْ\nمَدَدْ يَا عَطَّارُوْ\nمَدَدْ يَا چَرْخِيْ",
+      "tr": "Madad yā Ramītānī\nMadad yā Samāsī\nMadad yā Amīr Kulāl\nMadad yā Shāhi-n-Naqshband\nMadad yā ʿAṭṭārū\nMadad yā Charkhī",
+      "en": "Support us, O Ramītānī\nSupport us, O Samāsī\nSupport us, O Amīr Kulāl\nSupport us, O Shāh Naqshband\nSupport us, O ʿAṭṭārū\nSupport us, O Charkhī"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا أَحْرَارِيْ\nمَدَدْ يَا ذَاهِدِيْ\nمَدَدْ يَا دَرْوِيْشُوْ\nمَدَدْ يَا أَمْكَنَكِيْ\nمَدَدْ يَا بَاقِيْ بِاللّٰهِ\nمَدَدْ يَا سِرْهِنْدِيْ",
+      "tr": "Madad yā Aḥrārī\nMadad yā Zāhidī\nMadad yā Darwīshū\nMadad yā Amkanakī\nMadad yā Bāqī bi-llāh\nMadad yā Sirhindī",
+      "en": "Support us, O Aḥrārī\nSupport us, O Zāhidī\nSupport us, O Darwīshū\nSupport us, O Amkanakī\nSupport us, O Bāqī billāh\nSupport us, O Sirhindī"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا مَعْصُوْمِيْ\nمَدَدْ يَا سَيْفُ الدِّيْنْ\nمَدَدْ يَا بَدْوَانِيْ\nمَدَدْ يَا شَمْسُ الدِّيْنْ\nمَدَدْ يَا دَهْلَوِيْ\nمَدَدْ يَا بَغْدَادِيْ",
+      "tr": "Madad yā Maʿṣūmī\nMadad yā Sayfu-d-Dīn\nMadad yā Badwānī\nMadad yā Shamsu-d-Dīn\nMadad yā Dahlawī\nMadad yā Baghdādī",
+      "en": "Support us, O Maʿṣūmī\nSupport us, O Sayf ad-Dīn\nSupport us, O Badwānī\nSupport us, O Shams ad-Dīn\nSupport us, O Dahlawī\nSupport us, O Baghdādī"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا إِسْمَاعِيْلْ\nمَدَدْ يَا خَاصْ مُحَمَّدْ\nمَدَدْ يَا يَرَأْغِيْ\nمَدَدْ يَا غُمُوْقِيْ",
+      "tr": "Madad yā Ismāʿīl\nMadad yā Khāṣ Muḥammad\nMadad yā Yarāghī\nMadad yā Ghumūqī",
+      "en": "Support us, O Ismāʿīl\nSupport us, O Khāṣ Muḥammad\nSupport us, O Yarāghī\nSupport us, O Ghumūqī"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا سُغُوْرِيْ\nمَدَدْ يَا مَدَنِيْ\nمَدَدْ يَا شَرَفُ الدِّيْنْ\nمَدَدْ يَا عَبْدُ اللّٰهِ\nمَدَدْ يَا دَاغِسْتَانِيْ",
+      "tr": "Madad yā Sughūrī\nMadad yā Madanī\nMadad yā Sharafu-d-Dīn\nMadad yā ʿAbdullāh\nMadad yā Dāghistānī",
+      "en": "Support us, O Sughūrī\nSupport us, O Madanī\nSupport us, O Sharaf ad-Dīn\nSupport us, O ʿAbdullāh\nSupport us, O Dāghistānī"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا سُلْطَانُ الْأَوْلِيَاءْ\nمَدَدْ يَا شَيْخْ نَاظِمْ\nمَدَدْ يَا حَقَّانِيْ",
+      "tr": "Madad yā Sulṭānu-l-Awliyāʾ\nMadad yā Shaykh Nāẓim\nMadad yā Ḥaqqānī",
+      "en": "Support us, O Sulṭān al-Awliyāʾ\nSupport us, O Shaykh Nāẓim\nSupport us, O Ḥaqqānī"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا صَاحِبُ الْوَقْتِ\nمَدَدْ يَا صَاحِبُ الزَّمَانْ\nمَدَدْ يَا إِمَامُ الْمَهْدِي",
+      "tr": "Madad yā Ṣāḥibu-l-Waqt\nMadad yā Ṣāḥibu-z-Zamān\nMadad yā Imāmu-l-Mahdī",
+      "en": "Support us, O Ṣāḥib al-Waqt\nSupport us, O Ṣāḥib az-Zamān\nSupport us, O Imām Mahdī"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَدَدْ يَا فَرْدَانِيْ\nمَدَدْ يَا صِدِّيقُوْنْ\nمَدَدْ يَا يَمَنِيْ\nمَدَدْ يَا إِمَامُ الْعَارِفِيْنْ\nمَدَدْ يَا سَخَاوِيْ\nمَدَدْ يَا مَعْرُوْفُ بِمُلْحَانْ\nمَدَدْ يَا غَوْثِ الْأَنَامْ",
+      "tr": "Madad yā Fardānī\nMadad yā Ṣiddīqūn\nMadad yā Yamanī\nMadad yā Imāmu-l-ʿĀrifīn\nMadad yā Sakhāwī\nMadad yā Maʿrūfu bi-Mulḥān\nMadad yā Ghawthi-l-Anām",
+      "en": "Support us, O Fardānī\nSupport us, O Ṣiddīqūn\nSupport us, O Yamanī\nSupport us, O Imām al-ʿĀrifīn\nSupport us, O Sakhāwī\nSupport us, O Maʿrūf bi-Mulḥān\nSupport us, O Ghawth al-Anām"
+    }
+  ]
+}

@@ -2,13 +2,13 @@
   "category": "qasida",
   "group": "qasidas",
   "titleArabic": "قَصِيدَةُ الْاِفْتِتَاحْ",
-  "titleEnglish": "2 · The Opening Qasida — Yā Rabbi Ṣalli ʿalā Muḥammad",
+  "titleEnglish": "2 · The Opening Qasida — Mawlid version (Yā Rabbi Ṣalli ʿalā Muḥammad)",
   "verses": [
     {
       "refrain": true,
-      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ صَلِّ عَلَيْهِ وَسَلِّمْ",
-      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi ṣalli ʿalayhi wa-sallim",
-      "en": "O my Lord, send blessings upon Muhammad; O my Lord, bless him and grant him peace."
+      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ صَلِّ عَلَيْهِ وَسَلِّمْ (2)",
+      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi ṣalli ʿalayhi wa-sallim (2)",
+      "en": "O my Lord, send blessings upon Muhammad; O my Lord, bless him and grant him peace. (2)"
     },
     {
       "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ بَلِّغْهُ الْوَسِيلَةْ",
@@ -41,23 +41,23 @@
       "en": "O my Lord, have mercy on our parents."
     },
     {
-      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَارْحَمْنَا جَمِيعًا",
-      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi wa-rḥamnā jamīʿā",
+      "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَارْحَمْنَا جَمِيعًا",
+      "tr": "Allāhumma ṣalli ʿalā Muḥammad · Yā Rabbi wa-rḥamnā jamīʿā",
       "en": "O my Lord, have mercy on us all."
     },
     {
-      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَارْحَمْ كُلَّ مُسْلِمْ",
-      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi wa-rḥam kulla muslim",
+      "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَارْحَمْ كُلَّ مُسْلِمْ",
+      "tr": "Allāhumma ṣalli ʿalā Muḥammad · Yā Rabbi wa-rḥam kulla muslim",
       "en": "O my Lord, have mercy on every Muslim."
     },
     {
-      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَاغْفِرْ لِكُلِّ مُذْنِبْ",
-      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi wa-ghfir li-kulli mudhnib",
+      "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَاغْفِرْ لِكُلِّ مُذْنِبْ",
+      "tr": "Allāhumma ṣalli ʿalā Muḥammad · Yā Rabbi wa-ghfir li-kulli mudhnib",
       "en": "O my Lord, forgive every sinner."
     },
     {
-      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ يَا سَامِعْ دُعَانَا",
-      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi yā sāmiʿ duʿānā",
+      "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ يَا سَامِعْ دُعَانَا",
+      "tr": "Allāhumma ṣalli ʿalā Muḥammad · Yā Rabbi yā sāmiʿ duʿānā",
       "en": "O my Lord, O Hearer of our supplication."
     },
     {
@@ -101,23 +101,23 @@
       "en": "O my Lord, surround us with felicity."
     },
     {
-      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَاصْلِحْ كُلَّ مُصْلِحْ",
-      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi wa-ṣliḥ kulla muṣliḥ",
+      "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَاصْلِحْ كُلَّ مُصْلِحْ",
+      "tr": "Allāhumma ṣalli ʿalā Muḥammad · Yā Rabbi wa-ṣliḥ kulla muṣliḥ",
       "en": "O my Lord, set right everyone who seeks to set things right."
     },
     {
-      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَاكْفِ كُلَّ مُؤْذِي",
-      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi wa-kfi kulla mu'dhī",
+      "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ وَاكْفِ كُلَّ مُؤْذِي",
+      "tr": "Allāhumma ṣalli ʿalā Muḥammad · Yā Rabbi wa-kfi kulla mu'dhī",
       "en": "O my Lord, shield us from every harmful one."
     },
     {
-      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ نَخْتِمْ بِالْمُشَفَّعْ",
-      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi nakhtim bi-l-mushaffaʿ",
+      "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ نَخْتِمْ بِالْمُشَفَّعْ",
+      "tr": "Allāhumma ṣalli ʿalā Muḥammad · Yā Rabbi nakhtim bi-l-mushaffaʿ",
       "en": "O my Lord, we close with the one granted intercession."
     },
     {
-      "ar": "يَا رَبِّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ صَلِّ عَلَيْهِ وَسَلِّمْ",
-      "tr": "Yā Rabbi ṣalli ʿalā Muḥammad · Yā Rabbi ṣalli ʿalayhi wa-sallim",
+      "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ ۞ يَا رَبِّ صَلِّ عَلَيْهِ وَسَلِّمْ",
+      "tr": "Allāhumma ṣalli ʿalā Muḥammad · Yā Rabbi ṣalli ʿalayhi wa-sallim",
       "en": "O my Lord, bless him and grant him peace."
     },
     {

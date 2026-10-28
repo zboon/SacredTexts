@@ -1,0 +1,50 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "اللّٰهُ اللّٰهُ اللّٰهُ اللّٰهُ",
+  "titleEnglish": "Mā Lanā Mawlan Siwa-llāh",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "اللّٰهُ اللّٰهُ اللّٰهُ اللّٰهُ\nمَا لَنَا مَوْلًى سِوَى اللّٰهِ\nكُلَّمَا نَادَيْتُ يَا هُو\nقَالَ يَا عَبْدِي أَنَا اللّٰهُ",
+      "tr": "Allāhu Allāhu Allāhu Allāh\nMā lanā mawlan siwa-llāh\nKullamā nādaytu yā Hū\nQāla yā ʿabdī ana-llāh",
+      "en": "Allah, Allah, Allah, Allah — we have no master but Allah. Whenever I cry out, 'O He,' He answers: 'O My servant, I am Allah.'"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "فِي رَبِيعٍ أَطْلَعَ اللّٰهُ\nوَأَتَى النَّصْرُ مِنَ اللّٰهِ\nيَا لَهُ شَهْرٌ عَظِيمُ\nوَشَرِيفٌ كَرَّمَ اللّٰهُ",
+      "tr": "Fī Rabīʿin aṭlaʿa-llāh\nWa atā-n-naṣru mina-llāh\nYā lahu shahrun ʿaẓīmu\nWa sharīfun karrama-llāh",
+      "en": "In Rabi' al-Awwal Allah caused the dawn to break, and victory came from Allah — what a magnificent month, ennobled by Allah's own generosity."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "فِيهِ جَمْعًا قَدْ فَرِحْنَا\nوَبِنَيْلِ الْقَصْدِ فُزْنَا\nيَا رَسُولَ اللّٰهِ طِبْنَا\nوَعَلَيْنَا أَنْعَمَ اللّٰهُ",
+      "tr": "Fīhi jamʿan qad fariḥnā\nWa bi-nayli-l-qaṣdi fuznā\nYā Rasūla-llāhi ṭibnā\nWa ʿalaynā anʿama-llāh",
+      "en": "In it we have all rejoiced together, and in attaining our purpose we have triumphed; O Messenger of Allah, we have found our joy, and Allah has showered us with His favour."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "ظَهَرَ الدِّينُ الْمُؤَيَّدْ\nبِظُهُورِ الْهَادِي أَحْمَدْ\nيَا هَنَاءً بِمُحَمَّدْ\nذَلِكَ الْفَضْلُ مِنَ اللّٰهِ",
+      "tr": "Ẓahara-d-dīnu-l-muʾayyad\nbi-ẓuhūri-l-Hādī Aḥmad\nYā hanā'an bi-Muḥammad\nDhālika-l-faḍlu mina-llāh",
+      "en": "The upheld religion has appeared with the appearance of the Guide, Ahmad — what joy in Muhammad! That is the bounty of Allah."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "ثَانِيَ عَشَرَ فِي رَبِيعِ\nكَانَ مِيلَادُ الشَّفِيعِ\nصَاحِبُ الْقَدْرِ الرَّفِيعِ\nمَنْ لَهُ قَدْ أَيَّدَ اللّٰهُ",
+      "tr": "Thāniya ʿashara fī Rabīʿi\nkāna mīlādu-sh-Shafīʿi\nṢāḥibu-l-qadri-r-rafīʿi\nMan lahu qad ayyada-llāh",
+      "en": "On the twelfth of Rabi' al-Awwal was the birth of the Intercessor, possessor of exalted rank — the one whom Allah Himself has strengthened."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَوْمَ مِيلَادِ التِّهَامِي\nخَاتَمِ الرُّسْلِ الْكِرَامِ\nزُخْرِفَتْ دَارُ السَّلَامِ\nوَأَتَى النَّصْرُ مِنَ اللّٰهِ",
+      "tr": "Yawma mīlādi-t-Tihāmī\nkhātami-r-rusuli-l-kirāmi\nZukhrifat dāru-s-salāmi\nwa atā-n-naṣru mina-llāh",
+      "en": "On the day of the birth of the one from Tihamah, seal of the noble messengers, the Abode of Peace was adorned, and victory came from Allah."
+    },
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, send peace and blessings upon him and his family."
+    }
+  ]
+}

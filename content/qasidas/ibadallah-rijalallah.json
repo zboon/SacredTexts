@@ -1,0 +1,50 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "عِبَادَ اللّٰهِ رِجَالَ اللّٰهِ",
+  "titleEnglish": "ʿIbādallāh Rijālallāh",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "عِبَادَ اللّٰهِ رِجَالَ اللّٰهِ ۞ أَغِيثُونَا بِأَهْلِ اللّٰهِ\nوَكُونُوا عَوْنَنَا فِي اللّٰهِ ۞ عَسَى نَحْظَى بِفَضْلِ اللّٰهِ",
+      "tr": "ʿIbādallāhi rijālallāhi ۞ Aghīthūnā bi-ahlillāh\nWa kūnū ʿawnanā fi-llāhi ۞ ʿAsā naḥẓā bi-faḍlillāh",
+      "en": "O servants of Allah, O men of Allah, come to our aid through the People of Allah, and be our support in Allah's cause, so we may attain the favour of Allah."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "وَيَا أَقْطَابْ وَيَا أَنْجَابْ ۞ وَيَا سَادَاتْ وَيَا أَحْبَابْ\nوَأَنْتُمْ يَا أُولِي الْأَلْبَابْ ۞ تَعَالَوْا وَانْصُرُوا لِلّٰهِ",
+      "tr": "Wa yā aqṭāb wa yā anjāb ۞ Wa yā sādāt wa yā aḥbāb\nWa antum yā ulī-l-albāb ۞ Taʿālaw wa-nṣurū lillāh",
+      "en": "O poles, O noble ones, O masters, O beloved ones, and you, O people of understanding — come and grant us victory for Allah's sake."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "سَأَلْنَاكُمْ سَأَلْنَاكُمْ ۞ وَلِلزُّلْفَى رَجَوْنَاكُمْ\nوَفِي أَمْرٍ قَصَدْنَاكُمْ ۞ فَشُدُّوا أَمْرَكُمْ لِلّٰهِ",
+      "tr": "Saʾalnākum saʾalnākum ۞ Wa li-z-zulfā rajawnākum\nWa fī amrin qaṣadnākum ۞ Fa-shuddū amrakum lillāh",
+      "en": "We have asked you, we have asked you; we have hoped for nearness through you, and in this matter we have turned to you — so take up our cause for Allah's sake."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "فَيَا رَبِّي بِسَادَاتِي ۞ تَحَقَّقْ لِي إِشَارَاتِي\nعَسَى تَأْتِي بِشَارَاتِي ۞ وَيَصْفُو أَمْرُنَا لِلّٰهِ",
+      "tr": "Fa-yā Rabbī bi-sādātī ۞ Taḥaqqaq lī ishārātī\nʿAsā taʾtī bishārātī ۞ Wa yaṣfū amrunā lillāh",
+      "en": "O my Lord, by these masters let my hopes be realised — may glad tidings come to me, and may our affair be made pure and sincere for Allah."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "بِكَشْفِ الْحُجُبِ عَنْ عَيْنِي ۞ وَرَفْعِ الْبَيْنِ مِنْ بَيْنِي\nوَصَرْفِ الْقَلْبِ وَالْعَيْنِ ۞ بِنُورِ الْوَجْهِ يَا اللّٰهُ",
+      "tr": "Bi-kashfi-l-ḥujubi ʿan ʿaynī ۞ Wa rafʿi-l-bayni min baynī\nWa ṣarfi-l-qalbi wa-l-ʿayni ۞ Bi-nūri-l-wajhi yā Allāh",
+      "en": "By lifting the veils from my sight, and removing the distance that stands between us; and by turning the heart and eye toward the light of the Face, O Allah."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "صَلَاةُ اللّٰهِ مَوْلَانَا ۞ عَلَى مَنْ بِالْهُدَى جَانَا\nوَمَنْ بِالْحَقِّ أَوْلَانَا ۞ شَفِيعِ الْخَلْقِ عِنْدَ اللّٰهِ",
+      "tr": "Ṣalātu-llāhi Mawlānā ۞ ʿAlā man bi-l-hudā jānā\nWa man bi-l-ḥaqqi awlānā ۞ Shafīʿi-l-khalqi ʿinda-llāh",
+      "en": "The blessing of Allah, our Master, be upon him who came to us with guidance, and who entrusted us with the truth — the intercessor of creation before Allah."
+    },
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, send peace and blessings upon him and his family."
+    }
+  ]
+}

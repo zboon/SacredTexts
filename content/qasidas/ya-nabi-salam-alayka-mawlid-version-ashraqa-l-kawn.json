@@ -6,9 +6,9 @@
   "verses": [
     {
       "refrain": true,
-      "ar": "يَا نَبِي سَلَامْ عَلَيْكَ\nيَا رَسُولْ سَلَامْ عَلَيْكَ\nيَا حَبِيبْ سَلَامْ عَلَيْكَ\nيَا رَسُولَ اللّٰه\nصَلَوَاتُ اللّٰهْ عَلَيْكَ",
-      "tr": "Yā Nabī salām ʿalayka · Yā Rasūl salām ʿalayka · Yā Ḥabīb salām ʿalayka · Yā Rasūlallāh · Ṣalawātullāh ʿalayka",
-      "en": "O Prophet, peace be upon you; O Messenger, peace be upon you; O Beloved, peace be upon you; O Messenger of Allah — the blessings of Allah be upon you."
+      "ar": "يَا نَبِي سَلَامْ عَلَيْكَ\nيَا رَسُولْ سَلَامْ عَلَيْكَ\nيَا حَبِيبْ سَلَامْ عَلَيْكَ\nصَلَوَاتُ اللّٰهْ عَلَيْكَ",
+      "tr": "Yā Nabī salām ʿalayka · Yā Rasūl salām ʿalayka · Yā Ḥabīb salām ʿalayka · Ṣalawātullāh ʿalayka",
+      "en": "O Prophet, peace be upon you; O Messenger, peace be upon you; O Beloved, peace be upon you — the blessings of Allah be upon you."
     },
     {
       "ar": "أَشْرَقَ الْكَوْنُ ابْتِهَاجًا ۞ بِوُجُودِ الْمُصْطَفَى أَحْمَدْ",
@@ -16,6 +16,7 @@
       "en": "The universe lit up with joy at the coming of the Chosen One, Ahmad."
     },
     {
+      "repeatRefrain": true,
       "ar": "وَلِأَهْلِ الْكَوْنِ أُنْسٌ ۞ وَسُرُورٌ قَدْ تَجَدَّدْ",
       "tr": "Wa li-ahli-l-kawni unsun · wa surūrun qad tajaddad",
       "en": "For all who dwell in creation there is intimacy, and a joy made ever new."
@@ -26,6 +27,7 @@
       "en": "So rejoice, O people of the oft-repeated verses — the nightingale of blessedness has burst into song."
     },
     {
+      "repeatRefrain": true,
       "ar": "وَاسْتَضِيئُوا بِجَمَالٍ ۞ فَاقَ فِي الْحُسْنِ تَفَرَّدْ",
       "tr": "Wa-staḍī'ū bi-jamālin · fāqa fī-l-ḥusni tafarrad",
       "en": "And seek light from a beauty that surpasses all — unique and unrivaled in loveliness."
@@ -36,6 +38,7 @@
       "en": "Ours is the glad tiding of a happiness that continues and never runs out."
     },
     {
+      "repeatRefrain": true,
       "ar": "حَيْثُ أُوتِينَا عَطَاءً ۞ جَمَعَ الْفَخْرَ الْمُؤَبَّدْ",
       "tr": "Ḥaythu ūtīnā ʿaṭā'an · jamaʿa-l-fakhra-l-mu'abbad",
       "en": "For we were given a gift that gathered everlasting glory within it."
@@ -46,6 +49,7 @@
       "en": "So to my Lord belongs all praise — too majestic for numbers to contain."
     },
     {
+      "repeatRefrain": true,
       "ar": "إِذْ حَبَانَا بِوُجُودِ ۞ الْمُصْطَفَى الْهَادِي مُحَمَّدْ",
       "tr": "Idh ḥabānā bi-wujūdi · l-Muṣṭafā-l-hādī Muḥammad",
       "en": "For He graced us with the presence of the Chosen One, the Guide — Muhammad."

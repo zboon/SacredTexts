@@ -1,0 +1,44 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "أَيُّهَا الْمُشْتَاقُ",
+  "titleEnglish": "Ayyuhā-l-Mushtāq — O Yearning Lover",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "أَيُّهَا الْمُشْتَاقُ لَا تَنَمِ ۞ هَذِهِ أَنْوَارُ ذِي سَلَمِ\nعَنْ قَرِيبٍ أَنْتَ فِي الْحَرَمِ ۞ عِنْدَ خَيْرِ الْعُرْبِ وَالْعَجَمِ",
+      "tr": "Ayyuha-l-mushtāqu lā tanami ۞ hādhihi anwāru Dhī Salami\nʿAn qarībin anta fi-l-ḥarami ۞ ʿinda khayri-l-ʿurbi wa-l-ʿajami",
+      "en": "O yearning lover, do not sleep — these are the lights of the valley of Salam; soon you will stand within the sanctuary, before the best of Arabs and non-Arabs."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "قِفْ أَمَامَ الْقَبْرِ فِي أَدَبِ ۞ مَا ثَلَا فِي أَشْرَفِ الرُّتَبِ\nفِي مَكَانِ الْقُرْبِ وَالْقُرَبِ ۞ وَالرِّضَا وَالْجُودِ وَالْكَرَمِ",
+      "tr": "Qif amāma-l-qabri fī adabi ۞ mā thalā fī ashrafi-r-rutabi\nFī makāni-l-qurbi wa-l-qurabi ۞ wa-r-riḍā wa-l-jūdi wa-l-karami",
+      "en": "Stand before the grave in reverence, before one whose rank none has ever equalled — in a place of nearness upon nearness, of contentment, generosity, and noble bounty."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "ثُمَّ قُلْ يَا أَشْرَفَ الرُّسُلِ ۞ يَا حَبِيبَ اللّٰهِ فِي الْأَمَلِ\nيَا عَظِيمَ الْعِلْمِ وَالْعَمَلِ ۞ يَا سَمِيرَ اللَّوْحِ وَالْقَلَمِ",
+      "tr": "Thumma qul yā ashrafa-r-rusuli ۞ yā ḥabība-llāhi fi-l-amali\nYā ʿaẓīma-l-ʿilmi wa-l-ʿamali ۞ yā samīra-l-lawḥi wa-l-qalami",
+      "en": "Then say: O most honoured of messengers, O beloved of Allah in whom all hope rests; O magnificent in knowledge and deed, O companion of the Tablet and the Pen."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "لَيْسَ كَالْمُخْتَارِ فِي الْبَشَرِ ۞ فَهُوَ مِلْءُ السَّمْعِ وَالْبَصَرِ\nوَاحِدُ التَّارِيخِ وَالسِّيَرِ ۞ وَإِمَامُ الرُّسُلِ وَالْأُمَمِ",
+      "tr": "Laysa ka-l-Mukhtāri fi-l-bashari ۞ fa-huwa mil'u-s-samʿi wa-l-baṣari\nWāḥidu-t-tārīkhi wa-s-siyari ۞ wa imāmu-r-rusuli wa-l-umami",
+      "en": "None among humankind compares to the Chosen One — he fills all hearing and sight; unique in history and in the story of his life, leader of every messenger and every nation."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "لَيْلَةُ الْإِسْرَاءِ يَرْعَاهُ ۞ وَعَلَى الْمِعْرَاجِ مَرْقَاهُ\nحَتَّى أَدْنَاهُ وَنَاجَاهُ ۞ بِكَلَامٍ لَيْسَ كَالْكَلِمِ",
+      "tr": "Laylatu-l-isrā'i yarʿāhu ۞ wa ʿalā-l-miʿrāji marqāhu\nḤattā adnāhu wa nājāhu ۞ bi-kalāmin laysa ka-l-kalimi",
+      "en": "The Night Journey watches over him, and upon the Ascension is his rank of nearness — until He drew him close and spoke with him, in words unlike any other words."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "رُتْبَةٌ مَا بَعْدَهَا شَرَفٌ ۞ دُونَهَا كُلُّ الْوَرَى وَقَفُوا\nقَابَ قَوْسَيْنِ لَهَا طَرَفٌ ۞ ثُمَّ أَوْ أَدْنَى إِلَى الْقِمَمِ",
+      "tr": "Rutbatun mā baʿdahā sharafun ۞ dūnahā kullu-l-warā waqafū\nQāba qawsayni lahā ṭarafun ۞ thumma aw adnā ila-l-qimami",
+      "en": "A rank beyond which there is no higher honour, before which the whole of creation has come to a halt — one end of it at two bow-lengths, or nearer still, to the very summit of nearness."
+    }
+  ]
+}

@@ -16,6 +16,7 @@
       "en": "By the star as it descends, I swear: the healthy and the ailing are not equal —"
     },
     {
+      "repeatRefrain": true,
       "ar": "فَاخْلَعِ الْكَوْنَيْنِ عَنْكَ سِوَى ۞ حُبِّ مَوْلَى الْعُرْبِ وَالْعَجَمِ",
       "tr": "Fa-khlaʿi-l-kawnayni ʿanka siwā · ḥubbi mawlā-l-ʿurbi wa-l-ʿajami",
       "en": "so cast off both worlds from yourself, keeping only love of the master of Arabs and non-Arabs."
@@ -26,6 +27,7 @@
       "en": "Master of masters from Mudar, the succor of desert dwellers and settled folk alike,"
     },
     {
+      "repeatRefrain": true,
       "ar": "صَاحِبُ الْآيَاتِ وَالسُّوَرِ ۞ مَنْبَعُ الْأَحْكَامِ وَالْحِكَمِ",
       "tr": "Ṣāḥibu-l-āyāti wa-s-suwari · manbaʿu-l-aḥkāmi wa-l-ḥikami",
       "en": "keeper of the verses and the chapters, wellspring of rulings and of wisdoms."
@@ -36,6 +38,7 @@
       "en": "A moon whose inner essence is pure, and pure too his character and his way of life —"
     },
     {
+      "repeatRefrain": true,
       "ar": "صَفْوَةُ الْبَارِي وَخِيرَتُهُ ۞ عَدْلُ أَهْلِ الْحِلِّ وَالْحَرَمِ",
       "tr": "Ṣafwatu-l-Bārī wa khīratuhu · ʿadlu ahli-l-ḥilli wa-l-ḥarami",
       "en": "the purest elect of the Maker and His chosen one, trusted just witness for all people, within the sanctuary and beyond."
@@ -46,6 +49,7 @@
       "en": "No eye has seen, nor shall it ever see, a human being like Taha among creation —"
     },
     {
+      "repeatRefrain": true,
       "ar": "خَيْرُ مَنْ مَسَّ الثَّرَى أَثَرَا ۞ طَاهِرُ الْأَخْلَاقِ وَالشِّيَمِ",
       "tr": "Khayru man massa-th-tharā atharā · ṭāhiru-l-akhlāqi wa-sh-shiyami",
       "en": "the best whose footsteps ever touched the earth, pure in morals and in noble traits."

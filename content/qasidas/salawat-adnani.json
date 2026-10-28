@@ -1,0 +1,32 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "صَلَّى عَلَيْكَ اللّٰهُ يَا عَدْنَانِي",
+  "titleEnglish": "Ṣalawāt ʿAdnānī",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "صَلَّى عَلَيْكَ اللّٰهُ يَا عَدْنَانِي\nيَا مُصْطَفَى يَا صَفْوَةَ الرَّحْمٰنِ\nالْحَمْدُ لِلّٰهِ الَّذِي أَعْطَانِي\nهَذَا الْغُلَامَ الطَّيِّبَ الْأَرْدَانِ (2)",
+      "tr": "Ṣallā ʿalayka-llāhu yā ʿAdnānī\nYā Muṣṭafā yā ṣafwata-r-Raḥmān\nAl-ḥamdu lillāhi-lladhī aʿṭānī\nHādha-l-ghulāma-ṭ-ṭayyiba-l-ardān (2)",
+      "en": "May Allah's blessing be upon you, O son of Adnan — O Chosen One, O purest of the Most Merciful's creation! Praise belongs to Allah, who granted me this good child, pure from the very cradle."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "قَدْ سَادَ فِي الْمَهْدِ عَلَى الْغِلْمَانِ\nأُعِيذُهُ بِالْبَيْتِ ذِي الْأَرْكَانِ\nحَتَّى أَرَاهُ بَالِغَ الْبُنْيَانِ\nأَنْتَ الَّذِي سُمِّيتَ فِي الْقُرْآنِ (2)",
+      "tr": "Qad sāda fi-l-mahdi ʿala-l-ghilmāni\nUʿīdhuhu bi-l-bayti dhi-l-arkāni\nḤattā arāhu bāligha-l-bunyāni\nAnta-lladhī summīta fi-l-Qurʾān (2)",
+      "en": "Even in the cradle he surpassed every other child; I place him in the protection of the House of firm foundations, until I see him grown to full stature — you are the one named in the Qur'an."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَحْمَدُ مَكْتُوبٌ عَلَى الْجِنَانِ\nصَلَّى عَلَيْكَ اللّٰهُ فِي الْأَحْيَانِ\nأَحْمَدُهُ فِي السِّرِّ وَالْبُرْهَانِ\nحَقًّا عَلَى الْإِسْلَامِ وَالْإِيمَانِ (2)",
+      "tr": "Aḥmadu maktūbun ʿala-l-jināni\nṢallā ʿalayka-llāhu fi-l-aḥyāni\nAḥmaduhu fi-s-sirri wa-l-burhāni\nḤaqqan ʿala-l-islāmi wa-l-īmāni (2)",
+      "en": "Ahmad — his name is inscribed upon the gardens of Paradise; may Allah's blessing be upon you always. I praise him in private and in evidence, truly, for the sake of Islam and faith."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَا رَبَّنَا بِالْمُصْطَفَى الْعَدْنَانِي\nاغْفِرْ ذُنُوبِي ثُمَّ أَصْلِحْ شَانِي (2)",
+      "tr": "Yā Rabbanā bi-l-Muṣṭafā-l-ʿAdnānī\nIghfir dhunūbī thumma aṣliḥ shānī (2)",
+      "en": "O our Lord, by the Chosen One, the son of Adnan, forgive my sins and set my affairs right."
+    }
+  ]
+}

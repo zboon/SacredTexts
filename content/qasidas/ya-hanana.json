@@ -1,0 +1,33 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا هَنَانَا",
+  "titleEnglish": "Yā Hanānā",
+  "note": "The 'Yā hanānā' line frames the piece — repeated 4x at the opening/close and again after verses 1-2, per the ×٤/×٢ marks in the source.",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "يَا هَنَانَا يَا هَنَانَا (4)\nظَهَرَ الدِّينُ الْمُؤَيَّدْ\nبِظُهُورِ النَّبِيِّ أَحْمَدْ (2)\nيَا هَنَانَا بِمُحَمَّدْ\nذَلِكَ الْفَضْلُ مِنَ اللّٰهِ\nيَا هَنَانَا يَا هَنَانَا (4)",
+      "tr": "Yā hanānā yā hanānā (4)\nẒahara-d-dīnu-l-muʾayyad\nBi-ẓuhūri-n-Nabiyyi Aḥmad (2)\nYā hanānā bi-Muḥammad\nDhālika-l-faḍlu mina-llāh\nYā hanānā yā hanānā (4)",
+      "en": "O our joy, O our joy — the upheld religion has appeared with the appearance of the Prophet Ahmad; O our joy in Muhammad, that is the bounty from Allah. O our joy, O our joy."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "خُصَّ بِالسَّبْعِ الْمَثَانِي\nوَحَوَى لُطْفَ الْمَعَانِي\nمَا لَهُ فِي الْخَلْقِ ثَانِي\nوَعَلَيْهِ أَنْزَلَ اللّٰهُ\nيَا هَنَانَا يَا هَنَانَا",
+      "tr": "Khuṣṣa bi-s-sabʿi-l-mathānī\nWa ḥawā luṭfa-l-maʿānī\nMā lahu fi-l-khalqi thānī\nWa ʿalayhi anzala-llāh\nYā hanānā yā hanānā",
+      "en": "He alone was given the seven oft-repeated verses, and he encompassed every subtlety of meaning; none among creation is his equal, and upon him Allah sent down revelation. O our joy, O our joy."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مِنْ مَكَّةَ لَمَّا ظَهَرْ\nلِأَجْلِهِ انْشَقَّ الْقَمَرْ\nوَافْتَخَرَتْ آلُ مُضَرْ\nبِهِ عَلَى كُلِّ الْأَنَامِ",
+      "tr": "Min Makkata lammā ẓahar\nLi-ajlihi-nshaqqa-l-qamar\nWa-ftakharat Ālu Muḍar\nBihi ʿalā kulli-l-anām",
+      "en": "When he appeared from Mecca, the moon split for his sake, and the family of Mudar took pride in him above all humankind."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "صَلُّوا عَلَى خَيْرِ الْأَنَامِ\nالْمُصْطَفَى بَدْرِ التَّمَامِ\nصَلُّوا عَلَيْهِ وَسَلِّمُوا\nيَشْفَعْ لَنَا يَوْمَ الزِّحَامِ",
+      "tr": "Ṣallū ʿalā khayri-l-anām\nAl-Muṣṭafā badri-t-tamām\nṢallū ʿalayhi wa sallimū\nYashfaʿ lanā yawma-z-ziḥām",
+      "en": "Send blessings upon the best of creation, the Chosen One, the moon at its fullness; send blessings and peace upon him — he will intercede for us on the day of the crowded gathering."
+    }
+  ]
+}

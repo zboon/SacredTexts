@@ -1,0 +1,55 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا شَفِيعَ الْوَرَى",
+  "titleEnglish": "Yā Shafīʿa-l-Warā",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "يَا شَفِيعَ الْوَرَى سَلَامٌ عَلَيْكْ\nيَا نَبِيَّ الْهُدَى سَلَامٌ عَلَيْكْ\nخَاتِمَ الْأَنْبِيَاءِ سَلَامٌ عَلَيْكْ\nسَيِّدَ الْأَصْفِيَاءِ سَلَامٌ عَلَيْكْ",
+      "tr": "Yā shafīʿa-l-warā salāmun ʿalayk\nYā nabiyya-l-hudā salāmun ʿalayk\nKhātima-l-anbiyāʾ salāmun ʿalayk\nSayyida-l-aṣfiyāʾ salāmun ʿalayk",
+      "en": "O intercessor of mankind, peace be upon you; O prophet of guidance, peace be upon you; seal of the prophets, peace be upon you; master of the chosen ones, peace be upon you."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَحْمَدُ لَيْسَ مِثْلُكَ أَحَدْ\nمَرْحَبًا مَرْحَبًا سَلَامٌ عَلَيْكْ\nوَاجِبٌ حُبُّكَ عَلَى الْمَخْلُوقْ\nيَا حَبِيبَ الْعُلَا سَلَامٌ عَلَيْكْ",
+      "tr": "Aḥmadu laysa mithluka aḥad\nMarḥaban marḥaban salāmun ʿalayk\nWājibun ḥubbuka ʿala-l-makhlūq\nYā ḥabība-l-ʿulā salāmun ʿalayk",
+      "en": "Ahmad, none is like you — welcome, welcome, peace be upon you; love for you is owed by every creature, O beloved of the Most High, peace be upon you."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَعْظَمُ الْخَلْقِ أَشْرَفُ الشُّرَفَاءِ\nأَفْضَلُ الْأَنْبِيَاءِ سَلَامٌ عَلَيْكْ\nمَهْبَطُ الْوَحْيِ مَنْزِلُ الْقُرْآنِ\nصَاحِبُ الِاهْتِدَاءِ سَلَامٌ عَلَيْكْ",
+      "tr": "Aʿẓamu-l-khalqi ashrafu-sh-shurafāʾ\nAfḍalu-l-anbiyāʾ salāmun ʿalayk\nMahbaṭu-l-waḥyi manzilu-l-Qurʾān\nṢāḥibu-l-ihtidāʾ salāmun ʿalayk",
+      "en": "Greatest of creation, most honoured of the honoured, most excellent of the prophets, peace be upon you; the place where revelation descended, the home of the Qur'an, master of guidance, peace be upon you."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "اِشْفَعْ لِي يَا حَبِيبِي يَوْمَ الْجَزَاءِ\nأَنْتَ شَافِعُنَا سَلَامٌ عَلَيْكْ\nكَشَفْتَ عَنَّا ظُلْمَةَ الظُّلَمَاءِ\nأَنْتَ بَدْرُ الدُّجَى سَلَامٌ عَلَيْكْ",
+      "tr": "Ishfaʿ lī yā ḥabībī yawma-l-jazāʾ\nAnta shāfiʿunā salāmun ʿalayk\nKashafta ʿannā ẓulmata-ẓ-ẓulamāʾ\nAnta badru-d-dujā salāmun ʿalayk",
+      "en": "Intercede for me, O my beloved, on the Day of Recompense — you are our intercessor, peace be upon you; you lifted from us the darkness of every darkness, you are the full moon of the night, peace be upon you."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "طَلَعَتْ مِنْكَ كَوْكَبُ الْعِرْفَانِ\nأَنْتَ شَمْسُ الضُّحَى سَلَامٌ عَلَيْكْ\nلَيْلَةَ الْإِسْرَاءِ قَالَتِ الْأَنْبِيَاءُ\nمَرْحَبًا مَرْحَبًا سَلَامٌ عَلَيْكْ",
+      "tr": "Ṭalaʿat minka kawkabu-l-ʿirfān\nAnta shamsu-ḍ-ḍuḥā salāmun ʿalayk\nLaylata-l-isrāʾi qālati-l-anbiyāʾ\nMarḥaban marḥaban salāmun ʿalayk",
+      "en": "From you rose the star of gnosis — you are the sun of forenoon, peace be upon you; on the Night Journey the prophets themselves said: welcome, welcome, peace be upon you."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَقْصُودِي يَا حَبِيبِي لَيْسَ سِوَاكْ\nأَنْتَ مَقْصُودُنَا سَلَامٌ عَلَيْكْ\nإِنَّكَ مَقْصَدِي وَمَلْجَئِي\nإِنَّكَ مُدَّعَى سَلَامٌ عَلَيْكْ",
+      "tr": "Maqṣūdī yā ḥabībī laysa siwāk\nAnta maqṣūdunā salāmun ʿalayk\nInnaka maqṣadī wa maljaʾī\nInnaka mudda ʿā salāmun ʿalayk",
+      "en": "My aim, O my beloved, is none but you — you are our aim, peace be upon you; you are my goal and my refuge, you are the one I call upon, peace be upon you."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "صَلَوَاتُ اللّٰهِ عَلَى الْمُصْطَفَى\nأَفْضَلُ الْأَنْبِيَاءِ سَلَامٌ عَلَيْكْ\nهَذَا أَوَّلُ غُلَامِكَ يَا سَيِّدِي\nمِنْهُمْ يَا مُصْطَفَى سَلَامٌ عَلَيْكْ",
+      "tr": "Ṣalawātu-llāhi ʿala-l-Muṣṭafā\nAfḍalu-l-anbiyāʾ salāmun ʿalayk\nHādhā awwalu ghulāmika yā sayyidī\nMinhum yā Muṣṭafā salāmun ʿalayk",
+      "en": "The blessings of Allah be upon the Chosen One, most excellent of the prophets, peace be upon you; this is the first of your servants, O my master — one of them, O Chosen One, peace be upon you."
+    },
+    {
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, send peace and blessings upon him and his family."
+    }
+  ]
+}

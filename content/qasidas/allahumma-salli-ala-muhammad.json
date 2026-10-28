@@ -1,0 +1,68 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ",
+  "titleEnglish": "Allāhumma Ṣalli ʿalā Muḥammad",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدْ\nيَا رَبِّ صَلِّ عَلَيْهِ وَسَلِّمْ",
+      "tr": "Allāhumma ṣalli ʿalā Muḥammad\nYā Rabbi ṣalli ʿalayhi wa sallim",
+      "en": "O Allah send blessings upon Muhammad\nO Lord, send peace upon him"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "فِي حُبِّ سَيِّدِنَا مُحَمَّدْ\nنُورٌ لِبَدْرِ الْهُدَى مُتَمَّمْ\nقَلْبِي يَحِنُّ إِلَى مُحَمَّدْ\nمَا زَالَ مِنْ وُجْدِهِ مُتَيَّمْ",
+      "tr": "Fī ḥubbi sayyidinā Muḥammad\nNūrun li-badri-l-hudā mutammam\nQalbī yaḥinnu ilā Muḥammad\nMā zāla min wujdihi mutayyam",
+      "en": "In the love of our beloved master Muhammad\nWho is the full moon of guidance\nMy heart is filled with the compassion for Muhammad\nIt is still filled with intense longing for him"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَا لِي حَبِيبٌ سِوَى مُحَمَّدْ\nخَيْرَ الرَّسُولِ النَّبِيِّ الْمُكَرَّمْ\nشَوْقُ الْمُحِبِّ إِلَى مُحَمَّدْ\nأَفْنَاهُ ثُمَّ بِهِ تَهَيَّمْ",
+      "tr": "Mā lī ḥabībun siwā Muḥammad\nKhayra-r-rasūli-n-nabiyyi-l-mukarram\nShawqu-l-muḥibbi ilā Muḥammad\nAfnāhu thumma bihi tahayyam",
+      "en": "I have no beloved but Muhammad\nThe best of messengers, the honoured Prophet\nThe follower’s wish is nothing but Muhammad\nHe is consumed in him and lost in his love"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "فِي الْحَشْرِ شَافِعُنَا مُحَمَّدْ\nمُنْجِي الْخَلَائِقِ مِنْ جَهَنَّمْ\nمِيلَادُ سَيِّدِنَا مُحَمَّدْ\nأُمُّ الْقُرَى بَلَدٌ مُعَظَّمْ",
+      "tr": "Fi-l-ḥashri shāfiʿunā Muḥammad\nMunji-l-khalāʾiqi min jahannam\nMīlādu sayyidinā Muḥammad\nUmmu-l-qurā baladun muʿaẓẓam",
+      "en": "On the Day of Judgement, our intercessor is Muhammad\nHe is the rescuer of humans from hell-fire (by the Mercy of Allah)\nThe birth of our master Muhammad and his coming in this world! (What an event, all praise is due to his Creator!)\nThe mother of cities is his glorious city"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَحْيَا الدُّجَى زَمَنًا مُحَمَّدْ\nمَوْلَاهُ سَلَّمَهُ وَكَلَّمْ\nأَدْعُوكَ أَحْمَدُ يَا مُحَمَّدْ\nيَا سَيِّدَ الرُّسُلِ الْمُقَدَّمْ",
+      "tr": "Aḥya-d-dujā zamanan Muḥammad\nMawlāhu sallamahu wa kallam\nAdʿūka Aḥmadu yā Muḥammad\nYā sayyida-r-rusuli-l-muqaddam",
+      "en": "Muhammad kept the dark nights alive in prayer for a time\nHis Lord greeted him with peace and spoke to him\nI call upon you, O Aḥmad, O Muhammad\nO master of the messengers, the foremost"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "اِشْفَعْ إِلَى اللّٰهِ يَا مُحَمَّدْ\nيَوْمَ الْقِيَامَةِ كَيْ أُنَعَّمْ\nأَرْجُو الشَّفَاعَةَ مِنْ مُحَمَّدْ\nلَوْ كُنْتُ أَرْتَكِبُ الْمُحَرَّمْ",
+      "tr": "Ishfaʿ ila-llāhi yā Muḥammad\nYawma-l-qiyāmati kay unaʿʿam\nArju-sh-shafāʿata min Muḥammad\nLaw kuntu artakibu-l-muḥarram",
+      "en": "Intercede with Allah, O Muhammad\nOn the Day of Resurrection, that I may be blessed\nI hope for intercession from Muhammad\nEven had I committed what is forbidden"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "مَنْجًا وَمَلْجَاءُ نَا مُحَمَّدْ\nيَوْمَ الْهَوَانِ بِهِ تَحَشَّمْ\nوَالنُّورُ جَاءَ بِهِ مُحَمَّدْ\nوَالْحَقُّ بَيَّنَ وَإِنْ تَكَلَّمْ",
+      "tr": "Manjan wa maljāʾunā Muḥammad\nYawma-l-hawāni bihi taḥashsham\nWa-n-nūru jāʾa bihi Muḥammad\nWa-l-ḥaqqu bayyana wa in takallam",
+      "en": "Muhammad is our rescue and our refuge\nOn the Day of Disgrace, through him we keep our honour\nMuhammad brought the light with him\nThe truth manifested when he talked"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَعْلَى السَّمَاءِ سَمَا مُحَمَّدْ\nجِبْرِيلُ قَالَ لَهُ تَقَدَّمْ\nوَالْجُنْدُ حِينَ غَزَا مُحَمَّدْ\nمِنْهُمْ مَلَائِكَةٌ تَسَوَّمْ",
+      "tr": "Aʿla-s-samāʾi samā Muḥammad\nJibrīlu qāla lahu taqaddam\nWa-l-jundu ḥīna ghazā Muḥammad\nMinhum malāʾikatun tasawwam",
+      "en": "To the highest heaven Muhammad ascended\nJibrīl said to him: Go forward\nAnd the army, when Muhammad went out to battle\nAmong them were angels bearing their marks"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "وَالدِّينَ أَظْهَرَهُ مُحَمَّدْ\nوَالْكُفْرَ أَبْطَلَهُ فَهَدَّمْ",
+      "tr": "Wa-d-dīna aẓharahu Muḥammad\nWa-l-kufra abṭalahu fa-haddam",
+      "en": "Muhammad made the religion prevail\nHe brought unbelief to nothing and tore it down"
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "صَلَّى الْإِلَهُ عَلٰى مُحَمَّدْ\nوَالْآلِ كُلِّهِمِ وَسَلَّمْ\nوَصَلَّى اللّٰهُ عَلٰى مُحَمَّدْ\nوَعَلٰى صَحْبِهِ وَسَلَّمْ\nاللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ",
+      "tr": "Ṣalla-l-ilāhu ʿalā Muḥammad\nWa-l-āli kullihimi wa sallam\nWa ṣalla-llāhu ʿalā Muḥammad\nWa ʿalā ṣaḥbihi wa sallam\nAllāhumma ṣalli wa sallim wa bārik ʿalayh",
+      "en": "May God send blessings upon Muhammad\nAnd upon all his family, and grant them peace\nAnd may Allah send blessings upon Muhammad\nAnd upon his companions, and grant them peace\nO Allah, send Your blessings, peace and grace upon him"
+    }
+  ]
+}

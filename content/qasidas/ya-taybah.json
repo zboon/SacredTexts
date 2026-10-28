@@ -1,0 +1,32 @@
+{
+  "category": "qasida",
+  "group": "qasidas",
+  "titleArabic": "يَا طَيْبَةْ",
+  "titleEnglish": "Yā Ṭaybah",
+  "verses": [
+    {
+      "refrain": true,
+      "ar": "يَا طَيْبَةْ، يَا طَيْبَةْ\nيَا دَوَا الْعَيَانَا\nاِشْتَقْنَا لَكَ\nوَالْهَوَى نَادَانَا (2)",
+      "tr": "Yā Ṭaybah, yā Ṭaybah\nYā dawā-l-ʿayānā\nIshtaqnā lak\nWa-l-hawā nādānā (2)",
+      "en": "O Taybah, O Taybah, O cure of our eyes — we have longed for you, and love itself has called us to you."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "يَا عَلِيُّ ابْنَ أَبِي طَالِبْ\nمِنْكُمُ مَصْدَرُ الْمَوَاهِبْ\nهَلْ تُرَى هَلْ أُرَى لِي حَاجِبْ\nعِنْدَكُمْ\nأَفْضَلُ الْغِلْمَانَا\nأَفْضَلُ الْغِلْمَانَا",
+      "tr": "Yā ʿAlī-ibna Abī Ṭālib\nMinkumu maṣdaru-l-mawāhib\nHal turā hal urā lī ḥājib\nʿIndakum\nAfḍalu-l-ghilmānā\nAfḍalu-l-ghilmānā",
+      "en": "O Ali, son of Abu Talib, from you comes the very source of every gift — is there, I wonder, any veil between us? With you are the finest of young men, the finest of young men."
+    },
+    {
+      "repeatRefrain": true,
+      "ar": "أَسْيَادِي الْحَسَنُ وَالْحُسَيْنِ\nإِلَى النَّبِيِّ قُرَّةُ عَيْنِي\nوَيَا شَبَابَ الْجَنَّتَيْنِ\nجَدُّكُمْ\nصَاحِبُ الْقُرْآنَ\nصَاحِبُ الْقُرْآنَ",
+      "tr": "Asyādī-l-Ḥasanu wa-l-Ḥusayn\nIla-n-Nabiyyi qurratu ʿaynī\nWa yā shabāba-l-jannatayn\nJaddukum\nṢāḥibu-l-Qurʾān\nṢāḥibu-l-Qurʾān",
+      "en": "Our masters, Hasan and Husayn, are the coolness of the Prophet's eyes; O youths of the two gardens of Paradise, your grandfather is the master of the Qur'an, the master of the Qur'an."
+    },
+    {
+      "refrain": true,
+      "ar": "اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلٰى آلِهْ",
+      "tr": "Allāhumma ṣalli wa sallim wa bārik ʿalayhi wa ʿalā ālih",
+      "en": "O Allah, send peace and blessings upon him and his family."
+    }
+  ]
+}

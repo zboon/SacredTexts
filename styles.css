@@ -705,6 +705,34 @@
      most about a sixth of a screen shows under the current page. */
   .verses.ms-view{ padding-bottom:calc(env(safe-area-inset-bottom,0px) + 16dvh); }
   .verses.ms-view .ms-nav{ margin-top:.6rem; }
+  /* The repeat marker (ported from the Mawlid app, keep the two in step): a
+     rule with the words on it, so it reads as a return rather than another
+     verse. Collapsed by default; the body stays in the DOM and is hidden here,
+     which is what lets a tap flip a class instead of re-rendering. */
+  .refrain-repeat{margin:-.4rem 0 1rem;text-align:center}
+  .refrain-repeat-btn{
+    background:transparent;border:0;cursor:pointer;font-family:inherit;
+    color:var(--gold);font-weight:700;font-size:.76rem;
+    letter-spacing:.12em;text-transform:uppercase;
+    padding:.35rem .9rem;border-radius:999px;
+  }
+  .refrain-repeat-btn::before{content:'\2014\00a0'}
+  .refrain-repeat-btn::after{content:'\00a0\2014'}
+  .refrain-repeat-btn:active{background:var(--card-alt)}
+  .refrain-repeat-body{display:none}
+  .refrain-repeat.open .refrain-repeat-body{
+    display:block;
+    border:1px solid var(--gold-soft);border-radius:16px;
+    background:linear-gradient(var(--card),var(--card-alt));
+    padding:1rem 1.1rem;margin-top:.1rem;
+  }
+  /* The whole-piece count, worded and ruled off so it can't be mistaken for
+     the per-line (2)s inside the text. */
+  .refrain-times{
+    text-align:center;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin:.9rem 0 0;padding-top:.65rem;
+    border-top:1px solid var(--gold-soft);
+  }
   .refrain-note{
     text-align:center;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
     color:var(--gold);font-weight:700;margin:.2rem 0 1rem;
