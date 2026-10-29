@@ -1,0 +1,11 @@
+name: Check shared content
+# Fails a pull request that edits a folder owned by another repo.
+on:
+  pull_request:
+    paths: ['content/**', 'sync.json']
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: scripts/sync-shared.sh --check

@@ -104,3 +104,14 @@ Follow the policy in `README.md`: original texts only where they are public
 domain, English renderings written by us rather than copied from a copyrighted
 translation, and no modern copyrighted lyrics. If a piece can't be traced to a
 public-domain source, link to it instead of pasting the full text.
+
+## Shared content (synced from other repos)
+
+Some folders under `content/` are owned by another repo and are overwritten by an
+automatic pull request (`.github/workflows/sync-shared.yml`, every 6 hours or on demand):
+
+- `dalail`, `dalail-mughlay`, `litanies` — owned by `zboon/dalailul-khayrat`
+- `barzanji`, `burdah`, `diya`, `sirah`, `qasidas`, `qawwalis` — owned by `zboon/Mawlid-app`
+
+Edit those in the owner repo, never here; `check-shared.yml` fails any PR that drifts.
+Everything else under `content/` belongs to Sacred Texts. The map lives in `sync.json`.

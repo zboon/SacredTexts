@@ -1,0 +1,43 @@
+name: Sync shared content
+# Pulls the Dalail set from zboon/dalailul-khayrat and the Mawlid set from
+# zboon/Mawlid-app (see sync.json) and opens a pull request when they changed.
+# Needs Settings > Actions > General > "Allow GitHub Actions to create pull requests".
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [shared-content-updated]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency: sync-shared
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull owner content
+        run: scripts/sync-shared.sh
+      - name: Open or update the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- content; then echo "Already up to date."; exit 0; fi
+          branch=auto/sync-shared
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$branch"
+          ver=$(scripts/bump-version.sh)
+          git add -A
+          git commit -m "Sync shared content from owner repos ($ver)"
+          git push --force origin "$branch"
+          body="Automatic sync of shared texts from their owner repos (see sync.json). Review the diff, then merge to publish. Version bumped to $ver."
+          if gh pr view "$branch" --json state -q .state 2>/dev/null | grep -q OPEN; then
+            gh pr edit "$branch" --body "$body"
+          else
+            gh pr create --base main --head "$branch" --title "Sync shared content ($ver)" --body "$body"
+          fi

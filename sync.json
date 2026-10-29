@@ -1,0 +1,15 @@
+{
+  "_note": "Folders under content/ owned by another repo. Do not edit them here: edit them in the owner repo and the sync workflow opens a pull request. Everything under content/ not listed here belongs to Sacred Texts.",
+  "sources": [
+    {
+      "repo": "zboon/dalailul-khayrat",
+      "ref": "main",
+      "folders": ["dalail", "dalail-mughlay", "litanies"]
+    },
+    {
+      "repo": "zboon/Mawlid-app",
+      "ref": "main",
+      "folders": ["barzanji", "burdah", "diya", "sirah", "qasidas", "qawwalis"]
+    }
+  ]
+}
