@@ -211,6 +211,22 @@ function saveCols(){
    marks a piece you want to find again, a place marks how far you have read
    through a long portion you mean to finish. */
 const PLACE_KEY = 'mawlid-dalail-place';
+/* Which version of the Dalāʾil a reader gets. A stored choice always wins. For
+   a reader who has never chosen it is the Mughlay Version (owner's call),
+   unless an Istanbul place or highlight is already saved from before that was
+   the default — then they stay on Istanbul so their bookmark is not stranded.
+   Literal keys, and no reliance on consts declared further down, because this
+   is called at load, before dalailEdition and the stores' own helpers exist. */
+function initialEdition(){
+  try {
+    const v = localStorage.getItem('mawlid-edition');
+    if(v === 'sayyidina' || v === 'istanbul') return v;
+    if(localStorage.getItem('mawlid-dalail-place')) return 'istanbul';
+    const m = JSON.parse(localStorage.getItem('mawlid-marks')) || {};
+    if(Object.keys(m).some(k => k.indexOf('d:') === 0)) return 'istanbul';
+  } catch(e){}
+  return 'sayyidina';
+}
 /* One saved place per version of the Dalāʾil. The Mughlay Version divides
    its text where the Mughlay printing does, so a phrase (and so a saved
    place) in one version is not the same phrase in the other. The Istanbul
@@ -218,7 +234,7 @@ const PLACE_KEY = 'mawlid-dalail-place';
    versions are still found. Read through a try because a place can be
    looked up before dalailEdition is declared further down. */
 function placeKey(){
-  let ed = 'istanbul';
+  let ed = initialEdition();
   try { ed = dalailEdition; } catch(e){}
   return ed === 'sayyidina' ? PLACE_KEY + '-mughlay' : PLACE_KEY;
 }
@@ -925,7 +941,7 @@ let DALAIL_ISTANBUL = [];
    chapter (Monday P2), so its folio is stretched to cover them and put back. */
 let DALAIL_FOLIO_TO = [];
 const stripArCommas = t => t.replace(/\u060C/g, '').replace(/ {2,}/g, ' ').trim();
-/* 'istanbul' | 'sayyidina'; unset or unrecognised means Istanbul. Written
+/* 'istanbul' | 'sayyidina'; unset means Mughlay (see initialEdition), unrecognised too. Written
    only from setDalailEdition, the reader's own switch. Not synced in a live
    session: the two versions share every verse index, leaf and segment, so a
    leader and a follower on different versions still land on the same place. */
@@ -948,7 +964,7 @@ let arFontChosen = (() => { try { const v = localStorage.getItem(FONT_KEY); retu
 function defaultArFont(){
   let ed;
   try { ed = dalailEdition; }
-  catch(e){ try { ed = localStorage.getItem('mawlid-edition') === 'sayyidina' ? 'sayyidina' : 'istanbul'; } catch(e2){ ed = 'istanbul'; } }
+  catch(e){ ed = initialEdition(); }
   return ed === 'sayyidina' ? 'indopak' : 'uthmani';
 }
 let arFont = arFontChosen || defaultArFont();
@@ -958,7 +974,7 @@ function applyArFont(){
 }
 applyArFont();
 const EDITION_KEY = 'mawlid-edition';
-let dalailEdition = (() => { try { return localStorage.getItem(EDITION_KEY) === 'sayyidina' ? 'sayyidina' : 'istanbul'; } catch(e){ return 'istanbul'; } })();
+let dalailEdition = initialEdition();
 function applyDalailEdition(){
   const alt = dalailEdition === 'sayyidina';
   DALAIL_CHAPTERS.forEach((c, ci) => {
@@ -1021,7 +1037,7 @@ let DALAIL_EDITION_CHAPTERS = [];
 const dalailHasEditions = idx => !!DALAIL_EDITION_CHAPTERS[idx];
 function editionSwitch(){
   return `<span class="view-switch edition-switch" role="group" aria-label="Version of the Dalāʾil">${
-    [['istanbul', 'Istanbul'], ['sayyidina', 'Mughlay']].map(([v, l]) =>
+    [['sayyidina', 'Mughlay'], ['istanbul', 'Istanbul']].map(([v, l]) =>
       `<button data-ed="${v}" class="${dalailEdition === v ? 'on' : ''}" aria-pressed="${dalailEdition === v}" onclick="setDalailEdition('${v}')">${l}</button>`).join('')
   }</span>`;
 }
@@ -1108,7 +1124,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v392';
+const APP_VERSION = 'v393';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -5376,7 +5392,7 @@ function readMarkStore(key){
   try { return JSON.parse(localStorage.getItem(key)) || {}; }
   catch(e){ return {}; }
 }
-function mughlayNow(){ try { return dalailEdition === 'sayyidina'; } catch(e){ return false; } }
+function mughlayNow(){ try { return dalailEdition === 'sayyidina'; } catch(e){ return initialEdition() === 'sayyidina'; } }
 function markStoreFor(kind){ return (kind === 'd' && mughlayNow()) ? 'mawlid-marks-mughlay' : 'mawlid-marks'; }
 function loadMarks(){
   const m = readMarkStore('mawlid-marks');
