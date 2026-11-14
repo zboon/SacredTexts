@@ -6,30 +6,46 @@
   "note": "In Urdu.",
   "verses": [
     {
+      "ar": "Be-bandagi, urooj kiya, banda kar diya\nTaara mere naseeb ka, tabinda kar diya\nItni badi huzoor ki banda-nawaaziyan\nMujhko mere sawaal ne sharminda kar diya",
+      "tr": "",
+      "en": "Without devotion, He elevated me and made me His servant\nThe star of my fortune He made brilliant and shining\nSo great is the Prophet's grace upon his servants\nMy own question has left me ashamed",
+      "intro": true
+    },
+    {
       "ar": "Is Karam Ka Karoon Shukr Kaise Ada\nJo Karam Mujpe Mere Nabi Ne Kiya",
       "tr": "",
       "en": "How can I give thanks for this mercy\nThat my Prophet showed to me",
       "refrain": true
     },
     {
-      "ar": "Be-bandagi, urooj kiya, banda kar diya\nTaara mere naseeb ka, tabinda kar diya\nItni badi huzoor ki banda-nawaaziyan\nMujhko mere sawaal ne sharminda kar diya",
+      "ar": "Gham-e-ashiqui se pehle, mujhe kaun jaanta tha\nTeri zaat ne banaadi, meri zindagi fasaana\n\nIs Karam Ka Karoon Shukr Kaise Ada...\n\nKhaalik ne mujhko meri talab se sivaa diya\nSarmaaya-daar-e-ishq-e-Muhammad bana diya…\nIs Karam Ka Karoon Shukr Kaise Ada\nJo Karam Mujpe Mere Nabi Ne Kiya\nMain Sajata Tha Sarkar Ki Mehafile\nMujko Har Gam Se Rab Ne Bari Kar Diya",
       "tr": "",
-      "en": "Without devotion, He elevated me and made me His servant\nThe star of my fortune He made brilliant and shining\nSo great is the Prophet's grace upon his servants\nMy own question has left me ashamed"
-    },
-    {
-      "ar": "Is Karam Ka Karoon Shukr Kaise Ada\nJo Karam Mujpe Mere Nabi Ne Kiya\nMain Sajata Tha Sarkar Ki Mehafile\nMujko Har Gam Se Rab Ne Bari Kar Diya",
-      "tr": "",
-      "en": "How can I give thanks for this mercy\nThat my Prophet showed to me\nI used to adorn the gatherings of the beloved\nAnd the Lord freed me from every grief"
+      "en": "Before the sorrow of love, who even knew me?\nYour very being transformed my life into a legend.\n\nHow can I give thanks for this mercy\n\nThe Creator bestowed upon me far more than I had ever sought—\nHe made me the possessor of the wealth of love for Muhammad.\nHow can I give thanks for this mercy\nThat my Prophet showed to me\nI used to adorn the gatherings of the beloved\nAnd the Lord freed me from every grief",
+      "repeatRefrain": true
     },
     {
       "ar": "Lamha Lamha Hai Mujpar Nabi Ki Ata\nDosto Or Mangu Main Maula Se Kya\nKya Ye Kam Hai Ke Mere Khuda Ne Muje\nApne Mehbub Ka Ummati Kar Diya",
       "tr": "",
-      "en": "Every moment the Prophet's blessing is upon me\nMy friends, what more could I ask of the Lord?\nIs it not enough that my God has made me\nA follower of His Beloved?"
+      "en": "Every moment the Prophet's blessing is upon me\nMy friends, what more could I ask of the Lord?\nIs it not enough that my God has made me\nA follower of His Beloved?",
+      "repeatRefrain": true
     },
     {
-      "ar": "Zikr Sarkar Ki Hai Bari Barkate\nMil Gai Rahate Azamate Rifa-Ate\nMain Gunahgaar Tha Be-Amal Tha Magar\nMustafa (ﷺ) Ne Muje Jannati Kar Diya",
+      "ar": "Zikr Sarkar Ki Hai Bari Barkate\nJab liya naam-e-Nabi, meinen dua se pehle\nHo gayi mujhpe ataa, meri khataa se pehle…\nZikr Sarkar Ki Hai Bari Barkate\nMil Gai Rahate Azamate Rifa-Ate\nMain Gunahgaar Tha Be-Amal Tha Magar\nMustafa (ﷺ) Ne Muje Jannati Kar Diya",
       "tr": "",
-      "en": "In the remembrance of the beloved are immense blessings\nRepose, greatness and elevation were granted\nI was sinful, I had no deeds — yet\nMustafa ﷺ made me worthy of Paradise"
+      "en": "In the remembrance of the beloved are immense blessings\nWhen I invoked the name of the Prophet before offering my supplication,\nHis grace descended upon me—even before my own shortcomings could be considered.\nIn the remembrance of the beloved are immense blessings\nRepose, greatness and elevation were granted\nI was sinful, I had no deeds — yet\nMustafa ﷺ made me worthy of Paradise",
+      "repeatRefrain": true
+    },
+    {
+      "ar": "Joh Dar e Mustafa ke ghada ho gaye\nDekhte dekhte kya se kya ho gaye\nAisi chasme karam ki hai sarkar ne\nMujh gada ko sakhi ne sakhi kar diya",
+      "tr": "",
+      "en": "I stood at the threshold of Mustafa;\nIn the blink of an eye, I was completely transformed.\nSuch is the grace bestowed by the Master—\nHe turned a wretched, unworthy soul like me into someone of worth.",
+      "repeatRefrain": true
+    },
+    {
+      "ar": "Koi mayus lauta na darbar se\nJoh bhi manga mila mere sarkar se\nSadqe jau niyazi mai lajpal ke\nDono aalam me mujh ko sakhi kar diya",
+      "tr": "",
+      "en": "No one ever returned disappointed from his court;\nWhatever was asked for, was granted by my Master.\nI dedicate my very self to the Generous One—\nHe has made me prosperous in both the worlds.",
+      "repeatRefrain": true
     }
   ]
 }
