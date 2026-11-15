@@ -1711,8 +1711,8 @@ function dalailIndex(){
   const navRow = (action, en, ar) => `<button class="dk-nav" onclick="${action}"><span class="dk-nav-txt"><span class="b-en">${en}</span><span class="b-ar">${ar}</span></span><span class="dk-nav-go">›</span></button>`;
   const before = navRow("selectTab('before')", DALAIL_ROWS.before.en, DALAIL_ROWS.before.ar);
   const rows =
-      navRow("selectTab('litanies')", 'Daily litanies & duas', 'الْأَوْرَادُ وَالْأَدْعِيَةُ')
-    + navRow("openDalail(14)",        DALAIL_ROWS.done.en,   DALAIL_ROWS.done.ar)
+      navRow("openDalail(14)",        DALAIL_ROWS.done.en,   DALAIL_ROWS.done.ar)
+    + navRow("selectTab('litanies')", 'Additional daily readings & duas', 'الْأَوْرَادُ وَالْأَدْعِيَةُ')
     + navRow("selectTab('downloads')", 'Downloaded recitations', 'التَّسْجِيلَاتُ الْمَحْفُوظَةُ')
     + navRow("openDalail(0)",         'About Dalāʾil al-Khayrāt', 'دَلَائِلُ الْخَيْرَاتِ');
   return `<div class="edition-row"><span class="edition-k">Version</span>${editionSwitch()}</div>` + todayCard + resumeCard()
@@ -1824,7 +1824,7 @@ function collectionLabel(i){
 }
 
 function backToLitanies(){
-  return `<button class="back-link" onclick="selectTab('litanies')">‹ Daily litanies &amp; duas</button>`;
+  return `<button class="back-link" onclick="selectTab('litanies')">‹ Additional daily readings &amp; duas</button>`;
 }
 
 /* The Dalāʾil intro line, made tappable — it opens the book's title page, which
@@ -2103,7 +2103,7 @@ function renderResults(){
   if(tab === 'nasheeds')return backToPraises() + sectionIntro('nasheeds') + (nasheedCards() || placeholder('Nasheeds'));
   if(tab === 'qasidas') return backToPraises() + sectionIntro('qasidas') + label('Select a qasida · اختر قصيدة') + (additionalQasidaCards() || placeholder('Qasidas'));
   if(tab === 'ilahis')  return backToPraises() + sectionIntro('ilahis') + label('Select an ilahi · ilahi seçin') + ilahiCards();
-  if(tab === 'litanies')return backToDalail() + sectionIntro('litanies') + label('Daily litanies & duas · الْأَوْرَادُ وَالْأَدْعِيَةُ') + litanyCards();
+  if(tab === 'litanies')return backToDalail() + sectionIntro('litanies') + label('Additional daily readings & duas · الْأَوْرَادُ وَالْأَدْعِيَةُ') + litanyCards();
   if(tab === 'before')  return backToDalail() + label('Before the reading · قَبْلَ الْقِرَاءَةِ') + (DALAIL_CHAPTERS.length ? dalailBeforeCards() : placeholder('Before the reading'));
   if(tab === 'downloads') return downloadsScreen();
   if(tab === 'azam')    return backToLitanies() + collectionLabel(AZAM_TITLE_IDX) + azamIndex();
