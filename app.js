@@ -1124,7 +1124,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v395';
+const APP_VERSION = 'v396';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -1414,20 +1414,15 @@ function nasheedCards(){
         </button>` + hitList('n', n)).join('');
 }
 
-/* A small circular portrait beside a master's name, badged with their place
-   in the chain. `c.image` is a data: URI or https URL for a real portrait;
-   most entries start with none, so this falls back to a plain initial drawn
-   from the Arabic title — a placeholder ready to be swapped for a thumbnail
-   once one is added to the entry. */
-function silsilaAvatar(c, n){
-  const initial = (c.titleArabic || '').trim().charAt(0);
-  return `
-        <span class="master-avatar" aria-hidden="true">
-          ${c.image
-            ? `<img src="${c.image}" alt="" loading="lazy">`
-            : `<span class="ph-initial">${initial}</span>`}
-          <span class="badge">${toArNum(n+1)}</span>
-        </span>`;
+/* A small circular portrait beside a master's name, shown only when the entry
+   has a real one (`c.image`, a data: URI or https URL). The order number is the
+   same gold numeral circle every other list uses, drawn separately — the
+   portrait used to carry it as a tiny corner badge, which nobody could read and
+   which did not match the qasidas. */
+function silsilaAvatar(c){
+  return c.image
+    ? `<span class="master-avatar" aria-hidden="true"><img src="${c.image}" alt="" loading="lazy"></span>`
+    : '';
 }
 
 /* Index rows for the Academy sections. Each mirrors nasheedCards():
@@ -1438,10 +1433,11 @@ function silsilaCards(){
   if(items.length === 0) return '';
   return items.map(({c,n})=>`
         <button class="qcard qcard-silsila" onclick="openSilsila(${n})">
-          ${silsilaAvatar(c, n)}
+          <span class="num">${toArNum(n+1)}</span>
+          ${silsilaAvatar(c)}
           <span class="titles">
             <span class="t-ar"${c.latin ? ` style="font-family:'Crimson Pro',serif;direction:ltr;text-align:left"` : ''}>${c.titleArabic}</span>
-            <span class="t-en">${c.titleEnglish}</span>
+            <span class="t-en">${(c.titleEnglish || '').replace(/^\s*\d+\s*·\s*/, '')}</span>
           </span>
           <span class="chev">›</span>
         </button>` + hitList('c', n)).join('');
