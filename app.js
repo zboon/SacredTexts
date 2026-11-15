@@ -1124,7 +1124,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v394';
+const APP_VERSION = 'v395';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -3009,6 +3009,38 @@ function spotWatchFollower(){
 }
 
 window.addEventListener('scroll', () => { spotOnScroll(); spotWatchFollower(); }, { passive:true });
+
+/* The reader taking hold of the page, read from the INPUT, not from where the
+   page ended up. The drift test above cannot be the only judge: it needs a
+   half-screen of movement, it is blind until the first position has arrived
+   (spotExpectedY is null), and while the leader is moving spotStep drags the
+   page back every frame and re-records "where we put them", so a follower
+   fighting it never drifts far enough — they scrolled and stayed linked.
+   wheel, finger drag and scroll keys are fired only by a person, never by our
+   own scrollTo, so they cannot be mistaken for the app. Any of them is a
+   deliberate move on one's own, as navigating away already is. The drift test
+   stays for what has no input event here (dragging the scrollbar). */
+function spotUserTookOver(){
+  if(session.role === 'follower' && !session.paused && !session.leaderless) pauseFollowing();
+}
+let spotTouch = null;
+window.addEventListener('wheel', e => { if(!e.ctrlKey) spotUserTookOver(); }, { passive:true });   /* ctrl+wheel is a zoom */
+window.addEventListener('touchstart', e => {
+  spotTouch = e.touches.length === 1 ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
+}, { passive:true });
+window.addEventListener('touchmove', e => {
+  if(!spotTouch || e.touches.length !== 1) return;             /* a pinch is a zoom, not a scroll */
+  const t = e.touches[0];
+  /* A drag, not the wobble of a tap. */
+  if(Math.abs(t.clientX - spotTouch.x) > 10 || Math.abs(t.clientY - spotTouch.y) > 10){ spotTouch = null; spotUserTookOver(); }
+}, { passive:true });
+window.addEventListener('keydown', e => {
+  if(e.ctrlKey || e.metaKey || e.altKey) return;
+  const t = e.target, tag = t && t.tagName;
+  if(tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
+  if(['PageUp','PageDown','Home','End','ArrowUp','ArrowDown'].indexOf(e.key) >= 0 || (e.key === ' ' && tag !== 'BUTTON')) spotUserTookOver();
+});
+
 
 /* Tap a line while leading and everyone jumps to it. Study view only: in the
    Book Version a tap already places the gold ring, and pages are synced
