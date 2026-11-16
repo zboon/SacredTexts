@@ -1,7 +1,7 @@
 -- Run once in the Supabase dashboard: SQL Editor -> New query -> paste -> Run.
 -- Creates the table the hidden survey page (survey.js) writes to. The public
--- (anon) key can ADD rows and cannot read, change or delete any, so nobody who
--- has the key can see anyone else's answers. You read them in Table Editor.
+-- (anon) key can ADD and READ rows, so everyone who takes the survey can see
+-- everyone's answers (the page says so). It cannot change or delete any.
 create table if not exists public.survey_responses (
   id         bigint generated always as identity primary key,
   created_at timestamptz not null default now(),
@@ -18,4 +18,11 @@ create policy "anyone can submit a survey answer"
   with check (true);
 
 grant insert on public.survey_responses to anon, authenticated;
--- No select/update/delete policy on purpose.
+
+drop policy if exists "anyone can read survey answers" on public.survey_responses;
+create policy "anyone can read survey answers"
+  on public.survey_responses for select to anon, authenticated
+  using (true);
+
+grant select on public.survey_responses to anon, authenticated;
+-- No update/delete policy on purpose.

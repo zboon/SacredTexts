@@ -2,8 +2,9 @@
    a link ending in #survey or ?survey, e.g. https://zboon.github.io/SacredTexts/?survey.
    Answers are posted to the Supabase project the live sessions already use
    (SESSION_CONFIG in app.js), into the table made by docs/survey-setup.sql.
-   That table lets the public key INSERT and nothing else, so nobody who has the
-   key can read anyone's answers back. Loaded after app.js. */
+   Everyone who takes the survey may read the answers (see docs/survey-setup.sql),
+   which the page says up front and shows as a results screen. #survey=results
+   opens that screen directly. Loaded after app.js. */
 (function(){
   var SURVEY = 'calendar';
   var QUESTIONS = [
@@ -60,18 +61,65 @@
     return h + '<p class="err" hidden></p></section>';
   }
 
+  function cfg(){ return (typeof SESSION_CONFIG !== 'undefined' && SESSION_CONFIG.url && SESSION_CONFIG.key) ? SESSION_CONFIG : null; }
+  function showResults(){
+    var box = document.getElementById('sv-results'), c = cfg();
+    document.getElementById('sv-form').hidden = true; document.getElementById('sv-done').hidden = true; box.hidden = false;
+    box.innerHTML = '<h2>Results so far</h2><p class="help">Loading\u2026</p>';
+    window.scrollTo(0, 0);
+    if(!c){ box.innerHTML = '<h2>Results</h2><p class="err">Results are not available in this copy of the app.</p>'; return; }
+    fetch(c.url + '/rest/v1/survey_responses?select=created_at,name,answers&survey=eq.' + SURVEY + '&order=created_at.desc&limit=1000',
+      { headers: { 'apikey': c.key, 'Authorization': 'Bearer ' + c.key } })
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(rows){
+        var seen = {}, list = [];
+        rows.forEach(function(r){            /* newest first: keep one answer per device */
+          var a = r.answers || {}; if(!a.cal) return;
+          var k = a.client || ('row' + list.length); if(seen[k]) return; seen[k] = 1; list.push({ a: a, name: r.name });
+        });
+        var h = '<h2>Results so far</h2><p class="help">' + list.length + (list.length === 1 ? ' response' : ' responses') + '. One answer per device; the latest counts.</p>';
+        QUESTIONS.forEach(function(q){
+          h += '<h2 style="font-size:.98rem;margin-top:.6rem">' + esc(q.title.replace(/^\d+\.\s*/, '')) + '</h2>';
+          var opts = q.opts.map(function(o){ return o[0]; }); if(q.other) opts.push('Other');
+          opts.forEach(function(o){
+            var n = list.filter(function(x){ return q.type === 'many' ? (x.a[q.key] || []).indexOf(o) >= 0 : x.a[q.key] === o; }).length;
+            var pct = list.length ? Math.round(n / list.length * 100) : 0;
+            h += '<div style="display:flex;flex-direction:column;gap:.2rem"><div style="display:flex;justify-content:space-between;gap:.6rem;font-size:.9rem;color:var(--ink,#222)"><span>' + esc(o) + '</span><b>' + n + ' (' + pct + '%)</b></div>'
+              + '<div style="height:.5rem;border-radius:4px;background:var(--paper-edge,#eee);overflow:hidden"><i style="display:block;height:100%;width:' + pct + '%;background:var(--gold,#a47a1f)"></i></div></div>';
+          });
+        });
+        var texts = [];
+        list.forEach(function(x){
+          var who = x.name || 'Anonymous';
+          if(x.a.frontOther) texts.push(['Front page idea', x.a.frontOther, who]);
+          if(x.a.datesOther) texts.push(['Other dates', x.a.datesOther, who]);
+          if(x.a.comment) texts.push(['Comment', x.a.comment, who]);
+        });
+        if(texts.length){
+          h += '<h2 style="font-size:.98rem;margin-top:.6rem">Written answers</h2>';
+          texts.forEach(function(t){ h += '<div style="border-left:3px solid var(--gold,#a47a1f);padding:.1rem 0 .1rem .7rem;color:var(--ink,#222)"><div class="help">' + esc(t[0]) + ' \u00b7 ' + esc(t[2]) + '</div>' + esc(t[1]) + '</div>'; });
+        }
+        h += '<button type="button" class="quiet" id="sv-open2">Open the app</button>';
+        box.innerHTML = h;
+        document.getElementById('sv-open2').addEventListener('click', function(){ document.getElementById('sv-open').click(); });
+      })
+      .catch(function(){ box.innerHTML = '<h2>Results</h2><p class="err">The results could not be loaded. Check your connection and try again.</p>'; });
+  }
+
   window.openSurvey = function(){
     if(!document.getElementById('sv-css')){ var st = document.createElement('style'); st.id = 'sv-css'; st.textContent = CSS; document.head.appendChild(st); }
     document.documentElement.classList.remove('is-home');
     var root = document.getElementById('app');
     root.innerHTML = '<div class="sv"><div class="eyebrow">Sacred Texts</div><h1>A calendar for the app</h1>'
       + '<p class="lede">We are thinking of adding a calendar to the front page that shows dates such as the births and deaths of shaykhs and scholars, pulled from the Biographies and Silsila sections as people are added. It would not replace or change the existing tiles. Four short questions, about two minutes.</p>'
+      + '<p class="help">Answers, and the name if you give one, can be seen by everyone who takes this survey.</p>'
       + '<form id="sv-form" novalidate style="display:flex;flex-direction:column;gap:1rem">' + QUESTIONS.map(qHTML).join('')
       + '<section class="q"><h2>Anything else?</h2><p class="help">Optional. Other things you would want from the calendar, or any concerns.</p><textarea id="sv-comment" maxlength="2000" aria-label="Comments"></textarea><input type="text" id="sv-name" maxlength="80" placeholder="Your name (optional)" aria-label="Your name"></section>'
       + '<div><button type="submit" id="sv-submit">Submit answers</button><p class="err" id="sv-err" hidden></p></div></form>'
-      + '<section class="q thanks" id="sv-done" hidden><h2>Thank you</h2><p class="help">Your answers have been sent.</p><button type="button" class="quiet" id="sv-open">Open the app</button></section></div>';
+      + '<section class="q thanks" id="sv-done" hidden><h2>Thank you</h2><p class="help">Your answers have been sent.</p><button type="button" id="sv-see">See everyone\u2019s answers</button><button type="button" class="quiet" id="sv-open">Open the app</button></section><section class="q" id="sv-results" hidden></section></div>';
     window.scrollTo(0, 0);
     var form = document.getElementById('sv-form');
+    var wantResults = /survey=results/.test((location.hash || '') + (location.search || ''));
     form.addEventListener('change', function(){
       QUESTIONS.forEach(function(q){ if(q.other){ var el = document.getElementById('sv-' + q.key + '-other'); el.hidden = !form.querySelector('input[name=' + q.key + '][value=Other]:checked'); } });
     });
@@ -79,6 +127,8 @@
       try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
       selectTab('home');
     });
+    document.getElementById('sv-see').addEventListener('click', function(){ showResults(); });
+    if(wantResults) showResults();
     form.addEventListener('submit', function(ev){
       ev.preventDefault();
       var answers = {}, bad = false;
