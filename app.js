@@ -1124,7 +1124,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v397';
+const APP_VERSION = 'v398';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -5801,7 +5801,19 @@ function start(){
   renderIndex();
   joinFromLink();
   restoreRecent();
-  if(typeof maybeOpenSurvey === 'function') maybeOpenSurvey();   /* the hidden survey link (#survey) wins */
+  /* The hidden survey link (#survey or ?survey) wins. survey.js is normally loaded by
+     index.html, but a phone that still holds the previous index.html from the service
+     worker has no such tag (app.js is fetched fresh, the page is not), so load it here
+     when it is missing rather than land on the ordinary app. */
+  if(/(^|[#&?])survey(=|&|$)/.test((location.hash || '') + (location.search || ''))){
+    if(typeof maybeOpenSurvey === 'function') maybeOpenSurvey();
+    else {
+      const sv = document.createElement('script');
+      sv.src = 'survey.js';
+      sv.onload = () => { if(typeof maybeOpenSurvey === 'function') maybeOpenSurvey(); };
+      document.head.appendChild(sv);
+    }
+  }
 }
 
 /* Some texts couldn't be loaded: say which, at the foot of the screen. It

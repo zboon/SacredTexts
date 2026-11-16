@@ -1,5 +1,5 @@
 /* A hidden survey page. Not linked from anywhere in the app: it opens only from
-   a link ending in #survey, e.g. https://zboon.github.io/SacredTexts/#survey.
+   a link ending in #survey or ?survey, e.g. https://zboon.github.io/SacredTexts/?survey.
    Answers are posted to the Supabase project the live sessions already use
    (SESSION_CONFIG in app.js), into the table made by docs/survey-setup.sql.
    That table lets the public key INSERT and nothing else, so nobody who has the
@@ -113,6 +113,6 @@
     });
   };
 
-  window.maybeOpenSurvey = function(){ if(/(^|[#&?])survey(=|&|$)/.test(location.hash || '')) window.openSurvey(); };
+  window.maybeOpenSurvey = function(){ if(/(^|[#&?])survey(=|&|$)/.test((location.hash || '') + (location.search || ''))) window.openSurvey(); };
   window.addEventListener('hashchange', window.maybeOpenSurvey);
 })();
