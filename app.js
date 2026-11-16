@@ -1124,7 +1124,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v396';
+const APP_VERSION = 'v397';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -5801,6 +5801,7 @@ function start(){
   renderIndex();
   joinFromLink();
   restoreRecent();
+  if(typeof maybeOpenSurvey === 'function') maybeOpenSurvey();   /* the hidden survey link (#survey) wins */
 }
 
 /* Some texts couldn't be loaded: say which, at the foot of the screen. It

@@ -12,8 +12,8 @@
    page, its script and its styles stay in step.
    Everything else (fonts, images, icons, manifest) stays cache-first: it's
    large, it doesn't change, and it's what makes the app work with no signal. */
-const CACHE = 'sacredtexts-v396'; // bump this whenever you update index.html
-const CORE = ['./', './index.html', './styles.css', './app.js', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png',
+const CACHE = 'sacredtexts-v397'; // bump this whenever you update index.html
+const CORE = ['./', './index.html', './styles.css', './app.js', './survey.js', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png',
   './fonts/UthmanicHafs.otf', './fonts/Amiri-Regular.woff', './fonts/Amiri-Bold.woff',
   './img/medallion.png', './img/header-bismillah.png'];
 
@@ -25,7 +25,7 @@ const CONTENT_URL = new URL('./content/', self.location.href).href;
 
 /* The page's own script and stylesheet: they change with the code, like the
    page itself, so they are fetched the same way as the texts. */
-const APP_FILES = ['./app.js', './styles.css'].map(u => new URL(u, self.location.href).href);
+const APP_FILES = ['./app.js', './survey.js', './styles.css'].map(u => new URL(u, self.location.href).href);
 
 /* Downloaded recitations live in their own cache, opened by the page rather
    than by this worker. It is listed here so the cleanup below spares it.
