@@ -247,6 +247,7 @@
     + '.cal-day .h{font-size:1.05rem;font-weight:700;line-height:1}.cal-day .g{font-size:.62rem;color:var(--ink-soft,#666);line-height:1.1}'
     + '.cal-day.today{border-color:var(--gold,#a47a1f);box-shadow:inset 0 0 0 1.5px var(--gold,#a47a1f)}'
     + '.cal-day.sel{background:var(--paper-edge,#eee)}'
+    + '.cal-day.has .h{color:var(--accent-green,#1E5540)}'
     + '.cal-dots{position:absolute;bottom:.2rem;display:flex;gap:.12rem}'
     + '.cal-sec{display:flex;flex-direction:column;gap:.5rem}.cal-sec h2{font-size:1rem;margin:.2rem 0 0;display:flex;flex-direction:column;line-height:1.3}.cal-sec h2 small{color:var(--ink-soft,#666);font-weight:400;font-size:.82rem}'
     + '.cal-none,.cal-foot{color:var(--ink-soft,#666);font-size:.85rem}'
