@@ -211,8 +211,15 @@
   .masthead.compact .session-mark,
   .masthead.compact .theme-toggle{ position:static; top:auto; left:auto; right:auto; }
   .home-link{ cursor:pointer; }
-  /* 320px phones: no room for six buttons round a centred bismillah; calendar and bookmarks stay one tap away on home. */
-  @media (max-width:359px){ .masthead.compact .fav-mark, .masthead.compact .cal-mark{ display:none; } .masthead.compact .bismillah-mark{ width:24vw; } }
+  /* Phones: the bar holds home, back, calendar | bismillah | live, theme. Bookmarks stay one tap away on home. */
+  @media (max-width:430px){
+    .masthead.compact{ grid-template-columns:6.5rem minmax(0,1fr) 6.5rem; gap:.3rem; padding-left:.6rem; padding-right:.6rem; }
+    .masthead.compact .mh-left, .masthead.compact .mh-right{ gap:.25rem; }
+    .masthead.compact .fav-mark{ display:none; }
+    .masthead.compact .header-mark, .masthead.compact .back-mark, .masthead.compact .cal-mark, .masthead.compact .theme-toggle{ width:2rem; height:2rem; }
+    .masthead.compact .session-mark{ height:2rem; padding:0 .55rem; }
+    .masthead.compact .bismillah-mark{ width:100%; max-width:12.5rem; }
+  }
   /* Phone home: the calendar sits bottom-left of the green header. */
   @media (max-width:899px){ .masthead:not(.compact) .cal-mark{ top:auto; bottom:.9rem; left:1rem; } }
   .back-mark{
