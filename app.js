@@ -33,6 +33,7 @@ const QAWWALI_CHAPTERS   = contentSection('qawwalis');
 const NASHEED_CHAPTERS   = contentSection('nasheeds');
 const BIOGRAPHY_CHAPTERS = contentSection('biographies');
 const OTTOMAN_CHAPTERS   = contentSection('ottoman');
+const CALENDAR_EVENTS    = contentSection('calendar');   /* standalone dates: see calendar.js */
 
 /* A section that is ONE object rather than a list of pieces: each file holds a
    piece of the object, and loadContent() merges them in index.json order. Used
@@ -1124,7 +1125,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v399';
+const APP_VERSION = 'v401';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -2175,10 +2176,15 @@ function favMark(){
   return `<button class="fav-mark" onclick="selectTab('favs')" aria-label="Favorites">${bookmarkIcon(false)}</button>`;
 }
 
+/* The calendar's header icon and home-page line live in calendar.js; these keep the
+   page working if that file hasn't loaded. */
+function calMark(){ return typeof calMarkHTML === 'function' ? calMarkHTML() : ''; }
+function calStrip(){ return typeof calendarStripHTML === 'function' ? calendarStripHTML() : ''; }
+
 function bigMasthead(){
   return `<header class="masthead">
       <button class="header-mark" onclick="goHome()" aria-label="Home">${HOME_ICON_SVG}</button>
-      ${favMark()}
+      ${favMark()}${calMark()}
       <button class="session-mark${liveClass()}" onclick="selectTab('session')" aria-label="Live session">Live</button>
       <button class="theme-toggle" onclick="toggleTheme()">${themeGlyph()}</button>
       <img class="medallion-mark" src="${MEDALLION_ICON}" width="320" height="328" alt="Sacred Texts">
@@ -2194,7 +2200,7 @@ function compactMasthead(){
       </div>
       <img class="bismillah-mark" src="${HEADER_BISMILLAH}" width="640" height="114" alt="${BISMILLAH_ALT}">
       <div class="mh-right">
-        ${favMark()}
+        ${calMark()}${favMark()}
         <button class="session-mark${liveClass()}" onclick="selectTab('session')" aria-label="Live session">Live</button>
         <button class="theme-toggle" onclick="toggleTheme()">${themeGlyph()}</button>
       </div>
@@ -2226,14 +2232,15 @@ function renderIndex(){
   const onHome = state.tab === 'home';
   const home = onHome && !state.query;
   const sessionScreen = state.tab === 'session' && !state.query;
+  const calendarScreen = state.tab === 'calendar' && !state.query && typeof calendarPanel === 'function';
   app.innerHTML = `
     <div class="topbar">
     ${onHome ? bigMasthead() : compactMasthead()}
-    ${(onHome || sessionScreen) ? '' : navBar()}
+    ${(onHome || sessionScreen || calendarScreen) ? '' : navBar()}
     </div>
         <main class="index">
-      ${(tabHasSearch() && !sessionScreen && !onHome) ? searchBox() : ''}
-      <div id="results">${(home ? homeCards() : sessionScreen ? sessionPanel() : renderResults()) + versionTag()}</div>
+      ${(tabHasSearch() && !sessionScreen && !calendarScreen && !onHome) ? searchBox() : ''}
+      <div id="results">${(home ? calStrip() + homeCards() : sessionScreen ? sessionPanel() : calendarScreen ? calendarPanel() : renderResults()) + versionTag()}</div>
       ${onHome ? searchBox(true) : ''}
     </main>
     ${onHome ? `<div class="home-feedback">

@@ -114,8 +114,9 @@
       + '<p class="lede">We are thinking of adding a calendar to the front page that shows dates such as the births and deaths of shaykhs and scholars, pulled from the Biographies and Silsila sections as people are added. It would not replace or change the existing tiles. Four short questions, about two minutes.</p>'
       + '<p class="help">Answers, and the name if you give one, can be seen by everyone who takes this survey.</p>'
       + '<form id="sv-form" novalidate style="display:flex;flex-direction:column;gap:1rem">' + QUESTIONS.map(qHTML).join('')
-      + '<section class="q"><h2>Anything else?</h2><p class="help">Optional. Other things you would want from the calendar, or any concerns.</p><textarea id="sv-comment" maxlength="2000" aria-label="Comments"></textarea><input type="text" id="sv-name" maxlength="80" placeholder="Your name (optional)" aria-label="Your name"></section>'
-      + '<div><button type="submit" id="sv-submit">Submit answers</button><p class="err" id="sv-err" hidden></p></div></form>'
+      + '<section class="q"><h2>Anything else?</h2><p class="help">Optional. Other things you would want from the calendar, or any concerns.</p><textarea id="sv-comment" maxlength="2000" aria-label="Comments"></textarea></section>'
+      + '<section class="q"><h2>Your name</h2><p class="help">Required, so we know who answered. It is visible with your answers.</p><input type="text" id="sv-name" maxlength="80" placeholder="Your name" aria-label="Your name" autocomplete="name"></section>'
+      + '<div><p class="err" id="sv-name-err" hidden></p><button type="submit" id="sv-submit">Submit answers</button><p class="err" id="sv-err" hidden></p></div></form>'
       + '<section class="q thanks" id="sv-done" hidden><h2>Thank you</h2><p class="help">Your answers have been sent.</p><button type="button" id="sv-see">See everyone\u2019s answers</button><button type="button" class="quiet" id="sv-open">Open the app</button></section><section class="q" id="sv-results" hidden></section></div>';
     window.scrollTo(0, 0);
     var form = document.getElementById('sv-form');
@@ -146,6 +147,8 @@
       var comment = document.getElementById('sv-comment').value.trim(); if(comment) answers.comment = comment;
       var cid = clientId(); if(cid) answers.client = cid;
       var name = document.getElementById('sv-name').value.trim();
+      var nameErr = document.getElementById('sv-name-err'); nameErr.hidden = true;
+      if(!name){ nameErr.hidden = false; nameErr.textContent = 'Please add your name so we know who answered.'; document.getElementById('sv-name').focus(); return; }
       var btn = document.getElementById('sv-submit'); btn.disabled = true;
       var cfg = (typeof SESSION_CONFIG !== 'undefined') ? SESSION_CONFIG : null;
       if(!cfg || !cfg.url || !cfg.key){ btn.disabled = false; errEl.hidden = false; errEl.textContent = 'Sending is not set up in this copy of the app.'; return; }

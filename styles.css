@@ -1283,21 +1283,25 @@
     html.is-home .masthead .medallion-mark{ display:none; }
     html.is-home .masthead .header-mark,
     html.is-home .masthead .fav-mark,
+    html.is-home .masthead .cal-mark,
     html.is-home .masthead .session-mark,
     html.is-home .masthead .theme-toggle{
       background:rgba(38,40,31,.08); color:var(--ink);
     }
     html.is-home .masthead .header-mark:active,
     html.is-home .masthead .fav-mark:active,
+    html.is-home .masthead .cal-mark:active,
     html.is-home .masthead .session-mark:active,
     html.is-home .masthead .theme-toggle:active{ background:rgba(38,40,31,.18); }
     html.is-home .masthead .session-mark.live{ background:var(--gold); color:var(--theme-deep); }
     html.dark.is-home .masthead .header-mark,
     html.dark.is-home .masthead .fav-mark,
+    html.dark.is-home .masthead .cal-mark,
     html.dark.is-home .masthead .session-mark,
     html.dark.is-home .masthead .theme-toggle{ background:rgba(236,231,214,.12); }
     html.dark.is-home .masthead .session-mark.live{ background:var(--gold); }
 
+    .cal-strip + .home-grid.radial{ margin-top:1rem; }   /* room between the calendar line and the top tile */
     .home-grid.radial{
       display:block; position:relative; box-sizing:border-box;
       width:calc(var(--S) * 2.2); max-width:100%;

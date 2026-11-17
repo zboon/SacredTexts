@@ -23,6 +23,7 @@ section, in search and in favourites with no other change.
 | `nasheeds/` | Nasheeds |
 | `biographies/` | Lives of the awliyāʾ and scholars |
 | `ottoman/` | Ottoman history |
+| `calendar/` | Dates that appear on the calendar but have no piece of their own: occasions, and people or events without an entry. See "The calendar" below. |
 
 `index.json` in this folder lists the section folders, so the service worker knows
 what to keep for offline use. It changes only when a section is added to the app,
@@ -142,3 +143,40 @@ Verses in the Book view can also carry these fields:
 
 A `‖` inside `ar` marks a page turn in the Book view. Copy these from an existing
 piece rather than writing them from scratch.
+
+## The calendar
+
+The calendar (front page line, header icon and its own screen) is built from dates in two places.
+
+**1. Dates on a piece.** Any piece in `silsila/`, `biographies/`, `ottoman/` or `turuqs/` can carry
+an optional `born` and/or `died`. A `died` date shows as an *urs*, a `born` date as a birth:
+
+```json
+"died": { "hijri": { "month": 3, "day": 12, "year": 1318 }, "gregorian": "1901-07-01", "approx": false }
+```
+
+**2. A standalone event** in `calendar/`, for anything without a piece: a person with no silsila or
+biography entry (for example a Companion whose urs date is known), an occasion, or a date in history.
+One file per event, listed in `calendar/index.json` like any other piece. Copy an existing file:
+
+```json
+{
+  "titleEnglish": "Mawlid al-Nabī ﷺ",
+  "titleArabic": "",
+  "kind": "occasion",
+  "hijri": { "month": 3, "day": 12 },
+  "note": "The twelfth of Rabīʿ al-Awwal, as commonly observed.",
+  "verses": []
+}
+```
+
+- `kind` is one of `urs`, `birth`, `occasion`, `history`.
+- A date is `hijri` (`month` 1–12 and `day` 1–30, `year` optional), `gregorian` (`"YYYY-MM-DD"`, a
+  four-digit year, so `0634-08-22`), or both. If both are given the Hijri date decides the day it
+  falls on, since an urs is kept by the Hijri date. Without a `year` the date simply recurs every year.
+- `approx: true` shows the date as "c." when it is not certain.
+- `verses` must be present (empty is fine); the loader requires it of every piece.
+- Hijri months are numbered 1 Muḥarram … 12 Dhū al-Ḥijja.
+- Never enter a date you cannot source. A wrong urs date shown to a congregation is worse than a missing one.
+- The Hijri dates in the calendar grid are worked out on the device and can differ by a day from a printed or
+  locally sighted calendar; dates stored here are shown exactly as entered.
