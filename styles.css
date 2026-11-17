@@ -1301,7 +1301,13 @@
     html.dark.is-home .masthead .theme-toggle{ background:rgba(236,231,214,.12); }
     html.dark.is-home .masthead .session-mark.live{ background:var(--gold); }
 
-    .cal-strip + .home-grid.radial{ margin-top:1rem; }   /* room between the calendar line and the top tile */
+    /* The calendar line rides the header row, centred between the icons, so on a wide
+       screen it takes no room from the ring of tiles. */
+    .cal-strip{
+      position:absolute; z-index:41; margin:0;
+      top:calc(env(safe-area-inset-top, 0px) + .8rem); left:50%; transform:translateX(-50%);
+      width:min(30rem, calc(100% - 22rem));
+    }
     .home-grid.radial{
       display:block; position:relative; box-sizing:border-box;
       width:calc(var(--S) * 2.2); max-width:100%;

@@ -198,6 +198,7 @@
     try {
       var t = today(), h = hijriOf(t), ev = eventsOn(h, t, null);
       var first = ev[0];
+      if(!first) return '';      /* the line appears only on a day that has a date; the header icon is always there */
       var more = ev.length > 1 ? ' <span class="cal-more">+' + (ev.length - 1) + '</span>' : '';
       var line = first ? '<span class="cal-strip-ev"><i class="k-' + first.kind + '"></i>' + esc((first.kind === 'urs' ? 'Urs: ' : '') + first.title) + more + '</span>' : '';
       return '<button type="button" class="cal-strip" onclick="openCalendar()" aria-label="Open the calendar. Today is ' + esc(hText(h) + ', ' + gText(t)) + '">'
