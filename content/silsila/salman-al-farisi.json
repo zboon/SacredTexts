@@ -2,5 +2,12 @@
   "titleArabic": "سَلْمَان الْفَارِسِي",
   "titleEnglish": "3 · Salman al-Farisi",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 7,
+      "day": 10
+    },
+    "approx": false
+  },
   "verses": []
 }

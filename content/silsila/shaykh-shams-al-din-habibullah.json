@@ -2,5 +2,12 @@
   "titleArabic": "الشَّيْخ شَمْس الدِّين حَبِيب الله (مَظْهَر جَان جَانَان)",
   "titleEnglish": "29 · Shaykh Shams al-Din Habibullah (Mazhar Jan-i-Janan)",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 1,
+      "day": 10
+    },
+    "approx": false
+  },
   "verses": []
 }

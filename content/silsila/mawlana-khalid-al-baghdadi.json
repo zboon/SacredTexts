@@ -2,5 +2,12 @@
   "titleArabic": "مَوْلَانَا ضِيَاء الدِّين خَالِد الْبَغْدَادِي",
   "titleEnglish": "31 · Mawlana Khalid al-Baghdadi",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 11,
+      "day": 13
+    },
+    "approx": false
+  },
   "verses": []
 }

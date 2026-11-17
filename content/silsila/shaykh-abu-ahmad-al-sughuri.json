@@ -2,5 +2,12 @@
   "titleArabic": "الشَّيْخ أَبُو أَحْمَد السُّغُورِي",
   "titleEnglish": "36 · Shaykh Abu Ahmad al-Sughuri",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 3,
+      "day": 17
+    },
+    "approx": false
+  },
   "verses": []
 }

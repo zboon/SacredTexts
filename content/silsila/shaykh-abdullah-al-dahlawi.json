@@ -2,5 +2,12 @@
   "titleArabic": "الشَّيْخ عَبْد الله الدِّهْلَوِي",
   "titleEnglish": "30 · Shaykh Abdullah al-Dahlawi",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 2,
+      "day": 12
+    },
+    "approx": false
+  },
   "verses": []
 }

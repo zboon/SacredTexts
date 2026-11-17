@@ -149,7 +149,7 @@ piece rather than writing them from scratch.
 The calendar (front page line, header icon and its own screen) is built from dates in two places.
 
 **1. Dates on a piece.** Any piece in `silsila/`, `biographies/`, `ottoman/` or `turuqs/` can carry
-an optional `born` and/or `died`. A `died` date shows as an *urs*, a `born` date as a birth:
+an optional `born` and/or `died`. A `died` date (the field name only; the app never says "died" on screen) shows as an *urs*, a `born` date as a birth:
 
 ```json
 "died": { "hijri": { "month": 3, "day": 12, "year": 1318 }, "gregorian": "1901-07-01", "approx": false }

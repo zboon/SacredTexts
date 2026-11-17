@@ -2,5 +2,12 @@
   "titleArabic": "الْإِمَام الرَّبَّانِي أَحْمَد الْفَارُوقِي السِّرْهِنْدِي",
   "titleEnglish": "25 · Imam Rabbani Ahmad al-Faruqi al-Sirhindi",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 2,
+      "day": 17
+    },
+    "approx": false
+  },
   "verses": []
 }

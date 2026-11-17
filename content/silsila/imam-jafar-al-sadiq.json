@@ -2,5 +2,12 @@
   "titleArabic": "الْإِمَام جَعْفَر الصَّادِق",
   "titleEnglish": "5 · Imam Ja'far al-Sadiq",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 7,
+      "day": 15
+    },
+    "approx": false
+  },
   "verses": []
 }

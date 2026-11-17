@@ -2,5 +2,12 @@
   "titleArabic": "الشَّيْخ نُور مُحَمَّد الْبَدَوَانِي",
   "titleEnglish": "28 · Shaykh Nur Muhammad al-Badawani",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 11,
+      "day": 11
+    },
+    "approx": false
+  },
   "verses": []
 }

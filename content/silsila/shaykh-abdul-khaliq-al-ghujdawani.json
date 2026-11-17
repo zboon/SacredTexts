@@ -2,5 +2,12 @@
   "titleArabic": "الشَّيْخ عَبْد الْخَالِق الْغُجْدَوَانِي",
   "titleEnglish": "11 · Shaykh Abdul Khaliq al-Ghujdawani",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 3,
+      "day": 12
+    },
+    "approx": false
+  },
   "verses": []
 }

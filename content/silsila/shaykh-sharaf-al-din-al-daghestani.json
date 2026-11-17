@@ -2,5 +2,12 @@
   "titleArabic": "الشَّيْخ شَرَف الدِّين الدَّاغِسْتَانِي",
   "titleEnglish": "38 · Shaykh Sharaf al-Din al-Daghestani",
   "image": "",
+  "died": {
+    "hijri": {
+      "month": 6,
+      "day": 27
+    },
+    "approx": false
+  },
   "verses": []
 }
