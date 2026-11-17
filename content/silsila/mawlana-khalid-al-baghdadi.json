@@ -5,9 +5,11 @@
   "died": {
     "hijri": {
       "month": 11,
-      "day": 13
+      "day": 13,
+      "year": 1242
     },
-    "approx": false
+    "gregorian": "1827-06-07",
+    "approx": true
   },
   "verses": []
 }
