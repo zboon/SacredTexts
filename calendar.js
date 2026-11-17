@@ -134,8 +134,11 @@
   }
 
   /* ---- views ---- */
-  function dots(list){
-    return list.length ? '<span class="cal-dots" aria-hidden="true">' + list.slice(0, 3).map(function(e){ return '<i class="k-' + e.kind + '"></i>'; }).join('') + '</span>' : '';
+  /* The tile takes the colour of its most important date (urs, then birth, occasion, history), the same colours as the filter chips. */
+  function mainKind(list){
+    var order = ['urs','birth','occasion','history'];
+    for(var i = 0; i < order.length; i++) for(var j = 0; j < list.length; j++) if(list[j].kind === order[i]) return order[i];
+    return list[0].kind;
   }
   function eventRow(e, h, g, key){
     var a = ago(e, h, g);
@@ -164,9 +167,9 @@
     for(var i = 0; i < st.len; i++){
       var g = addDays(st.first, i), hh = { y:st.y, m:st.m, d:i + 1 }, ev = eventsOn(hh, g, st.filt);
       var isToday = g.getTime() === t.getTime();
-      h += '<button type="button" role="gridcell" class="cal-day' + (isToday ? ' today' : '') + (i === st.sel ? ' sel' : '') + (ev.length ? ' has' : '') + '" onclick="calPick(' + i + ')"'
+      h += '<button type="button" role="gridcell" class="cal-day' + (isToday ? ' today' : '') + (i === st.sel ? ' sel' : '') + (ev.length ? ' has k-' + mainKind(ev) : '') + '" onclick="calPick(' + i + ')"'
         + ' aria-label="' + esc(hText(hh) + ', ' + gText(g) + (ev.length ? ', ' + ev.length + (ev.length === 1 ? ' date' : ' dates') : '')) + '">'
-        + '<span class="h">' + (i + 1) + '</span><span class="g">' + (g.getDate() === 1 || i === 0 ? g.getDate() + ' ' + GMON[g.getMonth()] : g.getDate()) + '</span>' + dots(ev) + '</button>';
+        + '<span class="h">' + (i + 1) + '</span><span class="g">' + (g.getDate() === 1 || i === 0 ? g.getDate() + ' ' + GMON[g.getMonth()] : g.getDate()) + '</span>' + '</button>';
     }
     h += '</div>';
     var sg = addDays(st.first, st.sel), sh = { y:st.y, m:st.m, d:st.sel + 1 }, sev = eventsOn(sh, sg, st.filt);
@@ -231,6 +234,7 @@
     + '.cal-more{color:var(--ink-soft,#666);font-weight:400;white-space:nowrap}.cal-strip:hover .cal-strip-t,.cal-strip:focus-visible .cal-strip-t{text-decoration:underline}'
     + '.cal-strip-ev i,.cal-dots i{display:inline-block;width:.45rem;height:.45rem;border-radius:50%;flex:none}'
     + '.k-urs{--k:#8a2b3d}.k-birth{--k:#2f7a4f}.k-occasion{--k:#a47a1f}.k-history{--k:#3a4f9a}'
+    + 'html.dark .k-urs{--k:#e58a9b}html.dark .k-birth{--k:#6fcf97}html.dark .k-occasion{--k:#e0b252}html.dark .k-history{--k:#8fa3ec}'
     + '.cal-strip-ev i,.cal-dots i{background:var(--k)}'
     + '.cal{max-width:40rem;margin:0 auto;padding:.4rem .9rem 2rem;display:flex;flex-direction:column;gap:.9rem;color:var(--ink,#222)}'
     + '.cal-head{display:flex;align-items:center;justify-content:space-between;gap:.6rem}'
@@ -247,9 +251,8 @@
     + '.cal-day .h{font-size:1.05rem;font-weight:700;line-height:1}.cal-day .g{font-size:.62rem;color:var(--ink-soft,#666);line-height:1.1}'
     + '.cal-day.today{border-color:var(--gold,#a47a1f);box-shadow:inset 0 0 0 1.5px var(--gold,#a47a1f)}'
     + '.cal-day.sel{background:var(--paper-edge,#eee)}'
-    + '.cal-day.has{background:#e6f3ea;border-color:#9fd1b1}.cal-day.has .h{color:#13803f}'
-    + 'html.dark .cal-day.has{background:#173826;border-color:#2f6b49}html.dark .cal-day.has .h{color:#6fdc9b}'
-    + '.cal-dots{position:absolute;bottom:.2rem;display:flex;gap:.12rem}'
+    + '.cal-day.has{background:color-mix(in srgb,var(--k) 20%,var(--card,#fff));border-color:var(--k)}.cal-day.has .h{color:var(--k)}'
+    + '.cal-day.has.sel{background:color-mix(in srgb,var(--k) 38%,var(--card,#fff))}'
     + '.cal-sec{display:flex;flex-direction:column;gap:.5rem}.cal-sec h2{font-size:1rem;margin:.2rem 0 0;display:flex;flex-direction:column;line-height:1.3}.cal-sec h2 small{color:var(--ink-soft,#666);font-weight:400;font-size:.82rem}'
     + '.cal-none,.cal-foot{color:var(--ink-soft,#666);font-size:.85rem}'
     + '.cal-ev{display:flex;align-items:flex-start;gap:.7rem;width:100%;text-align:left;padding:.65rem .8rem;border:1px solid var(--paper-edge,#ddd);border-radius:10px;background:var(--card,#fff);color:var(--ink,#222);min-width:0}'
