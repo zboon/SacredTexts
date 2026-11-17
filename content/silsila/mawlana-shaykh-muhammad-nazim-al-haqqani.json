@@ -5,8 +5,10 @@
   "died": {
     "hijri": {
       "month": 7,
-      "day": 8
+      "day": 8,
+      "year": 1435
     },
+    "gregorian": "2014-05-07",
     "approx": false
   },
   "verses": []

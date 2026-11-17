@@ -1125,7 +1125,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v404';
+const APP_VERSION = 'v405';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -2197,10 +2197,11 @@ function compactMasthead(){
       <div class="mh-left">
         <button class="header-mark" onclick="goHome()" aria-label="Home">${HOME_ICON_SVG}</button>
         <button class="back-mark" onclick="goBack()" aria-label="Back">${BACK_ICON_SVG}</button>
+        ${calMark()}
       </div>
-      <img class="bismillah-mark" src="${HEADER_BISMILLAH}" width="640" height="114" alt="${BISMILLAH_ALT}">
+      <img class="bismillah-mark home-link" src="${HEADER_BISMILLAH}" width="640" height="114" alt="${BISMILLAH_ALT}" role="link" tabindex="0" onclick="goHome()" onkeydown="if(event.key==='Enter')goHome()">
       <div class="mh-right">
-        ${calMark()}${favMark()}
+        ${favMark()}
         <button class="session-mark${liveClass()}" onclick="selectTab('session')" aria-label="Live session">Live</button>
         <button class="theme-toggle" onclick="toggleTheme()">${themeGlyph()}</button>
       </div>
@@ -3986,7 +3987,7 @@ function readerHTML(q, backOnclick, kind, idx){
   return `
     <div class="reader-bar">
       <div class="rside"><button class="back" onclick="${backOnclick}">‹ Back</button></div>
-      <img class="reader-bismillah" src="${HEADER_BISMILLAH}" width="640" height="114"
+      <img class="reader-bismillah home-link" src="${HEADER_BISMILLAH}" width="640" height="114" role="link" onclick="goHome()"
            alt="\u0628\u0650\u0633\u0652\u0645\u0650 \u0627\u0644\u0644\u0647\u0650 \u0627\u0644\u0631\u0651\u064e\u062d\u0652\u0645\u0670\u0646\u0650 \u0627\u0644\u0631\u0651\u064e\u062d\u0650\u064a\u0645\u0650">
       <div class="rside end"><button class="theme-toggle bar-theme" onclick="toggleTheme()" aria-label="Day or night">${themeGlyph()}</button>${(hasPages && !empty) ? `<button class="view-swap" onclick="setPageView(${!pageView},${controlsTarget})" aria-label="Switch to ${pageView?'Study':'Book'} Version">${SWAP_ICON_SVG}<span>${pageView?'Study':'Book'}</span></button>` : ''}<button class="fav-btn ${fav?'on':''}" onclick="toggleFav(${controlsTarget})"
               aria-label="${fav?'Remove bookmark':'Bookmark this'}">${bookmarkIcon(fav)}</button></div>

@@ -258,7 +258,7 @@
     + '.cal-mrow{display:flex;gap:.6rem;align-items:flex-start}.cal-md{flex:none;width:3rem;text-align:center;font-weight:700;font-size:1.05rem;line-height:1.1;padding-top:.55rem}.cal-md small{display:block;font-weight:400;font-size:.62rem;color:var(--ink-soft,#666)}.cal-mrow .cal-ev{flex:1}'
     /* the header icon: same treatment as the bookmark beside it */
     + '.cal-mark{position:absolute;top:calc(env(safe-area-inset-top,0px) + .8rem);left:6.2rem;width:2.3rem;height:2.3rem;border-radius:50%;border:none;cursor:pointer;background:rgba(250,245,234,.14);color:var(--paper);display:flex;align-items:center;justify-content:center}'
-    + '.cal-mark:active{background:rgba(250,245,234,.28)}.masthead.compact .cal-mark{position:static;top:auto;left:auto}@media (max-width:359px){.masthead.compact .cal-mark{display:none}}'
+    + '.cal-mark:active{background:rgba(250,245,234,.28)}.masthead.compact .cal-mark{position:static;top:auto;left:auto}'
     ;
   var sty = document.createElement('style'); sty.id = 'cal-css'; sty.textContent = CSS; document.head.appendChild(sty);
 })();
