@@ -200,9 +200,9 @@
       var first = ev[0];
       if(!first) return '';      /* the line appears only on a day that has a date; the header icon is always there */
       var more = ev.length > 1 ? ' <span class="cal-more">+' + (ev.length - 1) + '</span>' : '';
-      var line = first ? '<span class="cal-strip-ev"><i class="k-' + first.kind + '"></i>' + esc((first.kind === 'urs' ? 'Urs: ' : '') + first.title) + more + '</span>' : '';
+      var line = first ? '<span class="cal-strip-ev"><i class="k-' + first.kind + '"></i><span class="cal-strip-t">' + esc((first.kind === 'urs' ? 'Urs: ' : '') + first.title) + more + '</span></span>' : '';
       return '<button type="button" class="cal-strip" onclick="openCalendar()" aria-label="Open the calendar. Today is ' + esc(hText(h) + ', ' + gText(t)) + '">'
-        + '<span class="cal-strip-main"><span class="cal-strip-d"><b>' + esc(hText(h)) + '</b><small>' + esc(gText(t)) + '</small></span>' + line + '</span><span class="cal-chev">›</span></button>';
+        + line + '<span class="cal-strip-d">' + esc(hText(h, false)) + '</span></button>';
     } catch(e){ return ''; }
   };
   window.calMarkHTML = function(){
@@ -225,11 +225,10 @@
     if(typeof fn === 'function') fn(e.open.idx);
   };
 
-  var CSS = '.cal-strip{display:flex;align-items:center;gap:.6rem;width:calc(100% - 2rem);max-width:30rem;margin:.4rem auto .1rem;padding:.4rem .75rem;border:1px solid var(--paper-edge,#ddd);border-radius:12px;background:var(--card,#fff);color:var(--ink,#222);text-align:left;font-size:.86rem;line-height:1.25}'
-    + '.cal-strip-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:.1rem}'
-    + '.cal-strip-d{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}.cal-strip-d small{color:var(--ink-soft,#666);font-size:.75rem}'
-    + '.cal-strip-ev{display:flex;align-items:center;gap:.4rem;color:var(--gold,#a47a1f);font-weight:700;min-width:0}'
-    + '.cal-strip .cal-chev{color:var(--gold,#a47a1f);font-size:1.2rem}.cal-more{color:var(--ink-soft,#666);font-weight:500;white-space:nowrap}'
+  var CSS = '.cal-strip{display:flex;align-items:center;justify-content:center;gap:.5rem;width:calc(100% - 2rem);max-width:30rem;margin:.35rem auto 0;padding:.15rem .5rem;background:none;border:0;color:var(--ink-soft,#666);font-size:.76rem;line-height:1.3;white-space:nowrap;overflow:hidden}'
+    + '.cal-strip-ev{display:flex;align-items:center;gap:.35rem;min-width:0;color:var(--ink,#222)}.cal-strip-t{overflow:hidden;text-overflow:ellipsis}'
+    + '.cal-strip-d{flex:none;opacity:.85}.cal-strip-d::before{content:"\\00b7";margin-right:.5rem}'
+    + '.cal-more{color:var(--ink-soft,#666);font-weight:400;white-space:nowrap}.cal-strip:hover .cal-strip-t,.cal-strip:focus-visible .cal-strip-t{text-decoration:underline}'
     + '.cal-strip-ev i,.cal-dots i{display:inline-block;width:.45rem;height:.45rem;border-radius:50%;flex:none}'
     + '.k-urs{--k:#8a2b3d}.k-birth{--k:#2f7a4f}.k-occasion{--k:#a47a1f}.k-history{--k:#3a4f9a}'
     + '.cal-strip-ev i,.cal-dots i{background:var(--k)}'

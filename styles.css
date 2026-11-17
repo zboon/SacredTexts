@@ -1306,7 +1306,7 @@
     .cal-strip{
       position:absolute; z-index:41; margin:0;
       top:calc(env(safe-area-inset-top, 0px) + .8rem); left:50%; transform:translateX(-50%);
-      width:min(30rem, calc(100% - 22rem));
+      width:min(30rem, calc(100% - 22rem)); height:2.3rem;
     }
     .home-grid.radial{
       display:block; position:relative; box-sizing:border-box;
