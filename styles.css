@@ -1244,6 +1244,9 @@
     border-radius:14px; padding:.9rem .55rem;
     transition:transform .1s, border-color .12s;
   }
+  /* A tile or tab that links out to another site is an <a>, not a <button>. */
+  a.home-card, a.tab{ text-decoration:none; }
+  a.home-card{ color:inherit; }
   .home-card:hover{ border-color:var(--gold-soft); }
   .home-card:active{ transform:scale(.98); }
   /* The seal inside the home grid is for wide screens only; on a phone the

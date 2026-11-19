@@ -1156,12 +1156,17 @@ const SOHBET_SHAYKHS = [
    --navy/--maroon/... custom properties near the top of the stylesheet).
    Sections not yet built (silsila, turuqs, sohbets, biographies, ottoman)
    render a placeholder() until content is added — see renderResults(). */
+/* The sohbets are read in the Sohbet Archive, a separate site (repo:
+   abdulmajid1993/SohbetArchive), so the Sohbets tile and tab open it in a new
+   tab rather than a page of this app. Change the address here only. */
+const SOHBET_ARCHIVE_URL = 'https://abdulmajid1993.github.io/SohbetArchive/';
+
 const TABS = [
   { id:'mawlids',      label:'Mawlid',              ar:'الْموالد',                theme:'green'   },
   { id:'dalail',       label:'Dalāʾil al-Khayrāt',  ar:'دلائل الْخيرات',          theme:'navy'    },
   { id:'silsila',      label:'Naqshbandi Silsila',  ar:'السِّلْسِلَة النَّقْشَبَنْدِيَّة', theme:'maroon'  },
   { id:'turuqs',       label:'Turuqs',              ar:'الطُّرُق الصُّوفِيَّة',        theme:'teal'    },
-  { id:'sohbets',      label:'Sohbets',             ar:'الصُّحْبَة',               theme:'ochre'   },
+  { id:'sohbets',      label:'Sohbets',             ar:'الصُّحْبَة',               theme:'ochre',  href:SOHBET_ARCHIVE_URL },
   { id:'praises',      label:'Qasidas',             ar:'القصائد',                 theme:'plum'    },
   { id:'biographies',  label:'Biographies',         ar:'التَّرَاجِم',              theme:'rust'    },
   { id:'ottoman',      label:'Ottoman History',     ar:'التَّارِيخ الْعُثْمَانِي',      theme:'indigo'  },
@@ -1200,11 +1205,15 @@ Object.keys(TAB_CHILDREN).forEach(parent => {
 function sectionThemeOf(tab){ return SECTION_THEME[tab] || 'green'; }
 
 function navBar(){
-  return `<nav class="tabbar">${TABS.map(t=>`
-    <button class="tab ${tabIsActive(t.id)?'active':''}" onclick="selectTab('${t.id}')">
-      <span class="tab-en">${t.label}</span>
-      <span class="tab-ar">${t.ar}</span>
-    </button>`).join('')}</nav>`;
+  return `<nav class="tabbar">${TABS.map(t=>{
+    const inner = `
+      <span class="tab-en">${t.label}${t.href ? ' ↗' : ''}</span>
+      <span class="tab-ar">${t.ar}</span>`;
+    /* A tab with an href leaves the app: a real link, opened in a new tab. */
+    return t.href
+      ? `<a class="tab" href="${t.href}" target="_blank" rel="noopener noreferrer">${inner}\n    </a>`
+      : `<button class="tab ${tabIsActive(t.id)?'active':''}" onclick="selectTab('${t.id}')">${inner}\n    </button>`;
+  }).join('')}</nav>`;
 }
 
 function selectTab(id){
@@ -1915,7 +1924,7 @@ const HOME_CARDS = [
   { id:'dalail',      ar:'دلائل الْخيرات',                  en:'Dalāʾil al-Khayrāt', theme:'navy',    desc:'Imam al-Jazūlī’s book of blessings upon the Prophet ﷺ, divided for the week.' },
   { id:'silsila',     ar:'السِّلْسِلَة النَّقْشَبَنْدِيَّة',            en:'Naqshbandi Silsila', theme:'maroon',  desc:'The chain of transmission connecting the Naqshbandi masters, shaykh to shaykh, back to the Prophet ﷺ.' },
   { id:'turuqs',      ar:'الطُّرُق الصُّوفِيَّة',                  en:'Turuqs',             theme:'teal',    desc:'An introduction to the Sufi orders (ṭuruq) and their paths of devotion.' },
-  { id:'sohbets',     ar:'الصُّحْبَة',                        en:'Sohbets',            theme:'ochre',   desc:'Talks and spiritual counsel from the shaykhs, for reflection and practice.' },
+  { id:'sohbets',     ar:'الصُّحْبَة',                        en:'Sohbets',            theme:'ochre',   href:SOHBET_ARCHIVE_URL, desc:'Talks and spiritual counsel from the shaykhs, for reflection and practice.' },
   { id:'praises',     ar:'القصائد',                        en:'Qasidas',            theme:'plum',    desc:'Qasidas, ilahis and qawwalis.' },
   { id:'biographies', ar:'التَّرَاجِم',                       en:'Biographies',        theme:'rust',    desc:'Lives of the awliyā’ and scholars of the silsila, in brief.' },
   { id:'ottoman',     ar:'التَّارِيخ الْعُثْمَانِي',                en:'Ottoman History',    theme:'indigo',  desc:'The Ottoman caliphate’s history and its place in the transmission of the dīn.' },
@@ -1959,7 +1968,7 @@ function countLabel(id, n){
   if(id === 'ilahis') return n + (n === 1 ? ' ilahi' : ' ilahis');
   if(id === 'silsila') return n ? n + (n === 1 ? ' master' : ' masters') : 'Coming soon';
   if(id === 'turuqs') return n ? n + (n === 1 ? ' tariqa' : ' tariqas') : 'Coming soon';
-  if(id === 'sohbets') return n ? n + (n === 1 ? ' sohbet' : ' sohbets') : 'Coming soon';
+  if(id === 'sohbets') return 'Open the Sohbet Archive ↗';
   if(id === 'biographies') return n ? n + (n === 1 ? ' life' : ' lifes') : 'Coming soon';
   if(id === 'ottoman') return n ? n + (n === 1 ? ' chapter' : ' chapters') : 'Coming soon';
   if(id === 'more')    return 'More sections soon';
@@ -2002,11 +2011,17 @@ function homeCards(){
       pos = ` style="--dx:${dx.toFixed(4)};--dy:${dy.toFixed(4)};--r:${ringRadius(dx, dy).toFixed(4)}"`;
       k++;
     }
-    return `
-      <button class="home-card${onRing ? ' ring' : ''}" data-tile="${c.theme}"${pos} onclick="selectTab('${c.id}')">
+    const inner = `
         <span class="hc-ar">${c.ar}</span>
         <span class="hc-en">${c.en}</span>
-        <span class="hc-count">${countLabel(c.id, sectionCount(c.id))}</span>
+        <span class="hc-count">${countLabel(c.id, sectionCount(c.id))}</span>`;
+    /* A tile with an href leaves the app: a real link, opened in a new tab. */
+    return c.href
+      ? `
+      <a class="home-card${onRing ? ' ring' : ''}" data-tile="${c.theme}"${pos} href="${c.href}" target="_blank" rel="noopener noreferrer">${inner}
+      </a>`
+      : `
+      <button class="home-card${onRing ? ' ring' : ''}" data-tile="${c.theme}"${pos} onclick="selectTab('${c.id}')">${inner}
       </button>`;
   }).join('');
   return `<div class="home-grid radial">
