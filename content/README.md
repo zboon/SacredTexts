@@ -180,7 +180,3 @@ One file per event, listed in `calendar/index.json` like any other piece. Copy a
 - Never enter a date you cannot source. A wrong urs date shown to a congregation is worse than a missing one.
 - The Hijri dates in the calendar grid are worked out on the device and can differ by a day from a printed or
   locally sighted calendar; dates stored here are shown exactly as entered.
-
-### Calendar reminders
-
-Notifications are described in `docs/calendar-push-setup.md`. They read the same `calendar/` and `silsila/` files as the app, so nothing extra is needed when you add a date.

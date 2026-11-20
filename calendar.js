@@ -183,7 +183,6 @@
     h += '<section class="cal-sec"><h2>This month</h2>'
       + (month.length ? month.map(function(x){ return '<div class="cal-mrow"><span class="cal-md">' + x.h.d + '<small>' + x.g.getDate() + ' ' + GMON[x.g.getMonth()] + '</small></span>' + eventRow(x.e, x.h, x.g) + '</div>'; }).join('')
         : '<p class="cal-none">Nothing recorded this month yet.</p>') + '</section>';
-    h += pushBox();
     h += '<p class="cal-foot">Hijri dates are worked out on your device and can differ by a day from a printed or locally sighted calendar.</p>';
     return h;
   }
@@ -192,74 +191,9 @@
     if(root) root.innerHTML = body();
   }
 
-  /* ---- reminders (web push) ----
-     Turning them on stores this phone's push address in Supabase (docs/calendar-push-setup.sql);
-     an hourly job there sends one notification at 18:00 local time on the evening BEFORE an urs
-     or an Islamic occasion, because the Hijri day begins at sunset. The box stays hidden until
-     VAPID_PUBLIC_KEY is filled in, so the app is unchanged until the server side exists. */
-  var VAPID_PUBLIC_KEY = '';
-  var push = { state:'checking' };             /* checking | off | on | denied | busy | error | ios | none */
-  function pushConfig(){ return (typeof SESSION_CONFIG !== 'undefined' && SESSION_CONFIG.url && SESSION_CONFIG.key) ? SESSION_CONFIG : null; }
-  function standalone(){ return (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true; }
-  function pushCapable(){ return 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window; }
-  function b64u(buf){ var s = ''; new Uint8Array(buf).forEach(function(c){ s += String.fromCharCode(c); }); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
-  function keyBytes(k){ var p = '='.repeat((4 - k.length % 4) % 4), r = atob((k + p).replace(/-/g, '+').replace(/_/g, '/')), o = new Uint8Array(r.length); for(var i = 0; i < r.length; i++) o[i] = r.charCodeAt(i); return o; }
-  function pushRpc(fn, args){
-    var c = pushConfig();
-    return fetch(c.url + '/rest/v1/rpc/' + fn, { method:'POST', headers:{ apikey:c.key, Authorization:'Bearer ' + c.key, 'Content-Type':'application/json' }, body:JSON.stringify(args) })
-      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); });
-  }
-  function pushCheck(){
-    if(!VAPID_PUBLIC_KEY || !pushConfig()){ push.state = 'hidden'; return; }
-    if(!pushCapable()){ push.state = (/iphone|ipad/i.test(navigator.userAgent) && !standalone()) ? 'ios' : 'none'; render(); return; }
-    if(Notification.permission === 'denied'){ push.state = 'denied'; render(); return; }
-    navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); })
-      .then(function(sub){ push.state = sub ? 'on' : 'off'; render(); })
-      .catch(function(){ push.state = 'none'; render(); });
-  }
-  function pushBox(){
-    var s = push.state;
-    if(s === 'hidden') return '';
-    var msg = {
-      checking:'', off:'Get a notification the evening before an urs or an Islamic occasion.',
-      on:'On. You will be notified at 6 pm, the evening before an urs or an Islamic occasion.',
-      busy:'One moment…', denied:'Notifications are blocked for this app. Turn them on in your phone\'s settings for it, then come back.',
-      error:'That did not work. Please try again.',
-      ios:'On iPhone, first add this app to your Home Screen (Share, then Add to Home Screen), then open it from there to turn reminders on.',
-      none:'This browser cannot show reminders.'
-    }[s] || '';
-    var btn = (s === 'off' || s === 'error') ? '<button type="button" class="cal-push-btn" onclick="calPush()">Remind me</button>'
-      : s === 'on' ? '<button type="button" class="cal-push-btn off" onclick="calPush()">Turn off</button>' : '';
-    return '<section class="cal-sec cal-push"><h2>Reminders</h2><p class="cal-none">' + esc(msg) + '</p>' + btn + '</section>';
-  }
-  window.calPush = function(){
-    if(push.state === 'on'){
-      push.state = 'busy'; render();
-      navigator.serviceWorker.ready.then(function(reg){ return reg.pushManager.getSubscription(); }).then(function(sub){
-        if(!sub) return;
-        var ep = sub.endpoint;
-        return sub.unsubscribe().then(function(){ return pushRpc('unsubscribe_push', { p_endpoint:ep }).catch(function(){}); });
-      }).then(function(){ push.state = 'off'; render(); }).catch(function(){ push.state = 'on'; render(); });
-      return;
-    }
-    push.state = 'busy'; render();
-    Notification.requestPermission().then(function(perm){
-      if(perm !== 'granted'){ push.state = perm === 'denied' ? 'denied' : 'off'; render(); return; }
-      return navigator.serviceWorker.ready.then(function(reg){
-        return reg.pushManager.subscribe({ userVisibleOnly:true, applicationServerKey:keyBytes(VAPID_PUBLIC_KEY) });
-      }).then(function(sub){
-        var j = sub.toJSON(), tz = '';
-        try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e){}
-        return pushRpc('subscribe_push', { p_endpoint:sub.endpoint, p_p256dh:(j.keys && j.keys.p256dh) || b64u(sub.getKey('p256dh')), p_auth:(j.keys && j.keys.auth) || b64u(sub.getKey('auth')), p_tz:tz })
-          .catch(function(err){ return sub.unsubscribe().then(function(){ throw err; }); });
-      }).then(function(){ push.state = 'on'; render(); });
-    }).catch(function(){ push.state = 'error'; render(); });
-  };
-
   /* ---- hooks for app.js ---- */
   window.calendarPanel = function(){
     if(!st) init();
-    if(push.state === 'checking') pushCheck();
     return '<div class="cal" id="cal-root">' + body() + '</div>';
   };
   window.openCalendar = function(){ st = null; selectTab('calendar'); };
@@ -320,7 +254,6 @@
     + '.cal-day.has{background:color-mix(in srgb,var(--k) 20%,var(--card,#fff));border-color:var(--k)}.cal-day.has .h{color:var(--k)}'
     + '.cal-day.has.sel{background:color-mix(in srgb,var(--k) 38%,var(--card,#fff))}'
     + '.cal-sec{display:flex;flex-direction:column;gap:.5rem}.cal-sec h2{font-size:1rem;margin:.2rem 0 0;display:flex;flex-direction:column;line-height:1.3}.cal-sec h2 small{color:var(--ink-soft,#666);font-weight:400;font-size:.82rem}'
-    + '.cal-push-btn{align-self:flex-start;padding:.5rem 1.1rem;border-radius:999px;border:1.5px solid var(--accent-green,#1E5540);background:var(--accent-green,#1E5540);color:#fff;font-weight:700;font-size:.9rem}.cal-push-btn.off{background:none;color:var(--accent-green,#1E5540)}'
     + '.cal-none,.cal-foot{color:var(--ink-soft,#666);font-size:.85rem}'
     + '.cal-ev{display:flex;align-items:flex-start;gap:.7rem;width:100%;text-align:left;padding:.65rem .8rem;border:1px solid var(--paper-edge,#ddd);border-radius:10px;background:var(--card,#fff);color:var(--ink,#222);min-width:0}'
     + 'button.cal-ev:active{transform:scale(.99)}'

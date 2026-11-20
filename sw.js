@@ -12,7 +12,7 @@
    page, its script and its styles stay in step.
    Everything else (fonts, images, icons, manifest) stays cache-first: it's
    large, it doesn't change, and it's what makes the app work with no signal. */
-const CACHE = 'sacredtexts-v411'; // bump this whenever you update index.html
+const CACHE = 'sacredtexts-v410'; // bump this whenever you update index.html
 const CORE = ['./', './index.html', './styles.css', './app.js', './survey.js', './calendar.js', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png',
   './fonts/UthmanicHafs.otf', './fonts/Amiri-Regular.woff', './fonts/Amiri-Bold.woff',
   './img/medallion.png', './img/header-bismillah.png'];
@@ -193,24 +193,3 @@ function networkFirst(req){
     .then(resp => resp || network)
     .catch(() => Response.error());
 }
-
-/* Calendar reminders. The server (supabase/functions/send-calendar-push) sends a small JSON
-   payload; tapping the notification opens the calendar. */
-self.addEventListener('push', e => {
-  let d = {};
-  try { d = e.data ? e.data.json() : {}; } catch (err) { d = { title: 'Sacred Texts', body: e.data ? e.data.text() : '' }; }
-  e.waitUntil(self.registration.showNotification(d.title || 'Sacred Texts', {
-    body: d.body || '', tag: d.tag || 'calendar', icon: './icon-192.png', badge: './icon-192.png',
-    data: { url: './#calendar' }
-  }));
-});
-self.addEventListener('notificationclick', e => {
-  e.notification.close();
-  const target = new URL((e.notification.data && e.notification.data.url) || './', self.location.href).href;
-  e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
-    for (const c of list) {
-      if ('focus' in c) { c.postMessage({ openCalendar: true }); return c.focus(); }
-    }
-    return self.clients.openWindow(target);
-  }));
-});
