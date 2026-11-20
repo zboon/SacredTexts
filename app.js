@@ -1125,7 +1125,7 @@ const MAWLID_COLLECTIONS = [
 
 /* Bumped with sw.js on every release. Shown small at the foot of the home page
    so you can tell at a glance which build a given phone is actually running. */
-const APP_VERSION = 'v410';
+const APP_VERSION = 'v411';
 /* Where the home-page feedback button sends corrections. Change to your address. */
 const FEEDBACK_EMAIL = 'zayd.boon@gmail.com';
 
@@ -5824,6 +5824,9 @@ function start(){
   renderIndex();
   joinFromLink();
   restoreRecent();
+  /* A reminder notification opens #calendar (or messages an already open window). */
+  if((location.hash || '') === '#calendar' && typeof openCalendar === 'function') openCalendar();
+  if('serviceWorker' in navigator) navigator.serviceWorker.addEventListener('message', ev => { if(ev.data && ev.data.openCalendar && typeof openCalendar === 'function') openCalendar(); });
   /* The hidden survey link (#survey or ?survey) wins. survey.js is normally loaded by
      index.html, but a phone that still holds the previous index.html from the service
      worker has no such tag (app.js is fetched fresh, the page is not), so load it here
