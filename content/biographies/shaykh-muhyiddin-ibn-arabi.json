@@ -1,0 +1,36 @@
+{
+  "titleArabic": "الشيخ الأكبر محيي الدين ابن عربي",
+  "titleEnglish": "1 · Shaykh Muhyiddin Ibn Arabi",
+  "latin": true,
+  "prose": true,
+  "died": {
+    "hijri": {
+      "month": 4,
+      "day": 22,
+      "year": 638
+    },
+    "approx": false
+  },
+  "verses": [
+    {
+      "ar": "Name and title: Muhammad ibn Ali ibn Muhammad Ibn Arabi al-Ta'i al-Hatimi, known as Muhyiddin (Reviver of the Religion) and al-Shaykh al-Akbar (the Greatest Shaykh).\nBorn: Ramadan 560 AH (1165 CE), Murcia, al-Andalus. The sources differ on the day (17th or 27th).\nDied: 22 Rabi al-Thani 638 AH (November 1240 CE), Damascus; buried on Mount Qasiyun. Sources give 8 or 16 November.\nTeachers: many scholars and saints in al-Andalus and North Africa, among them Fatima bint Ibn al-Muthanna of Seville, and al-Uryani, his first master.\nStudents: Sadr al-Din al-Qunawi, his stepson and chief interpreter, and Ismail ibn Sawdakin.\nWorks: al-Futuhat al-Makkiyya (begun in Mecca in 598 AH, finished about 635 AH), Fusus al-Hikam (completed in Damascus about 627–628 AH) and the poems Tarjuman al-Ashwaq.",
+      "tr": "",
+      "en": ""
+    },
+    {
+      "ar": "Ibn Arabi was born in Murcia in 1165 and grew up in Seville, where his family settled after the Almohad takeover of Murcia. He received the education of a scholar of his day, studying the Qur'an, hadith and jurisprudence with many teachers, and as a young man he turned decisively to the path of the Sufis; he is remembered for his love and service of the saints he met, among them women such as Fatima of Seville. In 1201 or 1202 he left the West for Mecca and never returned. He travelled through Egypt, Jerusalem, Iraq and Anatolia, and in 620 AH (1223) settled in Damascus, where he taught, wrote and received students until he passed away on 22 Rabi al-Thani 638 AH.",
+      "tr": "",
+      "en": ""
+    },
+    {
+      "ar": "Ibn Arabi wrote some hundreds of works on the knowledge of Allah, the Prophet's inner reality, the stations of the saints and the unseen. In the Futuhat al-Makkiyya, begun beside the Ka'ba, he presents the whole of the religion, its acts of worship and the spiritual states that grow from them, as a path of knowing Allah; the Fusus al-Hikam takes each prophet as a wisdom of the Divine Names. He was named al-Shaykh al-Akbar by his followers, and Sadr al-Din al-Qunawi began the work of explaining and passing on his teachings. Scholars have always received his writings in different ways: many in the Sufi tradition honour him as a great knower of Allah, while others have urged caution in reading his most difficult works without a trained guide. For that reason his books are best read with a teacher and alongside the sacred law that he himself insisted on.",
+      "tr": "",
+      "en": ""
+    },
+    {
+      "ar": "Sources\n• Stanford Encyclopedia of Philosophy, “Ibn ʿArabī” (plato.stanford.edu/entries/ibn-arabi/)\n• Encyclopedia.com, “Ibn al-ʿArabī (1165–1240)” (encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/ibn-al-arabi-1165-1240)\n• Encyclopædia Britannica, “Ibn al-ʿArabī” (britannica.com/print/article/280684)\n• Beshara Publications, “Muhyiddin Ibn ʿArabi” (besharapublications.org.uk/muhyiddin-ibn-arabi/)\n\nFurther reading: Claude Addas, Quest for the Red Sulphur: The Life of Ibn Arabi; William Chittick, The Sufi Path of Knowledge. (Not yet checked by us; please verify before relying.)",
+      "tr": "",
+      "en": ""
+    }
+  ]
+}

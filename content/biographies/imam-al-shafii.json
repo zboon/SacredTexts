@@ -1,0 +1,37 @@
+{
+  "titleArabic": "الإمام الشافعي",
+  "titleEnglish": "3 · Imam al-Shafii",
+  "latin": true,
+  "prose": true,
+  "died": {
+    "hijri": {
+      "month": 7,
+      "day": 30,
+      "year": 204
+    },
+    "gregorian": "0820-01-20",
+    "approx": false
+  },
+  "verses": [
+    {
+      "ar": "Name and title: Abu Abd Allah Muhammad ibn Idris al-Shafii, founder of the Shafii school of law.\nBorn: 150 AH (767 CE), Gaza (some sources say near Ashkelon).\nDied: 30 Rajab 204 AH (20 January 820 CE), Fustat, Egypt, aged 54; buried near Mount al-Muqattam.\nTeachers: Malik ibn Anas in Medina; Muslim ibn Khalid al-Zanji in Mecca; and, in Baghdad, he studied with and debated Muhammad al-Shaybani.\nStudents: Ahmad ibn Hanbal, Isma'il al-Muzani and al-Rabi ibn Sulayman al-Muradi.\nWorks: al-Risala, the first book of the principles of jurisprudence, and al-Umm, his legal rulings gathered by his students.",
+      "tr": "",
+      "en": ""
+    },
+    {
+      "ar": "Al-Shafii was born in Gaza in 150 AH and, after the early death of his father, was taken by his mother to Mecca, where he memorised the Qur'an as a child and studied the language of the Arabs and the traditions. At about nineteen he went to Medina and stayed with Imam Malik until Malik's death in 179 AH, learning the Muwatta and the practice of the people of Medina. He then travelled to Yemen and Iraq, where he met the students of Abu Hanifa and learned their method from Muhammad al-Shaybani, and he taught in Mecca and Baghdad, drawing students such as Ahmad ibn Hanbal. In 199 AH he settled in Egypt, where he revised his earlier opinions and taught until his death on the last day of Rajab 204 AH.",
+      "tr": "",
+      "en": ""
+    },
+    {
+      "ar": "Al-Shafii brought together the two great currents of his time, the people of hadith in the Hijaz and the people of reasoned opinion in Iraq, and in the Risala he set out the four sources of the law: the Qur'an, the Sunna of the Prophet ﷺ, consensus and analogy. He insisted that an authentic report from the Messenger of Allah ﷺ must be followed, and his school divides his rulings into the earlier opinions of Baghdad and the later ones of Egypt. He was also a poet and a man of deep devotion, praised by later scholars for his learning, humility and love for the family of the Prophet ﷺ, and the great Sufis and scholars of the Shafii school, among them al-Ghazali and al-Nawawi, carried his school across the Muslim world.",
+      "tr": "",
+      "en": ""
+    },
+    {
+      "ar": "Sources\n• Encyclopedia.com, “Shafiʿi, al- (c. 767–820)” (encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/shafii-al-c-767-820)\n• Encyclopedia.com, “Muhammad ibn Idris al-Shafiʿi” (encyclopedia.com/history/news-wires-white-papers-and-books/muhammad-ibn-idris-al-shafii)\n• Oxford Islamic Studies Online, “Malik ibn Anas” (for his teacher) (oxfordislamicstudies.com/article/opr/t243/e205)\n• IslamicFinder, “Short biography of Imam al-Shafi'ee” (islamicfinder.org/knowledge/biography/story-of-imam-alshafiee/)\n\nFurther reading: Ibn Khallikan, Wafayat al-Ayan; al-Dhahabi, Siyar Alam al-Nubala; al-Bayhaqi, Manaqib al-Shafii. (Not yet checked by us; please verify before relying.)",
+      "tr": "",
+      "en": ""
+    }
+  ]
+}
