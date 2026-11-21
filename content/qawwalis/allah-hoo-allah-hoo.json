@@ -6,65 +6,91 @@
   "note": "In Urdu.",
   "verses": [
     {
+      "ar": "Malik-Ul-Mulk, La Shareeka Lahoo\nWahadahoo Laa Ilaahaa Illaahoo",
+      "tr": "",
+      "en": "Ruler of the world, soul of my blood\nThe promised one, there is nothing but you",
+      "intro": true
+    },
+    {
+      "ar": "Shams Tabraiz Gar Khuda Talabee\nKhushboo Khaan La Ilaha Illahoo",
+      "tr": "",
+      "en": "Every great scholar is your student\nIn every scent, there is nothing but you",
+      "intro": true
+    },
+    {
+      "ar": "Qounain Ka Masjood Hai Maa’bood Hai Tu\nHer Shay Teri Shahid Hai Ke Mashhood Hai Tu",
+      "tr": "",
+      "en": "Creator of and worshipped by both worlds\nEvery thing is witness to your manifestation",
+      "intro": true
+    },
+    {
+      "ar": "Her Aik Ke Lab Per Hai Teri Hamd-O-Sana\nHar Sooz Mein Har Saaz Mein Moujood Hai Tu",
+      "tr": "",
+      "en": "On everyone's lips is your prayer\nIn every chord, every song is your presence",
+      "intro": true
+    },
+    {
+      "ar": "Tere He Naam Say Her Ibtida Hai\nTere He Naam Tak Intiha Hai\nTeri Hamd-O-Sana Alhamdulillah\nKe Tu Mere Mohammad Ka Khuda Hai",
+      "tr": "",
+      "en": "Every beginning is with your name\nWith your name ends everything\nYour praise is 'praise be to Allah'\nThat you are the God of my Mohammad",
+      "intro": true
+    },
+    {
       "ar": "Allah hoo, Allah hoo, Allah hoo\nAllah hoo, Allah hoo, Allah hoo",
       "tr": "",
       "en": "Allah is He, Allah is He, Allah is He\nAllah is He, Allah is He, Allah is He",
       "refrain": true
     },
     {
-      "ar": "Malik-Ul-Mulk, Lashareeka Lahoo\nWahadahoo Laa Ilaahaa Illaahoo",
-      "tr": "",
-      "en": "Ruler of the world, soul of my blood\nThe promised one, there is nothing but you"
-    },
-    {
-      "ar": "Shams Tabraiz Gar Khuda Talabee\nKhushboo Khuwan La Illaha Illahoo",
-      "tr": "",
-      "en": "Every great scholar is your student\nIn every scent, there is nothing but you"
-    },
-    {
-      "ar": "Qounain Ka Masjood Hai Maa'bood Hai Tu\nHer Shay Teri Shahid Hai K Mashhood Hai Tu",
-      "tr": "",
-      "en": "Creator of and worshipped by both worlds\nEvery thing is witness to your manifestation"
-    },
-    {
-      "ar": "Her Aik K Lab Per Hai Teri Hamd-O-Sana\nHer Sooz Mein Her Saaz Mein Moujood Hai Tu",
-      "tr": "",
-      "en": "On everyone's lips is your prayer\nIn every chord, every song is your presence"
-    },
-    {
-      "ar": "Tere He Naam Say Her Ibtida Hai\nTere He Naam Tak Intiha Hai\nTeri Hamd-O-Sana Alhamdulillah\nK Tu Mere Mohammad Ka Khuda Hai",
-      "tr": "",
-      "en": "Every beginning is with your name\nWith your name ends everything\nYour praise is 'praise be to Allah'\nThat you are the God of my Mohammad"
-    },
-    {
       "ar": "Yeh Zameen Jab Na Thi Yeh Jahaan Jab Na Thaa\nChaand Suraj Na Thay Aasman Jab Na Tha\nRaaz-E-Haq Bhi Kisi Per Ayaan Jab Na Tha\nTab Na Tha Kuch Yahaan Tha Magar Tu Hee Tu",
       "tr": "",
-      "en": "When this earth and world did not exist\nWhen there was no moon, sun or sky\nWhen the secret of the truth was still unknown\nWhen there was nothing, there was you"
+      "en": "When this earth and world did not exist\nWhen there was no moon, sun or sky\nWhen the secret of the truth was still unknown\nWhen there was nothing, there was you",
+      "repeatRefrain": true
     },
     {
       "ar": "Har Shay Tere Jamaal Ki Aainaa Daar Hai\nHar Shay Pukaarti Hai Tu Parvardigaar Hai",
       "tr": "",
-      "en": "Everything is a reflection of your glory\nEvery thing cries out that you are the Lord"
+      "en": "Everything is a reflection of your glory\nEvery thing cries out that you are the Lord",
+      "repeatRefrain": true,
+      "optional": true
     },
     {
       "ar": "Teri Ruboobiyat Ki Ada Ka Kamaal Hai\nTu Rab-e-Qayaanat Hai, Tu Lajwal Hai",
       "tr": "",
-      "en": "It is the distinction of your enthralling visage\nYou are the unrivalled Lord of the Universe"
+      "en": "It is the distinction of your enthralling visage\nYou are the unrivalled Lord of the Universe",
+      "repeatRefrain": true,
+      "optional": true
     },
     {
       "ar": "Tu Jo Her Aan Nayi Shaan Dikha Deta Hai\nDeeda-E-Shouq Ko Hairan Bana Deta Hai\nDaali Daali Teri Takhleeq K Gun Gaati Hai\nPatta Patta Teri Qudrat Ka Pata Deta Hai",
       "tr": "",
-      "en": "You who shows new beauty every instant\nSurprises even those who yearn for more\nEvery sapling sings of your creation\nEvery leaf is a signature of your nature"
+      "en": "You who shows new beauty every instant\nSurprises even those who yearn for more\nEvery sapling sings of your creation\nEvery leaf is a signature of your nature",
+      "repeatRefrain": true,
+      "optional": true
     },
     {
       "ar": "Laa Ilaahaa Teri Shaan Ya Wahdahoo\nTu Khayaal-O-Tajassus Tu He Aarzoo\nAankh Ki Roshni Dil Ki Awaaz Tu\nTha Bhi Tu! Hai Bhi Tu! Hoga Bhi Tu Hee Tu!",
       "tr": "",
-      "en": "My God, you are the splendor you promised\nYou are the curiosity, you are the desire\nThe light of my eyes, the voice of my heart\nYou were, you are, and will be only you"
+      "en": "My God, you are the splendor you promised\nYou are the curiosity, you are the desire\nThe light of my eyes, the voice of my heart\nYou were, you are, and will be only you",
+      "repeatRefrain": true
     },
     {
-      "ar": "Khaalik-E-Kul Hai Tu Is Mein Kia Guftagu\nSaare Aalam Ko Hai Teri He Justaju\nTeri Jalvaagari Hai Ayaan Chaar Su\nLa Shareeka Lahoo Maalik-E-Mulk Tu",
+      "ar": "Pohnche Meraaj mein arsh par Mustafa\nJab na mabood o bande mein parda raha\nTab malaaik ne Hazrat se jhuk kar kaha\nSaari makhlooq mein Haq-numa tu hi tu",
       "tr": "",
-      "en": "You are everything, what is the argument in this\nThe whole world is searching only for you\nEven as your magnificence is in every corner\nYou are in my blood, Lord of the world"
+      "en": "When Mustafa (another name of Prophet Muhammad) ascended beyond the Arsh\n[and] when there was no veil between the master and the servant.\nThen the angels said secretly to the Prophet\nthat in all of creation, only He is the Truth",
+      "repeatRefrain": true
+    },
+    {
+      "ar": "Kyun piya Ibn-e-Haider ne jaam-e-fana?\nKhaal khichaai Tabrez ne kyun bhala?\nDaar par charh ke Mansoor ne kya kaha?\nSab bana ke khilaune raha tu hi tu",
+      "tr": "",
+      "en": "Why the son of Haider drank the cup of annihilation?\nWhy Tabrez agreed to be skinned alive?\nWhat Mansoor said on the gallows?\nAfter making all these toys, you remained the same.",
+      "repeatRefrain": true
+    },
+    {
+      "ar": "Khaaliq-e-kul hai tu, is mein kya guftagu\nSaare aalam ko hai teri hi justuju\nTeri jalwa-gari hai aaya chaar soo\nLa shareek lahu, Maalik-ul-Mulk tu hi tu",
+      "tr": "",
+      "en": "There is no argument that you are the master of all\n[and] the whole world pines for you.\nYour splendor is obvious everywhere\nNo one can be associated to you, you are the master of the world.",
+      "repeatRefrain": true
     }
   ]
 }
